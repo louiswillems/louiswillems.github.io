@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Louis Willems
+title: About
 ---
 514.833.4935 - louis.willems@outlook.com - Open work permit
 
