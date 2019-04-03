@@ -2,9 +2,9 @@
 layout: page
 title: Louis Willems
 ---
-514.833.4935 - louis.willems@outlook.com
+514.833.4935 - louis.willems@outlook.com - Open work permit
 
-> Lanyon is an unassuming [Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
+Lanyon is an unassuming [Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 
 ## Data Scientist
 2017 — Present
@@ -13,24 +13,14 @@ Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare ve
 
 Poole is the Jekyll Butler, serving as an upstanding and effective foundation for Jekyll themes by [@mdo](https://twitter.com/mdo). Poole, and every theme built on it (like Lanyon here) includes the following:
 
-Situation: Open work permit
-
-Areas of Expertise: 
-
-* Web Analytics 
-* Data Visualization
-* Data Mining (Unsupervised ML, Text Analytics (NLP), Complex Network Analysis)
-* Deep Learning
+> Areas of Expertise: 
+> * Web Analytics 
+> * Data Visualization
+> * Data Mining (Unsupervised ML, Text Analytics (NLP), Complex Network Analysis)
+> * Deep Learning
 
 
-* Complete Jekyll setup included (layouts, config, [404](/404), [RSS feed](/atom.xml), posts, and [example page](/about))
-* Mobile friendly design and development
-* Easily scalable text and component sizing with `rem` units in the CSS
-* Support for a wide gamut of HTML elements
-* Related posts (time-based, because Jekyll) below each post
-* Syntax highlighting, courtesy Pygments (the Python-based code snippet highlighter)
-
-### Digital Marketing Analyst - Ivanhoé Cambridge
+### Digital Marketing Analyst - <em>Ivanhoé Cambridge</em>
 
 In addition to the features of Poole, Lanyon adds the following:
 
