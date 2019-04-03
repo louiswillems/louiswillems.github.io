@@ -25,6 +25,7 @@ Areas of Expertise:
 ## Digital Marketing Analyst - <em>Ivanhoé Cambridge</em>
 
 * Performance monitoring on and offline national marketing strategies for customer acquisition, behavior and, micro & macro conversions.
+
 * Advanced web and mobile app reporting to demonstrate the value of digital marketing initiatives. • Hands-on analysis using Tableau and Excel to create timely, relevant and actionable insights.
 * Responsible for data visualization, data analysis and development of dashboards for content marketing, social media and digital advertising departments using Tableau (Desktop/Server).
 * Ensure proper use of tags, maintain accurate data, setting parameters for data management and creating processes for resolving data issues.
