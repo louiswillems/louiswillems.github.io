@@ -20,9 +20,7 @@ We will compare the data from Foursquare API with data of nearby venues from Goo
 8. Conclusion  
 
 
-Before we get the data and start exploring it, let's download all the dependencies that we will need.
-
-To use a theme, add any one of the available theme classes to the `<body>` element in the `default.html` layout, like so:
+Before we get the data and start exploring it, let's download all the dependencies that we will need:
 
 ```python
 pip install beautifulsoup4
@@ -32,15 +30,174 @@ pip install folium==0.5.0
 pip install geopy
 ```
 
-1. Download and Clean Montreal postal codes data (Wikipedia)
+#### 1. Download and Clean Montreal postal codes data (Wikipedia)
 We will build a code to scrape the following Wikipedia page, https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_H, in order to obtain the data that is in the table of postal codes in Montréal and to transform the data into a pandas dataframe.
 
-```html
-<body class="layout-reverse">
-  ...
-</body>
+```python
+from bs4 import BeautifulSoup
+import numpy as np
+import lxml
+
+import pandas as pd
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', None)
+
+import json # library to handle JSON files
+
+from geopy.geocoders import Nominatim # convert an address into latitude and longitude values
+
+import requests
+from pandas.io.json import json_normalize # tranform JSON file into a pandas dataframe
+
+# Matplotlib and associated plotting modules
+import matplotlib.cm as cm
+import matplotlib.colors as colors
+
+# import k-means from clustering stage
+from sklearn.cluster import KMeans
+
+import folium
+
+
+source = requests.get('https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_H').text
+soup = BeautifulSoup(source)
+
+
+table = soup.find('table')
+table_rows = table.find_all('tr')
+
+res = []
+for tr in table_rows:
+    td = tr.find_all('td')
+    row = [tr.text.strip() for tr in td if tr.text.strip()]
+    if row:
+        res.append(row)
+
+## Data Cleaninng: We will clean our data extract from Wikipedia
+
+df = pd.DataFrame(res, columns=["column1", "column2", "column3", "column4", "column5", "column6", "column7", "column8", "column9"])
+
+df = df.replace(r'^H\d+[A-Z](Not) assigned$', np.nan, regex=True)
+
+df1 = df['column1'].str.split('(H\d+[A-Z])(.*)', expand=True)
+df1 = df1.loc[:,[1,2]]
+df1.rename(columns={1:'Postcode', 2:'Neighborhood'}, inplace=True)
+
+
+df2 = df['column2'].str.split('(H\d+[A-Z])(.*)('')', expand=True)
+df2 = df2.loc[:,[1,2]]
+df2.rename(columns={1:'Postcode', 2:'Neighborhood'}, inplace=True)
+
+
+df3 = df['column3'].str.split('(H\d+[A-Z])(.*)('')', expand=True)
+df3 = df3.loc[:,[1,2]]
+df3.rename(columns={1:'Postcode', 2:'Neighborhood'}, inplace=True)
+
+
+df4 = df['column4'].str.split('(H\d+[A-Z])(.*)('')', expand=True)
+df4 = df4.loc[:,[1,2]]
+df4.rename(columns={1:'Postcode', 2:'Neighborhood'}, inplace=True)
+df4
+
+df5 = df['column5'].str.split('(H\d+[A-Z])(.*)('')', expand=True)
+df5 = df5.loc[:,[1,2]]
+df5.rename(columns={1:'Postcode', 2:'Neighborhood'}, inplace=True)
+
+df6 = df['column6'].str.split('(H\d+[A-Z])(.*)('')', expand=True)
+df6 = df6.loc[:,[1,2]]
+df6.rename(columns={1:'Postcode', 2:'Neighborhood'}, inplace=True)
+
+df7 = df['column7'].str.split('(H\d+[A-Z])(.*)('')', expand=True)
+df7 = df7.loc[:,[1,2]]
+df7.rename(columns={1:'Postcode', 2:'Neighborhood'}, inplace=True)
+
+
+df8 = df['column8'].str.split('(H\d+[A-Z])(.*)('')', expand=True)
+df8 = df8.loc[:,[1,2]]
+df8.rename(columns={1:'Postcode', 2:'Neighborhood'}, inplace=True)
+
+
+df9 = df['column9'].str.split('(H\d+[A-Z])(.*)('')', expand=True)
+df9 = df9.loc[:,[1,2]]
+df9.rename(columns={1:'Postcode', 2:'Neighborhood'}, inplace=True)
+df9
+
+
+frames = [df1, df2, df3, df4, df5, df6, df7, df8, df9]
+
+result = pd.concat(frames)
+df_final = result.dropna(axis=0).reset_index(drop = True)
+
+# remove non-informative data
+df_final = df_final[df_final.Postcode != 'H0P']
+df_final = df_final[df_final.Postcode != 'H0M']
+df_final = df_final[df_final.Postcode != 'H0H']
+df_final.head(10)
 ```
 
+#### PHOTO 
+
+#### 2. Coordinates from Google Maps Geocoding API
+Now, we need to get the latitude and the longitude coordinates of each postal code in Montréal from Google Maps Geocoding API
+
+```python
+def getGoogleMapCoord(postcode):
+
+    api_key = '<<HERE YOUR KEY>>'
+    key = '&key={}'.format(api_key)
+
+    venues_list=[]
+    for postcode in postcode:
+#         print(postcode)
+
+        # make the GET request
+        results = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address={},Montreal,QC,Canada'.format(postcode)+key).json()
+        final = results['results']
+        venues_list.append([(
+            postcode,
+            v['geometry']['location']['lat'],
+            v['geometry']['location']['lng']) for v in final])
+
+    nearby_venues = pd.DataFrame([item for venue_list in venues_list for item in venue_list])
+    nearby_venues.columns = ['Postcode','Lat', 'Long']
+
+    return nearby_venues
+    
+geo = getGoogleMapCoord(postcode=df_final['Postcode'])
+geo.head()
+```
+#### PHOTO 
+
+
+#### 3. Merging Wikipedia data & Coordinates of Montréal
+We will now join our data from Wikipedia (df_final ) and our coordinates in Montréal (geo)
+
+```python
+def getGoogleMapCoord(postcode):
+
+    api_key = '<<HERE YOUR KEY>>'
+    key = '&key={}'.format(api_key)
+
+    venues_list=[]
+    for postcode in postcode:
+#         print(postcode)
+
+        # make the GET request
+        results = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address={},Montreal,QC,Canada'.format(postcode)+key).json()
+        final = results['results']
+        venues_list.append([(
+            postcode,
+            v['geometry']['location']['lat'],
+            v['geometry']['location']['lng']) for v in final])
+
+    nearby_venues = pd.DataFrame([item for venue_list in venues_list for item in venue_list])
+    nearby_venues.columns = ['Postcode','Lat', 'Long']
+
+    return nearby_venues
+    
+geo = getGoogleMapCoord(postcode=df_final['Postcode'])
+geo.head()
+```
 
 ### Sidebar overlay instead of push
 
