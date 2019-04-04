@@ -30,7 +30,7 @@ pip install folium==0.5.0
 pip install geopy
 ```
 
-#### 1. Download and Clean Montreal postal codes data (Wikipedia)
+### 1. Download and Clean Montreal postal codes data (Wikipedia)
 We will build a code to scrape the following Wikipedia page, https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_H, in order to obtain the data that is in the table of postal codes in Montréal and to transform the data into a pandas dataframe.
 
 ```python
@@ -134,7 +134,7 @@ df_final.head(10)
 
 #### PHOTO 
 
-#### 2. Coordinates from Google Maps Geocoding API
+### 2. Coordinates from Google Maps Geocoding API
 Now, we need to get the latitude and the longitude coordinates of each postal code in Montréal from Google Maps Geocoding API
 
 ```python
@@ -166,7 +166,7 @@ geo.head()
 #### PHOTO 
 
 
-#### 3. Merging Wikipedia data & Coordinates of Montréal
+### 3. Merging Wikipedia data & Coordinates of Montréal
 We will now join our data from Wikipedia (df_final ) and our coordinates in Montréal (geo)
 
 ```python
@@ -184,7 +184,7 @@ longitude = location.longitude
 print('The geograpical coordinate of Montreal {}, {}.'.format(latitude, longitude))
 ```
 
-#### 4. Venues for all Neighborhoods in Montréal with the Foursquare API
+### 4. Venues for all Neighborhoods in Montréal with the Foursquare API
 Next, we are going to start utilizing the Foursquare API to get venues for all neighborhoods in Montréal.
 
 ```python
@@ -228,7 +228,7 @@ montreal_foursquare = getNearbyVenuesFoursquare(names=montreal_merged['Neighborh
                                   )
 ```
 
-#### 5. Analyze, Cluster and Mapping Neighborhoods with Foursquare API
+### 5. Analyze, Cluster and Mapping Neighborhoods with Foursquare API
 Run k-means to cluster the neighborhood into 5 clusters.
 
 ```python
@@ -314,7 +314,7 @@ for lat, lon, poi, cluster in zip(montreal_final['Lat'], montreal_final['Long'],
 map_clusters
 ```
 
-#### 6. Venues for all Neighborhoods in Montréal with the Google Maps Places API
+### 6. Venues for all Neighborhoods in Montréal with the Google Maps Places API
 Next, we are going to start utilizing the Google Maps Place API to get venues for all neighborhoods in Montréal.
 
 ```python
@@ -343,10 +343,11 @@ montreal_GAPI = getGoogleMapTypelocation(neigh=montreal_merge['Neighborhood'],
                                   )
 ```
 
-```python
-#### 7. Analyze, Cluster and Mapping Neighborhoods with Google Places API
+### 7. Analyze, Cluster and Mapping Neighborhoods with Google Places API
 Run k-means to cluster the neighborhood into 5 clusters.
 
+
+```python
 # one hot encoding
 montreal_onehot = pd.get_dummies(montreal_GAPI[['Types']], prefix="", prefix_sep="")
 
@@ -437,24 +438,24 @@ map_clusters
 ```
 
 
-#### 8. Conclusion
+### 8. Conclusion
 Now, you can examine each cluster and determine the discriminating venue categories that distinguish each cluster from each API.
 
-##### Google Maps Places API
+#### Google Maps Places API
 Data from Cluster 0
 
 ```python
 montreal_merge_g.loc[montreal_merge_g['Cluster Labels'] == 0, montreal_merge_g.columns[[1] + list(range(5, montreal_merge_g.shape[1]))]].head()
 ```
 
-##### Foursquare API
+#### Foursquare API
 Data from Cluster 0
 
 ```python
 montreal_merged_f.loc[montreal_merged_f['Cluster Labels'] == 0, montreal_merged_f.columns[[1] + list(range(5, montreal_merged_f.shape[1]))]].head()
 ```
 
-##### Comparing Information from ANJOU EAST: Foursquare vs. Google Places API
+#### Comparing Information from ANJOU EAST: Foursquare vs. Google Places API
 Foursquare API
 
 ```python
@@ -476,49 +477,3 @@ Google places it is an automatic pop up from Google and Google Maps. It is infor
 In the other hand, Foursquare has not the reach of Google. It is a tailored app for a more demanding audience. But, the categories for all venues are really clear and can be easelly understood. 
 
 Foursquare and Google Places are two different tools for different people.
-
-
-## Contents
-
-- [Usage](#usage)
-- [Options](#options)
-  - [Sidebar menu](#sidebar-menu)
-  - [Themes](#themes)
-  - [Reverse layout](#reverse-layout)
-- [Development](#development)
-- [Author](#author)
-- [License](#license)
-
-
-## Usage
-
-Lanyon is a theme built on top of [Poole](https://github.com/poole/poole), which provides a fully furnished Jekyll setup—just download and start the Jekyll server. See [the Poole usage guidelines](https://github.com/poole/poole#usage) for how to install and use Jekyll.
-
-
-## Options
-
-Lanyon includes some customizable options, typically applied via classes on the `<body>` element.
-
-
-### Sidebar menu
-
-Create a list of nav links in the sidebar by assigning each Jekyll page the correct layout in the page's [front-matter](http://jekyllrb.com/docs/frontmatter/).
-
-
-# Lanyon
-
-Lanyon is an unassuming [Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
-
-![Lanyon](https://f.cloud.github.com/assets/98681/1825266/be03f014-71b0-11e3-9539-876e61530e24.png)
-## Author
-
-**Mark Otto**
-- <https://github.com/mdo>
-- <https://twitter.com/mdo>
-
-
-## License
-
-Open sourced under the [MIT license](LICENSE.md).
-
-<3
