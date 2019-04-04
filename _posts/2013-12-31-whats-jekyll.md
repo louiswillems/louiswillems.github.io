@@ -173,72 +173,200 @@ geo.head()
 We will now join our data from Wikipedia (df_final ) and our coordinates in Montréal (geo)
 
 ```python
-def getGoogleMapCoord(postcode):
+montreal_merged = pd.merge(df_final, geo, how='left', left_on='Postcode', right_on='Postcode')
+```
+
+Next, we use geopy library to get the latitude and longitude values of Montréal
+
+```python
+address = 'Montreal, QC'
+
+geolocator = Nominatim()
+location = geolocator.geocode(address)
+latitude = location.latitude
+longitude = location.longitude
+print('The geograpical coordinate of Montreal {}, {}.'.format(latitude, longitude))
+```
+
+#### 4. Venues for all Neighborhoods in Montréal with the Foursquare API
+Next, we are going to start utilizing the Foursquare API to get venues for all neighborhoods in Montréal.
+
+```python
+def getNearbyVenuesFoursquare(names, latitudes, longitudes, radius=500):
+    
+    venues_list=[]
+    for name, lat, lng in zip(names, latitudes, longitudes):
+            
+        # create the API request URL
+        url = 'https://api.foursquare.com/v2/venues/explore?&client_id={}&client_secret={}&v={}&ll={},{}&radius={}&limit={}'.format(
+            CLIENT_ID, 
+            CLIENT_SECRET, 
+            VERSION, 
+            lat, 
+            lng, 
+            radius, 
+            LIMIT)
+            
+        # make the GET request
+        results = requests.get(url).json()["response"]['groups'][0]['items']
+        
+        # return only relevant information for each nearby venue
+        venues_list.append([(
+            name, 
+            lat, 
+            lng, 
+            v['venue']['name'], 
+            v['venue']['location']['lat'], 
+            v['venue']['location']['lng'],  
+            v['venue']['categories'][0]['name']) for v in results])
+
+    nearby_venues = pd.DataFrame([item for venue_list in venues_list for item in venue_list])
+    nearby_venues.columns = ['Neighborhood', 
+                  'Neighborhood Latitude', 
+                  'Neighborhood Longitude', 
+                  'Venue', 
+                  'Venue Latitude', 
+                  'Venue Longitude', 
+                  'Venue Category']
+    
+    return(nearby_venues)
+    
+montreal_foursquare = getNearbyVenuesFoursquare(names=montreal_merged['Neighborhood'],
+                                   latitudes=montreal_merged['Lat'],
+                                   longitudes=montreal_merged['Long']
+                                  )
+```
+
+#### 5. Analyze, Cluster and Mapping Neighborhoods with Foursquare API
+Run k-means to cluster the neighborhood into 5 clusters.
+
+```python
+# one hot encoding
+montreal_onehot = pd.get_dummies(montreal_foursquare[['Venue Category']], prefix="", prefix_sep="")
+
+# add neighborhood column back to dataframe
+montreal_onehot['Neighborhood'] = montreal_foursquare['Neighborhood'] 
+
+# move neighborhood column to the first column
+fixed_columns = [montreal_onehot.columns[-1]] + list(montreal_onehot.columns[:-1])
+montreal_onehot = montreal_onehot[fixed_columns]
+
+
+# Merging
+montreal_grouped = montreal_onehot.groupby('Neighborhood').mean().reset_index()
+montreal_final = pd.merge(montreal_merged, montreal_grouped, how='left', left_on='Neighborhood', right_on='Neighborhood')
+montreal_final.dropna(axis=0, inplace=True)
+
+
+def return_most_common_venues(row, num_top_venues):
+    row_categories = row.iloc[1:]
+    row_categories_sorted = row_categories.sort_values(ascending=False)
+    
+    return row_categories_sorted.index.values[0:num_top_venues]
+  
+num_top_venues = 10
+
+indicators = ['st', 'nd', 'rd']
+
+# create columns according to number of top venues
+columns = ['Neighborhood']
+for ind in np.arange(num_top_venues):
+    try:
+        columns.append('{}{} Most Common Venue'.format(ind+1, indicators[ind]))
+    except:
+        columns.append('{}th Most Common Venue'.format(ind+1))
+
+# create a new dataframe
+neighborhoods_venues_sorted = pd.DataFrame(columns=columns)
+neighborhoods_venues_sorted['Neighborhood'] = montreal_grouped['Neighborhood']
+
+for ind in np.arange(montreal_grouped.shape[0]):
+    neighborhoods_venues_sorted.iloc[ind, 1:] = return_most_common_venues(montreal_grouped.iloc[ind, :], num_top_venues)
+
+neighborhoods_venues_sorted.head()
+```
+```python
+# set number of clusters
+kclusters = 3
+
+montreal_grouped_clustering = montreal_grouped.drop('Neighborhood', 1)
+
+# run k-means clustering
+kmeans = KMeans(init = "k-means++",n_clusters=kclusters,n_init = 12, random_state=0).fit(montreal_grouped_clustering)
+
+
+montreal_final['Cluster Labels'] = kmeans.labels_
+
+montreal_final2 = montreal_final[['Postcode', 'Neighborhood', 'Lat', 'Long', 'Cluster Labels']]
+
+# montreal_merged = montreal_final.join(neighborhoods_venues_sorted.set_index('Neighborhood'), on='Neighborhood')
+montreal_merged_f = pd.merge(montreal_final2, neighborhoods_venues_sorted, left_on='Neighborhood', right_on='Neighborhood')
+```
+
+Let's plot our clusters with Folium
+
+```python
+# create map
+map_clusters = folium.Map(location=[latitude, longitude], zoom_start=11)
+
+# set color scheme for the clusters
+x = np.arange(kclusters)
+ys = [i+x+(i*x)**2 for i in range(kclusters)]
+colors_array = cm.rainbow(np.linspace(0, 1, len(ys)))
+rainbow = [colors.rgb2hex(i) for i in colors_array]
+
+# add markers to the map
+markers_colors = []
+for lat, lon, poi, cluster in zip(montreal_final['Lat'], montreal_final['Long'], montreal_final['Neighborhood'], montreal_final['Cluster Labels']):
+    label = folium.Popup(str(poi) + ' Cluster ' + str(cluster), parse_html=True)
+    folium.CircleMarker(
+        [lat, lon],
+        radius=5,
+        popup=label,
+        color=rainbow[cluster-1],
+        fill=True,
+        fill_color=rainbow[cluster-1],
+        fill_opacity=0.7).add_to(map_clusters)
+       
+map_clusters
+```
+
+#### 6. Venues for all Neighborhoods in Montréal with the Google Maps Places API
+Next, we are going to start utilizing the Google Maps Place API to get venues for all neighborhoods in Montréal.
+
+```python
+montreal_merge = pd.merge(df_final, geo, how='left', left_on='Postcode', right_on='Postcode')
+
+def getGoogleMapTypelocation(neigh,lat,lng):
 
     api_key = '<<HERE YOUR KEY>>'
     key = '&key={}'.format(api_key)
 
     venues_list=[]
-    for postcode in postcode:
-#         print(postcode)
+    for neigh, lat, lng in zip(neigh, lat, lng):
+     #print(postcode)
 
-        # make the GET request
-        results = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address={},Montreal,QC,Canada'.format(postcode)+key).json()
+        results = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=500&location={},{}'.format(lat,lng)+key).json()
         final = results['results']
         venues_list.append([(
-            postcode,
-            v['geometry']['location']['lat'],
-            v['geometry']['location']['lng']) for v in final])
+            neigh,
+            lat,
+            lng,
+            v['types'][0]) for v in final])
 
     nearby_venues = pd.DataFrame([item for venue_list in venues_list for item in venue_list])
-    nearby_venues.columns = ['Postcode','Lat', 'Long']
+    nearby_venues.columns = ['Neighborhood','Lat', 'Long', 'Types']
 
     return nearby_venues
     
-geo = getGoogleMapCoord(postcode=df_final['Postcode'])
-geo.head()
+montreal_GAPI = getGoogleMapTypelocation(neigh=montreal_merge['Neighborhood'],
+                                   lat=montreal_merge['Lat'],
+                                   lng=montreal_merge['Long']
+                                  )
 ```
 
-### Sidebar overlay instead of push
 
-Make the sidebar overlap the viewport content with a single class:
 
-```html
-<body class="sidebar-overlay">
-  ...
-</body>
-```
-
-This will keep the content stationary and slide in the sidebar over the side content. It also adds a `box-shadow` based outline to the toggle for contrast against backgrounds, as well as a `box-shadow` on the sidebar for depth.
-
-It's also available for a reversed layout when you add both classes:
-
-```html
-<body class="layout-reverse sidebar-overlay">
-  ...
-</body>
-```
-
-### Sidebar open on page load
-
-Show an open sidebar on page load by modifying the `<input>` tag within the `sidebar.html` layout to add the `checked` boolean attribute:
-
-```html
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
-```
-
-Using Liquid you can also conditionally show the sidebar open on a per-page basis. For example, here's how you could have it open on the homepage only:
-
-```html
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" {% if page.title =="Home" %}checked{% endif %}>
-```
-
-## Development
-
-Lanyon has two branches, but only one is used for active development.
-
-- `master` for development.  **All pull requests should be to submitted against `master`.**
-- `gh-pages` for our hosted site, which includes our analytics tracking code. **Please avoid using this branch.**
 
 
 
