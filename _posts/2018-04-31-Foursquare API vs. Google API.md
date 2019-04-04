@@ -5,7 +5,7 @@ title: Comparing Information of Nearby venues from Neighborhoods in Montreal - F
 
 
 
-# Table of Contents
+## Table of Contents
 
 For this final assignment, we will  explore and cluster the neighborhoods in Montréal.
 We will compare the data from Foursquare API with data of nearby venues from Google Maps API. For that, we will analyse  both datasets.
@@ -29,7 +29,7 @@ pip install requests
 pip install folium==0.5.0
 pip install geopy
 ```
-
+<br>
 ### 1. Download and Clean Montreal postal codes data (Wikipedia)
 We will build a code to scrape the following Wikipedia page, https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_H, in order to obtain the data that is in the table of postal codes in Montréal and to transform the data into a pandas dataframe.
 
@@ -134,6 +134,7 @@ df_final.head(10)
 
 #### PHOTO 
 
+<br>
 ### 2. Coordinates from Google Maps Geocoding API
 Now, we need to get the latitude and the longitude coordinates of each postal code in Montréal from Google Maps Geocoding API
 
@@ -165,7 +166,7 @@ geo.head()
 ```
 #### PHOTO 
 
-
+<br>
 ### 3. Merging Wikipedia data & Coordinates of Montréal
 We will now join our data from Wikipedia (df_final ) and our coordinates in Montréal (geo)
 
@@ -183,7 +184,7 @@ latitude = location.latitude
 longitude = location.longitude
 print('The geograpical coordinate of Montreal {}, {}.'.format(latitude, longitude))
 ```
-
+<br>
 ### 4. Venues for all Neighborhoods in Montréal with the Foursquare API
 Next, we are going to start utilizing the Foursquare API to get venues for all neighborhoods in Montréal.
 
@@ -228,6 +229,8 @@ montreal_foursquare = getNearbyVenuesFoursquare(names=montreal_merged['Neighborh
                                   )
 ```
 
+
+<br>
 ### 5. Analyze, Cluster and Mapping Neighborhoods with Foursquare API
 Run k-means to cluster the neighborhood into 5 clusters.
 
@@ -313,7 +316,7 @@ for lat, lon, poi, cluster in zip(montreal_final['Lat'], montreal_final['Long'],
        
 map_clusters
 ```
-
+<br>
 ### 6. Venues for all Neighborhoods in Montréal with the Google Maps Places API
 Next, we are going to start utilizing the Google Maps Place API to get venues for all neighborhoods in Montréal.
 
@@ -437,19 +440,17 @@ for lat, lon, poi, cluster in zip(montreal_final['Lat'], montreal_final3['Long']
 map_clusters
 ```
 
-
+<br>
 ### 8. Conclusion
 Now, you can examine each cluster and determine the discriminating venue categories that distinguish each cluster from each API.
 
-#### Google Maps Places API
-Data from Cluster 0
+#### Google Maps Places API - Cluster 0
 
 ```python
 montreal_merge_g.loc[montreal_merge_g['Cluster Labels'] == 0, montreal_merge_g.columns[[1] + list(range(5, montreal_merge_g.shape[1]))]].head()
 ```
 
-#### Foursquare API
-Data from Cluster 0
+#### Foursquare API - Cluster 0
 
 ```python
 montreal_merged_f.loc[montreal_merged_f['Cluster Labels'] == 0, montreal_merged_f.columns[[1] + list(range(5, montreal_merged_f.shape[1]))]].head()
@@ -469,11 +470,9 @@ montreal_merge_g.loc[montreal_merge_g['Neighborhood'] == 'AnjouEast', montreal_m
 ```
 
 
-#### Conclusion:
+## Conclusion:
 
 The answer of what API to use is difficult. Both apps have pros and cons. <br>
-Google places it is an automatic pop up from Google and Google Maps. It is informational, but not precise. For example, if we are looking for the most relevant pharmacy we can take advantage of Google Places. The branch of Google will list the surrounding offices along with ratings, comments, and contact information but the categories for the APi are not really accurate.
+Google places it is an automatic pop up from Google and Google Maps. It is informational, but not precise. For example, if we are looking for the most relevant pharmacy we can take advantage of Google Places. The branch of Google will list the surrounding offices along with ratings, comments, and contact information but the categories for the API are not really accurate.
 
 In the other hand, Foursquare has not the reach of Google. It is a tailored app for a more demanding audience. But, the categories for all venues are really clear and can be easelly understood. 
-
-Foursquare and Google Places are two different tools for different people.
