@@ -476,3 +476,12 @@ The answer of what API to use is difficult. Both apps have pros and cons. <br>
 Google places it is an automatic pop up from Google and Google Maps. It is informational, but not precise. For example, if we are looking for the most relevant pharmacy we can take advantage of Google Places. The branch of Google will list the surrounding offices along with ratings, comments, and contact information but the categories for the API are not really accurate.
 
 In the other hand, Foursquare has not the reach of Google. It is a tailored app for a more demanding audience. But, the categories for all venues are really clear and can be easelly understood. 
+<br>
+<br>
+<br>
+<br>
+----------------------------------------------------------------------------------------------------------------------------------------
+<br>
+<br>
+<br>
+<br>
