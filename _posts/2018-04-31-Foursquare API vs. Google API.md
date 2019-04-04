@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Comparing Information of Nearby venues from Neighborhoods in Montreal - Foursquare API vs. Google API
+title: Foursquare API vs. Google API: Comparing Information of Nearby venues from Neighborhoods in Montreal - Canada
 ---
 
 <br>
