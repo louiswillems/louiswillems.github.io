@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: Foursquare API vs. Google API: Comparing Information of Nearby venues from Neighborhoods in Montreal
@@ -7,7 +6,7 @@ title: Foursquare API vs. Google API: Comparing Information of Nearby venues fro
 <br>
 <br>
 
-## Table of Contents
+## Table of Contentssss
 
 For this final assignment, we will  explore and cluster the neighborhoods in Montréal.
 We will compare the data from Foursquare API with data of nearby venues from Google Maps API. For that, we will analyse  both datasets.
