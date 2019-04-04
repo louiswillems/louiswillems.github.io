@@ -480,7 +480,7 @@ In the other hand, Foursquare has not the reach of Google. It is a tailored app 
 <br>
 <br>
 <br>
-----------------------------------------------------------------------------------------------------------------------------------------
+---
 <br>
 <br>
 <br>
