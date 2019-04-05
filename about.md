@@ -96,12 +96,11 @@ to{opacity:1;}
 </style>
 
 <p class="css-typing">Here, you will find all my professional experience.</p>
-<p class="css-typing">You can contact me for any question</p>
 <p class="css-typing">514.833.4935 - louis.willems@outlook.com - Open work permit</p>
 <br>
 <br>
 <br>
-***
+<hr>
 
 ## Data Scientist
 2017 — Present
