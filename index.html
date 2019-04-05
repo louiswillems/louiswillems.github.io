@@ -27,122 +27,76 @@ body{
     -webkit-animation: type 4s steps(40, end);
     animation: type 5s steps(40, end);
 }
- 
-.css-typing p:nth-child(2) {
-  width: 11.5em;
-  opacity: 0;
-  -webkit-animation: type2 4s steps(40, end);
-  animation: type2 2s steps(40, end);
-  -webkit-animation-delay: 2s;
-  animation-delay: 2s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
+
+.css-typing:nth-child(2)
+{
+    white-space:nowrap;
+    overflow:hidden;    
+    opacity:0;
+    -webkit-animation: type 4s steps(40, end);
+    animation: type2 5s steps(40, end);
+    -webkit-animation-delay: 5s; 
+    animation-delay: 3s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+.css-typing:nth-child(3){
+    white-space:nowrap;
+    overflow:hidden;
+    opacity:0;
+    -webkit-animation: type 5s steps(40, end);
+    animation: type3 5s steps(40, end);
+    -webkit-animation-delay: 10s; 
+    animation-delay: 6s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
 }
 
-.css-typing p:nth-child(3) {
-  width: 7.3em;
-  opacity: 0;
-  -webkit-animation: type3 5s steps(20, end), blink .5s step-end infinite alternate;
-  animation: type3 5s steps(20, end), blink .5s step-end infinite alternate;
-  -webkit-animation-delay: 4s;
-  animation-delay: 4s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
+ @keyframes type{
+    from { width: 0; }
 }
 
-@keyframes type {
-  0% {
-    width: 0;
-  }
-  99.9% {
-    border-right: .15em solid orange;
-  }
-  100% {
-    border: none;
-  }
+@-webkit-keyframes type{
+    from { width: 0; }
 }
 
-@-webkit-keyframes type {
-  0% {
-    width: 0;
-  }
-  99.9% {
-    border-right: .15em solid orange;
-  }
-  100% {
-    border: none;
-  }
+span{
+  animation: blink 1s infinite;
 }
 
-@keyframes type2 {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  99.9% {
-    border-right: .15em solid orange;
-  }
-  100% {
-    opacity: 1;
-    border: none;
-  }
+@keyframes type2{
+0%{width: 0;}
+from {opacity:0;}
+1%{opacity:1;}
+to{opacity:1;}
+100%{opacity:1;}
 }
+@-webkit-keyframes type2{
+0%{width: 0;}
+from {opacity:0;}
+1%{opacity:1;}
+to{opacity:1;}
+100%{opacity:1;}
+}  
+@keyframes type3{
+  0%{width: 0;}
+  from {opacity:0;}
+1%{opacity:1;}
+to{opacity:1;}
+100%{opacity:1;}
 
-@-webkit-keyframes type2 {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  99.9% {
-    border-right: .15em solid orange;
-  }
-  100% {
-    opacity: 1;
-    border: none;
-  }
-}
-
-@keyframes type3 {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes type3 {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-@-webkit-keyframes blink {
-  50% {
-    border-color: tranparent;
-  }
-}
+} 
+@-webkit-keyframes type3{
+  0%{width: 0;}
+  from {opacity:0;}
+1%{opacity:1;}
+to{opacity:1;}
+100%{opacity:1;}
+}  
 </style>
 
 <p class="css-typing">Hi, I'm Louis.</p>
+
 <p class="css-typing">This site contain my data science projects for self learning and hobby purposes</p>
 <br>
 <hr>
