@@ -20,11 +20,11 @@ body{
 .css-typing
 {   position: relative;
     font-family: 'Anonymous Pro', monospace;
-    font-size: 20px;
+    font-size: 18px;
     width: 50em;
     white-space:nowrap;
     overflow:hidden;
-    -webkit-animation: type 5s steps(40, end);
+    -webkit-animation: type 4s steps(40, end);
     animation: type 5s steps(40, end);
 }
 
@@ -33,10 +33,10 @@ body{
     white-space:nowrap;
     overflow:hidden;    
     opacity:0;
-    -webkit-animation: type 5s steps(40, end);
+    -webkit-animation: type 4s steps(40, end);
     animation: type2 5s steps(40, end);
     -webkit-animation-delay: 5s; 
-    animation-delay: 5s;
+    animation-delay: 2s;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }
@@ -47,7 +47,7 @@ body{
     -webkit-animation: type 5s steps(40, end);
     animation: type3 5s steps(40, end);
     -webkit-animation-delay: 10s; 
-    animation-delay: 10s;
+    animation-delay: 6s;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }
@@ -94,9 +94,8 @@ to{opacity:1;}
 100%{opacity:1;}
 }  
 </style>
-
-<p class="css-typing">Here, you will find all my professional experience.</p>
 <p class="css-typing">514.833.4935 - louis.willems@outlook.com - Open work permit</p>
+<p class="css-typing">Here, you will find all my professional experience.</p>
 <br>
 <br>
 <br>
