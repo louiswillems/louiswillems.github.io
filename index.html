@@ -24,7 +24,7 @@ body{
     width: 50em;
     white-space:nowrap;
     overflow:hidden;
-    -webkit-animation: type 1s steps(40, end);
+    -webkit-animation: steps(40, end);
     animation: type 5s steps(40, end);
 }
 
@@ -35,11 +35,22 @@ body{
     opacity:0;
     -webkit-animation: type 1s steps(40, end);
     animation: type2 5s steps(40, end);
-    -webkit-animation-delay: 2s; 
-    animation-delay: 2s;
+    -webkit-animation-delay: 1s; 
+    animation-delay: 1s;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
-
+}
+.css-typing:nth-child(3){
+    white-space:nowrap;
+    overflow:hidden;
+    opacity:0;
+    -webkit-animation: type 1s steps(40, end);
+    animation: type3 5s steps(40, end);
+    -webkit-animation-delay: 10s; 
+    animation-delay: 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
 
  @keyframes type{
     from { width: 0; }
@@ -67,7 +78,21 @@ from {opacity:0;}
 to{opacity:1;}
 100%{opacity:1;}
 }  
+@keyframes type3{
+  0%{width: 0;}
+  from {opacity:0;}
+1%{opacity:1;}
+to{opacity:1;}
+100%{opacity:1;}
 
+} 
+@-webkit-keyframes type3{
+  0%{width: 0;}
+  from {opacity:0;}
+1%{opacity:1;}
+to{opacity:1;}
+100%{opacity:1;}
+}  
 </style>
 
 <p class="css-typing">Hi, I'm Louis.</p>
