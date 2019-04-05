@@ -33,7 +33,7 @@ body{
     white-space:nowrap;
     overflow:hidden;    
     opacity:0;
-    -webkit-animation: type 2s steps(40, end);
+    -webkit-animation: type 1s steps(40, end);
     animation: type2 5s steps(40, end);
     -webkit-animation-delay: 5s; 
     animation-delay: 2s;
@@ -103,6 +103,8 @@ to{opacity:1;}
 <br>
 <br>
 
+
+<div id="home-menu" class="d-flex justify-content-around"> <div class="hm-item"> <a id="skillsAn" href="#skillsModal"> <div> <i class="fa fa-code fa-2x" aria-hidden="true"></i> </div> <span>Skills<span> </span></span></a> </div> <div class="hm-item"> <a id="portAn" target="_blank" href="/portfolio"> <div> <i class="fa fa-folder-o fa-2x open-folder" aria-hidden="true"></i> </div> <span>Portfolio</span> </a> </div> <div class="hm-item"> <a id="contactAn" href="#contactModal"> <div> <i class="fa fa-comments-o fa-2x" aria-hidden="true"></i> </div> <span>Contact</span> </a> </div> </div>
 
 <div class="posts">
   {% for post in paginator.posts %}
