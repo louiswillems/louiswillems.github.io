@@ -7,13 +7,7 @@ title: About
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
 
 /* Global */
-html{
-  min-height: 100%;
-  overflow: hidden;
-}
 body{
-  height: calc(100vh - 8em);
-  padding: 4em;
   color: rgba(41,43,44,.75);
   font-family: 'Anonymous Pro', monospace;}
 
