@@ -20,7 +20,7 @@ body{
 .css-typing
 {   position: relative;
     font-family: 'Anonymous Pro', monospace;
-    font-size: 18px;
+    font-size: 20px;
     width: 50em;
     white-space:nowrap;
     overflow:hidden;
@@ -95,9 +95,9 @@ to{opacity:1;}
 }  
 </style>
 
-<p class=".css-typing">Here, you will find all my professional experience.</p>
-<p class=".css-typing">You can contact me for any question</p>
-<p class=".css-typing">514.833.4935 - louis.willems@outlook.com - Open work permit</p>
+<p class="css-typing">Here, you will find all my professional experience.</p>
+<p class="css-typing">You can contact me for any question</p>
+<p class="css-typing">514.833.4935 - louis.willems@outlook.com - Open work permit</p>
 <br>
 <br>
 <br>
