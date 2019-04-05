@@ -34,12 +34,12 @@ body{
 
 /* Animation */
 .anim-typewriter{
-  animation: typewriter 4s steps(44) 1s 1 normal both,
+  animation: typewriter 6s steps(44) 1s 1 normal both,
              blinkTextCursor 500ms steps(44) infinite normal;
 }
 @keyframes typewriter{
   from{width: 0;}
-  to{width: 90em;}
+  to{width: 60em;}
 }
 @keyframes blinkTextCursor{
   from{border-right-color: rgba(255,255,255,.75);}
@@ -50,8 +50,6 @@ body{
 <p class="line-1 anim-typewriter">Hi, I'm Louis. 
 This site contain my portfolio of data science projects for self learning and hobby purposes.</p>
 <br>
-
-Lanyon is an unassuming [Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 
 ## Data Scientist
 2017 — Present
