@@ -24,7 +24,7 @@ body{
     width: 50em;
     white-space:nowrap;
     overflow:hidden;
-    -webkit-animation: type 4s steps(40, end);
+    -webkit-animation: type 2s steps(40, end);
     animation: type 5s steps(40, end);
 }
 
@@ -95,9 +95,6 @@ to{opacity:1;}
 }  
 </style>
 <p class="css-typing">514.833.4935 - louis.willems@outlook.com - Open work permit</p>
-<p class="css-typing">Here, you will find all my professional experience.</p>
-<br>
-<br>
 <br>
 <hr>
 
