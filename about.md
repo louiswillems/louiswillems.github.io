@@ -2,8 +2,6 @@
 layout: page
 title: About
 ---
-514.833.4935 - louis.willems@outlook.com - Open work permit
-
 <style>
 /* Google Fonts */
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
@@ -17,39 +15,93 @@ body{
   height: calc(100vh - 8em);
   padding: 4em;
   color: rgba(41,43,44,.75);
-  font-family: 'Anonymous Pro', monospace;
-}
-.line-1{
-    position: relative;
-    top: 50%;  
-    width: 20em;
-    margin: 0 auto;
-    border-right: 2px solid rgba(255,255,255,.75);
-    font-size: 110%;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    transform: translateY(-50%);    
+  font-family: 'Anonymous Pro', monospace;}
+
+.css-typing
+{   position: relative;
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 18px;
+    width: 50em;
+    white-space:nowrap;
+    overflow:hidden;
+    -webkit-animation: type 5s steps(40, end);
+    animation: type 5s steps(40, end);
 }
 
-/* Animation */
-.anim-typewriter{
-  animation: typewriter 6s steps(44) 1s 1 normal both,
-             blinkTextCursor 500ms steps(44) infinite normal;
+.css-typing:nth-child(2)
+{
+    white-space:nowrap;
+    overflow:hidden;    
+    opacity:0;
+    -webkit-animation: type 5s steps(40, end);
+    animation: type2 5s steps(40, end);
+    -webkit-animation-delay: 5s; 
+    animation-delay: 5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
 }
-@keyframes typewriter{
-  from{width: 0;}
-  to{width: 39em;}
+.css-typing:nth-child(3){
+    white-space:nowrap;
+    overflow:hidden;
+    opacity:0;
+    -webkit-animation: type 5s steps(40, end);
+    animation: type3 5s steps(40, end);
+    -webkit-animation-delay: 10s; 
+    animation-delay: 10s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
 }
-@keyframes blinkTextCursor{
-  from{border-right-color: rgba(255,255,255,.75);}
-  to{border-right-color: transparent;}
+
+ @keyframes type{
+    from { width: 0; }
 }
+
+@-webkit-keyframes type{
+    from { width: 0; }
+}
+
+span{
+  animation: blink 1s infinite;
+}
+
+@keyframes type2{
+0%{width: 0;}
+from {opacity:0;}
+1%{opacity:1;}
+to{opacity:1;}
+100%{opacity:1;}
+}
+@-webkit-keyframes type2{
+0%{width: 0;}
+from {opacity:0;}
+1%{opacity:1;}
+to{opacity:1;}
+100%{opacity:1;}
+}  
+@keyframes type3{
+  0%{width: 0;}
+  from {opacity:0;}
+1%{opacity:1;}
+to{opacity:1;}
+100%{opacity:1;}
+
+} 
+@-webkit-keyframes type3{
+  0%{width: 0;}
+  from {opacity:0;}
+1%{opacity:1;}
+to{opacity:1;}
+100%{opacity:1;}
+}  
 </style>
+
+<p class=".css-typing">Here, you will find all my professional experience.</p>
+<p class=".css-typing">You can contact me for any question</p>
+<p class=".css-typing">514.833.4935 - louis.willems@outlook.com - Open work permit</p>
 <br>
-<p class="line-1 anim-typewriter">Hi, I'm Louis. 
-This site contain my portfolio of data science projects.</p>
 <br>
+<br>
+***
 
 ## Data Scientist
 2017 — Present
