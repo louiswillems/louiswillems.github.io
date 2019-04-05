@@ -38,5 +38,126 @@ def write_list_to_disk(my_list, filename):
   with open(filename, 'w') as f:
     for item in my_list:
         line = "%s\n" % item
-        
+```
+
+## Pull data from BigQuery - content_ids
+The cell below creates a local text file containing all the article ids (i.e. 'content ids') in the dataset.
+
+
+```sql
+import google.datalab.bigquery as bq
+sql="""
+#standardSQL
+SELECT
+   (SELECT MAX(IF(index=15, value, NULL)) FROM UNNEST(hits.customDimensions)) AS content_id
+FROM `quebecor-numerique.94833147.ga_sessions_20190328`,   
+  UNNEST(hits) AS hits
+WHERE 
+  # only include hits on pages
+  hits.type = "PAGE"
+  AND hits.page.pagePath IS NOT NULL
+    AND
+        hits.type = "PAGE"
+      AND
+      fullVisitorId IS NOT NULL
+      AND
+      hits.time != 0
+      AND
+      hits.time IS NOT NULL
+  AND hits.page.pagePath NOT LIKE '%,%'
+  AND hits.page.pagePath NOT LIKE '%?%'
+  AND hits.page.pagePath != '/'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
+  AND hits.page.pagePath LIKE '%2019%'
+GROUP BY
+  content_id
+"""
+content_ids_list = bq.Query(sql).execute().result().to_dataframe()['content_id'].tolist()
+write_list_to_disk(content_ids_list, "content_ids.txt")
+print("Some sample content IDs {}".format(content_ids_list[:3]))
+print("The total number of articles is {}".format(len(content_ids_list)))
+```
+<br>
+
+## Pull data from BigQuery - categories
+The cell below creates a local text file containing all categories
+
+```sql
+sql="""
+SELECT  
+  (SELECT MAX(IF(index=15, value, NULL)) FROM UNNEST(hits.customDimensions)) AS category 
+FROM `quebecor-numerique.94833147.ga_sessions_20190328`,   
+  UNNEST(hits) AS hits
+WHERE 
+  # only include hits on pages
+  hits.type = "PAGE"
+  AND (SELECT MAX(IF(index=15, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
+    AND
+        hits.type = "PAGE"
+      AND
+      fullVisitorId IS NOT NULL
+      AND
+      hits.time != 0
+      AND
+      hits.time IS NOT NULL
+  AND hits.page.pagePath IS NOT NULL
+  AND hits.page.pagePath NOT LIKE '%,%'
+  AND hits.page.pagePath NOT LIKE '%?%'
+  AND hits.page.pagePath != '/'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
+  AND hits.page.pagePath LIKE '%2019%'
+GROUP BY
+  category
+"""
+categories_list = bq.Query(sql).execute().result().to_dataframe()['category'].tolist()
+write_list_to_disk(categories_list, "categories.txt")
+print(categories_list)
+
+```
+<br>
+
+## Pull data from BigQuery - authors_list
+The cell below creates a local text file containing all authors
+
+```sql
+sql="""
+#standardSQL
+SELECT
+  REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+")  AS first_author  
+FROM `quebecor-numerique.94833147.ga_sessions_20190328`,   
+  UNNEST(hits) AS hits
+WHERE 
+  # only include hits on pages
+  hits.type = "PAGE"
+  AND (SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
+  AND
+        hits.type = "PAGE"
+      AND
+      fullVisitorId IS NOT NULL
+      AND
+      hits.time != 0
+      AND
+      hits.time IS NOT NULL
+  AND hits.page.pagePath IS NOT NULL
+  AND hits.page.pagePath NOT LIKE '%,%'
+  AND hits.page.pagePath NOT LIKE '%?%'
+  AND hits.page.pagePath != '/'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
+  AND hits.page.pagePath LIKE '%2019%'
+GROUP BY   
+  first_author
+"""
+authors_list = bq.Query(sql).execute().result().to_dataframe()['first_author'].tolist()
+write_list_to_disk(authors_list, "authors.txt")
+print("Some sample authors {}".format(authors_list[:10]))
+print("The total number of authors is {}".format(len(authors_list)))
+"""
+categories_list = bq.Query(sql).execute().result().to_dataframe()['category'].tolist()
+write_list_to_disk(categories_list, "categories.txt")
+print(categories_list)
+```
+
 
