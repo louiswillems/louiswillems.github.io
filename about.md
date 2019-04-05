@@ -25,7 +25,7 @@ body{
     width: 20em;
     margin: 0 auto;
     border-right: 2px solid rgba(255,255,255,.75);
-    font-size: 140%;
+    font-size: 110%;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -39,7 +39,7 @@ body{
 }
 @keyframes typewriter{
   from{width: 0;}
-  to{width: 60em;}
+  to{width: 39em;}
 }
 @keyframes blinkTextCursor{
   from{border-right-color: rgba(255,255,255,.75);}
@@ -48,7 +48,7 @@ body{
 </style>
 <br>
 <p class="line-1 anim-typewriter">Hi, I'm Louis. 
-This site contain my portfolio of data science projects for self learning and hobby purposes.</p>
+This site contain my portfolio of data science projects.</p>
 <br>
 
 ## Data Scientist
