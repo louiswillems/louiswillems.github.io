@@ -28,30 +28,6 @@ body{
     animation: type 5s steps(40, end);
 }
 
-.css-typing:nth-child(2)
-{
-    white-space:nowrap;
-    overflow:hidden;    
-    opacity:0;
-    -webkit-animation: type 4s steps(40, end);
-    animation: type2 5s steps(40, end);
-    -webkit-animation-delay: 5s; 
-    animation-delay: 2s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-.css-typing:nth-child(3){
-    white-space:nowrap;
-    overflow:hidden;
-    opacity:0;
-    -webkit-animation: type 5s steps(40, end);
-    animation: type3 5s steps(40, end);
-    -webkit-animation-delay: 10s; 
-    animation-delay: 6s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-
  @keyframes type{
     from { width: 0; }
 }
@@ -64,35 +40,7 @@ span{
   animation: blink 1s infinite;
 }
 
-@keyframes type2{
-0%{width: 0;}
-from {opacity:0;}
-1%{opacity:1;}
-to{opacity:1;}
-100%{opacity:1;}
-}
-@-webkit-keyframes type2{
-0%{width: 0;}
-from {opacity:0;}
-1%{opacity:1;}
-to{opacity:1;}
-100%{opacity:1;}
-}  
-@keyframes type3{
-  0%{width: 0;}
-  from {opacity:0;}
-1%{opacity:1;}
-to{opacity:1;}
-100%{opacity:1;}
 
-} 
-@-webkit-keyframes type3{
-  0%{width: 0;}
-  from {opacity:0;}
-1%{opacity:1;}
-to{opacity:1;}
-100%{opacity:1;}
-}  
 </style>
 <p class="css-typing">514.833.4935 - louis.willems@outlook.com - Open work permit</p>
 <br>
