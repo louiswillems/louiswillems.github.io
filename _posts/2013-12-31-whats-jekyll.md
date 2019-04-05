@@ -1,12 +1,42 @@
 ---
 layout: post
-title: What's Jekyll?
+title: Content-based recommendation system using neural networks - Part 1
 ---
 
-[Jekyll](http://jekyllrb.com) is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From [the project's readme](https://github.com/mojombo/jekyll/blob/master/README.markdown):
+This post builds the data we will use for creating our content based model. We'll collect the data via a collection of SQL queries from a Google Analytics dataset in BigQuery.
+Our goal is to recommend an article for a visitor (Client ID) to our site.
 
-  > Jekyll is a simple, blog aware, static site generator. It takes a template directory [...] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.
+In this notebook we will illustrates
+* how to pull data from BigQuery for our recommendation system
+* how to create train and test sets
 
-It's an immensely useful tool and one we encourage you to use here with Lanyon.
+```sql
+import os
+import tensorflow as tf
+import numpy as np
+import google.datalab.bigquery as bq
 
-Find out more by [visiting the project on GitHub](https://github.com/mojombo/jekyll).
+PROJECT = 'PROJECT' # REPLACE WITH YOUR PROJECT ID
+BUCKET = 'BUCKET' # REPLACE WITH YOUR BUCKET NAME
+REGION = 'us-central1' # REPLACE WITH YOUR BUCKET REGION e.g. us-central1
+
+# do not change these
+os.environ['PROJECT'] = PROJECT
+os.environ['BUCKET'] = BUCKET
+os.environ['REGION'] = REGION
+os.environ['TFVERSION'] = '1.8'
+
+
+gcloud  config  set project $PROJECT
+gcloud config set compute/region $REGION
+```
+
+We will use this helper funciton to write lists containing article ids, categories, and authors for each article in our database to local file.
+
+```sql
+def write_list_to_disk(my_list, filename):
+  with open(filename, 'w') as f:
+    for item in my_list:
+        line = "%s\n" % item
+        f.write(str(line.encode('utf8')))
+```
