@@ -42,7 +42,7 @@ def write_list_to_disk(my_list, filename):
 
 ## Pull data from BigQuery
 <br>
-### create content_ids.txt
+### content_ids.txt
 The cell below creates a local text file containing all the article ids (i.e. 'content ids') in the dataset.
 
 
@@ -81,7 +81,7 @@ print("Some sample content IDs {}".format(content_ids_list[:3]))
 print("The total number of articles is {}".format(len(content_ids_list)))
 ```
 <br>
-### create categories.txt
+### categories.txt
 The cell below creates a local text file containing all categories
 
 ```sql
@@ -119,7 +119,7 @@ print(categories_list)
 ```
 <br>
 
-### create authors_list.txt
+### authors_list.txt
 The cell below creates a local text file containing all authors
 
 ```sql
@@ -156,9 +156,50 @@ write_list_to_disk(authors_list, "authors.txt")
 print("Some sample authors {}".format(authors_list[:10]))
 print("The total number of authors is {}".format(len(authors_list)))
 ```
-
+<br>
 ### authors_list
 The cell below creates a local text file containing all authors
+
+```sql
+sql="""
+#standardSQL
+SELECT
+  REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+")  AS first_author  
+FROM `quebecor-numerique.94833147.ga_sessions_20190328`,   
+  UNNEST(hits) AS hits
+WHERE 
+  # only include hits on pages
+  hits.type = "PAGE"
+  AND (SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
+  AND
+        hits.type = "PAGE"
+      AND
+      fullVisitorId IS NOT NULL
+      AND
+      hits.time != 0
+      AND
+      hits.time IS NOT NULL
+  AND hits.page.pagePath IS NOT NULL
+  AND hits.page.pagePath NOT LIKE '%,%'
+  AND hits.page.pagePath NOT LIKE '%?%'
+  AND hits.page.pagePath != '/'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
+  AND hits.page.pagePath LIKE '%2019%'
+GROUP BY   
+  first_author
+"""
+authors_list = bq.Query(sql).execute().result().to_dataframe()['first_author'].tolist()
+write_list_to_disk(authors_list, "authors.txt")
+print("Some sample authors {}".format(authors_list[:10]))
+print("The total number of authors is {}".format(len(authors_list)))
+```
+<br>
+<br>
+## Create train and test sets.
+<br>
+### Training  set
+In this section, we will create the train/test split of our data for training our model. Read through the query and complete the TODO at the bottom. Use the concatenated values for visitor id and content id to create a farm fingerprint, taking 90% of the data for the training set.
 
 ```sql
 sql="""
