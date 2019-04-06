@@ -40,7 +40,9 @@ def write_list_to_disk(my_list, filename):
         line = "%s\n" % item
 ```
 
-## Pull data from BigQuery - content_ids
+## Pull data from BigQuery
+<br>
+### create content_ids.txt
 The cell below creates a local text file containing all the article ids (i.e. 'content ids') in the dataset.
 
 
@@ -79,8 +81,7 @@ print("Some sample content IDs {}".format(content_ids_list[:3]))
 print("The total number of articles is {}".format(len(content_ids_list)))
 ```
 <br>
-
-## Pull data from BigQuery - categories
+### create categories.txt
 The cell below creates a local text file containing all categories
 
 ```sql
@@ -118,7 +119,7 @@ print(categories_list)
 ```
 <br>
 
-## Pull data from BigQuery - authors_list
+### create authors_list.txt
 The cell below creates a local text file containing all authors
 
 ```sql
@@ -154,10 +155,42 @@ authors_list = bq.Query(sql).execute().result().to_dataframe()['first_author'].t
 write_list_to_disk(authors_list, "authors.txt")
 print("Some sample authors {}".format(authors_list[:10]))
 print("The total number of authors is {}".format(len(authors_list)))
-"""
-categories_list = bq.Query(sql).execute().result().to_dataframe()['category'].tolist()
-write_list_to_disk(categories_list, "categories.txt")
-print(categories_list)
 ```
 
+### authors_list
+The cell below creates a local text file containing all authors
 
+```sql
+sql="""
+#standardSQL
+SELECT
+  REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+")  AS first_author  
+FROM `quebecor-numerique.94833147.ga_sessions_20190328`,   
+  UNNEST(hits) AS hits
+WHERE 
+  # only include hits on pages
+  hits.type = "PAGE"
+  AND (SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
+  AND
+        hits.type = "PAGE"
+      AND
+      fullVisitorId IS NOT NULL
+      AND
+      hits.time != 0
+      AND
+      hits.time IS NOT NULL
+  AND hits.page.pagePath IS NOT NULL
+  AND hits.page.pagePath NOT LIKE '%,%'
+  AND hits.page.pagePath NOT LIKE '%?%'
+  AND hits.page.pagePath != '/'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
+  AND hits.page.pagePath LIKE '%2019%'
+GROUP BY   
+  first_author
+"""
+authors_list = bq.Query(sql).execute().result().to_dataframe()['first_author'].tolist()
+write_list_to_disk(authors_list, "authors.txt")
+print("Some sample authors {}".format(authors_list[:10]))
+print("The total number of authors is {}".format(len(authors_list)))
+```
