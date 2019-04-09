@@ -52,7 +52,7 @@ sql="""
 #standardSQL
 SELECT
    (SELECT MAX(IF(index=15, value, NULL)) FROM UNNEST(hits.customDimensions)) AS content_id
-FROM `quebecor-numerique.94833147.ga_sessions_20190328`,   
+FROM `<PROJECT><DATASET><TABLE>`,   
   UNNEST(hits) AS hits
 WHERE 
   # only include hits on pages
@@ -88,7 +88,7 @@ The cell below creates a local text file containing all categories
 sql="""
 SELECT  
   (SELECT MAX(IF(index=15, value, NULL)) FROM UNNEST(hits.customDimensions)) AS category 
-FROM `quebecor-numerique.94833147.ga_sessions_20190328`,   
+FROM `<PROJECT><DATASET><TABLE>`,   
   UNNEST(hits) AS hits
 WHERE 
   # only include hits on pages
@@ -127,7 +127,7 @@ sql="""
 #standardSQL
 SELECT
   REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+")  AS first_author  
-FROM `quebecor-numerique.94833147.ga_sessions_20190328`,   
+FROM `<PROJECT><DATASET><TABLE>`,   
   UNNEST(hits) AS hits
 WHERE 
   # only include hits on pages
@@ -165,7 +165,7 @@ sql="""
 #standardSQL
 SELECT
   REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+")  AS first_author  
-FROM `quebecor-numerique.94833147.ga_sessions_20190328`,   
+FROM `<PROJECT><DATASET><TABLE>`,   
   UNNEST(hits) AS hits
 WHERE 
   # only include hits on pages
@@ -206,7 +206,7 @@ sql="""
 #standardSQL
 SELECT
   REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+")  AS first_author  
-FROM `quebecor-numerique.94833147.ga_sessions_20190328`,   
+FROM `<PROJECT><DATASET><TABLE>`,   
   UNNEST(hits) AS hits
 WHERE 
   # only include hits on pages
