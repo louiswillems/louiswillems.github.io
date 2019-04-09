@@ -31,7 +31,7 @@ gcloud  config  set project $PROJECT
 gcloud config set compute/region $REGION
 ```
 
-We will use this helper funciton to write lists containing article ids, categories, and authors for each article in our database to local file.
+We will use this helper function to write lists containing article ids, categories, and authors for each article in our database to local file.
 
 ```sql
 def write_list_to_disk(my_list, filename):
@@ -40,10 +40,10 @@ def write_list_to_disk(my_list, filename):
         line = "%s\n" % item
 ```
 
-## Pull data from BigQuery
+## 1. Pull data from BigQuery
 <br>
-### content_ids.txt
-The cell below creates a local text file containing all the article ids (i.e. 'content ids') in the dataset.
+### **content_ids.txt**
+The cell below creates a local text file containing all the article ids (i.e. 'content ids') in the dataset which is basically a custom dimension in Google Analytics.
 
 
 ```sql
@@ -51,7 +51,7 @@ import google.datalab.bigquery as bq
 sql="""
 #standardSQL
 SELECT
-   (SELECT MAX(IF(index=15, value, NULL)) FROM UNNEST(hits.customDimensions)) AS content_id
+   (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) AS content_id
 FROM `<PROJECT><DATASET><TABLE>`,   
   UNNEST(hits) AS hits
 WHERE 
@@ -69,8 +69,8 @@ WHERE
   AND hits.page.pagePath NOT LIKE '%,%'
   AND hits.page.pagePath NOT LIKE '%?%'
   AND hits.page.pagePath != '/'
-  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
-  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
   AND hits.page.pagePath LIKE '%2019%'
 GROUP BY
   content_id
@@ -81,19 +81,19 @@ print("Some sample content IDs {}".format(content_ids_list[:3]))
 print("The total number of articles is {}".format(len(content_ids_list)))
 ```
 <br>
-### categories.txt
-The cell below creates a local text file containing all categories
+### **categories.txt**
+The cell below creates a local text file containing all categories which are a custom dimension in Google Analytics.
 
 ```sql
 sql="""
 SELECT  
-  (SELECT MAX(IF(index=15, value, NULL)) FROM UNNEST(hits.customDimensions)) AS category 
+  (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) AS category 
 FROM `<PROJECT><DATASET><TABLE>`,   
   UNNEST(hits) AS hits
 WHERE 
   # only include hits on pages
   hits.type = "PAGE"
-  AND (SELECT MAX(IF(index=15, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
+  AND (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
     AND
         hits.type = "PAGE"
       AND
@@ -106,8 +106,8 @@ WHERE
   AND hits.page.pagePath NOT LIKE '%,%'
   AND hits.page.pagePath NOT LIKE '%?%'
   AND hits.page.pagePath != '/'
-  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
-  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
   AND hits.page.pagePath LIKE '%2019%'
 GROUP BY
   category
@@ -119,20 +119,20 @@ print(categories_list)
 ```
 <br>
 
-### authors_list.txt
-The cell below creates a local text file containing all authors
+### **authors_list.txt**
+The cell below creates a local text file containing all authors which are in a custom dimension too.
 
 ```sql
 sql="""
 #standardSQL
 SELECT
-  REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+")  AS first_author  
+  REGEXP_EXTRACT((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+")  AS first_author  
 FROM `<PROJECT><DATASET><TABLE>`,   
   UNNEST(hits) AS hits
 WHERE 
   # only include hits on pages
   hits.type = "PAGE"
-  AND (SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
+  AND (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
   AND
         hits.type = "PAGE"
       AND
@@ -145,8 +145,8 @@ WHERE
   AND hits.page.pagePath NOT LIKE '%,%'
   AND hits.page.pagePath NOT LIKE '%?%'
   AND hits.page.pagePath != '/'
-  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
-  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
   AND hits.page.pagePath LIKE '%2019%'
 GROUP BY   
   first_author
@@ -157,7 +157,7 @@ print("Some sample authors {}".format(authors_list[:10]))
 print("The total number of authors is {}".format(len(authors_list)))
 ```
 <br>
-### authors_list
+### **authors_list**
 The cell below creates a local text file containing all authors
 
 ```sql
