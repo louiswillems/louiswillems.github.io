@@ -230,6 +230,7 @@ tf.estimator.train_and_evaluate(estimator, train_spec, eval_spec)
  ```
  
 ## 5. TensorBoard
+We can monitor the performance of our training job using Tensorboard
 ```python
 from google.datalab.ml import TensorBoard
 TensorBoard().start('/<YOURPATH>')
