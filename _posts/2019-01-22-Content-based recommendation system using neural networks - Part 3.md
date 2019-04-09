@@ -16,6 +16,7 @@ task.py will be executed by ML Engine and it references our content-based model 
 
 <img class="progressiveMedia-image js-progressiveMedia-image" data-src="https://cdn-images-1.medium.com/max/2400/1*2185PkdnkS-e-jNWGC3Hpw.png" src="https://cdn-images-1.medium.com/max/2400/1*2185PkdnkS-e-jNWGC3Hpw.png">
 <br>
+
 ```sql
 import os
 import tensorflow as tf
