@@ -42,7 +42,7 @@ def write_list_to_disk(my_list, filename):
 
 ## 1. Pull data from BigQuery
 <br>
-### a) content_ids.txt
+### <strong>a) content_ids.txt<strong>
 The cell below creates a local text file containing all the article ids (i.e. 'content ids') in the dataset which is basically a custom dimension in Google Analytics.
 
 
