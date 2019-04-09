@@ -2,7 +2,8 @@
 layout: post
 title: Content-based recommendation system using neural networks - Part 1
 ---
-
+<br>
+<br>
 This post builds the data we will use for creating our content based model. We'll collect the data via a collection of SQL queries from a Google Analytics dataset in BigQuery.
 Our goal is to recommend an article for a visitor (Client ID) to our site.
 
