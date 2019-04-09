@@ -42,7 +42,8 @@ def write_list_to_disk(my_list, filename):
 
 ## 1. Pull data from BigQuery
 <br>
-### <strong>a) content_ids.txt<strong>
+### <strong>a) content_ids.txt</strong>
+
 The cell below creates a local text file containing all the article ids (i.e. 'content ids') in the dataset which is basically a custom dimension in Google Analytics.
 
 
@@ -81,7 +82,7 @@ print("Some sample content IDs {}".format(content_ids_list[:3]))
 print("The total number of articles is {}".format(len(content_ids_list)))
 ```
 <br>
-### b) categories.txt
+### <strong>b) categories.txt</strong>
 The cell below creates a local text file containing all categories which are a custom dimension in Google Analytics.
 
 ```sql
@@ -119,7 +120,7 @@ print(categories_list)
 ```
 <br>
 
-### c) authors_list.txt
+### <strong>c) authors_list.txt</strong>
 The cell below creates a local text file containing all authors which are in a custom dimension too.
 
 ```sql
@@ -157,7 +158,7 @@ print("Some sample authors {}".format(authors_list[:10]))
 print("The total number of authors is {}".format(len(authors_list)))
 ```
 <br>
-### d) medium
+### <strong>d) medium</strong>
 The cell below creates a local text file containing all values for medium dimension in Google Analytics.
 
 ```sql
@@ -198,7 +199,7 @@ print("The total number of authors is {}".format(len(medium_list)))
 <br>
 ## 2. Create train and test sets.
 <br>
-### Training  set
+### <strong>Training  set</strong>
 In this section, we will create the train/test sdatasets for training and test our model. We will concatenate values for visitor_id (fullVisitorId in Google Analytics) and content_id to create a farm fingerprint, taking 90% of the data for the training set. This request will return, for each visitor_id, the content_id but also the next_content_id
 
 ```sql
