@@ -39,7 +39,8 @@ def write_list_to_disk(my_list, filename):
     for item in my_list:
         line = "%s\n" % item
 ```
-
+<br>
+<br>
 ## 1. Pull data from BigQuery
 <br>
 ### <strong>a) content_ids.txt</strong>
@@ -199,8 +200,8 @@ print("The total number of authors is {}".format(len(medium_list)))
 <br>
 ## 2. Create train and test sets.
 <br>
-### <strong>Training  set</strong>
-In this section, we will create the train/test sdatasets for training and test our model. We will concatenate values for visitor_id (fullVisitorId in Google Analytics) and content_id to create a farm fingerprint, taking 90% of the data for the training set. This request will return, for each visitor_id, the content_id but also the next_content_id
+### <strong>Training set</strong>
+In this section, we will create the train/test sdatasets for training and test our model. We will concatenate values for visitor_id (fullVisitorId in Google Analytics) and content_id to create a farm fingerprint, taking 90% of the data for the training set. This request will return, for each visitor_id, the content_id, category, author, medium but also the next_content_id. 
 
 ```sql
 sql="""
@@ -238,8 +239,8 @@ SELECT
       AND
       (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
 
-  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
-  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
   AND hits.page.pagePath LIKE '%2019%'
       
 )
@@ -262,3 +263,64 @@ training_set_df = bq.Query(sql).execute().result().to_dataframe()
 training_set_df.to_csv('training_set.csv', header=False, index=False, encoding='utf-8')
 training_set_df.head()
 ```
+<br>
+### <strong>Test set</strong>
+We will repeat the query as above but change outcome of the farm fingerprint hash to collect the remaining 10% of the data for the test set. 
+
+```sql
+sql="""
+WITH site_history as (
+SELECT
+      fullVisitorId as visitor_id,
+      (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) AS content_id,
+      (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) AS title,
+      (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) AS author_list,
+      SPLIT(RPAD((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), 7), '-') as year_month_array,
+      LEAD((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), 1) OVER (PARTITION BY fullVisitorId ORDER BY hits.time ASC) as nextCustomDimensions,  
+      trafficSource.medium AS medium,
+  FROM 
+    `<PROJECT><DATASET><TABLE>`,   
+     UNNEST(hits) AS hits
+   WHERE 
+     # only include hits on pages
+      hits.type = "PAGE"
+      AND
+      fullVisitorId IS NOT NULL
+      AND
+      hits.time != 0
+      AND
+      hits.time IS NOT NULL
+      AND
+      hits.page.pagePath IS NOT NULL
+      AND
+      hits.page.pagePath NOT LIKE '%,%'
+      AND hits.page.pagePath NOT LIKE '%?%'
+      AND hits.page.pagePath != '/'
+      AND
+      SPLIT(RPAD((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), 7), '-') IS NOT NULL
+      AND
+      (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
+      AND
+      (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
+      
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
+  AND hits.page.pagePath LIKE '%2019%'
+)
+SELECT
+  visitor_id,
+  content_id,
+  medium,
+  REGEXP_REPLACE(title, r",", "") as title,
+  REGEXP_EXTRACT(author_list, r"^[^,]+") as author,
+  DATE_DIFF(DATE(CAST(year_month_array[OFFSET(0)] AS INT64), CAST(year_month_array[OFFSET(1)] AS INT64), 1), DATE(1970,1,1), MONTH) as months_since_epoch,
+  nextCustomDimensions as next_content_id
+FROM
+  site_history
+WHERE nextCustomDimensions IS NOT NULL
+AND MOD(ABS(FARM_FINGERPRINT(CONCAT(visitor_id, content_id))), 10) >= 9
+"""
+
+test_set_df = bq.Query(sql).execute().result().to_dataframe()
+test_set_df.to_csv('test_set.csv', header=False, index=False, encoding='utf-8')
+"""
