@@ -7,18 +7,12 @@ title: Content-based recommendation system using neural networks - Part 2
 This post builds the data we will use for creating our content based model. We'll collect the data via a collection of SQL queries from a Google Analytics dataset in BigQuery.
 Our goal is to recommend an article for a visitor (Client ID) to our site.
 
-This lab relies on files created in the [content_based_preproc.ipynb](./content_based_preproc.ipynb) notebook. Be sure to complete the TODOs in that notebook and run the code there before completing this lab.  
-Also, we'll be using the **python3** kernel from here on out so don't forget to change the kernel if it's still python2.
+This post relies on files created in the [Content-based recommendation system using neural networks - Part 1](https://louiswillems.github.io/2019/01/15/Content-based-recommendation-system-using-neural-networks-Part-1)
 
-This lab illustrates:
-1. how to build feature columns for a model using tf.feature_column
-2. how to create custom evaluation metrics and add them to Tensorboard
-3. how to train a model and make predictions with the saved model
-
-In this notebook we will illustrates
-* how to pull data from BigQuery for our recommendation system
-* how to create train and test sets
-
+In this post we will illustrates:
+* how to build feature columns for a model using tf.feature_column
+* how to create custom evaluation metrics and add them to Tensorboard
+* how to train a model and make predictions with the saved model
 
 
 ```python
