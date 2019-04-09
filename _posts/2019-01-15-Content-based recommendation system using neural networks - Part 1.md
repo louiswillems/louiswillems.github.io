@@ -42,7 +42,7 @@ def write_list_to_disk(my_list, filename):
 
 ## 1. Pull data from BigQuery
 <br>
-### **content_ids.txt**
+### a) content_ids.txt
 The cell below creates a local text file containing all the article ids (i.e. 'content ids') in the dataset which is basically a custom dimension in Google Analytics.
 
 
@@ -81,7 +81,7 @@ print("Some sample content IDs {}".format(content_ids_list[:3]))
 print("The total number of articles is {}".format(len(content_ids_list)))
 ```
 <br>
-### **categories.txt**
+### b) categories.txt
 The cell below creates a local text file containing all categories which are a custom dimension in Google Analytics.
 
 ```sql
@@ -119,7 +119,7 @@ print(categories_list)
 ```
 <br>
 
-### **authors_list.txt**
+### c) authors_list.txt
 The cell below creates a local text file containing all authors which are in a custom dimension too.
 
 ```sql
@@ -157,20 +157,20 @@ print("Some sample authors {}".format(authors_list[:10]))
 print("The total number of authors is {}".format(len(authors_list)))
 ```
 <br>
-### **authors_list**
-The cell below creates a local text file containing all authors
+### d) medium
+The cell below creates a local text file containing all values for medium dimension in Google Analytics.
 
 ```sql
 sql="""
 #standardSQL
 SELECT
-  REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+")  AS first_author  
+  trafficSource.medium  AS medium
 FROM `<PROJECT><DATASET><TABLE>`,   
   UNNEST(hits) AS hits
 WHERE 
   # only include hits on pages
   hits.type = "PAGE"
-  AND (SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
+  AND (SELECT MAX(IF(<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
   AND
         hits.type = "PAGE"
       AND
@@ -183,55 +183,81 @@ WHERE
   AND hits.page.pagePath NOT LIKE '%,%'
   AND hits.page.pagePath NOT LIKE '%?%'
   AND hits.page.pagePath != '/'
-  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
-  AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
+  AND REGEXP_EXTRACT((SELECT MAX(IF(<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
   AND hits.page.pagePath LIKE '%2019%'
 GROUP BY   
-  first_author
+  medium
 """
-authors_list = bq.Query(sql).execute().result().to_dataframe()['first_author'].tolist()
-write_list_to_disk(authors_list, "authors.txt")
-print("Some sample authors {}".format(authors_list[:10]))
-print("The total number of authors is {}".format(len(authors_list)))
+medium_list = bq.Query(sql).execute().result().to_dataframe()['medium'].tolist()
+write_list_to_disk(medium_list, "medium.txt")
+print("Some sample authors {}".format(medium_list[:10]))
+print("The total number of authors is {}".format(len(medium_list)))
 ```
 <br>
 <br>
-## Create train and test sets.
+## 2. Create train and test sets.
 <br>
 ### Training  set
-In this section, we will create the train/test split of our data for training our model. Read through the query and complete the TODO at the bottom. Use the concatenated values for visitor id and content id to create a farm fingerprint, taking 90% of the data for the training set.
+In this section, we will create the train/test sdatasets for training and test our model. We will concatenate values for visitor_id (fullVisitorId in Google Analytics) and content_id to create a farm fingerprint, taking 90% of the data for the training set. This request will return, for each visitor_id, the content_id but also the next_content_id
 
 ```sql
 sql="""
-#standardSQL
+WITH site_history as (
 SELECT
-  REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+")  AS first_author  
-FROM `<PROJECT><DATASET><TABLE>`,   
-  UNNEST(hits) AS hits
-WHERE 
-  # only include hits on pages
-  hits.type = "PAGE"
-  AND (SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
-  AND
-        hits.type = "PAGE"
+      fullVisitorId as visitor_id,
+      (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) AS content_id,
+      (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) AS title,
+      (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) AS author_list,
+      SPLIT(RPAD((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), 7), '-') as year_month_array,
+      LEAD((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), 1) OVER (PARTITION BY fullVisitorId ORDER BY hits.time ASC) as nextCustomDimensions,
+      trafficSource.medium AS medium,
+  FROM 
+    `<PROJECT><DATASET><TABLE>`,   
+     UNNEST(hits) AS hits
+   WHERE 
+     # only include hits on pages
+      hits.type = "PAGE"
       AND
       fullVisitorId IS NOT NULL
       AND
       hits.time != 0
       AND
       hits.time IS NOT NULL
-  AND hits.page.pagePath IS NOT NULL
-  AND hits.page.pagePath NOT LIKE '%,%'
-  AND hits.page.pagePath NOT LIKE '%?%'
-  AND hits.page.pagePath != '/'
+      AND
+      hits.page.pagePath IS NOT NULL
+      AND
+      hits.page.pagePath NOT LIKE '%,%'
+     AND hits.page.pagePath NOT LIKE '%?%'
+     AND hits.page.pagePath != '/'
+      AND
+      SPLIT(RPAD((SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)), 7), '-') IS NOT NULL
+      AND
+      (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
+      AND
+      (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
+
   AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%;%'
   AND REGEXP_EXTRACT((SELECT MAX(IF(index=11, value, NULL)) FROM UNNEST(hits.customDimensions)), r"^[^,|\/|;]+") NOT LIKE '%&nbsp%'
   AND hits.page.pagePath LIKE '%2019%'
-GROUP BY   
-  first_author
+      
+)
+SELECT
+  visitor_id,
+  content_id,
+  medium,
+  REGEXP_REPLACE(title, r",", "") as title,
+  REGEXP_EXTRACT(author_list, r"^[^,]+") as author,
+  DATE_DIFF(DATE(CAST(year_month_array[OFFSET(0)] AS INT64), CAST(year_month_array[OFFSET(1)] AS INT64), 1), DATE(1970,1,1), MONTH) as months_since_epoch,
+  nextCustomDimensions as next_content_id
+FROM
+  site_history
+WHERE nextCustomDimensions IS NOT NULL AND
+MOD(ABS(FARM_FINGERPRINT(CONCAT(visitor_id, content_id))), 10 ) < 9
+
 """
-authors_list = bq.Query(sql).execute().result().to_dataframe()['first_author'].tolist()
-write_list_to_disk(authors_list, "authors.txt")
-print("Some sample authors {}".format(authors_list[:10]))
-print("The total number of authors is {}".format(len(authors_list)))
+
+training_set_df = bq.Query(sql).execute().result().to_dataframe()
+training_set_df.to_csv('training_set.csv', header=False, index=False, encoding='utf-8')
+training_set_df.head()
 ```
