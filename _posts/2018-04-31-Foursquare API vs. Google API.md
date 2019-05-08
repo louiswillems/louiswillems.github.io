@@ -230,6 +230,8 @@ montreal_foursquare = getNearbyVenuesFoursquare(names=montreal_merged['Neighborh
                                   )
 ```
 
+<img height="230" width="550" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_3.JPG">
+
 
 <br>
 ### 5. Analyze, Cluster and Mapping Neighborhoods with Foursquare API
