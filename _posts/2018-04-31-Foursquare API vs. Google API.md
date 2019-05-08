@@ -397,7 +397,6 @@ for ind in np.arange(montreal_grouped.shape[0]):
     neighborhoods_venues_sorted1.iloc[ind, 1:] = return_most_common_venues(montreal_grouped.iloc[ind, :], num_top_venues)
 ```
 
-<img height="230" width="950" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_4.JPG">
 
 ```python
 # set number of clusters
@@ -444,6 +443,8 @@ for lat, lon, poi, cluster in zip(montreal_final['Lat'], montreal_final3['Long']
        
 map_clusters
 ```
+
+<img height="530" width="950" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_5.JPG">
 
 <br>
 ### 8. Conclusion
