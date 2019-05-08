@@ -133,7 +133,7 @@ df_final = df_final[df_final.Postcode != 'H0H']
 df_final.head(10)
 ```
 
-<img height="230" width="350" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_1.JPG">
+<img height="230" width="330" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_1.JPG">
 
 <br>
 ### 2. Coordinates from Google Maps Geocoding API
@@ -165,7 +165,7 @@ def getGoogleMapCoord(postcode):
 geo = getGoogleMapCoord(postcode=df_final['Postcode'])
 geo.head()
 ```
-<img height="230" width="550" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_2.JPG">
+<img height="230" width="530" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_2.JPG">
 
 <br>
 ### 3. Merging Wikipedia data & Coordinates of Montréal
@@ -319,7 +319,7 @@ for lat, lon, poi, cluster in zip(montreal_final['Lat'], montreal_final['Long'],
 map_clusters
 ```
 
-<img height="530" width="950" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_3.JPG">
+<img height="430" width="950" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_3.JPG">
 
 <br>
 ### 6. Venues for all Neighborhoods in Montréal with the Google Maps Places API
@@ -444,7 +444,7 @@ for lat, lon, poi, cluster in zip(montreal_final['Lat'], montreal_final3['Long']
 map_clusters
 ```
 
-<img height="530" width="950" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_5.JPG">
+<img height="430" width="950" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_5.JPG">
 
 <br>
 ### 8. Conclusion
