@@ -133,7 +133,7 @@ df_final = df_final[df_final.Postcode != 'H0H']
 df_final.head(10)
 ```
 
-<img height="200" width="200" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_1.JPG">
+<img height="400" width="600" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_1.JPG">
 
 <br>
 ### 2. Coordinates from Google Maps Geocoding API
