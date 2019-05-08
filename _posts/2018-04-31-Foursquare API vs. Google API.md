@@ -165,7 +165,7 @@ def getGoogleMapCoord(postcode):
 geo = getGoogleMapCoord(postcode=df_final['Postcode'])
 geo.head()
 ```
-<img height="230" width="330" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_2.JPG">
+<img height="230" width="430" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/FvsG_API_photo_1.JPG" src="/public/FvsG_API_photo_2.JPG">
 
 <br>
 ### 3. Merging Wikipedia data & Coordinates of Montréal
