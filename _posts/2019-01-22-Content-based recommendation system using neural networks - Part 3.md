@@ -9,12 +9,13 @@ We will use Cloud ML Engine to train our content-based model DNN in TensorFlow.
 In order to do this, we need to put our code into a Python package (i.e. add setup.py and __init__.py files) and we will organize our code into:
 * model.py
 * task.py.
-
+<br>
+<br>
+<img class="progressiveMedia-image js-progressiveMedia-image" data-src="https://cdn-images-1.medium.com/max/2400/1*2185PkdnkS-e-jNWGC3Hpw.png" src="https://cdn-images-1.medium.com/max/2400/1*2185PkdnkS-e-jNWGC3Hpw.png">
+<br>
 <br>
 ## 1. Submitting a job to ML Engine
 task.py will be executed by ML Engine and it references our content-based model logic located in model.py.
-
-<img class="progressiveMedia-image js-progressiveMedia-image" data-src="https://cdn-images-1.medium.com/max/2400/1*2185PkdnkS-e-jNWGC3Hpw.png" src="https://cdn-images-1.medium.com/max/2400/1*2185PkdnkS-e-jNWGC3Hpw.png">
 <br>
 
 ```sql
