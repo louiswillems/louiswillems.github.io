@@ -2,6 +2,14 @@
 layout: post
 title: Content-based recommendation system using neural networks - Part 1
 ---
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>  
 <br>
 <br>
 <br>
@@ -14,6 +22,7 @@ In this notebook we will illustrates
 
 <br>
 <br>
+
 <img height="100" width="250" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="https://cdn-images-1.medium.com/max/1200/1*A8liBoeAwAZg7rDu394jYg.png" src="https://cdn-images-1.medium.com/max/1200/1*A8liBoeAwAZg7rDu394jYg.png">
 <br>
 
