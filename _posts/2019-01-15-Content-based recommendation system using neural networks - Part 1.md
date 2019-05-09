@@ -15,7 +15,7 @@ In this notebook we will illustrates
 <br>
 <br>
 
-<img height="350" width="650" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="https://cdn-images-1.medium.com/max/1200/1*A8liBoeAwAZg7rDu394jYg.png" src="https://cdn-images-1.medium.com/max/1200/1*A8liBoeAwAZg7rDu394jYg.png">
+<img height="350" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="https://cdn-images-1.medium.com/max/1200/1*A8liBoeAwAZg7rDu394jYg.png" src="https://cdn-images-1.medium.com/max/1200/1*A8liBoeAwAZg7rDu394jYg.png">
 <br>
 
 ```sql
