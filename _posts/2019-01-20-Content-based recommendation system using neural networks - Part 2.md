@@ -14,6 +14,12 @@ In this post we will illustrates:
 * how to create custom evaluation metrics and add them to Tensorboard
 * how to train a model and make predictions with the saved model
 
+<br>
+<br>
+
+<img height="350" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/tensorflow.png" src="/public/tensorflow.png">
+<br>
+
 
 ```python
 %bash
