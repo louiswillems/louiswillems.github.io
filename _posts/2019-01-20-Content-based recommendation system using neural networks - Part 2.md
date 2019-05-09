@@ -17,7 +17,7 @@ In this post we will illustrates:
 <br>
 <br>
 
-<img height="350" width="700" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/tensorflow.png" src="/public/tensorflow.png">
+<img height="300" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/tensorflow.png" src="/public/tensorflow.png">
 <br>
 
 
