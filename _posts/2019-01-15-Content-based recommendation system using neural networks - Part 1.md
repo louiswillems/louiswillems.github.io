@@ -10,6 +10,10 @@ Our goal is to recommend an article for a visitor (Client ID) to our site.
 In this notebook we will illustrates
 * how to pull data from BigQuery for our recommendation system
 * how to create train and test sets
+<br>
+
+<img height="430" width="950" class="progressiveMedia-image js-progressiveMedia-image" data-src="https://cdn-images-1.medium.com/max/1200/1*A8liBoeAwAZg7rDu394jYg.png" src="https://cdn-images-1.medium.com/max/1200/1*A8liBoeAwAZg7rDu394jYg.png">
+<br>
 
 ```sql
 import os
