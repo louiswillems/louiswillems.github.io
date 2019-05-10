@@ -1,7 +1,15 @@
 ---
 layout: page
-title: Test
+title: Learning
 ---
+
+<style>
+/* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400);
+/* @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro); */
+</style>
+  
+  
 514.833.4935 - louis.willems@outlook.com - Open work permit
 
 Lanyon is an unassuming [Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
