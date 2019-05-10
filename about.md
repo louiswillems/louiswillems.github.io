@@ -9,9 +9,6 @@ title: About
 /* @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro); */
 
 /* Global */
-body{
-  color: rgba(41,43,44,.75);
-  font-family: 'Anonymous Pro', monospace;}
 
 .css-typing
 {   position: relative;
