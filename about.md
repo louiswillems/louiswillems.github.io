@@ -3,8 +3,10 @@ layout: page
 title: About
 ---
 <style>
+
 /* Google Fonts */
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+@import url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400);
+/* @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro); */
 
 /* Global */
 body{
