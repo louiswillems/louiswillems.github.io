@@ -15,7 +15,7 @@ In this notebook we will illustrates
 <br>
 <br>
 
-<img height="350" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/BQ.png" src="/public/BQ.png">
+<img height="320" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/BQ.png" src="/public/BQ.png">
 <br>
 
 ```sql
