@@ -12,7 +12,8 @@ In order to do this, we need to put our code into a Python package (i.e. add set
 <br>
 <br>
 <br>
-<img class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/redwine.png" src="/public/redwine.png">
+
+<img height="220" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prediction.png" src="/public/saq_prediction.png">
 <br>
 <br>
 ## 1. Submitting a job to ML Engine
