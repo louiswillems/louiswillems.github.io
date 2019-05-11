@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Content-based recommendation system using neural networks - Part 3
+title: Predicting price of red wines from SAQ.com (Société des alcools du Québec)
 ---
 <br>
 <br>
