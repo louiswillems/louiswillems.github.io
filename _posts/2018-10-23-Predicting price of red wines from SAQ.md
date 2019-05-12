@@ -60,7 +60,6 @@ def saq_urls():
 ```
 <br>
 ## 2. Get data from URLS
-<br>
 ```python
 name = []
 price = []
@@ -178,4 +177,15 @@ print("Number of observations:\n",len(df))
 data = df.drop_duplicates("Name") # drop duplicate descriptions
 data = data[['Country', 'Region','Designation','Price', 'Producer','Alcohol']]
 df_clean = data.dropna()
+```
+```python
+data_less_outliers = data[df_clean["Price"] < 1000]
+data_less_outliers.Price.plot(kind = 'hist', bins = 100, color = "#3F5D7D", fontsize=12)
+```
+
+Since 
+```python
+# Outliers with price
+# > 100$ represent less than 10%
+df_ml = df_ml[df_ml.Price < 100]
 ```
