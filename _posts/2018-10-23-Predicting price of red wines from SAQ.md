@@ -194,10 +194,10 @@ Actually, there are some pretty expensive wines in the dataset. In fact, 90 % of
 <br>
 <br>
 <br>
-<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_country_price.jpg" src="/public/saq_country_price.jpg">
+<img height="670" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prices2.jpg" src="/public/saq_prices2.jpg">
 <br>
 <br>
-<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prices2.JPG" src="/public/saq_prices2.JPG">
+<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prices.JPG" src="/public/saq_prices.JPG">
 <br>
 <br>
 ```python
