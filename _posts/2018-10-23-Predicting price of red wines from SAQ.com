@@ -22,14 +22,16 @@ In order to do this, we need to put our code into a Python package (i.e. add set
 task.py will be executed by ML Engine and it references our content-based model logic located in model.py.
 <br>
 
+
 ```python
 import os
 import tensorflow as tf
 import numpy as np
-import google.datalab.bigquery as bq
+import tensorflow_hub as hub
+import shutil
 
-PROJECT = 'PROJECT' # REPLACE WITH YOUR PROJECT ID
-BUCKET = 'BUCKET' # REPLACE WITH YOUR BUCKET NAME
+PROJECT = 'quebecor-numerique' # REPLACE WITH YOUR PROJECT ID
+BUCKET = 'numericanalytics' # REPLACE WITH YOUR BUCKET NAME
 REGION = 'us-central1' # REPLACE WITH YOUR BUCKET REGION e.g. us-central1
 
 # do not change these
@@ -38,8 +40,8 @@ os.environ['BUCKET'] = BUCKET
 os.environ['REGION'] = REGION
 os.environ['TFVERSION'] = '1.8'
 
-
-gcloud  config  set project $PROJECT
+%bash
+gcloud config set project $PROJECT
 gcloud config set compute/region $REGION
- ```
+```
  
