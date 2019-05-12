@@ -149,7 +149,7 @@ df.head()
 ```
 <br>
 
-## 3. Exploratory Data Anlysis (EDA)
+## 3. Exploratory Data Anlysis & Cleaning
 <br>
 Before performing any data pre-processing, a general step is to explore the data to detect any outliers/missing values and other trends in the data.
 
@@ -182,10 +182,83 @@ df_clean = data.dropna()
 data_less_outliers = data[df_clean["Price"] < 1000]
 data_less_outliers.Price.plot(kind = 'hist', bins = 100, color = "#3F5D7D", fontsize=12)
 ```
-
-Since 
+<br>
+Actually, there are some pretty expensive wines in the dataset. In fact, 90 % of the data comes in below 100 dollars. So, we will remove these more expensive wines and predict red wine prices.
 ```python
 # Outliers with price
 # > 100$ represent less than 10%
 df_ml = df_ml[df_ml.Price < 100]
+```
+### One Hot Encoding Categorical Features
+```python
+df_ml = pd.get_dummies(df_ml, columns=['Country','Region','Producer','Designation'], prefix = 'category')
+```
+<br>
+## 4. Modelling
+
+```python
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn import linear_model
+from sklearn.model_selection import train_test_split
+from sklearn import preprocessing
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+from sklearn.metrics import mean_squared_error, r2_score
+%matplotlib inline
+import re 
+
+
+def try_linear_models(X_, y_, model_name, standardize = True):
+    if standardize == True:
+        X = preprocessing.scale(X_)
+    else:
+        X = X_
+    X_train, X_test, y_train, y_test = train_test_split(X, y_, random_state = 42)
+    if model_name == "linear":
+        model = linear_model.LinearRegression().fit(X_train, y_train)
+    if model_name == "ridge":
+        model = linear_model.Ridge(alpha = 0.1).fit(X_train, y_train)
+    if model_name == "lasso":
+        model = linear_model.Lasso(alpha = 0.5).fit(X_train, y_train)
+    if model_name == "XGBR":
+       model = xgb.XGBRegressor(objective ='reg:linear', colsample_bytree = 0.3, learning_rate = 1, max_depth = 6, alpha = 10, n_estimators = 50).fit(X_train,y_train) 
+
+    predictions = model.predict(X_test)
+    return predictions, y_test
+  
+  
+def error_metrics(model, predictions, y_test):
+    print("Model: ", model)
+    # The root mean squared error
+    print("--Root Mean squared error: %.2f" % np.sqrt(mean_squared_error(y_test, predictions)))
+    # Explained variance score: 1 is perfect prediction
+    print('--Variance score: %.2f' % r2_score(y_test, predictions))
+    
+
+X = df_ml.drop(['Price'], axis=1).values
+y = df_ml['Price'].values
+
+
+# With standardizing
+ridge_pred_st, y_test = try_linear_models(X, y, "ridge", standardize=True)
+lasso_pred_st, y_test = try_linear_models(X, y, "lasso", standardize=True)
+lasso_pred_st, y_test = try_linear_models(X, y, "lasso", standardize=True)
+
+# Without standardizing
+ridge_pred, y_test = try_linear_models(X, y, "ridge", standardize=False)
+lasso_pred, y_test = try_linear_models(X, y, "lasso", standardize=False)
+lasso_pred_st, y_test = try_linear_models(X, y, "lasso", standardize=True)
+
+
+# # Error metrics
+error_metrics("Ridge with standardizing", ridge_pred_st, y_test)
+error_metrics("Lasso with standardizing", lasso_pred_st, y_test)
+error_metrics("XGBRegressor without standardizing", lasso_pred, y_test)
+
+
+error_metrics("Ridge without standardizing", ridge_pred, y_test)
+error_metrics("Lasso without standardizing", lasso_pred, y_test)
+error_metrics("XGBRegressor without standardizing", lasso_pred, y_test)
+
 ```
