@@ -145,7 +145,7 @@ df['Price'] = df['Price'].apply(pd.to_numeric, errors='coerce')
 df = pd.DataFrame({'Name': name, 'Country': country, 'Region': region, 'Origin':origin, 'Designation':designation, 'Producer':producer, 'Size': size, 'Alcohol': alcohol, 'Sugar': sugar, 'Price': price})[cols]
 df.head()
 ```
-<img height="230" width="630"  class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_df.head.JPG" src="/public/saq_df.head.JPG">
+<img height="230" width="830"  class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_df.head.JPG" src="/public/saq_df.head.JPG">
 
 <br>
 
