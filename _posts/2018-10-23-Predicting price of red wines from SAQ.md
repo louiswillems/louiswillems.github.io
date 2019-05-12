@@ -58,8 +58,9 @@ def saq_urls():
       complet_list = list(dict.fromkeys(wine_list))
     return complet_list
 ```
-    
-    
+<br>
+## 2. Get data from URLS
+<br>
 ```python
 name = []
 price = []
@@ -143,6 +144,41 @@ print('Number of lines for Sugar: {} '.format(len(sugar)))
 #Create dataframe
 import pandas as pd
 cols = ['Name', 'Country', 'Region', 'Origin', 'Designation', 'Producer', 'Size','Alcohol', 'Sugar','Price']
+df['Price'] = df['Price'].apply(pd.to_numeric, errors='coerce')
 df = pd.DataFrame({'Name': name, 'Country': country, 'Region': region, 'Origin':origin, 'Designation':designation, 'Producer':producer, 'Size': size, 'Alcohol': alcohol, 'Sugar': sugar, 'Price': price})[cols]
 df.head()
+```
+<br>
+
+
+
+
+## 3. Exploratory Data Anlysis (EDA)
+Before performing any data pre-processing, a general step is to explore the data to detect any outliers/missing values and other trends in the data.
+
+Common steps to check the health of the data:
+* Check for missing data
+* Check the skewness of the data, outlier detection
+etc...
+<br>
+
+```python
+df.describe()
+```
+
+```python
+# Let's clean the data. First, let's check if there are any null values in the dataframe.
+
+are_null_values = df.isnull().values.any()
+num_nulls = df.isnull().sum()
+print("Shape:\n",df.shape)
+print("Columns with null values:\n",num_nulls)
+print("Number of observations:\n",len(df))
+
+
+#Remove duplicates & Missing values 
+data = df.drop_duplicates("Name") # drop duplicate descriptions
+data = data[['Country', 'Region','Designation','Price', 'Producer','Alcohol']]
+df_clean = data.dropna()
+
 ```
