@@ -45,7 +45,7 @@ sns.set()
 
 def saq_urls():
     headers = ({'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})
-    wine_list = ['https://www.saq.com/webapp/wcs/stores/servlet/SearchDisplay?storeId=20002&catalogId=50000&langId=-1&categoryIdentifier=0602&pageSize=6']
+    wine_list = ['https://www.saq.com/webapp/wcs/stores/servlet/SearchDisplay?storeId=20002&catalogId=50000&langId=-1&categoryIdentifier=0602&pageSize=500']
     for w in wine_list:
       source = requests.get(w, headers=headers).text
       soup = BeautifulSoup(requests.get(w).text)
