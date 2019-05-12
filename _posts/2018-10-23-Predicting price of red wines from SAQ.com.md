@@ -23,7 +23,7 @@ task.py will be executed by ML Engine and it references our content-based model 
 <br>
 
 
-```python
+```
 import os
 import tensorflow as tf
 import numpy as np
