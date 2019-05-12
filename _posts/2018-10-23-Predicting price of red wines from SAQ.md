@@ -7,11 +7,9 @@ title: Predicting price of red wines from SAQ.com (Société des alcools du Qué
 <br>
 In this post, we will build a regression model in roder to predict the price of red wine from data that we will get from the SAQ website (Société des alcools du Québec). For this, we will first extract the data from SAQ.com. After we get the data that we need, we will built our regressor model to predict the price of red wines.
 
-In order to do this, we will built a and we will organize our code into:
-* Extract the date from www.saq.com
+In order to do this, we will :
+* Extract the date from saq.com
 * Built our model.
-
-You can also run the model directly in the browser with zero setup using Colab here.
 <br>
 <br>
 <br>
