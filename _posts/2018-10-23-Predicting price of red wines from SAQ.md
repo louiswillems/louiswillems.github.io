@@ -197,7 +197,7 @@ Actually, there are some pretty expensive wines in the dataset. In fact, 90 % of
 <img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_country_price.jpg" src="/public/saq_country_price.jpg">
 <br>
 <br>
-<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prices.JPG" src="/public/saq_prices.JPG">
+<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prices2.JPG" src="/public/saq_prices2.JPG">
 <br>
 <br>
 ```python
@@ -277,7 +277,7 @@ error_metrics("Lasso without standardizing", lasso_pred, y_test)
 error_metrics("XGBRegressor without standardizing", lasso_pred, y_test)
 ```
 <br>
-<img height="570" width="550" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
+<img height="270" width="250" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
 <br>
 <br>
 
