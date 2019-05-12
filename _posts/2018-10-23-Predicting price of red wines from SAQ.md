@@ -193,7 +193,11 @@ data_less_outliers.Price.plot(kind = 'hist', bins = 100, color = "#3F5D7D", font
 Actually, there are some pretty expensive wines in the dataset. In fact, 90 % of the data comes in below 100 dollars. So, we will remove these more expensive wines and predict red wine prices.
 <br>
 <br>
+<br>
 <img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_country_price.jpg" src="/public/saq_country_price.jpg">
+<br>
+<br>
+<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prices.JPG" src="/public/saq_prices.JPG">
 <br>
 <br>
 ```python
@@ -272,6 +276,9 @@ error_metrics("Ridge without standardizing", ridge_pred, y_test)
 error_metrics("Lasso without standardizing", lasso_pred, y_test)
 error_metrics("XGBRegressor without standardizing", lasso_pred, y_test)
 ```
+<br>
+<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
+<br>
 <br>
 
 ## Conclusion
