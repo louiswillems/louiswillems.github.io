@@ -18,13 +18,13 @@ In order to do this, we will :
 <br>
 <br>
 
+
+
 ## 1. Get red wines URLs from SAQ.com
 <br>
 #### Scrapy vs Beautifulsoup 
 Our project is small, the logic is not very complex and we want job done quickly, so we will use use BeautifulSoup to keep our project simple. If your project needs more customization such as proxy, data pipeline, then the Scrapy might be a best choice.
 <br>
-
-
 ```python
 from bs4 import BeautifulSoup
 from requests import get
@@ -182,6 +182,9 @@ data_less_outliers.Price.plot(kind = 'hist', bins = 100, color = "#3F5D7D", font
 ```
 <br>
 Actually, there are some pretty expensive wines in the dataset. In fact, 90 % of the data comes in below 100 dollars. So, we will remove these more expensive wines and predict red wine prices.
+<br>
+<img height="820" width="700" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_country_price.JPG" src="/public/saq_country_price.JPG">
+<br>
 ```python
 # Outliers with price
 # > 100$ represent less than 10%
