@@ -18,7 +18,7 @@ In this notebook we will illustrates
 <img height="320" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/BQ.png" src="/public/BQ.png">
 <br>
 
-```sql
+```python
 import os
 import tensorflow as tf
 import numpy as np
@@ -33,15 +33,16 @@ os.environ['PROJECT'] = PROJECT
 os.environ['BUCKET'] = BUCKET
 os.environ['REGION'] = REGION
 os.environ['TFVERSION'] = '1.8'
+```
 
-
+```
 gcloud  config  set project $PROJECT
 gcloud config set compute/region $REGION
 ```
 
 We will use this helper function to write lists containing article ids, categories, and authors for each article in our database to local file.
 
-```sql
+```
 def write_list_to_disk(my_list, filename):
   with open(filename, 'w') as f:
     for item in my_list:
@@ -56,7 +57,7 @@ def write_list_to_disk(my_list, filename):
 The cell below creates a local text file containing all the article ids (i.e. 'content ids') in the dataset which is basically a custom dimension in Google Analytics.
 
 
-```sql
+```
 import google.datalab.bigquery as bq
 sql="""
 #standardSQL
@@ -94,7 +95,7 @@ print("The total number of articles is {}".format(len(content_ids_list)))
 ### <strong>b) categories.txt</strong>
 The cell below creates a local text file containing all categories which are a custom dimension in Google Analytics.
 
-```sql
+```
 sql="""
 SELECT  
   (SELECT MAX(IF(index=<YOUR INDEX>, value, NULL)) FROM UNNEST(hits.customDimensions)) AS category 
@@ -132,7 +133,7 @@ print(categories_list)
 ### <strong>c) authors_list.txt</strong>
 The cell below creates a local text file containing all authors which are in a custom dimension too.
 
-```sql
+```
 sql="""
 #standardSQL
 SELECT
@@ -170,7 +171,7 @@ print("The total number of authors is {}".format(len(authors_list)))
 ### <strong>d) medium</strong>
 The cell below creates a local text file containing all values for medium dimension in Google Analytics.
 
-```sql
+```
 sql="""
 #standardSQL
 SELECT
@@ -211,7 +212,7 @@ print("The total number of authors is {}".format(len(medium_list)))
 ### <strong>Training set</strong>
 In this section, we will create the train/test sdatasets for training and test our model. We will concatenate values for visitor_id (fullVisitorId in Google Analytics) and content_id to create a farm fingerprint, taking 90% of the data for the training set. This request will return, for each visitor_id, the content_id, category, author, medium but also the next_content_id. 
 
-```sql
+```
 sql="""
 WITH site_history as (
 SELECT
@@ -275,7 +276,7 @@ training_set_df.head()
 ### <strong>Test set</strong>
 We will repeat the query as above but change outcome of the farm fingerprint hash to collect the remaining 10% of the data for the test set. 
 
-```sql
+```
 sql="""
 WITH site_history as (
 SELECT
