@@ -145,7 +145,6 @@ df['Price'] = df['Price'].apply(pd.to_numeric, errors='coerce')
 df = pd.DataFrame({'Name': name, 'Country': country, 'Region': region, 'Origin':origin, 'Designation':designation, 'Producer':producer, 'Size': size, 'Alcohol': alcohol, 'Sugar': sugar, 'Price': price})[cols]
 df.head()
 ```
-<img height="130" width="830"  class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_df.head.JPG" src="/public/saq_df.head.JPG">
 
 <br>
 
@@ -185,7 +184,7 @@ data_less_outliers.Price.plot(kind = 'hist', bins = 100, color = "#3F5D7D", font
 <br>
 Actually, there are some pretty expensive wines in the dataset. In fact, 90 % of the data comes in below 100 dollars. So, we will remove these more expensive wines and predict red wine prices.
 <br>
-<img height="650" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_country_price.jpg" src="/public/saq_country_price.jpg">
+<img height="650" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_country_price.jpg" src="/public/saq_country_price.jpg">
 <br>
 ```python
 # Outliers with price
