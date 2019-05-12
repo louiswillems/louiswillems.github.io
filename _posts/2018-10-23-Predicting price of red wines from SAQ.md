@@ -5,11 +5,13 @@ title: Predicting price of red wines from SAQ.com (Société des alcools du Qué
 
 <br>
 <br>
-In this post, we will build our content based model in the cloud. Train our model in the cloud will allow us to train on large amounts of data and without having to manage any infrastructure.
-We will use Cloud ML Engine to train our content-based model DNN in TensorFlow.
-In order to do this, we need to put our code into a Python package (i.e. add setup.py and __init__.py files) and we will organize our code into:
-* model.py
-* task.py.
+In this post, we will build a regression model in roder to predict the price of red wine from data that we will get from the SAQ website (Société des alcools du Québec). For this, we will first extract the data from SAQ.com. After we get the data that we need, we will built our regressor model to predict the price of red wines.
+
+In order to do this, we will built a and we will organize our code into:
+* Extract the date from www.saq.com
+* Built our model.
+
+You can also run the model directly in the browser with zero setup using Colab here.
 <br>
 <br>
 <br>
@@ -18,30 +20,129 @@ In order to do this, we need to put our code into a Python package (i.e. add set
 <br>
 <br>
 
-## 1. Submitting a job to ML Engine
-task.py will be executed by ML Engine and it references our content-based model logic located in model.py.
+## 1. Get red wines URLs from SAQ.com
+<br>
+#### Scrapy vs Beautifulsoup 
+Our project is small, the logic is not very complex and we want job done quickly, so we will use use BeautifulSoup to keep our project simple. If your project needs more customization such as proxy, data pipeline, then the Scrapy might be a best choice.
 <br>
 
 
+```python
+from bs4 import BeautifulSoup
+from requests import get
+import itertools
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+import requests
+import re
+sns.set()
 ```
-import os
-import tensorflow as tf
-import numpy as np
-import tensorflow_hub as hub
-import shutil
 
-PROJECT = 'quebecor-numerique' # REPLACE WITH YOUR PROJECT ID
-BUCKET = 'numericanalytics' # REPLACE WITH YOUR BUCKET NAME
-REGION = 'us-central1' # REPLACE WITH YOUR BUCKET REGION e.g. us-central1
+```python
+# Some websites automatically block any kind of scraping, and that’s why I’ll define a header to pass along the get command
+# which will basically make our queries to the website look like they are coming from an actual browser. When we run the program
+# I’ll have a sleep command between pages, so we can mimic a “more human” behavior and don’t overload the site with several requests per second
+# You will get blocked if you scrape too aggressively, so it’s a nice policy to be polite while scraping
 
-# do not change these
-os.environ['PROJECT'] = PROJECT
-os.environ['BUCKET'] = BUCKET
-os.environ['REGION'] = REGION
-os.environ['TFVERSION'] = '1.8'
-
-%bash
-gcloud config set project $PROJECT
-gcloud config set compute/region $REGION
+def saq_urls():
+    headers = ({'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})
+    wine_list = ['https://www.saq.com/webapp/wcs/stores/servlet/SearchDisplay?storeId=20002&catalogId=50000&langId=-1&categoryIdentifier=0602&pageSize=6']
+    for w in wine_list:
+      source = requests.get(w, headers=headers).text
+      soup = BeautifulSoup(requests.get(w).text)
+      saq_containers = soup.find_all('div', class_="ColD affichageMozaique")
+      first = saq_containers[0]
+      #get all the links
+      wine_list = [url.get('href') for url in first.find_all('a')[1:]]
+      complet_list = list(dict.fromkeys(wine_list))
+    return complet_list
 ```
- 
+    
+    
+```python
+name = []
+price = []
+producer = []
+wines_info = []
+
+for page in wines_list:
+  source = requests.get(page).text
+  soup = BeautifulSoup(source)
+  
+  w_name = soup.find_all("h1", {"class": "product-description-title"})
+  w_price = soup.find_all("p", {"class": "price"})
+  w_producer = soup.find_all("td", {"class": "product-detailsR"})[0]
+  w_infos = soup.find_all("div", {"id": "details"})
+  
+  for info in w_name:
+    nm = info.text
+    name.append(nm)
+   
+  for info in w_price:
+    pc = info.text
+    pc1 = pc.replace('Regular price:  ','')
+    pc2 = pc1.replace('$','')
+    price.append(pc2)
+  
+   
+  for info in w_producer:
+    pd = info.text
+    producer.append(pd)
+    
+    
+  for info in w_infos:
+    ac = info.text.strip()
+    ac1 = ac.replace('\n','')
+    ac2 = ac1.replace(' ','')
+    ac3 = ac2.replace('\r',' ')
+    wines_info.append(ac3)
+    # len(wines_info)
+    # wines_info
+    
+    
+    def nextword(target, source):
+      for i, w in enumerate(source):
+        if w == target:
+          return source[i+1]
+        
+
+# Country  
+country = [nextword('DetailedinfoCountry', s.split()) for s in wines_info]
+
+# Region 
+region = [nextword('Region', s.split()) for s in wines_info]
+
+# Designation of origin 
+origin = [nextword('Designationoforigin', s.split()) for s in wines_info]
+
+# Regulateddesignation
+designation = [nextword('Regulateddesignation', s.split()) for s in wines_info]
+
+# Size
+size = [nextword('Size', s.split()) for s in wines_info]
+
+# Alcohol
+alcohol = [nextword('Degreeofalcohol', s.split()) for s in wines_info]
+
+# Sugar
+sg = [nextword('%', s.split()) for s in wines_info]
+sg1 = [s.rpartition('Sugarcontent')[2] for s in sg]
+sugar = [s[0:3] for s in sg1]
+
+print('Number of lines for Country: {} '.format(len(country)))
+print('Number of lines for Region: {} '.format(len(region)))
+print('Number of lines for Origin: {} '.format(len(origin)))
+print('Number of lines for Designation: {} '.format(len(designation)))
+print('Number of lines for Producer: {} '.format(len(producer)))
+print('Number of lines for Size: {} '.format(len(size)))
+print('Number of lines for Alcohol: {} '.format(len(alcohol)))
+print('Number of lines for Sugar: {} '.format(len(sugar)))
+
+
+#Create dataframe
+import pandas as pd
+cols = ['Name', 'Country', 'Region', 'Origin', 'Designation', 'Producer', 'Size','Alcohol', 'Sugar','Price']
+df = pd.DataFrame({'Name': name, 'Country': country, 'Region': region, 'Origin':origin, 'Designation':designation, 'Producer':producer, 'Size': size, 'Alcohol': alcohol, 'Sugar': sugar, 'Price': price})[cols]
+df.head()
+```
