@@ -195,7 +195,6 @@ df_ml = pd.get_dummies(df_ml, columns=['Country','Region','Producer','Designatio
 ## 4. Modelling
 
 ```python
-
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
