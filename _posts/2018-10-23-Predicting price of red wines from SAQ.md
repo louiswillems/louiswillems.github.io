@@ -57,6 +57,14 @@ def saq_urls():
     return complet_list
 ```
 <br>
+<br>
+<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.jpg" src="/public/saq_website1.jpg">
+<br>
+<br>
+<br>
+<br>
+<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website2.jpg" src="/public/saq_website2.jpg">
+<br>
 ## 2. Get data from URLS
 ```python
 name = []
