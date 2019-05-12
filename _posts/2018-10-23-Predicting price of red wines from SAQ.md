@@ -277,7 +277,7 @@ error_metrics("Lasso without standardizing", lasso_pred, y_test)
 error_metrics("XGBRegressor without standardizing", lasso_pred, y_test)
 ```
 <br>
-<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
+<img height="570" width="550" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
 <br>
 <br>
 
