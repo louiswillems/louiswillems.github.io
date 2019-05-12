@@ -38,7 +38,7 @@ import requests
 import re
 sns.set()
 ```
-
+<br>
 ```python
 # Some websites automatically block any kind of scraping, and that’s why I’ll define a header to pass along the get command
 # which will basically make our queries to the website look like they are coming from an actual browser. When we run the program
@@ -150,10 +150,8 @@ df.head()
 ```
 <br>
 
-
-
-
 ## 3. Exploratory Data Anlysis (EDA)
+<br>
 Before performing any data pre-processing, a general step is to explore the data to detect any outliers/missing values and other trends in the data.
 
 Common steps to check the health of the data:
@@ -168,17 +166,16 @@ df.describe()
 
 ```python
 # Let's clean the data. First, let's check if there are any null values in the dataframe.
-
 are_null_values = df.isnull().values.any()
 num_nulls = df.isnull().sum()
 print("Shape:\n",df.shape)
 print("Columns with null values:\n",num_nulls)
 print("Number of observations:\n",len(df))
+```
 
-
+```python
 #Remove duplicates & Missing values 
 data = df.drop_duplicates("Name") # drop duplicate descriptions
 data = data[['Country', 'Region','Designation','Price', 'Producer','Alcohol']]
 df_clean = data.dropna()
-
 ```
