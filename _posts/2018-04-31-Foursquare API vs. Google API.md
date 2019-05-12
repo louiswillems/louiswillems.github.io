@@ -32,7 +32,8 @@ pip install geopy
 ```
 <br>
 ### 1. Download and Clean Montreal postal codes data (Wikipedia)
-We will build a code to scrape the following Wikipedia page, https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_H, in order to obtain the data that is in the table of postal codes in Montréal and to transform the data into a pandas dataframe.
+
+We will build a code to scrape the following Wikipedia page,[List of Postal codes of Canada](https://en.wikipedia.org/wiki/List_of_postal_codes_of_Canada:_H), in order to obtain the data that is in the table of postal codes in Montréal and to transform the data into a pandas dataframe.
 
 ```python
 from bs4 import BeautifulSoup
