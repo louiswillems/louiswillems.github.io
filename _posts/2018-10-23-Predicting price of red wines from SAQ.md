@@ -260,5 +260,8 @@ error_metrics("XGBRegressor without standardizing", lasso_pred, y_test)
 error_metrics("Ridge without standardizing", ridge_pred, y_test)
 error_metrics("Lasso without standardizing", lasso_pred, y_test)
 error_metrics("XGBRegressor without standardizing", lasso_pred, y_test)
-
 ```
+<br>
+
+## Conclusion
+Lasso regression seems to come out on top but the results is not the best. It seems that there is something going on in the data that the linear models have failed to capture. Wiht more data like the description of each red wine and feature engineering, we could have a better results. With text analysis, we could to look into the relationship between description and price. If we can identify certain words or characteristics of a description associated with expensive wine, we can change the price and make it more expensive and maybe make money from this.
