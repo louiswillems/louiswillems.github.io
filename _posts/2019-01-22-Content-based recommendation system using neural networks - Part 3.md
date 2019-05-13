@@ -42,7 +42,7 @@ gcloud config set compute/region $REGION
 
 <br>
 <br>
-## 1. model.py
+### model.py
 <br>
 ```
 #!/usr/bin/env python
@@ -366,7 +366,7 @@ def build_model(args):
 
 <br>
 <br>
-## 2. task.py
+### task.py
 <br>
 
 ```
@@ -469,7 +469,7 @@ if __name__ == '__main__':
 
 ```
 <br>
-## 3. Run on Google Cloud ML Engine with Cloud Datalab in GCP
+### Run on Google Cloud ML Engine with Cloud Datalab in GCP
 ```
 %bash
 OUTDIR=gs://${BUCKET}/contentbased_dnn/labs/small_trained_model
@@ -497,7 +497,7 @@ gcloud ml-engine jobs submit training $JOBNAME \
   --throttle_secs=30
 ```
 
-## 4. TensorBoard
+### TensorBoard
 ```
 from google.datalab.ml import TensorBoard
 TensorBoard().start('gs://numericanalytics/contentbased_dnn/labs/small_trained_model')
@@ -508,7 +508,7 @@ for pid in TensorBoard.list()['pid']:
   TensorBoard().stop(pid)
   print("Stopped TensorBoard with pid {}".format(pid))
 ```
-## 5. Create model & version on Cloud ML Engine
+### Create model & version on Cloud ML Engine
 ```
 %bash
 MODEL_NAME="Contentbased_DNN_test_top3"
@@ -521,7 +521,7 @@ gcloud ml-engine models create ${MODEL_NAME} --regions $REGION
 gcloud ml-engine versions create ${MODEL_VERSION} --model ${MODEL_NAME} --origin ${MODEL_LOCATION} --runtime-version $TFVERSION
 ```
 
-## 5. Make Predictions
+### Make Predictions
 ```
 %bash
 OUTDIR=gs://${BUCKET}/contentbased_dnn/labs/small_trained_model
