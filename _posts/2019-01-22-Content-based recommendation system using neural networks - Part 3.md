@@ -15,7 +15,7 @@ In order to do this, we need to put our code into a Python package (i.e. add set
 <img class="progressiveMedia-image js-progressiveMedia-image" data-src="https://cdn-images-1.medium.com/max/2400/1*2185PkdnkS-e-jNWGC3Hpw.png" src="https://cdn-images-1.medium.com/max/2400/1*2185PkdnkS-e-jNWGC3Hpw.png">
 <br>
 <br>
-## 1. Submitting a job to ML Engine
+## Submitting a job to ML Engine
 task.py will be executed by ML Engine and it references our content-based model logic located in model.py.
 <br>
 
