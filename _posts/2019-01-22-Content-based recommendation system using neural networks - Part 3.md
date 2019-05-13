@@ -43,7 +43,6 @@ gcloud config set compute/region $REGION
 <br>
 <br>
 ### model.py
-<br>
 ```
 #!/usr/bin/env python
 # coding=utf-8
@@ -367,8 +366,6 @@ def build_model(args):
 <br>
 <br>
 ### task.py
-<br>
-
 ```
 import argparse
 import json
