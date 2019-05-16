@@ -37,17 +37,8 @@ span{
 <br>
 <hr>
 
-## Data Analyst - <small><em>Québecor - 2017/Present</em></small>
-
-
-<dl>
-  <dt>Areas of Expertise: </dt>
-  <dd>* Web Analytics </dd>
-  <dd> Data Visualization </dd>
-  <dd> Data Mining (Unsupervised ML, Text Analytics (NLP), Complex Network Analysis) </dd>
-  <dd> Machine Learning </dd>
-</dl>
-
+## Data Analyst - <small>Québecor - Present</small>
+<br>
 Areas of Expertise: 
 * Web Analytics 
 * Data Visualization
