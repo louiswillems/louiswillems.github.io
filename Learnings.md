@@ -40,8 +40,8 @@ span{
 
 
 ## Tools
-* Google Cloud AI & Machine Learning
-* TensorFlow/Keras
+* <em>Google Cloud AI & Machine Learning</em>
+* <em>TensorFlow/Keras</em>
 *
 <br>
 <br>
@@ -72,7 +72,7 @@ span{
 * <em>[Google Analytics 360](https://analytics.google.com/analytics/academy/course/8/certificate)</em>
 * <em>[From Data to Insights with Google Cloud Platform](https://www.coursera.org/account/accomplishments/specialization/certificate/N7CZZH2P5RTL)</em>
 * <em>[Data Engineering on Google Cloud Platform](https://www.coursera.org/account/accomplishments/specialization/certificate/J899XE79LVWK)</em>
-* [<em>Applied Data Science with Python](https://www.coursera.org/account/accomplishments/specialization/certificate/525K)</em>
+* <em>[Applied Data Science with Python](https://www.coursera.org/account/accomplishments/specialization/certificate/525K)</em>
 <br>
 <br>
 <br>
