@@ -62,10 +62,9 @@ Areas of Expertise:
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
 </dl>
 
-<dt>## Digital Marketing Analyst - <em><small>Ivanhoé Cambridge</small></em><dt>
-<dd>
+## Digital Marketing Analyst - <em><small>Ivanhoé Cambridge</small></em>
+<br>
 * Performance monitoring on and offline national marketing strategies for customer acquisition, behavior and, micro & macro conversions.
-
 * Advanced web and mobile app reporting to demonstrate the value of digital marketing initiatives. • Hands-on analysis using Tableau and Excel to create timely, relevant and actionable insights.
 * Responsible for data visualization, data analysis and development of dashboards for content marketing, social media and digital advertising departments using Tableau (Desktop/Server).
 * Ensure proper use of tags, maintain accurate data, setting parameters for data management and creating processes for resolving data issues.
@@ -73,7 +72,7 @@ Areas of Expertise:
 * Planning mobile app measurements with Google Analytics and Firebase. 
 * Two orientations for content and sidebar, default (left sidebar) and [reverse](https://github.com/poole/lanyon#reverse-layout) (right sidebar), available via `<body>` classes
 * [Eight optional color schemes](https://github.com/poole/lanyon#themes), available via `<body>` classes
-<dd>
+
 
 [Head to the readme](https://github.com/poole/lanyon#readme) to learn more.
 
