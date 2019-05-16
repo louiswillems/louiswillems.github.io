@@ -476,7 +476,7 @@ Google Places API:
 montreal_merge_g.loc[montreal_merge_g['Neighborhood'] == 'AnjouEast', montreal_merge_g.columns[[1] + list(range(5, montreal_merge_g.shape[1]))]].head()
 ```
 
-
+<br>
 ### Conclusion:
 The answer of what API to use is difficult. Both apps have pros and cons. <br>
 Google places it is an automatic pop up from Google and Google Maps. It is informational, but not precise. For example, if we are looking for the most relevant pharmacy we can take advantage of Google Places. The branch of Google will list the surrounding offices along with ratings, comments, and contact information but the categories for the API are not really accurate.
