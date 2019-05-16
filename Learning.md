@@ -47,7 +47,7 @@ span{
 <br>
 
 ## Books
-* An Introduction to Statistical Learning with Applications in R by Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani
+* <em>An Introduction to Statistical Learning with Applications in R by Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani</em>
 * The Elements of Statistical Learning: Data Mining, Inference, and Prediction by Trevor Hastie, Robert Tibshirani, and Jerome Friedman
 * Fuzzy Sets and Fuzzy Logic: Theory and Applications by George J. Klir and Bo Yuan
 * Life 3.0: Being Human in the Age of Artificial Intelligence by Max Tegmart
@@ -62,10 +62,17 @@ span{
 <br>
 
 ## Courses
-* Applying Machine Learning to your Data with GCP by Google Cloud Training at Coursera
-* “In-depth Introduction to Machine Learning in 15 Hours of Expert Videos” by Kevin Markham (2014) at R-bloggers or DataSchool.io (this * supplementary resource comes highly recommended and includes the slides and videos to a course by the authors of An Introduction to Statistical Learning with Applications in R, above)
-* Neural Networks and Deep Learning by Andrew Ng, Kian Katanforoosh, and Younes Bensouda Mourri at Coursera
-* Neural Networks for Machine Learning — Geoffrey Hinton 2016, a 78-video playlist by Colin McDonnell at Youtube (the Coursera course itself appears to no longer be available)
+* [Security in Google Cloud Platform Specialization](https://www.coursera.org/account/accomplishments/specialization/WJK9V23LXGFY)
+*[Advanced Machine Learning with TensorFlow on Google Cloud Platform](https://www.coursera.org/account/accomplishments/specialization/certificate/LRN9YGHY4BAE)
+* [IBM Data Science Professional Certificate Specialization](https://www.youracclaim.com/badges/af13af74-7d41-4d39-b67b-a2ab22016c16/public_url)
+* [Developing Applications with Google Cloud Platform](https://www.coursera.org/account/accomplishments/specialization/certificate/NKGH5XSL7W2J)
+* [Data Engineer - Professional Certification Preparation for Google](https://www.credential.net/11680766)
+* [Machine Learning on Google Cloud Platform](https://www.credential.net/11667811)
+* [Machine Learning with TensorFlow on Google Cloud Platform Specialization](https://www.coursera.org/account/accomplishments/specialization/7AC6ASSA7FWF)
+* [Google Analytics 360](https://analytics.google.com/analytics/academy/course/8/certificate)
+* [From Data to Insights with Google Cloud Platform](https://www.coursera.org/account/accomplishments/specialization/certificate/N7CZZH2P5RTL)
+* [Data Engineering on Google Cloud Platform](https://www.coursera.org/account/accomplishments/specialization/certificate/J899XE79LVWK)
+* [Applied Data Science with Python](https://www.coursera.org/account/accomplishments/specialization/certificate/525K)
 <br>
 <br>
 <br>
