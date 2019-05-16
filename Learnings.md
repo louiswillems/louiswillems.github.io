@@ -34,7 +34,7 @@ span{
   animation: blink 1s infinite;
 }
 </style>
-<p class="css-typing">My Open-Source Machine Learning Journey </p>
+<p class="css-typing">Some informations about my open-source Machine Learning Journey </p>
 <br>
 <hr>
 
