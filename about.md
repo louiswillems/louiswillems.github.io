@@ -37,12 +37,8 @@ span{
 <br>
 <hr>
 
-## Data Scientist
+## Data Analyst <em><small>Québecor</small></em>
 2017 — Present
-Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
-
-
-Poole is the Jekyll Butler, serving as an upstanding and effective foundation for Jekyll themes by [@mdo](https://twitter.com/mdo). Poole, and every theme built on it (like Lanyon here) includes the following:
 
 Areas of Expertise: 
 * Web Analytics 
@@ -62,7 +58,7 @@ Areas of Expertise:
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
 </dl>
 
-## Digital Marketing Analyst - <em><small>Ivanhoé Cambridge</small></em>
+## Digital Marketing Analyst - <em><small>Ivanhoé Cambridge - 2016/2017</small></em>
 <br>
 * Performance monitoring on and offline national marketing strategies for customer acquisition, behavior and, micro & macro conversions.
 * Advanced web and mobile app reporting to demonstrate the value of digital marketing initiatives. • Hands-on analysis using Tableau and Excel to create timely, relevant and actionable insights.
