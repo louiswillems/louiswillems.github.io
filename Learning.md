@@ -14,16 +14,29 @@ title: Learning
 
 Lanyon is an unassuming [Jekyll](http://jekyllrb.com) theme that places content first by tucking away navigation in a hidden drawer. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 
-## Data Scientist
-2017 — Present
-Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
+## Tools
+<br>
+* Google Cloud AI & Machine Learning
+* TensorFlow/Keras
+*
+
+## Books
+<br>
+* An Introduction to Statistical Learning with Applications in R by Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani
+* The Elements of Statistical Learning: Data Mining, Inference, and Prediction by Trevor Hastie, Robert Tibshirani, and Jerome Friedman
+* Fuzzy Sets and Fuzzy Logic: Theory and Applications by George J. Klir and Bo Yuan
+* Life 3.0: Being Human in the Age of Artificial Intelligence by Max Tegmart
+* Machine Learning: The New AI by Ethem Alpaydin
+* The Master Algorithm: How the Quest for the Ultimate Learning Machine Will Remake Our World by Pedro Domingos
+* Nexus (The Nexus Trilogy Book 1) by Ramez Naam (this is the only fiction book on the list)
+* Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering by Steven H. Strogatz
+* On Intelligence: How a New Understanding of the Brain Will Lead to the Creation of Truly Intelligent Machines by Jeff Hawkins and Sandra Blakeslee
+* Our Mathematical Universe: My Quest for the Ultimate Nature of Reality by Max Tegmart
 
 
-Poole is the Jekyll Butler, serving as an upstanding and effective foundation for Jekyll themes by [@mdo](https://twitter.com/mdo). Poole, and every theme built on it (like Lanyon here) includes the following:
-
-Areas of Expertise: 
-* Web Analytics 
-* Data Visualization
-* Data Mining (Unsupervised ML, Text Analytics (NLP), Complex Network Analysis)
-* Deep Learning
-
+## Courses
+<br>
+* Applying Machine Learning to your Data with GCP by Google Cloud Training at Coursera
+* “In-depth Introduction to Machine Learning in 15 Hours of Expert Videos” by Kevin Markham (2014) at R-bloggers or DataSchool.io (this * supplementary resource comes highly recommended and includes the slides and videos to a course by the authors of An Introduction to Statistical Learning with Applications in R, above)
+* Neural Networks and Deep Learning by Andrew Ng, Kian Katanforoosh, and Younes Bensouda Mourri at Coursera
+* Neural Networks for Machine Learning — Geoffrey Hinton 2016, a 78-video playlist by Colin McDonnell at Youtube (the Coursera course itself appears to no longer be available)
