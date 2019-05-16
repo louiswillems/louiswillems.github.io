@@ -47,16 +47,17 @@ span{
 <br>
 
 ## Books
-* <em>An Introduction to Statistical Learning with Applications in R by Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani</em>
+* <em>Data Science on the Google Cloud Platform by Valliappa Lakshmanan</em>
+* <em>Two Scoops of Django: Best Practices for Django 1.8 Book by Audrey Roy and Daniel Roy Greenfeld</em>
+* <em>Python Machine Learning by Sebastian Raschka</em>
+* <em>Machine Learning Mastery with Python by Jason Brownlee</em>
 * <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction by Trevor Hastie, Robert Tibshirani, and Jerome Friedman</em>
-* <em>Fuzzy Sets and Fuzzy Logic: Theory and Applications by George J. Klir and Bo Yuan</em>
-* <em>Life 3.0: Being Human in the Age of Artificial Intelligence by Max Tegmart</em>
-* <em>Machine Learning: The New AI by Ethem Alpaydin</em>
-* <em>The Master Algorithm: How the Quest for the Ultimate Learning Machine Will Remake Our World by Pedro Domingos</em>
-* <em>Nexus (The Nexus Trilogy Book 1) by Ramez Naam (this is the only fiction book on the list)</em>
-* <em>Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering by Steven H. Strogatz</em>
-* <em>On Intelligence: How a New Understanding of the Brain Will Lead to the Creation of Truly Intelligent Machines by Jeff Hawkins and Sandra Blakeslee</em>
-* <em>Our Mathematical Universe: My Quest for the Ultimate Nature of Reality by Max Tegmart</em>
+* <em>Python Machine Learning Case Studies by Danish Haroon</em>
+* <em>Django 2.1 by Nigel George </em>
+* <em>Hands-On Machine Learning with Scikit-Learn and TensorFlow by Aurélien Géron </em>
+* <em>Complex Network Analysis in Python by Dmitry Zinovie</em>
+* <em>Text Analytics with Python by Dipanjan Sarkar</em>
+* <em>Introduction to Machine Learning with Python by Andreas C. Müller & Sarah Guido</em>
 
 <br>
 <br>
