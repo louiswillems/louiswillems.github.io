@@ -88,4 +88,3 @@ Areas of Expertise:
 <br>
 <br>
 <br>
-[Linkedin](https://www.linkedin.com/in/louiswillems/).
