@@ -37,28 +37,27 @@ span{
 <br>
 <hr>
 
-## Data Analyst <em><small>Québecor</small></em>
-2017 — Present
+## Data Analyst - <small><em>Québecor - 2017/Present</em></small>
+
+
+<dl>
+  <dt>Areas of Expertise: </dt>
+  <dd>* Web Analytics </dd>
+  <dd> Data Visualization </dd>
+  <dd> Data Mining (Unsupervised ML, Text Analytics (NLP), Complex Network Analysis) </dd>
+  <dd> Machine Learning </dd>
+</dl>
 
 Areas of Expertise: 
 * Web Analytics 
 * Data Visualization
 * Data Mining (Unsupervised ML, Text Analytics (NLP), Complex Network Analysis)
-* Deep Learning
+* Machine Learning
 
 <br>
 <br>
 
-
-<dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
-
-## Digital Marketing Analyst - <em><small>Ivanhoé Cambridge - 2016/2017</small></em>
+## Digital Marketing Analyst - <small><em>Ivanhoé Cambridge - 2016/2017</em></small>
 <br>
 * Performance monitoring on and offline national marketing strategies for customer acquisition, behavior and, micro & macro conversions.
 * Advanced web and mobile app reporting to demonstrate the value of digital marketing initiatives. • Hands-on analysis using Tableau and Excel to create timely, relevant and actionable insights.
