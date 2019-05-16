@@ -62,7 +62,7 @@ Areas of Expertise:
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
 </dl>
 
-<dt>## Digital Marketing Analyst - <em>Ivanhoé Cambridge</em><dt>
+<dt>## Digital Marketing Analyst - <em><small>Ivanhoé Cambridge</small></em><dt>
 <dd>
 * Performance monitoring on and offline national marketing strategies for customer acquisition, behavior and, micro & macro conversions.
 
