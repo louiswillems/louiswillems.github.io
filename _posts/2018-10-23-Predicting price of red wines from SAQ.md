@@ -279,4 +279,4 @@ error_metrics("XGBRegressor without standardizing", lasso_pred, y_test)
 <img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
 <br>
 ## Conclusion
-Lasso and Ridge regression seems to come out on top but the results is not the best. It seems that there is something going on in the data that the linear models have failed to capture. Maybe Wiht more data like the description of each red wine and then feature engineering we can look into the relationship between description and price and identify certain words or characteristics of a description associated with expensive and less expensive wines.
+Lasso and Ridge regression seems to come out on top but the results is not the best. It seems that there is something going on in the data that the linear models have failed to capture. Maybe with more data like red wine descriptions we could look into the relationship between descriptions and price and then identify certain words or characteristics of a description associated with expensive and less expensive wines.
