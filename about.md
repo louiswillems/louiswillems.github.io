@@ -56,11 +56,6 @@ Areas of Expertise:
 * Collaboration with several external agencies to assist with data collection from different data sources (web, mobile app, indoor Wi-Fi positioning, and digital directories).
 * Planning mobile app measurements with Google Analytics and Firebase. 
 
-
-<br>
-* Two orientations for content and sidebar, default (left sidebar) and [reverse](https://github.com/poole/lanyon#reverse-layout) (right sidebar), available via `<body>` classes
-* [Eight optional color schemes](https://github.com/poole/lanyon#themes), available via `<body>` classes
-
 <br>
 <br>
 
@@ -90,4 +85,4 @@ Areas of Expertise:
 
 
 
-[Head to the readme](https://github.com/poole/lanyon#readme) to learn more.
+[Linkedin](https://www.linkedin.com/in/louiswillems/) to learn more.
