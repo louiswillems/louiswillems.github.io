@@ -280,3 +280,15 @@ error_metrics("XGBRegressor without standardizing", lasso_pred, y_test)
 <br>
 ## Conclusion
 Lasso and Ridge regression seems to come out on top but the results is not the best. It seems that there is something going on in the data that the linear models have failed to capture. Maybe with more data like red wine descriptions we could look into the relationship between descriptions and price and then identify certain words or characteristics of a description associated with expensive and less expensive wines.
+
+<br>
+<br>
+<br>
+<br>
+
+***
+
+<br>
+<br>
+<br>
+<br>
