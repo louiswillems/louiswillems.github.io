@@ -63,6 +63,7 @@ span{
 <br>
 
 ## Courses
+* <em>[Machine Learning for Business Professionals](https://www.coursera.org/account/accomplishments/records/MMX587GVST6E)</em>
 * <em>[Security in Google Cloud Platform Specialization](https://www.coursera.org/account/accomplishments/specialization/WJK9V23LXGFY)</em>
 * <em>[Advanced Machine Learning with TensorFlow on Google Cloud Platform](https://www.coursera.org/account/accomplishments/specialization/certificate/LRN9YGHY4BAE)</em>
 * <em>[IBM Data Science Professional Certificate Specialization](https://www.youracclaim.com/badges/af13af74-7d41-4d39-b67b-a2ab22016c16/public_url)</em>
