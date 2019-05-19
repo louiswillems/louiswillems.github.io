@@ -40,9 +40,14 @@ span{
 
 
 ## Tools
-* <em>Google Cloud AI & Machine Learning</em>
 * <em>TensorFlow/Keras</em>
-*
+* <em>Cloud Datalab/Jupyter/Colab/</em>
+* <em>Scikit-learn</em>
+* <em>Pandas</em>
+* <em>Matplotlib/em>
+ * <em>Plotly</em>
+* <em>Google Cloud AI & Machine Learning</em>
+
 <br>
 <br>
 
