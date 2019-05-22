@@ -51,7 +51,7 @@ span{
 <br>
 <br>
 
-## Books
+## Preferred Books
 * <em>Data Science on the Google Cloud Platform by Valliappa Lakshmanan</em>
 * <em>Two Scoops of Django: Best Practices for Django 1.8 Book by Audrey Roy and Daniel Roy Greenfeld</em>
 * <em>Python Machine Learning by Sebastian Raschka</em>
