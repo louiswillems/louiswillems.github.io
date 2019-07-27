@@ -174,6 +174,8 @@ HTML(html)
 <br>
 <br>
 
+<embed src="https://storage.googleapis.com/app-praticadr-static/rotten_fresh_stdense.html" width=200 height=200 onerror="alert('URL invalid !!');" />
+
 ## Conclusion
 It is the words at the top left and bottom right which show the key differences between the most and least reads news articles.
 This tool can be used to create more effective content marketing strategies, inform future content marketing development and also can help to remove or change some keywords from headlines.
