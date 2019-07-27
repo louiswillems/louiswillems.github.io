@@ -1,3 +1,10 @@
+---
+layout: post
+title: Scattertext
+---
+
+
+
 <!-- some code adapted from www.degeneratestate.org/static/metal_lyrics/metal_line.html -->
 <!-- <!DOCTYPE html>
 <meta content="utf-8"> -->
