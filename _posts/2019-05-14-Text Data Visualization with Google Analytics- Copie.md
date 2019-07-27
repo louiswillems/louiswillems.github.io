@@ -135,7 +135,7 @@ plt.show()
 
 <br>
 <br>
-<img height="270" width="650" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/most_least_reads.JPG" src="/public/most_least_reads.JPG">
+<img height="370" width="650" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/most_least_reads.JPG" src="/public/most_least_reads.JPG">
 <br>
 <br>
 
