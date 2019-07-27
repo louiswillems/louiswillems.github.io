@@ -29,7 +29,7 @@ This notebook illustrates how to:
 
 ## 1. Pull data from Bigquery
 <br>
-#### Kurier.at Google Analytics sample dataset from BigQuery
+### Kurier.at Google Analytics sample dataset from BigQuery
 The query contains 2 columns, first column “headline” shows the title of the articles news and the second column is the number of pagesviews for each article.
 <br>
 
@@ -85,9 +85,9 @@ print(df_bq.shape)
 
 ## 2. NLP with Spacy
 <br>
-#### Load Spacy Language Model
+### Load Spacy Language Model
 For this step you have to ensure that spacy is installed on your notebook and then you load the german language modelé
-
+<br>
 ```python
 pip install scattertext
 python -m spacy download de_core_news_md
@@ -103,7 +103,7 @@ nlp = de_core_news_md.load()
 
 ## 3. Visualize words frequency vs popularity of articles
 <br>
-#### Set a threshold
+### Set a threshold
 Before we plot our text data visualization tool, we need to set a threshold for our pageviews in order to split our data into most least reads news articles
 <br>
 
@@ -137,15 +137,15 @@ plt.show()
 <br>
 <br>
 
-#### Parse Speech text using Spacy
-SpaCy features a fast and accurate syntactic dependency parser, and has a rich API for navigating the tree. The parser also powers the sentence boundary detection, and lets you iterate over base noun phrases, or “chunks”. You can see the parsed text column and the text is tokenized after lemmetization and stemming
+### Parse Speech text using Spacy
+You can see the parsed text column and the text is tokenized after lemmetization and stemming. While punctuation rules are usually pretty general, tokenizer exceptions strongly depend on the specifics of the individual language. This is why each available language has its own subclass like English or German, that loads in lists of hard-coded data and exception rules.
 <br>
 
 ```python
 data['headline_clean'] = data.headline.apply(lambda text: 
                                           " ".join(token.text for token in nlp(text) if not token.is_stop))
 
-# Pre-trained model with Spacy
+# Tokenization with pre-trained model with Spacy
 data['parsed'] = data.headline_clean.apply(nlp)
 
 # ScatterText
@@ -167,15 +167,8 @@ IFrame(src=file_name, width = 1300, height=700)
 HTML(html)
 ```
 
-```python
-#Remove duplicates & Missing values 
-data = df.drop_duplicates("Name") # drop duplicate descriptions
-data = data[['Country', 'Region','Designation','Price', 'Producer','Alcohol']]
-df_clean = data.dropna()
-```
-
 <br>
-<img height="570" width="550" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
+<img height="570" width="550" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/german_scattertext.JPG">
 <br>
 <br>
 
