@@ -13,7 +13,7 @@ The goal of post is to create a text data visualization tool that is intended vi
 
 This notebook illustrates how to:
 
-* Pull the data from Bigquery
+* Pull data from Bigquery
 * Use a pre-trained statistical models in German with Spacy
 * Visualize words frequency vs popularity of articles
 
@@ -21,56 +21,62 @@ This notebook illustrates how to:
 <br>
 <br>
 
-<img height="420" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prediction.JPG" src="/public/saq_prediction.JPG">
+<img height="420" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prediction.JPG" src="/public/scattertext_example.JPG">
 <br>
 <br>
 
 
 
-## 1. Get red wines URLs from SAQ.com
+## 1. Pull data from Bigquery
 <br>
-#### Scrapy vs Beautifulsoup 
-Our project is small, the logic is not very complex and we want job done quickly, so we will use use BeautifulSoup to keep our project simple. If your project needs more customization such as proxy, data pipeline, then the Scrapy might be a best choice.
+#### Kurier.at Google Analytics dataset from BigQuery
+The query contains 2 columns, first column “headline” shows the title of the articles news and the second column is the number of Pagesviews for each article
 <br>
 ```python
-from bs4 import BeautifulSoup
-from requests import get
-import itertools
-import matplotlib.pyplot as plt
-import seaborn as sns
+%matplotlib inline
+import scattertext as st
+import re, io
+from pprint import pprint
 import pandas as pd
-import requests
-import re
-sns.set()
+import numpy as np
+from scipy.stats import rankdata, hmean, norm
+import spacy
+import os, pkgutil, json, urllib
+from urllib.request import urlopen
+from IPython.display import IFrame
+from IPython.core.display import display, HTML
+from scattertext import CorpusFromPandas, produce_scattertext_explorer
 ```
 <br>
 ```python
-# Some websites automatically block any kind of scraping, and that’s why I’ll define a header to pass along the get command
-# which will basically make our queries to the website look like they are coming from an actual browser. When we run the program
-# I’ll have a sleep command between pages, so we can mimic a “more human” behavior and don’t overload the site with several requests per second
-# You will get blocked if you scrape too aggressively, so it’s a nice policy to be polite while scraping
+project_id = <YOUR PROJECT FROM GCP>
 
-def saq_urls():
-    headers = ({'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})
-    wine_list = ['https://www.saq.com/webapp/wcs/stores/servlet/SearchDisplay?storeId=20002&catalogId=50000&langId=-1&categoryIdentifier=0602&pageSize=500']
-    for w in wine_list:
-      source = requests.get(w, headers=headers).text
-      soup = BeautifulSoup(requests.get(w).text)
-      saq_containers = soup.find_all('div', class_="ColD affichageMozaique")
-      first = saq_containers[0]
-      #get all the links
-      wine_list = [url.get('href') for url in first.find_all('a')[1:]]
-      complet_list = list(dict.fromkeys(wine_list))
-    return complet_list
+df_bq = pd.io.gbq.read_gbq('''
+#standardSQL
+SELECT
+(SELECT MAX(IF(index=6, value, NULL)) FROM UNNEST(hits.customDimensions)) AS headline,
+  SUM(totals.pageviews) AS Pageviews
+FROM
+  `cloud-training-demos.GA360_test.ga_sessions_sample`,
+  UNNEST(hits) AS hits
+WHERE
+     # only include hits on pages
+      hits.type = "PAGE"
+      AND
+      fullVisitorId IS NOT NULL
+      AND
+      hits.time != 0
+      AND
+      hits.time IS NOT NULL
+      AND
+      (SELECT MAX(IF(index=10, value, NULL)) FROM UNNEST(hits.customDimensions)) IS NOT NULL
+GROUP BY
+  headline
+ORDER BY
+  Pageviews DESC
+''', project_id=project_id, verbose=False, dialect='standard')
+print(df_bq.shape)
 ```
-<br>
-<br>
-<img height="570" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/saq_website1.JPG">
-<br>
-<br>
-<br>
-<br>
-<img height="570" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website2.JPG" src="/public/saq_website2.JPG">
 <br>
 ## 2. Get data from URLS
 ```python
