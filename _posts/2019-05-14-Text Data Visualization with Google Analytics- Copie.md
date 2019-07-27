@@ -29,9 +29,10 @@ This notebook illustrates how to:
 
 ## 1. Pull data from Bigquery
 <br>
-#### Kurier.at Google Analytics sample dataset from BigQuery
-The query contains 2 columns, first column “headline” shows the title of the articles news and the second column is the number of Pagesviews for each article
+####Kurier.at Google Analytics sample dataset from BigQuery
+The query contains 2 columns, first column “headline” shows the title of the articles news and the second column is the number of pagesviews for each article.
 <br>
+
 ```python
 %matplotlib inline
 import matplotlib.pyplot as plt
@@ -49,6 +50,7 @@ from IPython.core.display import display, HTML
 from scattertext import CorpusFromPandas, produce_scattertext_explorer
 ```
 <br>
+
 ```python
 project_id = <YOUR PROJECT FROM GCP>
 
@@ -79,6 +81,7 @@ ORDER BY
 print(df_bq.shape)
 ```
 <br>
+
 ## 2. NLP with Spacy
 <br>
 #### Load Spacy Language Model
