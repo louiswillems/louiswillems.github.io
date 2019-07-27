@@ -88,6 +88,7 @@ print(df_bq.shape)
 ### Load Spacy Language Model
 For this step you have to ensure that spacy is installed on your notebook and then you load the german language modelé
 <br>
+
 ```python
 pip install scattertext
 python -m spacy download de_core_news_md
@@ -131,6 +132,7 @@ fig = plt.figure(figsize=(8,6))
 data.groupby('binned').headline.count().plot(kind='barh', zorder=2, width=0.85)
 plt.show()
 ```
+
 <br>
 <br>
 <img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/most_least_reads.JPG" src="/public/most_least_reads.JPG">
