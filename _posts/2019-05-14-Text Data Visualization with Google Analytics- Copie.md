@@ -9,7 +9,7 @@ In this post, we will build a scatterplot tool for text. For this, we'll collect
 
 We will upload a sample of Google Analytics data from this news site, This sample contains page tracking events.
 
-The goal of post is to create a text data visualization tool that is intended visualizing most frequents words of most and less popular news articles.
+The goal of post is to create a text data visualization tool that is intended visualizing most frequents words of most and least reads news articles.
 
 This notebook illustrates how to:
 
@@ -21,7 +21,7 @@ This notebook illustrates how to:
 <br>
 <br>
 
-<img height="420" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prediction.JPG" src="/public/scattertext_example.JPG">
+<img height="420" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prediction.JPG" src="/public/scattertext_example.png">
 <br>
 <br>
 
@@ -29,11 +29,12 @@ This notebook illustrates how to:
 
 ## 1. Pull data from Bigquery
 <br>
-#### Kurier.at Google Analytics dataset from BigQuery
+#### Kurier.at Google Analytics sample dataset from BigQuery
 The query contains 2 columns, first column “headline” shows the title of the articles news and the second column is the number of Pagesviews for each article
 <br>
 ```python
 %matplotlib inline
+import matplotlib.pyplot as plt
 import scattertext as st
 import re, io
 from pprint import pprint
@@ -78,110 +79,61 @@ ORDER BY
 print(df_bq.shape)
 ```
 <br>
-## 2. Get data from URLS
+## 2. NLP with Spacy
+<br>
+#### Load Spacy Language Model
+For this step you have to ensure that spacy is installed on your notebook and then you load the german language model
 ```python
-name = []
-price = []
-producer = []
-wines_info = []
+!pip install scattertext
+!python -m spacy download de_core_news_md
 
-for page in wines_list:
-  source = requests.get(page).text
-  soup = BeautifulSoup(source)
-  
-  w_name = soup.find_all("h1", {"class": "product-description-title"})
-  w_price = soup.find_all("p", {"class": "price"})
-  w_producer = soup.find_all("td", {"class": "product-detailsR"})[0]
-  w_infos = soup.find_all("div", {"id": "details"})
-  
-  for info in w_name:
-    nm = info.text
-    name.append(nm)
-   
-  for info in w_price:
-    pc = info.text
-    pc1 = pc.replace('Regular price:  ','')
-    pc2 = pc1.replace('$','')
-    price.append(pc2)
-  
-   
-  for info in w_producer:
-    pd = info.text
-    producer.append(pd)
-    
-    
-  for info in w_infos:
-    ac = info.text.strip()
-    ac1 = ac.replace('\n','')
-    ac2 = ac1.replace(' ','')
-    ac3 = ac2.replace('\r',' ')
-    wines_info.append(ac3)
-    # len(wines_info)
-    # wines_info
-    
-    
-    def nextword(target, source):
-      for i, w in enumerate(source):
-        if w == target:
-          return source[i+1]
-        
+import spacy
+import de_core_news_md
+from spacy.lang.de import German
 
-# Country  
-country = [nextword('DetailedinfoCountry', s.split()) for s in wines_info]
-
-# Region 
-region = [nextword('Region', s.split()) for s in wines_info]
-
-# Designation of origin 
-origin = [nextword('Designationoforigin', s.split()) for s in wines_info]
-
-# Regulateddesignation
-designation = [nextword('Regulateddesignation', s.split()) for s in wines_info]
-
-# Size
-size = [nextword('Size', s.split()) for s in wines_info]
-
-# Alcohol
-alcohol = [nextword('Degreeofalcohol', s.split()) for s in wines_info]
-
-# Sugar
-sg = [nextword('%', s.split()) for s in wines_info]
-sg1 = [s.rpartition('Sugarcontent')[2] for s in sg]
-sugar = [s[0:3] for s in sg1]
-
-print('Number of lines for Country: {} '.format(len(country)))
-print('Number of lines for Region: {} '.format(len(region)))
-print('Number of lines for Origin: {} '.format(len(origin)))
-print('Number of lines for Designation: {} '.format(len(designation)))
-print('Number of lines for Producer: {} '.format(len(producer)))
-print('Number of lines for Size: {} '.format(len(size)))
-print('Number of lines for Alcohol: {} '.format(len(alcohol)))
-print('Number of lines for Sugar: {} '.format(len(sugar)))
-
-
-#Create dataframe
-import pandas as pd
-cols = ['Name', 'Country', 'Region', 'Origin', 'Designation', 'Producer', 'Size','Alcohol', 'Sugar','Price']
-df['Price'] = df['Price'].apply(pd.to_numeric, errors='coerce')
-df = pd.DataFrame({'Name': name, 'Country': country, 'Region': region, 'Origin':origin, 'Designation':designation, 'Producer':producer, 'Size': size, 'Alcohol': alcohol, 'Sugar': sugar, 'Price': price})[cols]
-df.head()
+nlp = de_core_news_md.load()
 ```
 
 <br>
 
-## 3. Exploratory Data Anlysis & Cleaning
+## 3. Visualize words frequency vs popularity of articles
 <br>
-Before performing any data pre-processing, a general step is to explore the data to detect any outliers/missing values and other trends in the data.
-
-Common steps to check the health of the data:
-* Check for missing data
-* Check the skewness of the data, outlier detection
-etc...
+#### Set a threshold
+Before we plot our text data visualization tool, we need to set a threshold for our pageviews in order to split our data into most pupular and less populars news articles
 <br>
 
 ```python
-df.describe()
+
+threshold = 100
+
+# Copy
+data = df_bq.copy()
+
+# Max Pageviews
+max = data['pageviews'].max()
+
+# binned
+custom_bucket_array= [0, threshold, max]
+labels = ['least reads','most reads']
+
+data['binned'] = pd.cut(data['pageviews'], bins=custom_bucket_array, labels=labels)
+data['binned'].apply(pd.to_numeric, errors='coerce')
+
+# drop NA
+data.dropna(inplace=True)
+
+fig = plt.figure(figsize=(8,6))
+data.groupby('binned').headline.count().plot(kind='barh', zorder=2, width=0.85)
+plt.show()
 ```
+<br>
+<br>
+<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/most_least_reads.JPG" src="/public/saq_prices.JPG">
+<br>
+<br>
+
+
+
 
 ```python
 # Let's clean the data. First, let's check if there are any null values in the dataframe.
