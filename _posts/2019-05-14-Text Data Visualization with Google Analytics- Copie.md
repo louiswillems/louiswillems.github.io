@@ -5,7 +5,7 @@ title: Text Data Visualization with Google Analytics
 
 <br>
 <br>
-In this post, we will build a scatterplot tool for text. For this, we'll collect the data from the publicly available Kurier.at dataset in BigQuery. Kurier.at is an Austrian newsite.
+In this post, we will build a scatter plot tool for text. For this, we'll collect the data from the publicly available Kurier.at dataset in BigQuery. Kurier.at is an Austrian newsite.
 
 We will upload a sample of Google Analytics data from this news site, This sample contains page tracking events.
 
@@ -89,8 +89,8 @@ print(df_bq.shape)
 For this step you have to ensure that spacy is installed on your notebook and then you load the german language modelé
 
 ```python
-!pip install scattertext
-!python -m spacy download de_core_news_md
+pip install scattertext
+python -m spacy download de_core_news_md
 
 import spacy
 import de_core_news_md
@@ -104,7 +104,7 @@ nlp = de_core_news_md.load()
 ## 3. Visualize words frequency vs popularity of articles
 <br>
 #### Set a threshold
-Before we plot our text data visualization tool, we need to set a threshold for our pageviews in order to split our data into most pupular and less populars news articles
+Before we plot our text data visualization tool, we need to set a threshold for our pageviews in order to split our data into most least reads news articles
 <br>
 
 ```python
@@ -133,18 +133,38 @@ plt.show()
 ```
 <br>
 <br>
-<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/most_least_reads.JPG" src="/public/saq_prices.JPG">
+<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/most_least_reads.JPG" src="/public/most_least_reads.JPG">
 <br>
 <br>
 
+#### Parse Speech text using Spacy
+SpaCy features a fast and accurate syntactic dependency parser, and has a rich API for navigating the tree. The parser also powers the sentence boundary detection, and lets you iterate over base noun phrases, or “chunks”. You can see the parsed text column and the text is tokenized after lemmetization and stemming
+<br>
 
 ```python
-# Let's clean the data. First, let's check if there are any null values in the dataframe.
-are_null_values = df.isnull().values.any()
-num_nulls = df.isnull().sum()
-print("Shape:\n",df.shape)
-print("Columns with null values:\n",num_nulls)
-print("Number of observations:\n",len(df))
+data['headline_clean'] = data.headline.apply(lambda text: 
+                                          " ".join(token.text for token in nlp(text) if not token.is_stop))
+
+# Pre-trained model with Spacy
+data['parsed'] = data.headline_clean.apply(nlp)
+
+# ScatterText
+corpus = st.CorpusFromParsedDocuments(data, category_col='binned', parsed_col='parsed').build()
+html = produce_scattertext_explorer(corpus,
+                                    category='plus populaires',
+                                    not_category_name='moins populaires',
+                                    width_in_pixels=1000,
+                                    minimum_term_frequency=10,
+                                    pmi_filter_thresold=10,
+                                    term_ranker=st.OncePerDocFrequencyRanker,
+                                    sort_by_dist=False)
+
+# Save file
+import os
+file_name = 'text_analytics.html'
+open(file_name, 'wb').write(html.encode('utf-8'))
+IFrame(src=file_name, width = 1300, height=700)
+HTML(html)
 ```
 
 ```python
@@ -160,4 +180,4 @@ df_clean = data.dropna()
 <br>
 
 ## Conclusion
-Lasso regression seems to come out on top but the results is not the best. It seems that there is something going on in the data that the linear models have failed to capture. Wiht more data like the description of each red wine and feature engineering, we could maybe get better results. Indeed, with text descriptions, we can look into the relationship between description and price and identify certain words or characteristics of a description associated with expensive and less expensive wines.
+You have seen how you can make good insight of your data using Scattertext in an easy and flexible without much of efforts. There are numerous other examples which can be found on their github page here. it provides a wide range of other ways to visualize your text data like Visualizing term association, Visualizing Empath topics and categories, Ordering Terms by Corpus Characteristictness, Document based scatter plots and many other advance usage of Text Data Visualization
