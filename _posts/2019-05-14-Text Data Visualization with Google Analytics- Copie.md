@@ -29,7 +29,7 @@ This notebook illustrates how to:
 
 ## 1. Pull data from Bigquery
 <br>
-####Kurier.at Google Analytics sample dataset from BigQuery
+#### Kurier.at Google Analytics sample dataset from BigQuery
 The query contains 2 columns, first column “headline” shows the title of the articles news and the second column is the number of pagesviews for each article.
 <br>
 
