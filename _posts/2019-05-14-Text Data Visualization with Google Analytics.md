@@ -174,7 +174,7 @@ HTML(html)
 <br>
 <br>
 
-<embed src="https://storage.googleapis.com/app-praticadr-static/rotten_fresh_stdense.html" width=200 height=200 onerror="alert('URL invalid !!');" />
+<embed src="https://storage.googleapis.com/app-praticadr-static/rotten_fresh_stdense.html" width=200 height=200>
 
 ## Conclusion
 It is the words at the top left and bottom right which show the key differences between the most and least reads news articles.
