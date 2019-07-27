@@ -1,6 +1,6 @@
 ---
-layout: post
-title: Scattertext
+layout: page
+title: Text Data Visualization from Kurier.at
 ---
 
 
