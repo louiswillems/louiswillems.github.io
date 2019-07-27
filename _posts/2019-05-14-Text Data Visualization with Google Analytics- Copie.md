@@ -170,9 +170,10 @@ HTML(html)
 ```
 
 <br>
-<img height="670" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/german_scattertext.JPG">
+<img height="670" width="1000" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/german_scattertext.JPG">
 <br>
 <br>
 
 ## Conclusion
-You have seen how you can make good insight of your data using Scattertext in an easy and flexible without much of efforts. There are numerous other examples which can be found on their github page here. it provides a wide range of other ways to visualize your text data like Visualizing term association, Visualizing Empath topics and categories, Ordering Terms by Corpus Characteristictness, Document based scatter plots and many other advance usage of Text Data Visualization.
+It is the words at the top left and bottom right which show the key differences between the most and least reads news articles.
+This tool can be used to create more effective content marketing strategies, inform future content marketing development and also can help to remove or change some keywords from headlines.
