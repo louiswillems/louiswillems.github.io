@@ -21,7 +21,7 @@ This notebook illustrates how to:
 <br>
 <br>
 
-<img height="420" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prediction.JPG" src="/public/scattertext_example.png">
+<img height="460" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prediction.JPG" src="/public/scattertext_example.png">
 <br>
 <br>
 
