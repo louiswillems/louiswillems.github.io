@@ -243,4 +243,16 @@ We can monitor the performance of our training job using Tensorboard
 from google.datalab.ml import TensorBoard
 TensorBoard().start('/<YOURPATH>')
  ```
+ 
+ <br>
+<br>
+<br>
+<br>
+
+***
+
+<br>
+<br>
+<br>
+<br>
 

@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Predicting price of red wines from SAQ.com (Société des alcools du Québec)
+title: Predicting prices of red wines from SAQ.com (Société des alcools du Québec)
 ---
 
 <br>
 <br>
-In this post, we will build a regression model in roder to predict the price of red wine from data that we will get from the SAQ website (Société des alcools du Québec). For this, we will first extract the data from SAQ.com. After we get the data that we need, we will built our regressor model to predict the price of red wines.
+In this post, we will build a regression model in order to predict the prices of red wines from data that we will get from SAQ website (Société des alcools du Québec). To do so, we will first extract the data from SAQ.com. Once we get the data that we need, we will build our regressor model to predict the prices of red wines.
 
 In order to do this, we will :
 * Extract the data
-* Built our model
+* Build our model
 <br>
 <br>
 <br>
@@ -23,7 +23,7 @@ In order to do this, we will :
 ## 1. Get red wines URLs from SAQ.com
 <br>
 #### Scrapy vs Beautifulsoup 
-Our project is small, the logic is not very complex and we want job done quickly, so we will use use BeautifulSoup to keep our project simple. If your project needs more customization such as proxy, data pipeline, then the Scrapy might be a best choice.
+Our project is small, the logic is not very complex and we want the job done quickly, so we will use BeautifulSoup to keep our project simple. If your project needs more customization such as proxy, data pipeline, then Scrapy might be a better choice.
 <br>
 ```python
 from bs4 import BeautifulSoup
@@ -156,11 +156,11 @@ df.head()
 
 <br>
 
-## 3. Exploratory Data Anlysis & Cleaning
+## 3. Exploratory Data Analysis & Cleaning
 <br>
 Before performing any data pre-processing, a general step is to explore the data to detect any outliers/missing values and other trends in the data.
 
-Common steps to check the health of the data:
+Common steps to check the data:
 * Check for missing data
 * Check the skewness of the data, outlier detection
 etc...
@@ -190,11 +190,11 @@ data_less_outliers = data[df_clean["Price"] < 1000]
 data_less_outliers.Price.plot(kind = 'hist', bins = 100, color = "#3F5D7D", fontsize=12)
 ```
 <br>
-Actually, there are some pretty expensive wines in the dataset. In fact, 90 % of the data comes in below 100 dollars. So, we will remove these more expensive wines and predict red wine prices.
+Actually, there are some pretty expensive wines in the dataset. In fact, 90 % of the data come in below 100 dollars. So, we will remove these more expensive wines and predict red wine prices.
 <br>
 <br>
 <br>
-<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_country_price.jpg" src="/public/saq_country_price.jpg">
+<img height="670" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prices2.JPG" src="/public/saq_prices2.JPG">
 <br>
 <br>
 <img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prices.JPG" src="/public/saq_prices.JPG">
@@ -276,10 +276,20 @@ error_metrics("Ridge without standardizing", ridge_pred, y_test)
 error_metrics("Lasso without standardizing", lasso_pred, y_test)
 error_metrics("XGBRegressor without standardizing", lasso_pred, y_test)
 ```
+<img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
 <br>
-<img height="570" width="550" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
+## Conclusion
+Lasso and Ridge regression seems to come out on top but the results are not the best. It seems that there is something going on in the data that the linear models have failed to capture.
+Maybe with more data, like unstructured data, we could look into the relationship between text descriptions and prices and then identify certain words or characteristics associated with expensive and less expensive wines.
+
+<br>
+<br>
 <br>
 <br>
 
-## Conclusion
-Lasso regression seems to come out on top but the results is not the best. It seems that there is something going on in the data that the linear models have failed to capture. Wiht more data like the description of each red wine and feature engineering, we could maybe get better results. Indeed, with text descriptions, we can look into the relationship between description and price and identify certain words or characteristics of a description associated with expensive and less expensive wines.
+***
+
+<br>
+<br>
+<br>
+<br>
