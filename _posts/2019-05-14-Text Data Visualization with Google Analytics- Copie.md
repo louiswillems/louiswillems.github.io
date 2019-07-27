@@ -1,15 +1,22 @@
 ---
 layout: post
-title: Predicting price of red wines from SAQ.com (Société des alcools du Québec)
+title: Text Data Visualization with Google Analytics
 ---
 
 <br>
 <br>
-In this post, we will build a regression model in roder to predict the price of red wine from data that we will get from the SAQ website (Société des alcools du Québec). For this, we will first extract the data from SAQ.com. After we get the data that we need, we will built our regressor model to predict the price of red wines.
+In this post, we will build a scatterplot tool for text. For this, we'll collect the data from the publicly available Kurier.at dataset in BigQuery. Kurier.at is an Austrian newsite.
 
-In order to do this, we will :
-* Extract the data
-* Built our model
+We will upload a sample of Google Analytics data from this news site, This sample contains page tracking events.
+
+The goal of post is to create a text data visualization tool that is intended visualizing most frequents words of most and less popular news articles.
+
+This notebook illustrates how to:
+
+* Pull the data from Bigquery
+* Use a pre-trained statistical models in German with Spacy
+* Visualize words frequency vs popularity of articles
+
 <br>
 <br>
 <br>
