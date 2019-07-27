@@ -173,6 +173,7 @@ HTML(html)
 <img height="670" width="1000" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/german_scattertext.JPG">
 <br>
 <br>
+<iframe src="https://storage.googleapis.com/app-praticadr-static/rotten_fresh_stdense.html"></iframe>
 
 ## Conclusion
 It is the words at the top left and bottom right which show the key differences between the most and least reads news articles.
