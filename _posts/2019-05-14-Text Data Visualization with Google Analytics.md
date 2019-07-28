@@ -164,7 +164,7 @@ IFrame(src=file_name, width = 1300, height=700)
 HTML(html)
 ```
 <br>
-You can see the parsed text column and the text is tokenized after lemmetization and stemming. While punctuation rules are usually pretty general, tokenizer exceptions strongly depend on the specifics of the individual language. This is why each available language has its own subclass like English or German, that loads in lists of hard-coded data and exception rules.
+spaCy introduces a novel tokenization algorithm, that gives a better balance between performance, ease of definition, and ease of alignment into the original string. You can see the parsed text column and the text is tokenized after lemmetization and stemming.
 <br>
 <br>
 <img height="670" width="1000" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/german_scattertext.JPG">
