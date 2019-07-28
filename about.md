@@ -38,11 +38,12 @@ span{
 <hr>
 
 ## Data Analyst - <small><em>Québecor - Present</em></small>
-Areas of Expertise: 
-* Web Analytics 
-* Data Visualization
-* Data Mining (Unsupervised ML, Text Analytics (NLP), Complex Network Analysis)
-* Machine Learning
+* Conducting exploratory data analysis of large data sets to identify trends and validate hypothesis.
+* Responsible for implementing analytics techniques and machine learning solutions to support business objectives.
+* Performance monitoring for digital marketing strategies for customer acquisition, conversion and retention.
+* Implementing web automation and data ingestion procedures from different data sources (API pipelines).
+* Analyzing popularity of online news articles via text mining techniques in order to classify/categorize data.
+* Collaborating with dedicated departments for data quality and governance policies for GDPR.
 
 <br>
 <br>
