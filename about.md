@@ -48,7 +48,7 @@ span{
 <br>
 <br>
 
-## Digital Marketing Analyst - <small><em>Ivanhoé Cambridge - 2016/2017</em></small>
+### Digital Marketing Analyst - <small><em>Ivanhoé Cambridge - 2016/2017</em></small>
 *	Analyzed performance monitoring for on and offline national marketing strategies for customer acquisition, behavior and, micro and macro conversions.
 *	Developed advanced web and mobile app reporting to demonstrate the value of digital marketing initiatives.
 *	Managed data visualization, data analysis and development of dashboards for content marketing, social media and digital advertising departments using Tableau (Desktop/Server).
@@ -59,7 +59,7 @@ span{
 <br>
 <br>
 
-## Digital Marketing / E-commerce Strategist - <small><em>Rudsak - 2016/2017</em></small>
+### Digital Marketing / E-commerce Strategist - <small><em>Rudsak - 2016/2017</em></small>
 *	Planned, executed, monitored digital marketing strategies in collaboration with other departments.
 *	SEO: keywords research, content development and link building. 
 *	Implemented, executed and analyzed Search, Display and Google Shopping ads campaigns.
@@ -71,7 +71,7 @@ span{
 <br>
 <br>
 
-## E-commerce Assistant Manager - <small><em>Christian Louboutin - 2012/2014</em></small>
+### E-commerce Assistant Manager - <small><em>Christian Louboutin - 2012/2014</em></small>
 
 *	Developed digital marketing strategies through tests and learn approach bringing new innovative ideas to increase online sales (merchandising, contest, landing page optimization).
 *	Reported on trends and reviewing benefits, cost and risks of digital business technologies.
@@ -79,8 +79,6 @@ span{
 *	Managed e-commerce loss, post-sale, fraud prevention and stock flow.
 *	Managed DHL Express, FedEx transport issues supervision for 14 countries (E.U/extra E.U).
 *	Worked closely with marketing teams, IT and legal departments.
-
-
 
 
 <br>
