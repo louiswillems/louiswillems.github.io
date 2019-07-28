@@ -172,7 +172,7 @@ HTML(html)
 <br>
 <img height="670" width="1000" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/german_scattertext.JPG">
 
-<em><a href="https://storage.googleapis.com/app-praticadr-static/rotten_fresh_stdense.html" target="_blank">Interact with the scatter plot</a>
+<em><a href="https://storage.googleapis.com/app-praticadr-static/german_text_analytics.html" target="_blank">Interact with the scatter plot</a>
 <em>
 <br>
 <br>
