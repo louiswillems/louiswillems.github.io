@@ -33,7 +33,7 @@ span{
   animation: blink 1s infinite;
 }
 </style>
-<p class="css-typing">514.833.4935 - louis.willems@outlook.com - Open work permit</p>
+<p class="css-typing">514.833.4935 - louis.willems@outlook.com</p>
 <br>
 <hr>
 
