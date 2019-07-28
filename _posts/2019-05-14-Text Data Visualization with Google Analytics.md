@@ -171,10 +171,11 @@ HTML(html)
 
 <br>
 <img height="670" width="1000" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/german_scattertext.JPG">
-<br>
-<br>
 
-<embed src="https://storage.googleapis.com/app-praticadr-static/rotten_fresh_stdense.html" width=200 height=200>
+<em><a href="hhttps://storage.googleapis.com/app-praticadr-static/rotten_fresh_stdense.html">click here to interact with the visualization</a>
+<em>
+<br>
+<br>
 
 ## Conclusion
 It is the words at the top left and bottom right which show the key differences between the most and least reads news articles.
