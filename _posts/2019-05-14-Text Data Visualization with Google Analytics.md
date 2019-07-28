@@ -29,7 +29,7 @@ This notebook illustrates how to:
 
 ## 1. Pull data from Bigquery
 <br>
-We wiil query Kurier.at Google Analytics sample dataset from BigQuery.
+We will query Kurier.at Google Analytics sample dataset from BigQuery.
 The query contains 2 columns, first column “headline” shows the title of the articles news and the second column is the number of pagesviews for each article.
 <br>
 
@@ -137,8 +137,6 @@ plt.show()
 <br>
 <br>
 
-You can see the parsed text column and the text is tokenized after lemmetization and stemming. While punctuation rules are usually pretty general, tokenizer exceptions strongly depend on the specifics of the individual language. This is why each available language has its own subclass like English or German, that loads in lists of hard-coded data and exception rules.
-<br>
 
 ```python
 data['headline_clean'] = data.headline.apply(lambda text: 
@@ -165,7 +163,9 @@ open(file_name, 'wb').write(html.encode('utf-8'))
 IFrame(src=file_name, width = 1300, height=700)
 HTML(html)
 ```
-
+<br>
+You can see the parsed text column and the text is tokenized after lemmetization and stemming. While punctuation rules are usually pretty general, tokenizer exceptions strongly depend on the specifics of the individual language. This is why each available language has its own subclass like English or German, that loads in lists of hard-coded data and exception rules.
+<br>
 <br>
 <img height="670" width="1000" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/german_scattertext.JPG">
 
