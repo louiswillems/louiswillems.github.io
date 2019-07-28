@@ -37,7 +37,7 @@ span{
 <br>
 <hr>
 
-## Data Analyst - <small><em>Québecor - Present</em></small>
+## Data Analyst - <small><em>Québecor - 2017/2019t</em></small>
 * Conducting exploratory data analysis of large data sets to identify trends and validate hypothesis.
 * Responsible for implementing analytics techniques and machine learning solutions to support business objectives.
 * Performance monitoring for digital marketing strategies for customer acquisition, conversion and retention.
