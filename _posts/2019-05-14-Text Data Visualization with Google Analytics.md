@@ -167,6 +167,7 @@ HTML(html)
 spaCy introduces a novel tokenization algorithm, that gives a better balance between performance, ease of definition, and ease of alignment into the original string. You can see the parsed text column and the text is tokenized after lemmetization and stemming.
 <br>
 <br>
+<br>
 <img height="670" width="1000" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/german_scattertext.JPG">
 
 <em><a href="https://storage.googleapis.com/app-praticadr-static/german_text_analytics.html" target="_blank">Interact with the scatter plot</a>
