@@ -36,6 +36,7 @@ span{
 <p class="css-typing">514.833.4935 - louis.willems@outlook.com</p>
 <br>
 <hr>
+<br>
 
 ### Data Analyst - <small><em>Québecor - 2017/2019</em></small>
 * Conducting exploratory data analysis of large data sets to identify trends and validate hypothesis.
