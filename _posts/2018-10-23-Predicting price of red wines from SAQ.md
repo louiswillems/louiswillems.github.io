@@ -20,7 +20,7 @@ In order to do this, we will :
 
 
 
-## 1. Get red wines data from SAQ.com
+## Get red wines data from SAQ.com
 <br>
 
 Scrapy vs Beautifulsoup:
@@ -163,7 +163,7 @@ if __name__ == "__main__":
 <br>
 
 
-## 2. Exploratory Data Analysis
+## Exploratory Data Analysis
 <br>
 Before performing any data pre-processing, a general step is to explore the data to detect any outliers/missing values and other trends in the data.
 
@@ -238,7 +238,7 @@ baseline = df.drop_duplicates("Name")
 ```
 
 <br>
-#### Prices vs. Countries
+### Prices vs. Countries
 <br>
 <br>
 <br>
@@ -248,7 +248,7 @@ baseline = df.drop_duplicates("Name")
 <br>
 
 
-### Baseline Model
+## Baseline Model
 <br>
 We will calculate RSME and R-squared metric to jauge the improuvement Baseline vs our final Model.
 <br>
@@ -304,7 +304,7 @@ plt.xticks(np.arange(X.shape[1]), X_train.columns.tolist(), rotation =90)
 <br>
 <br>
 
-### Feature Engineering & Selection
+## Feature Engineering & Selection
 ```python
 # Mean Encoding on Producer
 kf = model_selection.KFold(5, shuffle=False)
@@ -401,9 +401,27 @@ pyplot.boxplot(results)
 ax.set_xticklabels(names)
 pyplot.show()
 ```
-<img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
+<img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/ModelSelection.JPG">
 <br>
+<br>
+We can see that..........
+For our hyperparameter Optimization we will use GridSearchCV rather than RandomizedSearchCV. Although we will be using GridSearchCV, it may be computationally expensive for a bigger dataset.
+<br>
+```python
+# Hyperparameter optimization
+param_grid = dict(n_estimators=numpy.array([400,600,700,800,900,1000,1200]))
+model = CatBoostRegressor(random_state=seed)
+kfold = KFold(n_splits=num_folds, random_state=seed)
+grid = GridSearchCV(estimator=model, param_grid=param_grid, scoring=scoring, cv=kfold)
+grid_result = grid.fit(X_train, y_train)
 
+print("Best: %f using %s" % (grid_result.best_score_, grid_result.best_params_))
+means = grid_result.cv_results_['mean_test_score']
+stds = grid_result.cv_results_['std_test_score']
+params = grid_result.cv_results_['params']
+for mean, stdev, param in zip(means, stds, params):
+    print("%f (%f) with: %r" % (mean, stdev, param))
+```
 
 
 
