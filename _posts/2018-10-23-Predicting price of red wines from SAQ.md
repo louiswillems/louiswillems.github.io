@@ -220,17 +220,32 @@ print("Number of observations:\n",len(df))
 ```
 
 ```python
-#Remove duplicates & Missing values 
-data = df.drop_duplicates("Name") # drop duplicate descriptions
-data = data[['Country', 'Region','Designation','Price', 'Producer','Alcohol']]
-df_clean = data.dropna()
-```
-```python
-data_less_outliers = data[df_clean["Price"] < 1000]
-data_less_outliers.Price.plot(kind = 'hist', bins = 100, color = "#3F5D7D", fontsize=12)
+#  Descriptive statistics about red wines prices.
+prices = data['Price']
+
+minimum_price = np.min(prices)
+maximum_price = np.max(prices)
+mean_price = np.mean(prices)
+median_price = prices.median()
+std_price = np.std(prices)
+
+# Show the calculated statistics
+print("Statistics for Boston housing dataset:\n")
+print("Minimum price: ${:,.2f}".format(minimum_price))
+print("Maximum price: ${:,.2f}".format(maximum_price))
+print("Mean price: ${:,.2f}".format(mean_price))
+print("Median price ${:,.2f}".format(median_price))
+print("Standard deviation of prices: ${:,.2f}".format(std_price))
 ```
 <br>
-Actually, there are some pretty expensive wines in the dataset. In fact, 90 % of the data come in below 100 dollars. So, we will remove these more expensive wines and predict red wine prices.
+Statistics SAQ red wines dataset:
+
+Minimum price: $4.30
+Maximum price: $989.50
+Mean price: $60.68
+Median price $28.90
+Standard deviation of prices: $96.52
+
 <br>
 <br>
 <br>
