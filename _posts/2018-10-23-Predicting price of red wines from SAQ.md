@@ -403,12 +403,17 @@ pyplot.boxplot(results)
 ax.set_xticklabels(names)
 pyplot.show()
 ```
+<br>
 <img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/ModelSelection.JPG">
+
 <br>
 <br>
+
 We can see that..........
 For our hyperparameter Optimization we will use GridSearchCV rather than RandomizedSearchCV. Although we will be using GridSearchCV, it may be computationally expensive for a bigger dataset.
+
 <br>
+
 ```python
 # Hyperparameter optimization
 param_grid = dict(n_estimators=numpy.array([400,600,700,800,900,1000,1200]))
@@ -424,12 +429,14 @@ params = grid_result.cv_results_['params']
 for mean, stdev, param in zip(means, stds, params):
     print("%f (%f) with: %r" % (mean, stdev, param))
 ```
-
+<br>
+Best: 0.393510 using {'n_estimators': 400}
+<br>
 
 
 ## Conclusion
-Lasso and Ridge regression seems to come out on top but the results are not the best. It seems that there is something going on in the data that the linear models have failed to capture.
-Maybe with more data, like unstructured data, we could look into the relationship between text descriptions and prices and then identify certain words or characteristics associated with expensive and less expensive wines.
+Since CatBoost is a great model for tabular data, it seems to be the best model for our regression problem.
+Maybe with more data, like text (unstructured data), we could look into the relationship between text descriptions and prices and then identify certain words or characteristics associated with expensive and less expensive wines.
 
 <br>
 <br>
