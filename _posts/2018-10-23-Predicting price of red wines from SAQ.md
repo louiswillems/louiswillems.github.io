@@ -238,6 +238,7 @@ baseline = df.drop_duplicates("Name")
 ```
 
 <br>
+
 ### Prices vs. Countries
 <br>
 <br>
@@ -251,6 +252,7 @@ baseline = df.drop_duplicates("Name")
 ## Baseline Model
 <br>
 We will calculate RSME and R-squared metric to jauge the improuvement Baseline vs our final Model.
+<br>
 <br>
 
 ```python
