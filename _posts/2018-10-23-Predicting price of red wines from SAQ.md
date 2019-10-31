@@ -156,23 +156,22 @@ if __name__ == "__main__":
 
 ```
 <br>
+Prices vs. Countries
 <br>
 <img height="570" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/saq_website1.JPG">
 <br>
 <br>
 <br>
-<br>
-<img height="570" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website2.JPG" src="/public/saq_website2.JPG">
-<br>
 
 
-## 2. Exploratory Data Analysis & Cleaning
+## 2. Exploratory Data Analysis
 <br>
 Before performing any data pre-processing, a general step is to explore the data to detect any outliers/missing values and other trends in the data.
 
 Common steps to check the data:
 * Check for missing data
-* Check the skewness of the data, outlier detection
+* Check the skewness of the data
+* Outlier detection
 etc...
 <br>
 
@@ -254,6 +253,7 @@ baseline = df.drop_duplicates("Name")
 ### Baseline Model
 <br>
 We will calculate RSME and R-squared metric to jauge the improuvement Baseline vs our final Model.
+<br>
 
 ```python
 baseline = df.drop_duplicates("Name")
@@ -286,9 +286,9 @@ print('--Coefficient of determination: %.2f' % r2_score(y_validation, prediction
 ```
 <br>
 
-*--Mean squared error: 5105.17
-*--Root Mean squared error: 71.45
-*--Coefficient of determination: -0.20
+- Mean squared error: 5105.17
+- Root Mean squared error: 71.45
+- Coefficient of determination: -0.20
 
 <br>
 We can also see most important features of our Baseline model
@@ -301,7 +301,7 @@ plt.xticks(np.arange(X.shape[1]), X_train.columns.tolist(), rotation =90)
 <br>
 <br>
 
-### Feature Engineering
+### Feature Engineering & Selection
 ```python
 # Mean Encoding on Producer
 kf = model_selection.KFold(5, shuffle=False)
