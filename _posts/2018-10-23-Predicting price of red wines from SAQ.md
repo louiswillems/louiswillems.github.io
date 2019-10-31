@@ -156,7 +156,6 @@ if __name__ == "__main__":
 
 ```
 <br>
-Prices vs. Countries
 <br>
 <img height="570" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/saq_website1.JPG">
 <br>
@@ -239,12 +238,11 @@ baseline = df.drop_duplicates("Name")
 ```
 
 <br>
+#### Prices vs. Countries
+<br>
 <br>
 <br>
 <img height="670" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prices2.JPG" src="/public/saq_prices2.JPG">
-<br>
-<br>
-<img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prices.JPG" src="/public/saq_prices.JPG">
 <br>
 <br>
 <br>
@@ -292,11 +290,16 @@ print('--Coefficient of determination: %.2f' % r2_score(y_validation, prediction
 
 <br>
 We can also see most important features of our Baseline model
+<br>
 ```python
 # Feature Importance
 plt.plot(rf.feature_importances_)
 plt.xticks(np.arange(X.shape[1]), X_train.columns.tolist(), rotation =90)
 ```
+<br>
+
+<img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/Feature_importance_R2.JPG">
+
 <br>
 <br>
 <br>
@@ -388,8 +391,9 @@ for name, model in ensembles:
   print(msg)
 ```
 <br>
+
 ```python
-# Compare Algorithms
+# Model Selection
 fig = pyplot.figure()
 fig.suptitle('Ensemble Algorithm Comparison')
 ax = fig.add_subplot(111)
@@ -400,9 +404,6 @@ pyplot.show()
 <img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
 <br>
 
-
-<img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
-<br>
 
 
 
