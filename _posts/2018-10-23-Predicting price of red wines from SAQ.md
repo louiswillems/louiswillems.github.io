@@ -239,7 +239,7 @@ baseline = df.drop_duplicates("Name")
 
 <br>
 
-### Prices vs. Countries
+###                                               Prices vs. Countries
 <br>
 <br>
 <br>
