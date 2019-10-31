@@ -20,7 +20,7 @@ In order to do this, we will :
 
 
 
-## 1. Get red wines URLs from SAQ.com
+## 1. Get red wines data from SAQ.com
 <br>
 #### Scrapy vs Beautifulsoup 
 Our project is small, the logic is not very complex and we want the job done quickly, so we will use BeautifulSoup to keep our project simple. If your project needs more customization such as proxy, data pipeline, then Scrapy might be a better choice.
@@ -38,23 +38,152 @@ sns.set()
 ```
 <br>
 ```python
+"""
+Created on October 2019
+All the red wine data from saq.com is stored in csv
+
+@author: Willems Louis
+         louis.willems@outlook.com
+"""
+
+
+from bs4 import BeautifulSoup
+from requests import get
+import itertools
+import requests
+import pandas as pd
+import re
+import lxml
+import time
+
 # Some websites automatically block any kind of scraping, and that’s why I’ll define a header to pass along the get command
 # which will basically make our queries to the website look like they are coming from an actual browser. When we run the program
 # I’ll have a sleep command between pages, so we can mimic a “more human” behavior and don’t overload the site with several requests per second
 # You will get blocked if you scrape too aggressively, so it’s a nice policy to be polite while scraping
 
+
+headers = ({'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})
+
+
+# GET ALL RED WINES URLS
+
+# How many urls we want ?
+#pageSize
+
+
+class AuthError(Exception):
+    def __init__(self):
+        self.msg = "auth error"
+
 def saq_urls():
     headers = ({'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})
-    wine_list = ['https://www.saq.com/webapp/wcs/stores/servlet/SearchDisplay?storeId=20002&catalogId=50000&langId=-1&categoryIdentifier=0602&pageSize=500']
+    wine_list = ['https://www.saq.com/webapp/wcs/stores/servlet/SearchDisplay?searchType=&showOnly=product&langId=-1&catalogId=50000&storeId=20002&categoryIdentifier=06&pageSize=9900']
+
+
     for w in wine_list:
       source = requests.get(w, headers=headers).text
-      soup = BeautifulSoup(requests.get(w).text)
+      soup = BeautifulSoup(requests.get(w).text, 'lxml')
       saq_containers = soup.find_all('div', class_="ColD affichageMozaique")
       first = saq_containers[0]
       #get all the links
       wine_list = [url.get('href') for url in first.find_all('a')[1:]]
       complet_list = list(dict.fromkeys(wine_list))
+
     return complet_list
+
+
+def redwine_data():
+    wines_list = saq_urls()
+    name = []
+    price = []
+    producer = []
+    wines_info = []
+
+    for page in wines_list:
+      # source = requests.get(page).text
+
+      source = ''
+      while source == '':
+          try:
+              source = requests.get(page).text
+              break
+          except:
+              print("Connection refused by the server..")
+              print("Sleep for 5 seconds")
+              time.sleep(5)
+              print("Continue...")
+              continue
+              
+      soup = BeautifulSoup(source)
+      w_name = soup.find_all("h1", {"class": "product-description-title"})
+      w_price = soup.find_all("p", {"class": "price"})
+      w_producer = soup.find_all("td", {"class": "product-detailsR"})[0]
+      w_infos = soup.find_all("div", {"id": "details"})
+
+      for info in w_name:
+        nm = info.text
+        name.append(nm)
+
+      for info in w_price:
+        pc = info.text
+        pc1 = pc.replace('Regular price:  ','')
+        pc2 = pc1.replace('$','')
+        price.append(pc2)
+
+      for info in w_producer:
+        prod = info.text
+        producer.append(prod)
+
+      for info in w_infos:
+        ac = info.text.strip()
+        ac1 = ac.replace('\n','')
+        ac2 = ac1.replace(' ','')
+        ac3 = ac2.replace('\r',' ')
+        wines_info.append(ac3)
+        # len(wines_info)
+        # wines_info
+
+    def nextword(target, source):
+        for i, w in enumerate(source):
+            if w == target:
+                return source[i+1]
+
+
+    country = [nextword('DetailedinfoCountry', s.split()) for s in wines_info]
+    # Region
+    region = [nextword('Region', s.split()) for s in wines_info]
+    # Designation of origin
+    origin = [nextword('Designationoforigin', s.split()) for s in wines_info]
+    # Regulateddesignation
+    designation = [nextword('Regulateddesignation', s.split()) for s in wines_info]
+    # Size
+    size = [nextword('Size', s.split()) for s in wines_info]
+    # Alcohol
+    alcohol = [nextword('Degreeofalcohol', s.split()) for s in wines_info]
+    # Sugar
+    sg = [nextword('%', s.split()) for s in wines_info]
+    sg1 = [s.rpartition('Sugarcontent')[2] for s in sg]
+    sugar = [s[0:3] for s in sg1]
+
+    cols = ['Name', 'Country', 'Region', 'Origin', 'Designation', 'Producer', 'Size','Alcohol', 'Sugar','Price']
+    df = pd.DataFrame({'Name': name, 'Country': country, 'Region': region, 'Origin':origin, 'Designation':designation, 'Producer':producer, 'Size': size, 'Alcohol': alcohol, 'Sugar': sugar, 'Price': price})[cols]
+    df['Price'] = df['Price'].apply(pd.to_numeric, errors='coerce')
+
+    df.to_csv(r'C:\Users\Admin\Documents\Python\SAQ\saq_data.csv',  encoding='utf-8', index=False)
+
+
+
+
+
+def main():
+    print('Getting data from saq.com')
+    redwine_data()
+    print('Done')
+    print('Your data is ready')
+
+if __name__ == "__main__":
+    main();
+
 ```
 <br>
 <br>
@@ -65,98 +194,9 @@ def saq_urls():
 <br>
 <img height="570" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website2.JPG" src="/public/saq_website2.JPG">
 <br>
-## 2. Get data from URLS
-```python
-name = []
-price = []
-producer = []
-wines_info = []
-
-for page in wines_list:
-  source = requests.get(page).text
-  soup = BeautifulSoup(source)
-  
-  w_name = soup.find_all("h1", {"class": "product-description-title"})
-  w_price = soup.find_all("p", {"class": "price"})
-  w_producer = soup.find_all("td", {"class": "product-detailsR"})[0]
-  w_infos = soup.find_all("div", {"id": "details"})
-  
-  for info in w_name:
-    nm = info.text
-    name.append(nm)
-   
-  for info in w_price:
-    pc = info.text
-    pc1 = pc.replace('Regular price:  ','')
-    pc2 = pc1.replace('$','')
-    price.append(pc2)
-  
-   
-  for info in w_producer:
-    pd = info.text
-    producer.append(pd)
-    
-    
-  for info in w_infos:
-    ac = info.text.strip()
-    ac1 = ac.replace('\n','')
-    ac2 = ac1.replace(' ','')
-    ac3 = ac2.replace('\r',' ')
-    wines_info.append(ac3)
-    # len(wines_info)
-    # wines_info
-    
-    
-    def nextword(target, source):
-      for i, w in enumerate(source):
-        if w == target:
-          return source[i+1]
-        
-
-# Country  
-country = [nextword('DetailedinfoCountry', s.split()) for s in wines_info]
-
-# Region 
-region = [nextword('Region', s.split()) for s in wines_info]
-
-# Designation of origin 
-origin = [nextword('Designationoforigin', s.split()) for s in wines_info]
-
-# Regulateddesignation
-designation = [nextword('Regulateddesignation', s.split()) for s in wines_info]
-
-# Size
-size = [nextword('Size', s.split()) for s in wines_info]
-
-# Alcohol
-alcohol = [nextword('Degreeofalcohol', s.split()) for s in wines_info]
-
-# Sugar
-sg = [nextword('%', s.split()) for s in wines_info]
-sg1 = [s.rpartition('Sugarcontent')[2] for s in sg]
-sugar = [s[0:3] for s in sg1]
-
-print('Number of lines for Country: {} '.format(len(country)))
-print('Number of lines for Region: {} '.format(len(region)))
-print('Number of lines for Origin: {} '.format(len(origin)))
-print('Number of lines for Designation: {} '.format(len(designation)))
-print('Number of lines for Producer: {} '.format(len(producer)))
-print('Number of lines for Size: {} '.format(len(size)))
-print('Number of lines for Alcohol: {} '.format(len(alcohol)))
-print('Number of lines for Sugar: {} '.format(len(sugar)))
 
 
-#Create dataframe
-import pandas as pd
-cols = ['Name', 'Country', 'Region', 'Origin', 'Designation', 'Producer', 'Size','Alcohol', 'Sugar','Price']
-df['Price'] = df['Price'].apply(pd.to_numeric, errors='coerce')
-df = pd.DataFrame({'Name': name, 'Country': country, 'Region': region, 'Origin':origin, 'Designation':designation, 'Producer':producer, 'Size': size, 'Alcohol': alcohol, 'Sugar': sugar, 'Price': price})[cols]
-df.head()
-```
-
-<br>
-
-## 3. Exploratory Data Analysis & Cleaning
+## 2. Exploratory Data Analysis & Cleaning
 <br>
 Before performing any data pre-processing, a general step is to explore the data to detect any outliers/missing values and other trends in the data.
 
