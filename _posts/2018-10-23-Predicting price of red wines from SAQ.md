@@ -25,50 +25,18 @@ In order to do this, we will :
 #### Scrapy vs Beautifulsoup 
 Our project is small, the logic is not very complex and we want the job done quickly, so we will use BeautifulSoup to keep our project simple. If your project needs more customization such as proxy, data pipeline, then Scrapy might be a better choice.
 <br>
+
 ```python
 from bs4 import BeautifulSoup
 from requests import get
 import itertools
-import matplotlib.pyplot as plt
-import seaborn as sns
 import pandas as pd
 import requests
-import re
-sns.set()
-```
-<br>
-```python
-"""
-Created on October 2019
-All the red wine data from saq.com is stored in csv
-
-@author: Willems Louis
-         louis.willems@outlook.com
-"""
-
-
-from bs4 import BeautifulSoup
-from requests import get
-import itertools
-import requests
-import pandas as pd
-import re
 import lxml
 import time
 
-# Some websites automatically block any kind of scraping, and that’s why I’ll define a header to pass along the get command
-# which will basically make our queries to the website look like they are coming from an actual browser. When we run the program
-# I’ll have a sleep command between pages, so we can mimic a “more human” behavior and don’t overload the site with several requests per second
-# You will get blocked if you scrape too aggressively, so it’s a nice policy to be polite while scraping
-
 
 headers = ({'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})
-
-
-# GET ALL RED WINES URLS
-
-# How many urls we want ?
-#pageSize
 
 
 class AuthError(Exception):
@@ -206,9 +174,6 @@ Common steps to check the data:
 etc...
 <br>
 
-```python
-df.describe()
-```
 
 ```python
 # Let's clean the data. First, let's check if there are any null values in the dataframe.
@@ -221,7 +186,7 @@ print("Number of observations:\n",len(df))
 
 ```python
 #  Descriptive statistics about red wines prices.
-prices = data['Price']
+prices = df['Price']
 
 minimum_price = np.min(prices)
 maximum_price = np.max(prices)
@@ -240,11 +205,22 @@ print("Standard deviation of prices: ${:,.2f}".format(std_price))
 <br>
 Statistics SAQ red wines dataset:
 
-Minimum price: $4.30
-Maximum price: $989.50
-Mean price: $60.68
-Median price $28.90
-Standard deviation of prices: $96.52
+* Minimum price: $4.30
+* Maximum price: $989.50
+* Mean price: $60.68
+* Median price $28.90
+* Standard deviation of prices: $96.52
+<br>
+
+```python
+#  For Data Exploration details click here
+
+# Drop duplicate descriptions
+baseline = df.drop_duplicates("Name")
+
+# Imputation 
+
+```
 
 <br>
 <br>
@@ -255,81 +231,106 @@ Standard deviation of prices: $96.52
 <img height="570" width="950" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prices.JPG" src="/public/saq_prices.JPG">
 <br>
 <br>
+<br>
+
+
+### Baseline Model
+<br>
+We will calculate RSME and R-squared metric to jauge the improuvement Baseline vs our final Model.
+
 ```python
-# Outliers with price
-# > 100$ represent less than 10%
-df_ml = df_ml[df_ml.Price < 100]
-```
-### One Hot Encoding Categorical Features
-```python
-df_ml = pd.get_dummies(df_ml, columns=['Country','Region','Producer','Designation'], prefix = 'category')
+baseline = df.drop_duplicates("Name")
+baseline = baseline.dropna()
+
+
+baseline = baseline[['Country','Region','Designation','Producer','Alcohol','Size','Price']]
+
+X = baseline.drop(['Price'], axis=1)
+y = baseline['Price'].values
+
+X_train, X_validation, y_train, y_validation = train_test_split(X, y, train_size=0.7, random_state= 42)
+
+
+# Label encoder of all categorical features
+for c in X_train.columns[X_train.dtypes == 'object']:
+  X_train[c] = X_train[c].factorize()[0]
+
+for c in X_validation.columns[X_validation.dtypes == 'object']:
+  X_validation[c] = X_validation[c].factorize()[0]
+  
+rf = RandomForestRegressor()
+rf.fit(X_train, y_train)
+
+# Predict
+predictions = rf.predict(X_validation)
+print("--Mean squared error: %.2f" % mean_squared_error(y_validation, predictions))
+print("--Root Mean squared error: %.2f" % np.sqrt(mean_squared_error(y_validation, predictions)))
+print('--Coefficient of determination: %.2f' % r2_score(y_validation, predictions))
 ```
 <br>
-## 4. Modelling
+
+*--Mean squared error: 5105.17
+*--Root Mean squared error: 71.45
+*--Coefficient of determination: -0.20
+
+<br>
+We can also see most important features of our Baseline model
+```python
+# Feature Importance
+plt.plot(rf.feature_importances_)
+plt.xticks(np.arange(X.shape[1]), X_train.columns.tolist(), rotation =90)
+```
+<br>
+<br>
+<br>
+
+### Feature Engineering
+```python
+# Mean Encoding on Producer
+kf = model_selection.KFold(5, shuffle=False)
+baseline['Producer_enc'] = np.nan
+
+for tr_ind, val_ind in kf.split(baseline):
+    X_tr, X_val = baseline.iloc[tr_ind], baseline.iloc[val_ind]
+    baseline.loc[baseline.index[val_ind], 'Producer_enc'] = X_val['Producer'].map(X_tr.groupby('Producer').Price.mean())
+baseline['Producer_enc'].fillna(46.580, inplace=True)
+
+
+
+# Drop missing values (947)
+baseline = baseline.dropna()
+
+# Feature Generation: Country_Region
+baseline['Country_Region'] = baseline['Country'] + baseline['Region']
+
+# Feature Generation: Counts Producer
+counts = baseline['Producer'].value_counts()
+counts_dict = counts.to_dict() 
+baseline['Counts_Producer'] = baseline['Producer'].map(counts_dict)
+
+# Feature Generation: Counts Producer
+val = baseline['Producer'].value_counts()
+y = val[val == 1].index
+baseline['New_Producer'] = baseline['Producer'].replace({x:'Other' for x in y})
+
+#  Feature Engineering
+baseline['Wine_year'] = baseline['Name'].str.extract('(20\d{2})', expand=True)                                                  
+baseline['Wine_year'] = baseline['Wine_year'].replace(np.nan, 'Other', regex=True)
+
+# Feature Generation: Producer Frequency
+fe = baseline.groupby('Producer').size()/len(baseline)
+baseline.loc[:, 'Freq_Producer'] = baseline['Producer'].map(fe)
+```
+<br>
+<br>
+<br>
+
+## Modelling
 
 ```python
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn import linear_model
-from sklearn.model_selection import train_test_split
-from sklearn import preprocessing
-from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
-from sklearn.metrics import mean_squared_error, r2_score
-%matplotlib inline
-import re 
 
 
-def try_linear_models(X_, y_, model_name, standardize = True):
-    if standardize == True:
-        X = preprocessing.scale(X_)
-    else:
-        X = X_
-    X_train, X_test, y_train, y_test = train_test_split(X, y_, random_state = 42)
-    if model_name == "linear":
-        model = linear_model.LinearRegression().fit(X_train, y_train)
-    if model_name == "ridge":
-        model = linear_model.Ridge(alpha = 0.1).fit(X_train, y_train)
-    if model_name == "lasso":
-        model = linear_model.Lasso(alpha = 0.5).fit(X_train, y_train)
-    if model_name == "XGBR":
-       model = xgb.XGBRegressor(objective ='reg:linear', colsample_bytree = 0.3, learning_rate = 1, max_depth = 6, alpha = 10, n_estimators = 50).fit(X_train,y_train) 
 
-    predictions = model.predict(X_test)
-    return predictions, y_test
-  
-  
-def error_metrics(model, predictions, y_test):
-    print("Model: ", model)
-    # The root mean squared error
-    print("--Root Mean squared error: %.2f" % np.sqrt(mean_squared_error(y_test, predictions)))
-    # Explained variance score: 1 is perfect prediction
-    print('--Variance score: %.2f' % r2_score(y_test, predictions))
-    
-
-X = df_ml.drop(['Price'], axis=1).values
-y = df_ml['Price'].values
-
-
-# With standardizing
-ridge_pred_st, y_test = try_linear_models(X, y, "ridge", standardize=True)
-lasso_pred_st, y_test = try_linear_models(X, y, "lasso", standardize=True)
-lasso_pred_st, y_test = try_linear_models(X, y, "lasso", standardize=True)
-
-# Without standardizing
-ridge_pred, y_test = try_linear_models(X, y, "ridge", standardize=False)
-lasso_pred, y_test = try_linear_models(X, y, "lasso", standardize=False)
-lasso_pred_st, y_test = try_linear_models(X, y, "lasso", standardize=True)
-
-
-# # Error metrics
-error_metrics("Ridge with standardizing", ridge_pred_st, y_test)
-error_metrics("Lasso with standardizing", lasso_pred_st, y_test)
-error_metrics("XGBRegressor without standardizing", lasso_pred, y_test)
-
-
-error_metrics("Ridge without standardizing", ridge_pred, y_test)
-error_metrics("Lasso without standardizing", lasso_pred, y_test)
-error_metrics("XGBRegressor without standardizing", lasso_pred, y_test)
 ```
 <img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
 <br>
