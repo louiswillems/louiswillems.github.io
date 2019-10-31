@@ -288,38 +288,34 @@ plt.xticks(np.arange(X.shape[1]), X_train.columns.tolist(), rotation =90)
 ```python
 # Mean Encoding on Producer
 kf = model_selection.KFold(5, shuffle=False)
-baseline['Producer_enc'] = np.nan
+df_clean['Producer_enc'] = np.nan
 
-for tr_ind, val_ind in kf.split(baseline):
-    X_tr, X_val = baseline.iloc[tr_ind], baseline.iloc[val_ind]
-    baseline.loc[baseline.index[val_ind], 'Producer_enc'] = X_val['Producer'].map(X_tr.groupby('Producer').Price.mean())
-baseline['Producer_enc'].fillna(46.580, inplace=True)
+for tr_ind, val_ind in kf.split(df_clean):
+    X_tr, X_val = df_clean.iloc[tr_ind], df_clean.iloc[val_ind]
+    df_clean.loc[df_clean.index[val_ind], 'Producer_enc'] = X_val['Producer'].map(X_tr.groupby('Producer').Price.mean())
+df_clean['Producer_enc'].fillna(46.580, inplace=True)
 
-
-
-# Drop missing values (947)
-baseline = baseline.dropna()
 
 # Feature Generation: Country_Region
-baseline['Country_Region'] = baseline['Country'] + baseline['Region']
+df_clean['Country_Region'] = df_clean['Country'] + df_clean['Region']
 
 # Feature Generation: Counts Producer
-counts = baseline['Producer'].value_counts()
+counts = df_clean['Producer'].value_counts()
 counts_dict = counts.to_dict() 
-baseline['Counts_Producer'] = baseline['Producer'].map(counts_dict)
+df_clean['Counts_Producer'] = df_clean['Producer'].map(counts_dict)
 
 # Feature Generation: Counts Producer
-val = baseline['Producer'].value_counts()
+val = df_clean['Producer'].value_counts()
 y = val[val == 1].index
-baseline['New_Producer'] = baseline['Producer'].replace({x:'Other' for x in y})
+df_clean['New_Producer'] = df_clean['Producer'].replace({x:'Other' for x in y})
 
 #  Feature Engineering
-baseline['Wine_year'] = baseline['Name'].str.extract('(20\d{2})', expand=True)                                                  
-baseline['Wine_year'] = baseline['Wine_year'].replace(np.nan, 'Other', regex=True)
+df_clean['Wine_year'] = df_clean['Name'].str.extract('(20\d{2})', expand=True)                                                  
+df_clean['Wine_year'] = df_clean['Wine_year'].replace(np.nan, 'Other', regex=True)
 
 # Feature Generation: Producer Frequency
-fe = baseline.groupby('Producer').size()/len(baseline)
-baseline.loc[:, 'Freq_Producer'] = baseline['Producer'].map(fe)
+fe = df_clean.groupby('Producer').size()/len(df_clean)
+df_clean.loc[:, 'Freq_Producer'] = df_clean['Producer'].map(fe)
 ```
 <br>
 <br>
