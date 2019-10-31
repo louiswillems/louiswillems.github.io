@@ -22,7 +22,9 @@ In order to do this, we will :
 
 ## 1. Get red wines data from SAQ.com
 <br>
-#### Scrapy vs Beautifulsoup 
+
+Scrapy vs Beautifulsoup:
+
 Our project is small, the logic is not very complex and we want the job done quickly, so we will use BeautifulSoup to keep our project simple. If your project needs more customization such as proxy, data pipeline, then Scrapy might be a better choice.
 <br>
 
@@ -174,15 +176,30 @@ Common steps to check the data:
 etc...
 <br>
 
+```python
+print(df.dtypes)
+```
+
+<br>
 
 ```python
-# Let's clean the data. First, let's check if there are any null values in the dataframe.
-are_null_values = df.isnull().values.any()
-num_nulls = df.isnull().sum()
+# Null values in the dataframe.
 print("Shape:\n",df.shape)
-print("Columns with null values:\n",num_nulls)
-print("Number of observations:\n",len(df))
+print("Columns with null values:\n",df.isnull().sum())
 ```
+Shape: (5000, 8)
+
+Columns with null values:
+- Name             0
+- Country          0
+- Region         106
+- Designation     14
+- Producer         0
+- Size             0
+- Alcohol        818
+- Price           84
+
+<br>
 
 ```python
 #  Descriptive statistics about red wines prices.
@@ -324,12 +341,71 @@ df_clean.loc[:, 'Freq_Producer'] = df_clean['Producer'].map(fe)
 ## Modelling
 
 ```python
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import KFold
+from sklearn.model_selection import cross_val_score
+from sklearn.pipeline import Pipeline
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import ExtraTreesRegressor
+from sklearn.ensemble import AdaBoostRegressor
+from sklearn.metrics import mean_squared_error
+from catboost import CatBoostRegressor
+
+# Test options and evaluation metric
+num_folds = 10
+seed = 7
+scoring = 'r2'
 
 
+X = df_clean.drop(['Price'], axis=1)
+y = df_clean['Price'].values
 
+X_train, X_validation, y_train, y_validation = train_test_split(X, y, train_size=0.7, random_state= 42)
+
+# Label encoder
+for c in X_train.columns[X_train.dtypes == 'object']:
+  X_train[c] = X_train[c].factorize()[0]
+
+
+# ensembles
+ensembles = []
+# ensembles.append(('AB', AdaBoostRegressor()))
+ensembles.append(('GBM', GradientBoostingRegressor()))
+ensembles.append(('RF',RandomForestRegressor()))
+ensembles.append(('ET', ExtraTreesRegressor()))
+ensembles.append(('CAT', CatBoostRegressor()))
+
+
+results = []
+names = []
+for name, model in ensembles:
+  kfold = KFold(n_splits=num_folds, random_state=seed)
+  cv_results = cross_val_score(model, X_train, y_train, cv=kfold, scoring=scoring)
+  results.append(cv_results)
+  names.append(name)
+  msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
+  print(msg)
+```
+<br>
+```python
+# Compare Algorithms
+fig = pyplot.figure()
+fig.suptitle('Ensemble Algorithm Comparison')
+ax = fig.add_subplot(111)
+pyplot.boxplot(results)
+ax.set_xticklabels(names)
+pyplot.show()
 ```
 <img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
 <br>
+
+
+<img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/saq_predictionsmodels.JPG">
+<br>
+
+
+
 ## Conclusion
 Lasso and Ridge regression seems to come out on top but the results are not the best. It seems that there is something going on in the data that the linear models have failed to capture.
 Maybe with more data, like unstructured data, we could look into the relationship between text descriptions and prices and then identify certain words or characteristics associated with expensive and less expensive wines.
