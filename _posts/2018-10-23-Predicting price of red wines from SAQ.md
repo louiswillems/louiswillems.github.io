@@ -175,10 +175,10 @@ etc...
 <br>
 
 ```python
-print(df.dhead)
+print(df.head)
 ```
 <br>
-<img height="180" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/df.head.jpg" src="/public/df.head.jpg">
+<img height="170" width="980" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/df.head.jpg" src="/public/df.head.jpg">
 <br>
 <br>
 <br>
@@ -301,7 +301,7 @@ plt.xticks(np.arange(X.shape[1]), X_train.columns.tolist(), rotation =90)
 ```
 <br>
 
-<img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Feature_importance_R2.jpg" src="/public/Feature_importance_R2.jpg">
+<img height="350" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Feature_importance_R2.jpg" src="/public/Feature_importance_R2.jpg">
 
 <br>
 <br>
@@ -405,7 +405,7 @@ ax.set_xticklabels(names)
 pyplot.show()
 ```
 <br>
-<img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/ModelSelection.jpg" src="/public/ModelSelection.jpg">
+<img height="350" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/ModelSelection.jpg" src="/public/ModelSelection.jpg">
 
 <br>
 <br>
