@@ -175,9 +175,14 @@ etc...
 <br>
 
 ```python
-print(df.dtypes)
+print(df.dhead)
 ```
-
+###                                               Prices vs. Countries
+<br>
+<br>
+<img height="670" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/df.head.jpg" src="/public/df.head.jpg">
+<br>
+<br>
 <br>
 
 ```python
@@ -237,20 +242,12 @@ baseline = df.drop_duplicates("Name")
 
 ```
 
-###EDA Conclusions:
+### EDA Conclusions:
 - All features are categorical
 - Since the categorical features have a lot of unique values, we won't use one hot encoding, but depending on the dataset it may be a good idea to adjust one_hot_max_size.
 - After inspection Missing values Imputation has no effect on prediction.
 - We will apply Mean encoding to our categorical features
 
-<br>
-
-###                                               Prices vs. Countries
-<br>
-<br>
-<br>
-<img height="670" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prices2.JPG" src="/public/saq_prices2.JPG">
-<br>
 <br>
 <br>
 
