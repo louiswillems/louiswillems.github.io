@@ -413,7 +413,10 @@ pyplot.show()
 <br>
 
 We can see that..........
+
 For our hyperparameter Optimization we will use GridSearchCV rather than RandomizedSearchCV. Although we will be using GridSearchCV, it may be computationally expensive for a bigger dataset.
+
+Though Catboost performs well with default parameters, there are several parameters that drive a significant improvement in results when tuned. The most importants parameters for CatBoost are: cat_features, one_hot_max_size, learning_rate & n_estimators and max_depth.
 
 <br>
 
