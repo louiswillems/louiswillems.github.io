@@ -177,10 +177,8 @@ etc...
 ```python
 print(df.dhead)
 ```
-###                                               Prices vs. Countries
 <br>
-<br>
-<img height="670" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/df.head.jpg" src="/public/df.head.jpg">
+<img height="180" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/df.head.jpg" src="/public/df.head.jpg">
 <br>
 <br>
 <br>
