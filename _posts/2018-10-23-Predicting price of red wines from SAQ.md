@@ -294,11 +294,13 @@ print('--Coefficient of determination: %.2f' % r2_score(y_validation, prediction
 <br>
 We can also see most important features of our Baseline model
 <br>
+
 ```python
 # Feature Importance
 plt.plot(rf.feature_importances_)
 plt.xticks(np.arange(X.shape[1]), X_train.columns.tolist(), rotation =90)
 ```
+<br>
 <br>
 
 <img height="350" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Feature_importance_R2.jpg" src="/public/Feature_importance_R2.jpg">
