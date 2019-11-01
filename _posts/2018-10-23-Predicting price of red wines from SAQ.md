@@ -175,9 +175,12 @@ etc...
 <br>
 
 ```python
-print(df.dtypes)
+print(df.head)
 ```
-
+<br>
+<img height="170" width="980" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/df.head.jpg" src="/public/df.head.jpg">
+<br>
+<br>
 <br>
 
 ```python
@@ -237,20 +240,12 @@ baseline = df.drop_duplicates("Name")
 
 ```
 
-###EDA Conclusions:
+### EDA Conclusions:
 - All features are categorical
 - Since the categorical features have a lot of unique values, we won't use one hot encoding, but depending on the dataset it may be a good idea to adjust one_hot_max_size.
 - After inspection Missing values Imputation has no effect on prediction.
 - We will apply Mean encoding to our categorical features
 
-<br>
-
-###                                               Prices vs. Countries
-<br>
-<br>
-<br>
-<img height="670" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prices2.JPG" src="/public/saq_prices2.JPG">
-<br>
 <br>
 <br>
 
@@ -299,14 +294,16 @@ print('--Coefficient of determination: %.2f' % r2_score(y_validation, prediction
 <br>
 We can also see most important features of our Baseline model
 <br>
+
 ```python
 # Feature Importance
 plt.plot(rf.feature_importances_)
 plt.xticks(np.arange(X.shape[1]), X_train.columns.tolist(), rotation =90)
 ```
 <br>
+<br>
 
-<img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Feature_importance_R2.jpg" src="/public/Feature_importance_R2.jpg">
+<img height="350" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Feature_importance_R2.jpg" src="/public/Feature_importance_R2.jpg">
 
 <br>
 <br>
@@ -410,7 +407,7 @@ ax.set_xticklabels(names)
 pyplot.show()
 ```
 <br>
-<img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/ModelSelection.jpg" src="/public/ModelSelection.jpg">
+<img height="350" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/ModelSelection.jpg" src="/public/ModelSelection.jpg">
 
 <br>
 <br>
