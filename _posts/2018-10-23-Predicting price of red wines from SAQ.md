@@ -414,7 +414,7 @@ pyplot.show()
 
 We can see that..........
 
-For our hyperparameter Optimization we will use GridSearchCV rather than RandomizedSearchCV. Although we will be using GridSearchCV, it may be computationally expensive for a bigger dataset.
+For hyperparameter tuning, GridSearch and Random search require long run times because they waste time evaluating unpromising areas of the search space. So, we will use an automated method that aim to find optimal hyperparameters in less time using an informed search with no manual effort necessary beyond the initial set-up.
 
 Though Catboost performs well with default parameters, there are several parameters that drive a significant improvement in results when tuned. The most importants parameters for CatBoost are: cat_features, one_hot_max_size, learning_rate & n_estimators and max_depth.
 
@@ -436,7 +436,21 @@ for mean, stdev, param in zip(means, stds, params):
     print("%f (%f) with: %r" % (mean, stdev, param))
 ```
 <br>
-Best: 0.393510 using {'n_estimators': 400}
+<br>
+-------------------------------------------------------------------------------------
+|   iter    |  target   | baggin... |   depth   | iterat... | learni... | subsample |
+-------------------------------------------------------------------------------------
+|  1        |  0.3611   |  3.534    |  7.34     |  487.7    |  0.08617  |  0.989    |
+|  *2*        |  0.3712   |  6.769    |  6.503    |  414.4    |  0.06342  |  0.7499   |
+|  3        |  0.3629   |  7.755    |  7.411    |  476.2    |  0.0533   |  0.6441   |
+|  4        |  0.3587   |  3.024    |  7.543    |  400.1    |  0.05501  |  0.8838   |
+|  5        |  0.3666   |  10.0     |  5.0      |  600.0    |  0.1      |  1.0      |
+|  6        |  0.367    |  9.925    |  5.009    |  546.9    |  0.09322  |  0.7739   |
+|  7        |  0.3633   |  3.189    |  5.004    |  441.3    |  0.09411  |  0.9115   |
+|  8        |  0.3604   |  3.074    |  7.972    |  588.2    |  0.08115  |  0.6328   |
+|  9        |  0.3694   |  9.987    |  5.135    |  400.4    |  0.07652  |  0.9288   |
+|  10       |  0.3587   |  9.936    |  7.714    |  426.6    |  0.07037  |  0.9835   |
+=====================================================================================
 <br>
 
 
