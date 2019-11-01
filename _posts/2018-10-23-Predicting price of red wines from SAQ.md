@@ -306,7 +306,7 @@ plt.xticks(np.arange(X.shape[1]), X_train.columns.tolist(), rotation =90)
 ```
 <br>
 
-<img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/Feature_importance_R2.JPG">
+<img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Feature_importance_R2.jpg" src="/public/Feature_importance_R2.jpg">
 
 <br>
 <br>
@@ -410,7 +410,7 @@ ax.set_xticklabels(names)
 pyplot.show()
 ```
 <br>
-<img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/ModelSelection.JPG">
+<img height="350" width="350" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/ModelSelection.jpg" src="/public/ModelSelection.jpg">
 
 <br>
 <br>
