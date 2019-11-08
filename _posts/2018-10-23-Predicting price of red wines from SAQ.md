@@ -203,22 +203,8 @@ Columns with null values:
 <br>
 
 ```python
-#  Descriptive statistics about red wines prices.
-prices = df['Price']
-
-minimum_price = np.min(prices)
-maximum_price = np.max(prices)
-mean_price = np.mean(prices)
-median_price = prices.median()
-std_price = np.std(prices)
-
-# Show the calculated statistics
-print("Statistics for Boston housing dataset:\n")
-print("Minimum price: ${:,.2f}".format(minimum_price))
-print("Maximum price: ${:,.2f}".format(maximum_price))
-print("Mean price: ${:,.2f}".format(mean_price))
-print("Median price ${:,.2f}".format(median_price))
-print("Standard deviation of prices: ${:,.2f}".format(std_price))
+#  Descriptive
+df['Price].describe()
 ```
 <br>
 Statistics SAQ red wines dataset:
