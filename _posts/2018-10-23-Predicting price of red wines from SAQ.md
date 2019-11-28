@@ -14,6 +14,7 @@ title: Predicting red wine price from SAQ.com (Société des alcools du Québec)
 In this post, we will build a regression model in order to predict red wine's prices. We will get the data from SAQ website (Société des alcools du Québec). To do so, we will first extract the data from <a href="https://www.saq.com/content/SAQ/fr.html"> SAQ.com</a>. Once we get the data that we need, we will build our regressor model to predict red wine's prices.
 
 In this machine learning pipeline, we will :
+- Get red wines data from SAQ.com
 - Extract & uploading data
 - Exploratory Data Analysis (EDA)
 - Naive Baseline
@@ -314,6 +315,7 @@ stats
 ```
 <br>
 ### Price Distribution
+
 ```python
 from scipy import stats
 from scipy.stats import norm, skew
@@ -343,7 +345,7 @@ stats.skew(y_train)
 # bplot.figure.savefig('price_boxplot.jpg', format='jpeg') 
 ```
 <br>
-<PHOTO>
+
 <br>
 So, with 5.0 of positive kurtosis `Price` are definitely heavy-tailed and has some outliers that we need take care. In this case of positive skewness, log transformations usually works well.
 
@@ -352,6 +354,7 @@ So, with 5.0 of positive kurtosis `Price` are definitely heavy-tailed and has so
 
 <br>
 ### Log Transformed Price Distribution
+
 ```python
 # Log transformation on Price
 ylog_train = np.log1p(y_train)
@@ -382,6 +385,7 @@ stats.skew(ylog_train)
 <br>
 
 ### Categorical & Numerical Features: Linear Relationships
+
 ```python
 # Select the numeric columns
 numeric_subset = X_train.select_dtypes('number')
@@ -410,6 +414,7 @@ correlations.head(10)
 correlations.tail(10)
 ```
 <br>
+
 There are no strong positive linear relationships although we do see that `Producer` is slightly positively correlated with target `Price`.
 
 <br>
@@ -517,172 +522,329 @@ scores
 Although, most of our models outperform our naive baseline this is not the most fair comparison because we are using mostly the default hyperparameters.
 
 *Important: Scikit-Learn version is generally slower than the XGBoost version, but here we'll stick to Scikit-Learn because the syntax is more familiar.*
+
 <br>
+<br>
+## (Light) Feature Engineering & Model Selection
+
 <br>
 
+- Create a new feature `Year` from `Name`
+- Impute missing values from numerical and categorical features
+- Quantile Binning on `Alcohol`
+- One-hote encoding categorical features
+- Apply log-transform to `Price` since target is skewed
+- Evaluation using Nested Cross-validation (5x2-fold): *Inner loop is responsible for hyperparameters tuning and model selection, and the outer loop is used to evaluate the model selected by the inner loop*
 
 ```python
-# Feature Importance
-plt.plot(rf.feature_importances_)
-plt.xticks(np.arange(X.shape[1]), X_train.columns.tolist(), rotation =90)
-```
-<br>
-<br>
+from datetime import datetime
+from sklearn.base import BaseEstimator, TransformerMixin
 
-<img height="350" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Feature_importance_R2.jpg" src="/public/Feature_importance_R2.jpg">
-
-<br>
-<br>
-<br>
-
-## Feature Engineering & Selection
-```python
-# Mean Encoding on Producer
-kf = model_selection.KFold(5, shuffle=False)
-df_clean['Producer_enc'] = np.nan
-
-for tr_ind, val_ind in kf.split(df_clean):
-    X_tr, X_val = df_clean.iloc[tr_ind], df_clean.iloc[val_ind]
-    df_clean.loc[df_clean.index[val_ind], 'Producer_enc'] = X_val['Producer'].map(X_tr.groupby('Producer').Price.mean())
-df_clean['Producer_enc'].fillna(46.580, inplace=True)
+class YearTransformer(BaseEstimator, TransformerMixin):
+    
+    def __init__(self):
+        pass
+    
+    def fit(self, X, y=None):
+        return self
+    
+    def transform(self, X):
+        return X.str.extract('(20\d{2})', expand=True).replace(np.nan, 'Other', regex=True)
 
 
-# Feature Generation: Country_Region
-df_clean['Country_Region'] = df_clean['Country'] + df_clean['Region']
+# Numeric: Quantile based Adaptative Binning on Alcohol variable
+numeric_transformer = Pipeline([
+    ('imput', SimpleImputer(strategy='mean')),
+    ('KBinsDiscretizer', KBinsDiscretizer(n_bins=4, encode='onehot', strategy='quantile'))])
 
-# Feature Generation: Counts Producer
-counts = df_clean['Producer'].value_counts()
-counts_dict = counts.to_dict() 
-df_clean['Counts_Producer'] = df_clean['Producer'].map(counts_dict)
+# Categorical: Country, Region, Designation, Producer, Size
+categorical_transformer = Pipeline([
+    ('imput', SimpleImputer(strategy='most_frequent')),
+    ('onehot', OneHotEncoder(handle_unknown='ignore'))])
 
-# Feature Generation: Counts Producer
-val = df_clean['Producer'].value_counts()
-y = val[val == 1].index
-df_clean['New_Producer'] = df_clean['Producer'].replace({x:'Other' for x in y})
-
-#  Feature Engineering
-df_clean['Wine_year'] = df_clean['Name'].str.extract('(20\d{2})', expand=True)                                                  
-df_clean['Wine_year'] = df_clean['Wine_year'].replace(np.nan, 'Other', regex=True)
-
-# Feature Generation: Producer Frequency
-fe = df_clean.groupby('Producer').size()/len(df_clean)
-df_clean.loc[:, 'Freq_Producer'] = df_clean['Producer'].map(fe)
-```
-<br>
-<br>
-<br>
-
-## Modelling
-
-```python
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import KFold
-from sklearn.model_selection import cross_val_score
-from sklearn.pipeline import Pipeline
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.ensemble import ExtraTreesRegressor
-from sklearn.ensemble import AdaBoostRegressor
-from sklearn.metrics import mean_squared_error
-from catboost import CatBoostRegressor
-
-# Test options and evaluation metric
-num_folds = 10
-seed = 7
-scoring = 'r2'
+# Categorical: Name -> Year
+year_transformer = Pipeline([
+ ('year', YearTransformer()),
+ ('onehot', OneHotEncoder(handle_unknown='ignore'))])
 
 
-X = df_clean.drop(['Price'], axis=1)
-y = df_clean['Price'].values
+# ColumnTransformer
+cat_feat = ['Country', 'Region', 'Designation', 'Producer', 'Size']
+num_feat = ['Alcohol']
+year_feat = 'Name'
 
-X_train, X_validation, y_train, y_validation = train_test_split(X, y, train_size=0.7, random_state= 42)
+column_trans = ColumnTransformer(
+    transformers=[
+        ('num', numeric_transformer, num_feat),
+        ('cat', categorical_transformer, cat_feat),
+        ('year', year_transformer, year_feat)])
 
-# Label encoder
-for c in X_train.columns[X_train.dtypes == 'object']:
-  X_train[c] = X_train[c].factorize()[0]
+rf = Pipeline([('column_trans', column_trans),
+               ('RandomForestRegressor', RandomForestRegressor(random_state=random_state))])
+
+sdg = Pipeline([('column_trans', column_trans),
+               ('SGDRegressor', SGDRegressor(loss='squared_loss', random_state=random_state))])
+
+gbr = Pipeline([('column_trans', column_trans),
+               ('GradientBoostingRegressor', GradientBoostingRegressor(random_state=random_state))])
+
+lsrv = Pipeline([('column_trans', column_trans),
+               ('LinearSVR', LinearSVR(random_state=random_state))])
+
+cat = Pipeline([('column_trans', column_trans),
+               ('CatBoostRegressor', CatBoostRegressor(verbose=1000, random_seed=random_state))])
 
 
-# ensembles
-ensembles = []
-# ensembles.append(('AB', AdaBoostRegressor()))
-ensembles.append(('GBM', GradientBoostingRegressor()))
-ensembles.append(('RF',RandomForestRegressor()))
-ensembles.append(('ET', ExtraTreesRegressor()))
-ensembles.append(('CAT', CatBoostRegressor()))
+# Model hyperparameters & tuning space
+param_grid_rf  = [{'RandomForestRegressor__max_features': [4, 5, 6],
+                   'RandomForestRegressor__n_estimators':[100, 200, 300]}]
 
+param_grid_sdg = [{'SGDRegressor__alpha': [1e-5, 1e-4, 1e-3]}]
+
+param_grid_gbr = [{'GradientBoostingRegressor__n_estimators' : [900, 1000],
+                    'GradientBoostingRegressor__max_depth' : [5, 6, 7],
+                    'GradientBoostingRegressor__min_samples_leaf' : [5, 6]}]
+
+param_grid_lsvr = [{'LinearSVR__C':[17, 18, 19, 20]}]
+
+param_grid_cat = [{'CatBoostRegressor__iterations':[1000, 1600],
+                   'CatBoostRegressor__depth': [8, 12],
+                   'CatBoostRegressor__bagging_temperature': [2, 3]}]
+
+
+# Multiple GridSearchCV objects, one for each algorithm
+# Generally, Random Search is better when we have limited knowledge of the best model hyperparameters.
+# So, use Random Search to narrow down the options and then use Grid Search with a more limited range of options.
+gridcvs = {}
+inner_cv = KFold(n_splits=2, shuffle=True, random_state=random_state)
+
+for pgrid, est, name in zip((param_grid_rf, param_grid_sdg, param_grid_gbr, param_grid_lsvr, param_grid_cat),
+                            (rf, sdg, gbr, lsrv, cat),('RandomForestRegressor', 'SGDRegressor', 'GradientBoostingRegressor', 'LinearSVR', 'CatBoostRegressor')):
+
+    gcv = GridSearchCV(estimator=est,
+                       param_grid=pgrid,
+                       scoring=scoring_metric,
+                       n_jobs=1,
+                       cv=inner_cv,
+                       verbose=0,
+                       refit=True)
+    gridcvs[name] = gcv
+
+outer_cv = KFold(n_splits=5, shuffle=True, random_state=random_state)
+outer_scores = {}
 
 results = []
 names = []
-for name, model in ensembles:
-  kfold = KFold(n_splits=num_folds, random_state=seed)
-  cv_results = cross_val_score(model, X_train, y_train, cv=kfold, scoring=scoring)
-  results.append(cv_results)
-  names.append(name)
-  msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
-  print(msg)
+
+for name, gs_est in sorted(gridcvs.items()):
+    nested_score = cross_val_score(gs_est, 
+                                   X=X_train, 
+                                   y=y_train, 
+                                   cv=outer_cv)
+    outer_scores[name] = nested_score
+    print(f'{name}: outer  {-1*nested_score.mean():.2f} +/- {nested_score.std():.2f}')
+
+    results.append(nested_score)
+    names.append(name)
+
+fig = plt.figure(figsize=(10, 7), dpi=80, facecolor='w', edgecolor='k')
+fig.suptitle('Algorithm Comparison')
+ax = fig.add_subplot(111)
+plt.boxplot(results)
+ax.set_xticklabels(names, rotation=45)
+plt.show()
 ```
 <br>
 
+Generally, Random Search is better when we have limited knowledge of the best model hyperparameters and we can use Random Search to narrow down the options and then use Grid Search with a more limited range of options.
+
+<br>
+<br>
+<br>
+
+## Model Evaluation on Test Data
+
+<br>
+Now, we will select and use the best model from hyperparameter tuning in order to estimate the generalization performance on the test set. If this generalization error is similar to the validation error, we have reason to believe that our model will perform well on unseen data.
+
+In order to estimate how the model performance varies with training set size, we will also plot the **Learning curve** for our model.
+<br>
+
 ```python
-# Model Selection
-fig = pyplot.figure()
-fig.suptitle('Ensemble Algorithm Comparison')
-ax = fig.add_subplot(111)
-pyplot.boxplot(results)
-ax.set_xticklabels(names)
-pyplot.show()
+gcv_model_select = GridSearchCV(estimator=gbr,
+                                param_grid=param_grid_gbr,
+                                scoring=scoring_metric,
+                                n_jobs=-1,
+                                cv=inner_cv,
+                                verbose=1,
+                                refit=True)
+
+gcv_model_select.fit(X_train, y_train)
+best_model = gcv_model_select.best_estimator_
+print('Best Parameters: %s' % gcv_model_select.best_params_)
+```
+
+```python
+best_model = Pipeline([('column_trans', column_trans), ('GradientBoostingRegressor',
+                                                        TransformedTargetRegressor(regressor = GradientBoostingRegressor(n_estimators= 900, max_depth=6, random_state=random_state),
+                                                                                   func=np.log1p, inverse_func=np.expm1))])
+best_model.fit(X_train, y_train)
+
+train_MAE = mean_absolute_error(y_true=y_train, y_pred=best_model.predict(X_train))
+test_MAE = mean_absolute_error(y_true=y_test, y_pred=best_model.predict(X_test))
+
+print(f'Training Mean absolute Error: {train_MAE:.2f}')
+print(f'Test Mean Absolute Error: {test_MAE:.2f}')
+```
+<br>
+### **Learning curves** 
+
+With Learning curves we will estimate the variation of our model performance with training set size
+
+```python
+def plot_learning_curve(estimator, clf, X, y, ylim=None, cv=None, train_sizes=None):
+    plt.figure(figsize=(10, 7), dpi=80, facecolor='w', edgecolor='k')
+    plt.title(f'Learning Curves ({clf})')
+    plt.ylim(*ylim)
+    plt.xlabel("Training examples")
+    plt.ylabel("Score")
+    train_sizes, train_scores, test_scores = learning_curve(
+        estimator, X, y, cv=cv, train_sizes=train_sizes)
+    train_scores_mean = np.mean(train_scores, axis=1)
+    train_scores_std = np.std(train_scores, axis=1)
+    test_scores_mean = np.mean(test_scores, axis=1)
+    test_scores_std = np.std(test_scores, axis=1)
+
+    plt.fill_between(train_sizes, train_scores_mean - train_scores_std,
+                     train_scores_mean + train_scores_std, alpha=0.1,
+                     color="r")
+    plt.fill_between(train_sizes, test_scores_mean - test_scores_std,
+                     test_scores_mean + test_scores_std, alpha=0.1, color="g")
+    plt.plot(train_sizes, train_scores_mean, 'o-', color="r",
+             label="Training score")
+    plt.plot(train_sizes, test_scores_mean, 'o-', color="g",
+             label="Cross-validation score")
+    plt.legend(loc="best")
+    plt.grid(True)
+    return
+
+
+best_model = Pipeline([('column_trans', column_trans), ('GradientBoostingRegressor', 
+                                                        TransformedTargetRegressor(regressor = GradientBoostingRegressor(n_estimators= 900, max_depth=6, random_state=random_state),
+                                                                                   func=np.log1p, inverse_func=np.expm1))])
+
+train_sizes = np.linspace(.1, 1.0, 10)
+ylim = (0.2, 1.01)
+cv = 2
+plot_learning_curve(best_model, 'GradientBoostingRegressor', X_train, y_train, 
+                    ylim=ylim, cv=cv, train_sizes=train_sizes)
+
+plt.show()
+```
+<br>
+<br>
+
+Looking at the plot above, we can see two distinct trends. As the number of training samples grows, the training set declines but we observe an improving generalization on the test set.
+
+Also, the training score is greater than the validation score for the maximum number of training samples, so adding more training samples will most likely increase generalization.
+
+To get a sense of the predictions, we can plot the distribution of true values on the test set and the predicted values.
+
+<br>
+
+### **Density plot of predictions**
+
+```python
+final_predictions = best_model.predict(X_test)
+
+# Density plot of the final predictions and the test values
+plt.figure(figsize=(22,6))
+sns.kdeplot(final_predictions, label = 'Predicted values')
+sns.kdeplot(y_test, label = 'Test values')
+
+# Label the plot
+plt.xlabel('Price'); plt.ylabel('Density');
+plt.title('Final Predictions & Test Values');
+```
+<br>
+The distribution looks to be nearly the same although the density of the predicted values is closer to the median of the test values. It appears the model might be less accurate at predicting the extreme values and instead predicts values closer to the median.
+
+<br>
+<br>
+<br>
+## Model Analysis (Interpretability)
+
+In this section, we will try to understand how the model makes predictions.
+
+**What features in the data did the model think are most important?**
+
+```python
+def get_column_names_from_ColumnTransformer(column_transformer):    
+    col_name = []
+    for transformer_in_columns in column_transformer.transformers_[:-1]:#the last transformer is ColumnTransformer's 'remainder'
+        raw_col_name = transformer_in_columns[2]
+        if isinstance(transformer_in_columns[1],Pipeline): 
+            transformer = transformer_in_columns[1].steps[-1][1]
+        else:
+            transformer = transformer_in_columns[1]
+        try:
+            names = transformer.get_feature_names(cat_feat)
+        except AttributeError: # if no 'get_feature_names' function, use raw column name
+            names = raw_col_name
+        if isinstance(names,np.ndarray): # eg.
+            col_name += names.tolist()
+        elif isinstance(names,list):
+            col_name += names    
+        elif isinstance(names,str):
+            col_name.append(names)
+    return col_name 
+
+
+# Feature importances into a dataframe
+pipeline = Pipeline([('column_trans', column_trans),
+                     ('GradientBoostingRegressor',GradientBoostingRegressor(n_estimators= 900, max_depth=6, min_samples_leaf= 5, random_state=random_state))])
+pipeline.fit(X_train, y_train)
+
+feature_results = pd.DataFrame({'feature': get_column_names_from_ColumnTransformer(column_trans), 
+                                'importance': pipeline.steps[1][1].feature_importances_})
+
+feature_results = feature_results.sort_values('importance', ascending = False).reset_index(drop=True)
+
+# Top 20 features 
+sns.set()
+plt.figure(figsize=(17,5))
+plt.title(f'Feature Importance')
+sns.barplot(x='importance', y='feature', data=feature_results.head(20), orient='h', color = 'b')
 ```
 <br>
 <img height="350" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/ModelSelection.jpg" src="/public/ModelSelection.jpg">
 
 <br>
 <br>
+The importance score assigned to each feature is a measure of how often that feature was selected, and how much of an effect it had in reducing impurity when it was selected. Since we one-hot encode most of our categorical features the resulting sparsity ensures that our continuous variable `Alcohol` is assigned higher feature importance. 
 
-We can see that..........
+We need to consider others interpretability methods (Permutation importance or SHAP values) in order to  help combat the preference for continuous variables over binary ones.
 
-For hyperparameter tuning, GridSearch and Random search require long run times because they waste time evaluating unpromising areas of the search space. So, we will use an automated method that aim to find optimal hyperparameters in less time using an informed search with no manual effort necessary beyond the initial set-up.
+<br>
+<br>
 
-Though Catboost performs well with default parameters, there are several parameters that drive a significant improvement in results when tuned. The most importants parameters for CatBoost are: cat_features, one_hot_max_size, learning_rate & n_estimators and max_depth.
+## Conclusions
+
+
+**How did we do?**
+
+Not so great. 
+
+Looking to our Learning curve, it seems that we can improve generalization with more training samples. We could also test and add new variables to our dataset. It could be data from red wine descriptions in order to do some text analysis. 
 
 <br>
 
-```python
-# Hyperparameter optimization
-param_grid = dict(n_estimators=numpy.array([400,600,700,800,900,1000,1200]))
-model = CatBoostRegressor(random_state=seed)
-kfold = KFold(n_splits=num_folds, random_state=seed)
-grid = GridSearchCV(estimator=model, param_grid=param_grid, scoring=scoring, cv=kfold)
-grid_result = grid.fit(X_train, y_train)
+**Why even do this?**
 
-print("Best: %f using %s" % (grid_result.best_score_, grid_result.best_params_))
-means = grid_result.cv_results_['mean_test_score']
-stds = grid_result.cv_results_['std_test_score']
-params = grid_result.cv_results_['params']
-for mean, stdev, param in zip(means, stds, params):
-    print("%f (%f) with: %r" % (mean, stdev, param))
-```
-<br>
-<br>
--------------------------------------------------------------------------------------
-|   iter    |  target   | baggin... |   depth   | iterat... | learni... | subsample |
--------------------------------------------------------------------------------------
-|  1        |  0.3611   |  3.534    |  7.34     |  487.7    |  0.08617  |  0.989    |
-|  *2*        |  0.3712   |  6.769    |  6.503    |  414.4    |  0.06342  |  0.7499   |
-|  3        |  0.3629   |  7.755    |  7.411    |  476.2    |  0.0533   |  0.6441   |
-|  4        |  0.3587   |  3.024    |  7.543    |  400.1    |  0.05501  |  0.8838   |
-|  5        |  0.3666   |  10.0     |  5.0      |  600.0    |  0.1      |  1.0      |
-|  6        |  0.367    |  9.925    |  5.009    |  546.9    |  0.09322  |  0.7739   |
-|  7        |  0.3633   |  3.189    |  5.004    |  441.3    |  0.09411  |  0.9115   |
-|  8        |  0.3604   |  3.074    |  7.972    |  588.2    |  0.08115  |  0.6328   |
-|  9        |  0.3694   |  9.987    |  5.135    |  400.4    |  0.07652  |  0.9288   |
-|  10       |  0.3587   |  9.936    |  7.714    |  426.6    |  0.07037  |  0.9835   |
-=====================================================================================
-<br>
+*How can SAQ make more money from predicting red wine prices?*
 
+Our idea of text description could help. We could look into the relationship between text description or wine critics and price. If we can identify certain words or characteristics of a text associated with expensive wines, then the SAQ could price its red wines accordingly.
 
-## Conclusion
-Since CatBoost is a great model for tabular data, it seems to be the best model for our regression problem.
-Maybe with more data, like text (unstructured data), we could look into the relationship between text descriptions and prices and then identify certain words or characteristics associated with expensive and less expensive wines.
 
 <br>
 <br>
