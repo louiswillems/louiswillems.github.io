@@ -381,7 +381,6 @@ stats.skew(ylog_train)
 ```
 
 <br>
-<PHOTO>
 <br>
 
 ### Categorical & Numerical Features: Linear Relationships
