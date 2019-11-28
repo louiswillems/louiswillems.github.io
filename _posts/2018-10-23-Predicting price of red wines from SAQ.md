@@ -520,7 +520,7 @@ scores = pd.DataFrame(scores, columns=["Regressor", 'MAE', '+/-', 'Time(s)']).so
 scores
 ```
 <br>
-Although, most of our models outperform our naive baseline this is not the most fair comparison because we are using mostly the default hyperparameters.
+Most of our models outperform our naive baseline. Now, we will compare our models with some feature engineering and hyperparameter tuning.
 
 *Important: Scikit-Learn version is generally slower than the XGBoost version, but here we'll stick to Scikit-Learn because the syntax is more familiar.*
 
