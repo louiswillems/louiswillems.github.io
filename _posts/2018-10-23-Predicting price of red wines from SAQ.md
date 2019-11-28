@@ -614,8 +614,6 @@ param_grid_cat = [{'CatBoostRegressor__iterations':[1000, 1600],
 
 
 # Multiple GridSearchCV objects, one for each algorithm
-# Generally, Random Search is better when we have limited knowledge of the best model hyperparameters.
-# So, use Random Search to narrow down the options and then use Grid Search with a more limited range of options.
 gridcvs = {}
 inner_cv = KFold(n_splits=2, shuffle=True, random_state=random_state)
 
