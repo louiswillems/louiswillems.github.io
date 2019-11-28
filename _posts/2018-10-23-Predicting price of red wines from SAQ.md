@@ -314,6 +314,7 @@ for c in X_train.columns:
 stats
 ```
 <br>
+
 ### Price Distribution
 
 ```python
@@ -353,6 +354,7 @@ So, with 5.0 of positive kurtosis `Price` are definitely heavy-tailed and has so
 <br>
 
 <br>
+
 ### Log Transformed Price Distribution
 
 ```python
