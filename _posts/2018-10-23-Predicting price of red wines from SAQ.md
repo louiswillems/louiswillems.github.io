@@ -1,15 +1,33 @@
 ---
 layout: post
-title: Predicting prices of red wines from SAQ.com (Société des alcools du Québec)
+title: Predicting red wine price from SAQ.com (Société des alcools du Québec)
 ---
 
 <br>
-<br>
-In this post, we will build a regression model in order to predict the prices of red wines from data that we will get from SAQ website (Société des alcools du Québec). To do so, we will first extract the data from SAQ.com. Once we get the data that we need, we will build our regressor model to predict the prices of red wines.
 
-In order to do this, we will :
-* Extract the data
-* Build our model
+**Objective**: The goal of this machine learning project is to develop a model that can predict red wine's prices using SAQ data. We will also interpret the results to find the variables that are most predictive.
+
+<br>
+
+## Probleme definition
+
+In this post, we will build a regression model in order to predict red wine's prices. We will get the data from SAQ website (Société des alcools du Québec). To do so, we will first extract the data from <a href="https://www.saq.com/content/SAQ/fr.html"> SAQ.com</a>. Once we get the data that we need, we will build our regressor model to predict red wine's prices.
+
+In this machine learning pipeline, we will :
+- Extract & uploading data
+- Exploratory Data Analysis (EDA)
+- Naive Baseline
+- Feature Engineering & Model Selection
+- Model Evaluation on test data
+- Model Analysis (Interpretability)
+- Conclusion
+
+Note that the dataset has approximately 5000 rows. Our metric evaluation will be MAE. Feel free to see my repository on <a href="https://github.com/louiswillems/saq-price-predictions"> Github</a>.
+
+*Important: For the purpose of our project, we will follow these steps in a linear fashion but machine learning pipeline is an iterative procedure.*
+
+
+<br>
 <br>
 <br>
 <br>
@@ -163,123 +181,345 @@ if __name__ == "__main__":
 <br>
 
 
-## Exploratory Data Analysis
+## Preparing environment & uploading data
 <br>
-Before performing any data pre-processing, a general step is to explore the data to detect any outliers/missing values and other trends in the data.
+Importing packages
 
-Common steps to check the data:
-* Check for missing data
-* Check the skewness of the data
-* Outlier detection
-etc...
 <br>
 
 ```python
-print(df.head)
+from sklearn.compose import ColumnTransformer
+from sklearn.compose import TransformedTargetRegressor
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder, KBinsDiscretizer
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.model_selection import KFold
+from sklearn.model_selection import cross_val_score, cross_validate
+from sklearn.preprocessing import FunctionTransformer
+import category_encoders as ce
+from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
+from sklearn import model_selection
+from sklearn.model_selection import learning_curve
+
+from sklearn.linear_model import SGDRegressor
+from sklearn.svm import LinearSVR
+from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LinearRegression
+from catboost import CatBoostRegressor
+
+import matplotlib.pyplot as plt 
+import pandas as pd
+import numpy as np
+import re
+import io
+import time
+import d6tpipe
+import seaborn as sns
+sns.set()
+
+import warnings
+warnings.filterwarnings('ignore')
+warnings.filterwarnings(action='ignore',category=DeprecationWarning)
+warnings.filterwarnings(action='ignore',category=FutureWarning)
+
+%config InlineBackend.figure_format ='retina'
+
+random_state= 42
+scoring_metric = 'neg_mean_absolute_error'
+
+api = d6tpipe.api.APIClient()
+api.setToken('<Your Token>') # Your Token
+api.list_pipes()
+pipe = d6tpipe.Pipe(api, 'saqredwine2019')
+pipe.pull() 
+
+# Drop unnecessary column: Unnamed: 0
+cols = list(pd.read_csv(pipe.dirpath/'saq_redwine_5000_GCP2.csv', nrows =1))
+df = pd.read_csv(pipe.dirpath/'saq_redwine_5000_GCP2.csv', usecols =[i for i in cols if i != 'Unnamed: 0']).astype({'Size':object})
+df
+
 ```
 <br>
 <img height="170" width="980" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/df.head.jpg" src="/public/df.head.jpg">
 <br>
+It's a clean, easy to understand set of data. Here's what all the features mean:
+
+- **Country**: Country of origin
+- **Region**: Region where the wine was made
+- **Designation**: Product of a single vineyard with that vineyard's name appearing on the wine label.
+- **Producer**: Wine-producer
+- **Size**: Volume in mL or L (7500 mL, 1.5L)
+- **Alcohol**: Degree of Alcohol (%)
 <br>
 <br>
 
 ```python
-# Null values in the dataframe.
-print("Shape:\n",df.shape)
-print("Columns with null values:\n",df.isnull().sum())
-```
-Shape: (5000, 8)
+def prepare_data(data, target_name):
+    """
+    Separate X, y 
+    Separate numerical and categorical columns.
+    """
+    # != 0 & NaN on Target
+    data = data.loc[data[target_name] != 0]
+    data.dropna(subset= [target_name], inplace=True)
 
-Columns with null values:
-- Name             0
-- Country          0
-- Region         106
-- Designation     14
-- Producer         0
-- Size             0
-- Alcohol        818
-- Price           84
+    if target_name is not None:
+        X = data.drop(target_name, axis=1)
+        y = data[target_name]
+        
+        # get list of numerical & categorical columns in order to process these separately in the pipeline 
+        num_cols = X.select_dtypes("number").columns
+        cat_cols = X.select_dtypes("object").columns
+    else:
+        X = data
+        y = None
+    return X, y, num_cols, cat_cols
+
+# retrieve X, y and separated columns names for numerical and categorical data
+X, y, num_cols, cat_cols = prepare_data(df, 'Price')
+
+# Split train & test
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=random_state)
+```
+
+<br>
+
+## Exploratory Data Analysis
+
+Steps we will check in this dataset:
+- Check if data is intuitive 
+- Missings values
+- Outliers
+- Linear Relationships
+- Cross-Validation Startegy
+
+```python
+# Stats
+stats = pd.DataFrame(columns = ['Columns','Types','Values', 'Uniques', 'Uniques(no nulls)', 'Missing(n)', 'Missing(%)'])
+eda = pd.DataFrame()
+
+for c in X_train.columns:
+    eda['Columns'] = [c]
+    eda['Types'] = X_train[c].dtypes
+    eda['Values'] = [X_train[c].unique()]
+    eda['Uniques'] = len(list(X_train[c].unique()))
+    eda['Uniques(no nulls)'] = int(X_train[c].nunique())
+    eda['Missing(n)'] = X_train[c].isnull().sum()
+    eda['Missing(%)'] = (X_train[c].isnull().sum()/ len(X_train)).round(3)*100
+    stats = stats.append(eda)
+    
+stats
+```
+<br>
+### Price Distribution
+```python
+from scipy import stats
+from scipy.stats import norm, skew
+
+# Target describe()
+print(y_train.describe())
+         
+plt.figure(figsize=(22,6))
+
+plt.subplot(1,3,1)
+sns.distplot(y_train, bins=50)
+(mu, sigma) = norm.fit(y_train)
+print( '\n mu = {:.2f} and sigma = {:.2f}\n'.format(mu, sigma))
+plt.legend(['Normal dist. ($\mu=$ {:.2f} and $\sigma=$ {:.2f} )'.format(mu, sigma)],loc='best')
+plt.ylabel('Frequency')
+plt.title('Price Distribution')
+
+plt.subplot(1,3,2)
+stats.probplot(y_train, plot=plt)
+
+plt.subplot(1,3,3)
+sns.boxplot(y_train)
+plt.title('Price Boxplot')
+plt.show()
+stats.skew(y_train)
+# save jpeg
+# bplot.figure.savefig('price_boxplot.jpg', format='jpeg') 
+```
+<br>
+<PHOTO>
+<br>
+So, with 5.0 of positive kurtosis `Price` are definitely heavy-tailed and has some outliers that we need take care. In this case of positive skewness, log transformations usually works well.
+
+<br>
+<br>
+
+<br>
+### Log Transformed Price Distribution
+```python
+# Log transformation on Price
+ylog_train = np.log1p(y_train)
+
+# Plot
+plt.figure(figsize=(22,6))
+
+plt.subplot(1,3,1)
+sns.distplot(ylog_train, bins=50, fit=norm)
+(mu, sigma) = norm.fit(ylog_train)
+print( '\n mu = {:.2f} and sigma = {:.2f}\n'.format(mu, sigma))
+plt.legend(['Normal dist. ($\mu=$ {:.2f} and $\sigma=$ {:.2f} )'.format(mu, sigma)],loc='best')
+plt.ylabel('Frequency')
+plt.title('LogSalePrice Distribution')
+
+plt.subplot(1,3,2)
+stats.probplot(ylog_train, plot=plt)
+
+plt.subplot(1,3,3)
+sns.boxplot(ylog_train)
+plt.title('Price Boxplot')
+plt.show()
+stats.skew(ylog_train)
+```
+
+<br>
+<PHOTO>
+<br>
+
+### Categorical & Numerical Features: Linear Relationships
+```python
+# Select the numeric columns
+numeric_subset = X_train.select_dtypes('number')
+
+# Create columns with square root and log of numeric columns
+for col in numeric_subset.columns:
+    # Skip the Energy Star Score column
+    if col == 'Price':
+        next
+    else:
+        numeric_subset['sqrt_' + col] = np.sqrt(numeric_subset[col])
+        numeric_subset['log_' + col] = np.log(numeric_subset[col])
+
+# Select the categorical columns
+categorical_subset = X_train[['Country', 'Region', 'Designation', 'Producer', 'Size']]
+# # One hot encode
+categorical_subset = pd.get_dummies(categorical_subset)
+
+features = pd.concat([numeric_subset, categorical_subset, y_train], axis = 1)
+# Find corr
+correlations = features.corr()['Price'].sort_values()
+
+# Top 10 negative correlations
+correlations.head(10)
+# Top 10 positive correlations
+correlations.tail(10)
+```
+<br>
+There are no strong positive linear relationships although we do see that `Producer` is slightly positively correlated with target `Price`.
+
+<br>
+
+**EDA Conclusions:**
+- Almost all features are categoricals
+- `Region`, `Designation`, `Alcohol` and our target `Price` have missing values
+- `Alcohol` have more than 16% missing values
+- `Name` act as an ID column but have some interesting values as text feature
+- High number of uniques categorical values: `Producer` and `Region`
+- Target `Price` distribution varies by `Producer`
+<br>
+<br>
+
+
+## Naive Baseline
+<br>
+
+For our naive baseline, we will use the median value of `Price` on the training set for all observations on the test set. We will then calculate MAE to jauge the improuvement of our final model. So, our model will need to beat our naive baseline performance.
+
+<br>
+
+### Mean Absolute Error (MAE)
+
+
+```python
+def mae(y_true, y_pred):
+    return np.mean(abs(y_true - y_pred))
+
+print("Naive Baseline Performance on the test set: MAE = %0.4f" % mae(y_test, np.median(y_train)))
+```
 
 <br>
 
 ```python
-#  Descriptive
-df['Price].describe()
+# Numeric: Alcohol
+numeric_transformer = Pipeline([
+    ('imput', SimpleImputer(strategy='mean'))])
+
+
+# Categorical: Country, Region, Designation, Producer, Size
+categorical_transformer = Pipeline([
+    ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
+    ('onehot', OneHotEncoder(handle_unknown='ignore'))]) # use OneHotEncoder(handle_unknown='ignore') to ignore new categories in test set
+    
+
+# ColumnTransformer
+cat_feat = ['Country', 'Region', 'Designation', 'Producer', 'Size']
+num_feat = ['Alcohol']
+
+
+column_trans = ColumnTransformer(
+    transformers=[
+        ('num', numeric_transformer, num_feat),
+        ('cat', categorical_transformer, cat_feat)])
+
+
+lr = Pipeline([('column_trans', column_trans),
+               ('LinearRegression', LinearRegression())])
+
+rf = Pipeline([('column_trans', column_trans),
+               ('RandomForestRegressor', RandomForestRegressor(random_state=random_state))])
+
+sdg = Pipeline([('column_trans', column_trans),
+               ('SGDRegressor', SGDRegressor(loss='squared_loss', random_state=random_state))])
+
+gbr = Pipeline([('column_trans', column_trans),
+               ('GradientBoostingRegressor', GradientBoostingRegressor(random_state=random_state))])
+
+lsvr = Pipeline([('column_trans', column_trans),
+               ('LinearSVR', LinearSVR(random_state=random_state))])
+
+cat = Pipeline([('column_trans', column_trans),
+               ('CatBoostRegressor', CatBoostRegressor(verbose=1000, random_seed=random_state))])
+
+
+
+# Setting up Cross-Validation
+scores = []
+results = []
+names = []
+
+cv = KFold(n_splits=5, shuffle=True, random_state=5)
+
+for est, name in zip((lr, rf, sdg, gbr, lsrv, cat),
+                     ('LinearRegression', 'RandomForestRegressor', 'SGDRegressor', 'GradientBoostingRegressor', 'LinearSVR', 'CatBoostRegressor')):
+
+    start_time = time.time()         
+
+
+    # crossvalidate classifiers on training data
+    cv_score = cross_val_score(est, X=X_train, y=y_train, cv=cv, scoring=scoring_metric)
+
+    # cross_validate vs cross_val_score
+
+    scores.append([name.strip(), -1*cv_score.mean(), cv_score.std(), (time.time() - start_time)])
+    results.append(cv_score)
+    names.append(name)
+
+scores = pd.DataFrame(scores, columns=["Regressor", 'MAE', '+/-', 'Time(s)']).sort_values('MAE', ascending=True)
+# scores.style.highlight_min()
+scores
 ```
 <br>
-Statistics SAQ red wines dataset:
+Although, most of our models outperform our naive baseline this is not the most fair comparison because we are using mostly the default hyperparameters.
 
-* Minimum price: $4.30
-* Maximum price: $989.50
-* Mean price: $60.68
-* Median price $28.90
-* Standard deviation of prices: $96.52
-<br>
-
-```python
-#  For Data Exploration details click here
-
-# Drop duplicate descriptions
-baseline = df.drop_duplicates("Name")
-
-# Imputation 
-
-```
-
-### EDA Conclusions:
-- All features are categorical
-- Since the categorical features have a lot of unique values, we won't use one hot encoding, but depending on the dataset it may be a good idea to adjust one_hot_max_size.
-- After inspection Missing values Imputation has no effect on prediction.
-- We will apply Mean encoding to our categorical features
-
+*Important: Scikit-Learn version is generally slower than the XGBoost version, but here we'll stick to Scikit-Learn because the syntax is more familiar.*
 <br>
 <br>
 
-
-## Baseline Model
-<br>
-We will calculate RSME and R-squared metric to jauge the improuvement Baseline vs our final Model.
-<br>
-<br>
-
-```python
-baseline = df.drop_duplicates("Name")
-baseline = baseline.dropna()
-
-
-baseline = baseline[['Country','Region','Designation','Producer','Alcohol','Size','Price']]
-
-X = baseline.drop(['Price'], axis=1)
-y = baseline['Price'].values
-
-X_train, X_validation, y_train, y_validation = train_test_split(X, y, train_size=0.7, random_state= 42)
-
-
-# Label encoder of all categorical features
-for c in X_train.columns[X_train.dtypes == 'object']:
-  X_train[c] = X_train[c].factorize()[0]
-
-for c in X_validation.columns[X_validation.dtypes == 'object']:
-  X_validation[c] = X_validation[c].factorize()[0]
-  
-rf = RandomForestRegressor()
-rf.fit(X_train, y_train)
-
-# Predict
-predictions = rf.predict(X_validation)
-print("--Mean squared error: %.2f" % mean_squared_error(y_validation, predictions))
-print("--Root Mean squared error: %.2f" % np.sqrt(mean_squared_error(y_validation, predictions)))
-print('--Coefficient of determination: %.2f' % r2_score(y_validation, predictions))
-```
-<br>
-
-- Mean squared error: 5105.17
-- Root Mean squared error: 71.45
-- Coefficient of determination: -0.20
-
-<br>
-We can also see most important features of our Baseline model
-<br>
 
 ```python
 # Feature Importance
