@@ -522,7 +522,7 @@ scores = pd.DataFrame(scores, columns=["Regressor", 'MAE', '+/-', 'Time(s)']).so
 scores
 ```
 <br>
-<img height="200" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/NaiveBaseline.JPG">
+<img height="250" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/NaiveBaseline.JPG">
 <br>
 <br>
 Most of our models outperform our naive baseline. Now, we will compare our models with some feature engineering and hyperparameter tuning.
@@ -787,7 +787,7 @@ plt.xlabel('Price'); plt.ylabel('Density');
 plt.title('Final Predictions & Test Values');
 ```
 <br>
-<img height="200" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/PredictionsVsTestValues.JPG">
+<img height="300" width="870" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/PredictionsVsTestValues.JPG">
 <br>
 <br>
 The distribution looks to be nearly the same although the density of the predicted values is closer to the median of the test values. It appears the model might be less accurate at predicting the extreme values and instead predicts values closer to the median.
@@ -841,7 +841,7 @@ plt.title(f'Feature Importance')
 sns.barplot(x='importance', y='feature', data=feature_results.head(20), orient='h', color = 'b')
 ```
 <br>
-<img height="350" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/ModelSelection.jpg" src="/public/Feature_Importance.JPG">
+<img height="300" width="870" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/ModelSelection.jpg" src="/public/Feature_Importance.JPG">
 
 <br>
 <br>
