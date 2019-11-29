@@ -459,6 +459,7 @@ def mae(y_true, y_pred):
 
 print("Naive Baseline Performance on the test set: MAE = %0.4f" % mae(y_test, np.median(y_train)))
 ```
+Naive Baseline Performance on the test set: MAE = 43.2902
 
 <br>
 
@@ -531,6 +532,16 @@ scores = pd.DataFrame(scores, columns=["Regressor", 'MAE', '+/-', 'Time(s)']).so
 # scores.style.highlight_min()
 scores
 ```
+<br>
+
+<br>
+<br>
+<img height="610" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/NaiveBaseline.JPG">
+<br>
+<br>
+
+<br>
+
 <br>
 Most of our models outperform our naive baseline. Now, we will compare our models with some feature engineering and hyperparameter tuning.
 
@@ -664,6 +675,14 @@ plt.boxplot(results)
 ax.set_xticklabels(names, rotation=45)
 plt.show()
 ```
+
+<br>
+
+<br>
+<br>
+<img height="610" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/AlgorithmComparison.JPG">
+<br>
+<br>
 <br>
 
 Generally, Random Search is better when we have limited knowledge of the best model hyperparameters and we can use Random Search to narrow down the options and then use Grid Search with a more limited range of options.
@@ -693,10 +712,17 @@ gcv_model_select.fit(X_train, y_train)
 best_model = gcv_model_select.best_estimator_
 print('Best Parameters: %s' % gcv_model_select.best_params_)
 ```
+Fitting 2 folds for each of 12 candidates, totalling 24 fits
+[Parallel(n_jobs=-1)]: Using backend LokyBackend with 2 concurrent workers.
+[Parallel(n_jobs=-1)]: Done  24 out of  24 | elapsed:   51.3s finished
+Best Parameters: {'GradientBoostingRegressor__max_depth': 5, 'GradientBoostingRegressor__n_estimators': 900}
+
+<br>
+
 
 ```python
 best_model = Pipeline([('column_trans', column_trans), ('GradientBoostingRegressor',
-                                                        TransformedTargetRegressor(regressor = GradientBoostingRegressor(n_estimators= 900, max_depth=6, random_state=random_state),
+                                                        TransformedTargetRegressor(regressor = GradientBoostingRegressor(n_estimators= 900, max_depth=5, random_state=random_state),
                                                                                    func=np.log1p, inverse_func=np.expm1))])
 best_model.fit(X_train, y_train)
 
@@ -706,6 +732,8 @@ test_MAE = mean_absolute_error(y_true=y_test, y_pred=best_model.predict(X_test))
 print(f'Training Mean absolute Error: {train_MAE:.2f}')
 print(f'Test Mean Absolute Error: {test_MAE:.2f}')
 ```
+Training Mean absolute Error: 15.49
+Test Mean Absolute Error: 27.96
 <br>
 
 ### **Learning curves** 
@@ -741,7 +769,7 @@ def plot_learning_curve(estimator, clf, X, y, ylim=None, cv=None, train_sizes=No
 
 
 best_model = Pipeline([('column_trans', column_trans), ('GradientBoostingRegressor', 
-                                                        TransformedTargetRegressor(regressor = GradientBoostingRegressor(n_estimators= 900, max_depth=6, random_state=random_state),
+                                                        TransformedTargetRegressor(regressor = GradientBoostingRegressor(n_estimators= 900, max_depth=5, random_state=random_state),
                                                                                    func=np.log1p, inverse_func=np.expm1))])
 
 train_sizes = np.linspace(.1, 1.0, 10)
@@ -752,6 +780,8 @@ plot_learning_curve(best_model, 'GradientBoostingRegressor', X_train, y_train,
 
 plt.show()
 ```
+<br>
+<img height="610" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/AlgorithmComparison.JPG">
 <br>
 <br>
 
@@ -777,6 +807,9 @@ sns.kdeplot(y_test, label = 'Test values')
 plt.xlabel('Price'); plt.ylabel('Density');
 plt.title('Final Predictions & Test Values');
 ```
+<br>
+<img height="610" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/PredictionsVsTestValues.JPG">
+<br>
 <br>
 The distribution looks to be nearly the same although the density of the predicted values is closer to the median of the test values. It appears the model might be less accurate at predicting the extreme values and instead predicts values closer to the median.
 
@@ -829,7 +862,7 @@ plt.title(f'Feature Importance')
 sns.barplot(x='importance', y='feature', data=feature_results.head(20), orient='h', color = 'b')
 ```
 <br>
-<img height="350" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/ModelSelection.jpg" src="/public/ModelSelection.jpg">
+<img height="350" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/ModelSelection.jpg" src="/public/Feature_Importance.jpg">
 
 <br>
 <br>
