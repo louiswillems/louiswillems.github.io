@@ -787,7 +787,7 @@ plt.xlabel('Price'); plt.ylabel('Density');
 plt.title('Final Predictions & Test Values');
 ```
 <br>
-<img height="300" width="870" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/PredictionsVsTestValues.JPG">
+<img height="2700" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/PredictionsVsTestValues.JPG">
 <br>
 <br>
 The distribution looks to be nearly the same although the density of the predicted values is closer to the median of the test values. It appears the model might be less accurate at predicting the extreme values and instead predicts values closer to the median.
