@@ -659,9 +659,6 @@ plt.show()
 ```
 
 <br>
-
-<br>
-<br>
 <img height="650" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/AlgorithmComparison.JPG">
 <br>
 <br>
@@ -763,7 +760,7 @@ plot_learning_curve(best_model, 'GradientBoostingRegressor', X_train, y_train,
 plt.show()
 ```
 <br>
-<img height="610" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/AlgorithmComparison.JPG">
+<img height="610" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/Learning_Curve.JPG">
 <br>
 <br>
 
