@@ -522,7 +522,7 @@ scores = pd.DataFrame(scores, columns=["Regressor", 'MAE', '+/-', 'Time(s)']).so
 scores
 ```
 <br>
-<img height="300" width="500" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/NaiveBaseline.JPG">
+<img height="200" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/NaiveBaseline.JPG">
 <br>
 <br>
 Most of our models outperform our naive baseline. Now, we will compare our models with some feature engineering and hyperparameter tuning.
@@ -659,7 +659,7 @@ plt.show()
 ```
 
 <br>
-<img height="600" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/AlgorithmComparison.JPG">
+<img height="650" width="650" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/AlgorithmComparison.JPG">
 <br>
 <br>
 <br>
@@ -787,7 +787,7 @@ plt.xlabel('Price'); plt.ylabel('Density');
 plt.title('Final Predictions & Test Values');
 ```
 <br>
-<img height="400" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/PredictionsVsTestValues.JPG">
+<img height="200" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/PredictionsVsTestValues.JPG">
 <br>
 <br>
 The distribution looks to be nearly the same although the density of the predicted values is closer to the median of the test values. It appears the model might be less accurate at predicting the extreme values and instead predicts values closer to the median.
