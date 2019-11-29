@@ -659,7 +659,7 @@ plt.show()
 ```
 
 <br>
-<img height="650" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/AlgorithmComparison.JPG">
+<img height="600" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/AlgorithmComparison.JPG">
 <br>
 <br>
 <br>
@@ -760,7 +760,7 @@ plot_learning_curve(best_model, 'GradientBoostingRegressor', X_train, y_train,
 plt.show()
 ```
 <br>
-<img height="610" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/Learning_Curve.JPG">
+<img height="500" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/Learning_Curve.JPG">
 <br>
 <br>
 
@@ -787,7 +787,7 @@ plt.xlabel('Price'); plt.ylabel('Density');
 plt.title('Final Predictions & Test Values');
 ```
 <br>
-<img height="610" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/PredictionsVsTestValues.JPG">
+<img height="400" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/PredictionsVsTestValues.JPG">
 <br>
 <br>
 The distribution looks to be nearly the same although the density of the predicted values is closer to the median of the test values. It appears the model might be less accurate at predicting the extreme values and instead predicts values closer to the median.
@@ -841,7 +841,7 @@ plt.title(f'Feature Importance')
 sns.barplot(x='importance', y='feature', data=feature_results.head(20), orient='h', color = 'b')
 ```
 <br>
-<img height="350" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/ModelSelection.jpg" src="/public/Feature_Importance.jpg">
+<img height="350" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/ModelSelection.jpg" src="/public/Feature_Importance.JPG">
 
 <br>
 <br>
