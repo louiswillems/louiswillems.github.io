@@ -176,7 +176,7 @@ if __name__ == "__main__":
 ```
 <br>
 <br>
-<img height="570" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/saq_website1.JPG">
+<img height="670" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/saq_website1.JPG">
 <br>
 <br>
 <br>
