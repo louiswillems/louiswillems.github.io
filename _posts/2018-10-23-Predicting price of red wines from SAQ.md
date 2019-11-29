@@ -243,7 +243,7 @@ df
 
 ```
 <br>
-<img height="170" width="980" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/df.head.jpg" src="/public/df.head.jpg">
+<img height="270" width="980" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/df.head.jpg" src="/public/df.head.jpg">
 <br>
 It's a clean, easy to understand set of data. Here's what all the features mean:
 
