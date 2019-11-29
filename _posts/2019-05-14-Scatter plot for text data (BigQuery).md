@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Scatterplot for text & BigQuery
+title: Scatterplot for text data (BigQuery)
 ---
 
 <br>
