@@ -346,19 +346,12 @@ stats.skew(y_train)
 # bplot.figure.savefig('price_boxplot.jpg', format='jpeg') 
 ```
 <br>
-
-<br>
-<br>
 <img height="310" width="870" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/Price_Distribution.JPG">
-<br>
-<br>
-
 <br>
 So, with 5.0 of positive kurtosis `Price` are definitely heavy-tailed and has some outliers that we need take care. In this case of positive skewness, log transformations usually works well.
 
 <br>
 <br>
-
 <br>
 
 ### Log Transformed Price Distribution
@@ -388,13 +381,9 @@ plt.show()
 stats.skew(ylog_train)
 ```
 <br>
-
-<br>
-<br>
 <img height="310" width="870" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/Log_Price_Distribution.JPG">
 <br>
 <br>
-
 <br>
 
 ### Categorical & Numerical Features: Linear Relationships
@@ -536,7 +525,7 @@ scores
 
 <br>
 <br>
-<img height="410" width="470" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/NaiveBaseline.JPG">
+<img height="310" width="300" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/NaiveBaseline.JPG">
 <br>
 <br>
 
