@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Text Data Visualization with Google Analytics
+title: Text Data Visualization with BigQuery
 ---
 
 <br>
