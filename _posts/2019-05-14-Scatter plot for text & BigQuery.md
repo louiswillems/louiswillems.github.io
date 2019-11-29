@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Text Data Visualization with BigQuery
+title: Scatterplot for text & BigQuery
 ---
 
 <br>
 <br>
-In this post, we will build a scatter plot tool for text. For this, we'll collect the data from the publicly available Kurier.at dataset in BigQuery. Kurier.at is an Austrian newsite.
+In this post, we will build a scatter plot for text. For this, we'll collect the data from the publicly available Kurier.at dataset in BigQuery. Kurier.at is an Austrian newsite.
 
 We will upload a sample of Google Analytics data from this news site, This sample contains page tracking events.
 
-The goal of post is to create a text data visualization tool that is intended visualizing most frequents words of most and least reads news articles.
+The goal of post is to create a scatter plot for text that is intended visualizing most frequents words of most and least reads news articles.
 
 This notebook illustrates how to:
 
