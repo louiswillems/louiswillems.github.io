@@ -725,7 +725,7 @@ With Learning curves we will estimate the variation of our model performance wit
 ```python
 def plot_learning_curve(estimator, clf, X, y, ylim=None, cv=None, train_sizes=None):
     plt.figure(figsize=(10, 7), dpi=80, facecolor='w', edgecolor='k')
-    plt.title(f'Learning Curves ({clf})')
+    plt.title(f'Learning Curve ({clf})')
     plt.ylim(*ylim)
     plt.xlabel("Training examples")
     plt.ylabel("Score")
