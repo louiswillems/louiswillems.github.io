@@ -536,7 +536,7 @@ scores
 
 <br>
 <br>
-<img height="610" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/NaiveBaseline.JPG">
+<img height="410" width="470" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/NaiveBaseline.JPG">
 <br>
 <br>
 
