@@ -176,7 +176,7 @@ if __name__ == "__main__":
 ```
 <br>
 <br>
-<img height="670" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/saq_website1.JPG">
+<img height="570" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/saq_website1.JPG">
 <br>
 <br>
 <br>
@@ -243,7 +243,7 @@ df
 
 ```
 <br>
-<img height="270" width="980" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/df.head.jpg" src="/public/df.head.jpg">
+<img height="180" width="980" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/df.head.jpg" src="/public/df.head.jpg">
 <br>
 It's a clean, easy to understand set of data. Here's what all the features mean:
 
