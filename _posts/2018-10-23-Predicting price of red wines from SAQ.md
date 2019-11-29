@@ -348,6 +348,12 @@ stats.skew(y_train)
 <br>
 
 <br>
+<br>
+<img height="570" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/Price_Distribution.JPG">
+<br>
+<br>
+
+<br>
 So, with 5.0 of positive kurtosis `Price` are definitely heavy-tailed and has some outliers that we need take care. In this case of positive skewness, log transformations usually works well.
 
 <br>
