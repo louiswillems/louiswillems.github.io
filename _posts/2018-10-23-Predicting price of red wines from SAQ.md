@@ -387,8 +387,14 @@ plt.title('Price Boxplot')
 plt.show()
 stats.skew(ylog_train)
 ```
+<br>
 
 <br>
+<br>
+<img height="310" width="870" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/Log_Price_Distribution.JPG">
+<br>
+<br>
+
 <br>
 
 ### Categorical & Numerical Features: Linear Relationships
