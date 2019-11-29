@@ -662,7 +662,7 @@ plt.show()
 
 <br>
 <br>
-<img height="610" width="700" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/AlgorithmComparison.JPG">
+<img height="650" width="670" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/AlgorithmComparison.JPG">
 <br>
 <br>
 <br>
