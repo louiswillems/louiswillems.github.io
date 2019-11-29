@@ -522,7 +522,7 @@ scores = pd.DataFrame(scores, columns=["Regressor", 'MAE', '+/-', 'Time(s)']).so
 scores
 ```
 <br>
-<img height="330" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/NaiveBaseline.JPG">
+<img height="310" width="470" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/NaiveBaseline.JPG">
 <br>
 <br>
 Most of our models outperform our naive baseline. Now, we will compare our models with some feature engineering and hyperparameter tuning.
