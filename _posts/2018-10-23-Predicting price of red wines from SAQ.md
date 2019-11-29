@@ -603,8 +603,7 @@ param_grid_rf  = [{'RandomForestRegressor__max_features': [4, 5, 6],
 param_grid_sdg = [{'SGDRegressor__alpha': [1e-5, 1e-4, 1e-3]}]
 
 param_grid_gbr = [{'GradientBoostingRegressor__n_estimators' : [900, 1000],
-                    'GradientBoostingRegressor__max_depth' : [5, 6, 7],
-                    'GradientBoostingRegressor__min_samples_leaf' : [5, 6]}]
+                    'GradientBoostingRegressor__max_depth' : [5, 6, 7]}]
 
 param_grid_lsvr = [{'LinearSVR__C':[17, 18, 19, 20]}]
 
@@ -696,6 +695,7 @@ print(f'Training Mean absolute Error: {train_MAE:.2f}')
 print(f'Test Mean Absolute Error: {test_MAE:.2f}')
 ```
 <br>
+
 ### **Learning curves** 
 
 With Learning curves we will estimate the variation of our model performance with training set size
@@ -771,6 +771,7 @@ The distribution looks to be nearly the same although the density of the predict
 <br>
 <br>
 <br>
+
 ## Model Analysis (Interpretability)
 
 In this section, we will try to understand how the model makes predictions.
