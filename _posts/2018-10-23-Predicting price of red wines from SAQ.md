@@ -841,7 +841,7 @@ plt.title(f'Feature Importance')
 sns.barplot(x='importance', y='feature', data=feature_results.head(20), orient='h', color = 'b')
 ```
 <br>
-<img height="350" width="870" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/ModelSelection.jpg" src="/public/Feature_Importance.JPG">
+<img height="250" width="870" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/ModelSelection.jpg" src="/public/Feature_Importance.JPG">
 
 <br>
 <br>
