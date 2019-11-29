@@ -349,7 +349,7 @@ stats.skew(y_train)
 
 <br>
 <br>
-<img height="570" width="750" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/Price_Distribution.JPG">
+<img height="370" width="850" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_website1.JPG" src="/public/Price_Distribution.JPG">
 <br>
 <br>
 
