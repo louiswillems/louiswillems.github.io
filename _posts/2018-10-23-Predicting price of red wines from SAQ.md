@@ -1,17 +1,17 @@
 ---
 layout: post
-title: Predicting red wine price from SAQ.com (Société des alcools du Québec)
+title: Predicting red wine from SAQ.com (Société des alcools du Québec)
 ---
 
 <br>
 
-**Objective**: The goal of this machine learning project is to develop a model that can predict red wine's prices using SAQ data. We will also interpret the results to find the variables that are most predictive.
+**Objective**: The goal of this machine learning project is to develop a model that can predict red wine prices using SAQ data. We will also interpret the results to find the variables that are most predictive.
 
 <br>
 
-## Probleme definition
+## Problem definition
 
-In this post, we will build a regression model in order to predict red wine's prices. We will get the data from SAQ website (Société des alcools du Québec). To do so, we will first extract the data from <a href="https://www.saq.com/content/SAQ/fr.html" target="_blank"> SAQ.com</a>. Once we get the data that we need, we will build our regressor model to predict red wine's prices.
+In this post, we will build a regression model in order to predict red wine prices. We will get the data from SAQ website (Société des alcools du Québec). To do so, we will first extract the data from <a href="https://www.saq.com/content/SAQ/fr.html" target="_blank"> SAQ.com</a>. Once we get the data that we need, we will build our regressor model to predict red wine prices.
 
 In this machine learning pipeline, we will :
 - Get red wines data from SAQ.com
