@@ -40,22 +40,6 @@ span{
 
 <br>
 
-## Preferred Books
-* <em>Data Science on the Google Cloud Platform by Valliappa Lakshmanan</em>
-* <em>Two Scoops of Django: Best Practices for Django 1.8 Book by Audrey Roy and Daniel Roy Greenfeld</em>
-* <em>Python Machine Learning by Sebastian Raschka</em>
-* <em>Machine Learning Mastery with Python by Jason Brownlee</em>
-* <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction by Trevor Hastie, Robert Tibshirani, and Jerome Friedman</em>
-* <em>Python Machine Learning Case Studies by Danish Haroon</em>
-* <em>Django 2.1 by Nigel George </em>
-* <em>Hands-On Machine Learning with Scikit-Learn and TensorFlow by Aurélien Géron </em>
-* <em>Complex Network Analysis in Python by Dmitry Zinovie</em>
-* <em>Text Analytics with Python by Dipanjan Sarkar</em>
-* <em>Introduction to Machine Learning with Python by Andreas C. Müller & Sarah Guido</em>
-
-<br>
-<br>
-
 ## Certificates
 * <em>[Tensorflow in Practice - deeplearning.ai](https://www.coursera.org/account/accomplishments/specialization/certificate/EQJA4458HTRS)</em>
 * <em>[Machine Learning for Business Professionals](https://www.coursera.org/account/accomplishments/records/MMX587GVST6E)</em>
@@ -70,6 +54,22 @@ span{
 * <em>[From Data to Insights with Google Cloud Platform](https://www.coursera.org/account/accomplishments/specialization/certificate/N7CZZH2P5RTL)</em>
 * <em>[Data Engineering on Google Cloud Platform](https://www.coursera.org/account/accomplishments/specialization/certificate/J899XE79LVWK)</em>
 * <em>[Applied Data Science with Python](https://www.coursera.org/account/accomplishments/specialization/certificate/525K)</em>
+
+<br>
+<br>
+
+## Preferred Books
+* <em>Data Science on the Google Cloud Platform by Valliappa Lakshmanan</em>
+* <em>Two Scoops of Django: Best Practices for Django 1.8 Book by Audrey Roy and Daniel Roy Greenfeld</em>
+* <em>Python Machine Learning by Sebastian Raschka</em>
+* <em>Machine Learning Mastery with Python by Jason Brownlee</em>
+* <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction by Trevor Hastie, Robert Tibshirani, and Jerome Friedman</em>
+* <em>Python Machine Learning Case Studies by Danish Haroon</em>
+* <em>Django 2.1 by Nigel George </em>
+* <em>Hands-On Machine Learning with Scikit-Learn and TensorFlow by Aurélien Géron </em>
+* <em>Complex Network Analysis in Python by Dmitry Zinovie</em>
+* <em>Text Analytics with Python by Dipanjan Sarkar</em>
+* <em>Introduction to Machine Learning with Python by Andreas C. Müller & Sarah Guido</em>
 <br>
 <br>
 <br>
