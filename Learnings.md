@@ -38,16 +38,6 @@ span{
 <br>
 <hr>
 
-
-## Tools
-* <em>TensorFlow/Keras</em>
-* <em>Cloud Datalab/Jupyter/Colab/</em>
-* <em>Scikit-learn</em>
-* <em>Numpy/Scipy/Pandas/Matplotlib</em>
-* <em>Plotly</em>
-* <em>Google Cloud AI & Machine Learning</em>
-
-<br>
 <br>
 
 ## Preferred Books
