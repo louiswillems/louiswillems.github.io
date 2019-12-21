@@ -17,3 +17,9 @@ title: Visualizing Towed vehicles in Montreal
 ## Data
 
 The <a href="http://donnees.ville.montreal.qc.ca/dataset/remorquages-de-vehicules-genants/resource/e62322fb-3e14-4ee0-b724-a77190dac8e7" target="_blank">data</a> show vehicles towed by the City of Montreal since 2016. Towing is performed for example during snow removal, construction work or during special events.
+
+<br>
+
+<img height="420" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prediction.JPG" src="/public/towedvehiclesmontreal.JPG">
+<br>
+<br>
