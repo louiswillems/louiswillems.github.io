@@ -41,8 +41,22 @@ span{
 <br>
 
 ## Certificates
+* <em><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/EQJA4458HTRS" target="_blank">Tensorflow in Practice - deeplearning.ai</a><em>
+* <em><a href="https://www.coursera.org/account/accomplishments/records/MMX587GVST6E" target="_blank">Machine Learning for Business Professionals</a><em>
+  
+  
+* <em><a href="https://storage.googleapis.com/app-praticadr-static/german_text_analytics.html" target="_blank">Tensorflow in Practice - deeplearning.ai</a><em>
+* <em><a href="https://storage.googleapis.com/app-praticadr-static/german_text_analytics.html" target="_blank">Tensorflow in Practice - deeplearning.ai</a><em>
+* <em><a href="https://storage.googleapis.com/app-praticadr-static/german_text_analytics.html" target="_blank">Tensorflow in Practice - deeplearning.ai</a><em>
+* <em><a href="https://storage.googleapis.com/app-praticadr-static/german_text_analytics.html" target="_blank">Tensorflow in Practice - deeplearning.ai</a><em>
+
+
 * <em>[Tensorflow in Practice - deeplearning.ai](https://www.coursera.org/account/accomplishments/specialization/certificate/EQJA4458HTRS)</em>
 * <em>[Machine Learning for Business Professionals](https://www.coursera.org/account/accomplishments/records/MMX587GVST6E)</em>
+
+
+
+
 * <em>[Security in Google Cloud Platform Specialization](https://www.coursera.org/account/accomplishments/specialization/WJK9V23LXGFY)</em>
 * <em>[Advanced Machine Learning with TensorFlow on Google Cloud Platform](https://www.coursera.org/account/accomplishments/specialization/certificate/LRN9YGHY4BAE)</em>
 * <em>[IBM Data Science Professional Certificate Specialization](https://www.youracclaim.com/badges/af13af74-7d41-4d39-b67b-a2ab22016c16/public_url)</em>
