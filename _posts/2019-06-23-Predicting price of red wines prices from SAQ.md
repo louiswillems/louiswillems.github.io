@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Predicting red wine from SAQ.com (Société des alcools du Québec)
+title: Predicting red wine prices from SAQ.com (Société des alcools du Québec)
 ---
 
 <br>
