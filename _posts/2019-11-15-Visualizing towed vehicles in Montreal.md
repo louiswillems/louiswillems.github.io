@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Visualizing Towed vehicles in Montreal
+title: Visualizing towed vehicles in Montreal
 ---
 
 <br>
