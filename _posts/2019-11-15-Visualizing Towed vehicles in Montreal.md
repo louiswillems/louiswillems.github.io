@@ -20,6 +20,6 @@ The <a href="http://donnees.ville.montreal.qc.ca/dataset/remorquages-de-vehicule
 
 <br>
 
-<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prediction.JPG" src="/public/towedvehiclesmontreal.JPG">
+<img height="500" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prediction.JPG" src="/public/towedvehiclesmontreal.JPG">
 <br>
 <br>
