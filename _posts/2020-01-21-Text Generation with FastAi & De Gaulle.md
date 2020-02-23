@@ -47,6 +47,7 @@ from google.colab import drive
 drive.mount('/content/drive')
 ```
 <br>
+
 ## 1. Download Data
 
 First let's download the dataset that has been extracted from [here](http://www.charles-de-gaulle.org/lhomme/les-discours/) and contains all official spechees from 1940 to 1968.  
