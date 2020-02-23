@@ -58,7 +58,7 @@ pd.read_csv('/content/drive/My Drive/DeepFrench/discours_degaulle.csv').head()
 <br>
 <br>
 
-## 2. Data Preparation and Fine-tuning French LM
+## 2. Data Preparation & Fine-tuning French LM
 
 ```python
 tokenizer = Tokenizer(lang='fr', n_cpus=5)
