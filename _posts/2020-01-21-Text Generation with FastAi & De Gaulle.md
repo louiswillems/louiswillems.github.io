@@ -21,6 +21,8 @@ and some are even fake. So, my motivation here consists to train a model and try
 
 You can find the data [here](http://www.charles-de-gaulle.org/lhomme/les-discours/) and download the pretrained weights and vocab [here](https://github.com/tchambon/deepfrench)
 
+<br>
+
 1. Download Data
 2. Data Preparation & Fine-tuning
 3. Results
@@ -66,8 +68,6 @@ tokenizer = Tokenizer(lang='fr', n_cpus=5)
 data_lm = (TextLMDataBunch.from_csv('/content/drive/My Drive/DeepFrench/', tokenizer=tokenizer, csv_name='discours_degaulle.csv', text_cols=0, bs=32))
 data_lm.show_batch()
 ```
-<br>
-
 To use the pre-trained LM, we have to load two files:
 
 - Weights of the pretrained LM (wref30k)
@@ -113,6 +113,7 @@ print("\n".join(learn_lm.predict(TEXT, N_WORDS, temperature=0.50) for _ in range
 ```
 *"la France . le , les deux pays , en proie à une guerre civile , se sont alliés à la de la conférence de la paix . la conférence de paris de la conférence de londres"*
 
+<br>
 
 ```python
 # Lowering temperature will make the texts less randomized.
