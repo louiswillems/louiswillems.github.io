@@ -39,48 +39,45 @@ span{
 <br>
 
 ### Data Analyst - <small><em>Québecor - 2017/2019</em></small>
-* Conducting exploratory data analysis of large data sets to identify trends and validate hypothesis.
-* Responsible for implementing analytics techniques and machine learning solutions to support business objectives.
-* Performance monitoring for digital marketing strategies for customer acquisition, conversion and retention.
-* Implementing web automation and data ingestion procedures from different data sources (API pipelines).
-* Analyzing popularity of online news articles via text mining techniques in order to classify/categorize data.
-* Collaborating with dedicated departments for data quality and governance policies for GDPR.
+* Collected and analyzed large data (millions monthly visitors) to identify trends and guide marketing strategies.
+* Designed and implemented daily, weekly & monthly automated reports (50) for data intelligence and analysis. 
+* Created analytics dashboards to interpret and translate visitor behavior for websites (48) and mobile apps (10).
+* Utilized Google Tag Manger to develop GDPR solutions (scripts) for data governance.
+* Implemented API queries and automated data ingestion/cleaning procedures to BigQuery.
+* Led project to create a new classification of online news articles with NLP methods (LDA/Word embeddings).
+* Prototyped a content-based recommendation engine with TensorFlow/Keras on Google Cloud Platform.
 
 <br>
 <br>
 
 ### Digital Marketing Analyst - <small><em>Ivanhoé Cambridge - 2016/2017</em></small>
-*	Analyzed performance monitoring for on and offline national marketing strategies for customer acquisition, behavior and, micro and macro conversions.
-*	Developed advanced web and mobile app reporting to demonstrate the value of digital marketing initiatives.
-*	Managed data visualization, data analysis and development of dashboards for content marketing, social media and digital advertising departments using Tableau (Desktop/Server).
-*	Ensured proper use of tags, maintained accurate data and setting parameters for data management.
-*	Planned and implemented mobile app tracking with Google Tag Manager, Google Analytics and Firebase.
- 
+* Monitored and analyzed traffic behavior on all digital channels including search, display and social media.
+* Created dashboards with Tableau to provide data-driven consumer insights for 20 shopping centers.
+* Defined KPIs (< 5) and created reports to measure marketing campaigns performance across all channels.
+* Implemented and managed proper use of tags and code for data governance on websites (20) and mobile apps.
+* Led technical implementation (web & mobile) of Google/Firebase Analytics with Google Tag Manager.
 
 <br>
 <br>
 
 ### Digital Marketing / E-commerce Strategist - <small><em>Rudsak - 2016/2017</em></small>
-*	Planned, executed, monitored digital marketing strategies in collaboration with other departments.
-*	SEO: keywords research, content development and link building. 
-*	Implemented, executed and analyzed Search, Display and Google Shopping ads campaigns.
-*	Developed/executed A/B testing strategies for landing pages in order to increase conversion rate.
-*	E-commerce loss and fraud prevention management.
-*	Managed the creation, execution and delivery of multiple newsletters and email campaigns.
-
+* Planned and monitored digital marketing campaigns in collaboration with sales and marketing departments.
+* Analyzed web performance and made suggestions on search/display ads and SEO (onsite & offsite).
+* Increased conversion rates by 32% after leading complete redesign of product landing pages (A/B, multivariate).
+* Created custom campaign UTM builder (Excel/VBA) to ensured data integrity across marketing channels.
+* Led project to replace outdated anti-fraud system. Decreased online fraud by 90% in 6 months.
 
 <br>
 <br>
 
 ### E-commerce Assistant Manager - <small><em>Christian Louboutin - 2012/2014</em></small>
 
-*	Developed digital marketing strategies through tests and learn approach bringing new innovative ideas to increase online sales (merchandising, contest, landing page optimization).
-*	Reported on trends and reviewing benefits, cost and risks of digital business technologies.
-*	Motivated online team to achieve high standards and KPI targets. Maintained weekly & monthly reports.
-*	Managed e-commerce loss, post-sale, fraud prevention and stock flow.
-*	Managed DHL Express, FedEx transport issues supervision for 14 countries (E.U/extra E.U).
-*	Worked closely with marketing teams, IT and legal departments.
-
+* Reported KPIs, traffic behavior and sales across channels to guide marketing decisions.
+* Implemented the E-commerce After Sale Service and defined quality control procedures.
+* Increased customer retention by 28% between 2013 and 2014. 30% decrease of transport issues in 12 months.
+* Planned and executed men loyalty program (23% increase in sales in 6 months).
+* Created email templates responses for the online customer service.
+* Managed DHL Express, FedEx transport issues supervision for 14 countries (E.U/extra E.U).
 
 <br>
 <br>
