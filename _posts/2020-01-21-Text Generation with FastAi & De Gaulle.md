@@ -3,10 +3,8 @@ layout: page
 title: Qu'aurait dit le général de Gaulle ? (Text Generation with FastAi & De Gaulle)
 ---
 
-<br>
 
 <img height="400" width="700" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/fast-colab.png">
-<br>
 
 In this post, we will train a language model with Fastai for a text generation task ([Notebook here](https://colab.research.google.com/drive/1fyfnrzCOXt_L7eNSvfqCnGVqmR6N3xQt)).
 
