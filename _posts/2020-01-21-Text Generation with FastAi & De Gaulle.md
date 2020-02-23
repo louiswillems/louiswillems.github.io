@@ -3,12 +3,11 @@ layout: page
 title: Qu'aurait dit le général de Gaulle ? (Text Generation with FastAi & De Gaulle)
 ---
 
-https://colab.research.google.com/gist/louiswillems/a29fa010b04a2a631c96ab7949535fcb/qu-aurait-dit-le-g-n-ral-de-gaulle-text-generation-with-fastai-lstm-and-transfer-learning.ipynb 
-
 <br>
 <br>
 
-In this post, we will train a language model with Fastai for a text generation task.
+In this post, we will train a language model with Fastai for a text generation task ([Notebook here](https://colab.research.google.com/drive/1fyfnrzCOXt_L7eNSvfqCnGVqmR6N3xQt)).
+
 This is an implementation of the ULMFit model (Universal Language Model Fine-tuning for Text Classification) on French language.
 We will use an AWD-LSTM architecture trained on 100 million words corpus, composed of an extract of Wikipedia in French.
 In order to generate specific text, we will fine-tuned a model with Charles de Gaulle’s official speeches from 1940 to 1968.
@@ -48,7 +47,7 @@ from google.colab import drive
 drive.mount('/content/drive')
 ```
 <br>
-### 1. Download Data
+## 1. Download Data
 
 First let's download the dataset that has been extracted from [here](http://www.charles-de-gaulle.org/lhomme/les-discours/) and contains all official spechees from 1940 to 1968.  
 
@@ -58,7 +57,7 @@ pd.read_csv('/content/drive/My Drive/DeepFrench/discours_degaulle.csv').head()
 <br>
 <br>
 
-### 2. Data Preparation and Fine-tuning French LM
+## 2. Data Preparation and Fine-tuning French LM
 
 ```python
 tokenizer = Tokenizer(lang='fr', n_cpus=5)
@@ -101,7 +100,7 @@ learn_lm.fit_one_cycle(2, 1e-3, moms=(0.8,0.7))
 <br>
 <br>
 
-### 3. Results
+## 3. Results
 
 ```python
 # Lowering temperature will make the texts less randomized.
