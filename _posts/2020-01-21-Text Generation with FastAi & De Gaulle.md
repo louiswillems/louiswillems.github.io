@@ -6,6 +6,10 @@ title: Qu'aurait dit le général de Gaulle ? (Text Generation with FastAi & De 
 <br>
 <br>
 
+<img height="500" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_prediction.JPG" src="/public/scattertext_example.png">
+<br>
+<br>
+
 In this post, we will train a language model with Fastai for a text generation task ([Notebook here](https://colab.research.google.com/drive/1fyfnrzCOXt_L7eNSvfqCnGVqmR6N3xQt)).
 
 This is an implementation of the ULMFit model (Universal Language Model Fine-tuning for Text Classification) on French language.
