@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Qu'aurait dit le général de Gaulle ? (Text Generation with FastAi & De Gaulle)
+title: Qu'aurait dit le général de Gaulle ? (Fine-tuning a French language model for a text generation task)
 ---
 
 
