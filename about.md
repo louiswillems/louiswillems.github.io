@@ -60,7 +60,7 @@ span{
 <br>
 <br>
 
-### Digital Marketing / E-commerce Strategist - <small><em>Rudsak - 2016/2017</em></small>
+### Digital Marketing / Ecommerce Strategist - <small><em>Rudsak - 2016/2017</em></small>
 * Planned and monitored digital marketing campaigns in collaboration with sales and marketing departments.
 * Analyzed web performance and made suggestions on search/display ads and SEO (onsite & offsite).
 * Increased conversion rates by 32% after leading complete redesign of product landing pages (A/B, multivariate).
@@ -70,7 +70,7 @@ span{
 <br>
 <br>
 
-### E-commerce Assistant Manager - <small><em>Christian Louboutin - 2012/2014</em></small>
+### Ecommerce Assistant Manager - <small><em>Christian Louboutin - 2012/2014</em></small>
 
 * Reported KPIs, traffic behavior and sales across channels to guide marketing decisions.
 * Implemented the Ecommerce After Sale Service, managed product inventory and quality control procedures.
