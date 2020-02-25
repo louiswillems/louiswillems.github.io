@@ -39,7 +39,7 @@ span{
 <br>
 
 ### Data Analyst - <small><em>Québecor - 2017/2019</em></small>
-* Collected and analyzed large data (millions monthly visitors) to identify trends and guide marketing strategies.
+* Collected and analyzed large datasets (millions monthly visitors) to identify trends and guide marketing strategies.
 * Designed and implemented daily, weekly & monthly automated reports (50) for data intelligence and analysis. 
 * Created analytics dashboards to interpret and translate visitor behavior for websites (48) and mobile apps (10).
 * Utilized Google Tag Manger to develop GDPR solutions (scripts) for data governance.
@@ -73,7 +73,7 @@ span{
 ### E-commerce Assistant Manager - <small><em>Christian Louboutin - 2012/2014</em></small>
 
 * Reported KPIs, traffic behavior and sales across channels to guide marketing decisions.
-* Implemented the E-commerce After Sale Service and defined quality control procedures.
+* Implemented the Ecommerce After Sale Service, managed product inventory and quality control procedures.
 * Increased customer retention by 28% between 2013 and 2014. 30% decrease of transport issues in 12 months.
 * Planned and executed men loyalty program (23% increase in sales in 6 months).
 * Created email templates responses for the online customer service.
