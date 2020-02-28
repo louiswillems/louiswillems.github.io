@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Scatterplot for text data (BigQuery)
+title: Scatterplot for text data & Popularity of news articles
 ---
 
 <br>
@@ -15,7 +15,7 @@ This notebook illustrates how to:
 
 * Pull data from Bigquery
 * Use a pre-trained statistical models in German with spaCy
-* Visualize words frequency vs popularity of articles
+* Visualize words frequency vs Popularity of articles
 
 <br>
 <br>
