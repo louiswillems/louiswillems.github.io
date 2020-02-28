@@ -165,12 +165,13 @@ HTML(html)
 <br>
 Scattertext is a tool for finding distinguishing terms in small-to-medium-sized corpora, and presenting them in a interactive scatterplot. Here we can visualize word frequency from our headlines. The words at the top left are the most frequent words, used in the most popular articles. The words at the bottom right are the most used words in the least popular articles.
 
+<em><a href="https://storage.googleapis.com/app-praticadr-static/german_text_analytics.html" target="_blank">Interact with the scatterplot</a>
+
 <br>
 <br>
 <br>
 <img height="670" width="1000" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/german_scattertext.JPG">
 
-<em><a href="https://storage.googleapis.com/app-praticadr-static/german_text_analytics.html" target="_blank">Interact with the scatterplot</a>
 <em>
 <br>
 <br>
