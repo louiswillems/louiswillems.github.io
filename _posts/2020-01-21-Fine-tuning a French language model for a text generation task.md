@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Qu'aurait dit le général de Gaulle ? (Fine-tuning a French language model for a text generation task)
 ---
 
@@ -124,4 +124,8 @@ N_SENTENCES = 1
 print("\n".join(learn_lm.predict(TEXT, N_WORDS, temperature=0.50) for _ in range(N_SENTENCES)))
 ```
 *"le peuple francais de l' empire . le roi , nouveau chef de l' état , a décidé de donner à la république un statut de base pour la défense"*
+
+<em>
+<br>
+<br>
 
