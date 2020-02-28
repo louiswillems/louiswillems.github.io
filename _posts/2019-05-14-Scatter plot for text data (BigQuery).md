@@ -7,7 +7,7 @@ title: Scatterplot for text data (BigQuery)
 <br>
 In this post, we will build a scatterplot for text. For this, we'll collect the data from the publicly available Kurier.at dataset in BigQuery.
 
-We will upload a sample contains page tracking events of Google Analytics data from Kurier.at (Austrian news site).
+We will upload a sample that contains page tracking events of Google Analytics data from Kurier.at (Austrian news site).
 
 The goal of this post is to create a scatterplot for text that is intended to visualize and analyze words frequency in news articles.
 
