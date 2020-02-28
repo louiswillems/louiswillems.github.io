@@ -84,7 +84,7 @@ print(df_bq.shape)
 
 ## 2. NLP with spaCy
 <br>
-For this step you have to ensure that spaCy is installed on your notebook and then you load the german language model.
+For this step you have to ensure that spaCy is installed on your notebook and then you load the german language model. spaCy introduces a novel tokenization algorithm, that gives a better balance between performance, ease of definition, and ease of alignment into the original string.
 <br>
 
 ```python
@@ -100,9 +100,9 @@ nlp = de_core_news_md.load()
 
 <br>
 
-## 3. Visualize words frequency vs popularity of articles
+## 3. Visualize words frequency with Scattertext & popularity of articles
 <br>
-Before we plot our text data, we need to set a threshold for our pageviews to split our data into most and least reads news articles.
+Before we plot our text data, we need to set a threshold for our pageviews to split our data into most and least reads news articles. 
 <br>
 
 ```python
@@ -163,7 +163,8 @@ IFrame(src=file_name, width = 1300, height=700)
 HTML(html)
 ```
 <br>
-spaCy introduces a novel tokenization algorithm, that gives a better balance between performance, ease of definition, and ease of alignment into the original string.
+Scattertext is a tool for finding distinguishing terms in small-to-medium-sized corpora, and presenting them in a interactive scatterplot. Here we can visualize word frequency from our headlines. The words at the top left are the most frequent words, used in the most popular articles. The words at the bottom right are the most used words in the least popular articles.
+
 <br>
 <br>
 <br>
@@ -175,5 +176,4 @@ spaCy introduces a novel tokenization algorithm, that gives a better balance bet
 <br>
 
 ## Conclusion
-It is the words at the top left and bottom right which show the key differences between the most and least reads news articles.
-This tool can be used to create more effective content marketing strategies, inform future content marketing development and also can help to remove/replace some keywords from headlines.
+This tool can be used to create more effective content marketing strategies, inform future content marketing development and help to remove/replace some keywords from headlines.
