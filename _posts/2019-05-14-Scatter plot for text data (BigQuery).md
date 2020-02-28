@@ -5,16 +5,16 @@ title: Scatterplot for text data (BigQuery)
 
 <br>
 <br>
-In this post, we will build a scatter plot for text. For this, we'll collect the data from the publicly available Kurier.at dataset in BigQuery. Kurier.at is an Austrian newsite.
+In this post, we will build a scatterplot for text. For this, we'll collect the data from the publicly available Kurier.at dataset in BigQuery.
 
-We will upload a sample of Google Analytics data from this news site, This sample contains page tracking events.
+We will upload a sample contains page tracking events of Google Analytics data from Kurier.at (Austrian news site).
 
-The goal of post is to create a scatter plot for text that is intended visualizing most frequents words of most and least reads news articles.
+The goal of this post is to create a scatterplot for text that is intended to visualize and analyze words frequency in news articles.
 
 This notebook illustrates how to:
 
 * Pull data from Bigquery
-* Use a pre-trained statistical models in German with Spacy
+* Use a pre-trained statistical models in German with spaCy
 * Visualize words frequency vs popularity of articles
 
 <br>
@@ -29,8 +29,7 @@ This notebook illustrates how to:
 
 ## 1. Pull data from Bigquery
 <br>
-We will query Kurier.at Google Analytics sample dataset from BigQuery.
-The query contains 2 columns, first column “headline” shows the title of the articles news and the second column is the number of pagesviews for each article.
+We will query Kurier.at Google Analytics sample dataset from BigQuery. The query contains 2 columns, the first column shows the title and the second column the number of pagesviews for each article.
 <br>
 
 ```python
@@ -83,9 +82,9 @@ print(df_bq.shape)
 
 <br>
 
-## 2. NLP with Spacy
+## 2. NLP with spaCy
 <br>
-For this step you have to ensure that spacy is installed on your notebook and then you load the german language modelé
+For this step you have to ensure that spaCy is installed on your notebook and then you load the german language model.
 <br>
 
 ```python
@@ -103,7 +102,7 @@ nlp = de_core_news_md.load()
 
 ## 3. Visualize words frequency vs popularity of articles
 <br>
-Before we plot our text data visualization tool, we need to set a threshold for our pageviews in order to split our data into most least reads news articles
+Before we plot our text data, we need to set a threshold for our pageviews to split our data into most and least reads news articles.
 <br>
 
 ```python
@@ -164,17 +163,17 @@ IFrame(src=file_name, width = 1300, height=700)
 HTML(html)
 ```
 <br>
-spaCy introduces a novel tokenization algorithm, that gives a better balance between performance, ease of definition, and ease of alignment into the original string. You can see the parsed text column and the text is tokenized after lemmetization and stemming.
+spaCy introduces a novel tokenization algorithm, that gives a better balance between performance, ease of definition, and ease of alignment into the original string.
 <br>
 <br>
 <br>
 <img height="670" width="1000" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/saq_predictionsmodels.JPG" src="/public/german_scattertext.JPG">
 
-<em><a href="https://storage.googleapis.com/app-praticadr-static/german_text_analytics.html" target="_blank">Interact with the scatter plot</a>
+<em><a href="https://storage.googleapis.com/app-praticadr-static/german_text_analytics.html" target="_blank">Interact with the scatterplot</a>
 <em>
 <br>
 <br>
 
 ## Conclusion
 It is the words at the top left and bottom right which show the key differences between the most and least reads news articles.
-This tool can be used to create more effective content marketing strategies, inform future content marketing development and also can help to remove or change some keywords from headlines.
+This tool can be used to create more effective content marketing strategies, inform future content marketing development and also can help to remove/replace some keywords from headlines.
