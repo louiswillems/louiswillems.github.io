@@ -4,7 +4,7 @@ title: Multi-Channel Marketing Attribution (Rule-based vs. Data-driven models)
 ---
 
 
-<img height="180" width="500" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/attribution_1.JPG">
+<img height="170" width="500" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/attribution_1.JPG">
 
 In the context of Digital Marketing and Ecommerce, we know that users usually goes through a path of different channels before a conversion or purchase. As most of the channels are paid, it is vital to have a model for distributing conversions.
 Multi-Channel attribution helps companies assign the value to each marketing channel in order to select the profitable ones.
