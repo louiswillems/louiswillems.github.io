@@ -198,7 +198,7 @@ df_markov = mm.attribution_model_
 ## 5. Shapley values
 
 
-In the context of marketing analytics, Shapley value method relies on the marginal contribution of each marketing channel to weight its contribution to overall conversion. Cooperative game theory and the Shapley value provide a stable way to measure channel influence and fairly divide the credit for conversions between the channels, based on their individual contribution to the total payoff.
+Shapley value method relies on the marginal contribution of each marketing channel to weight its contribution to overall conversion. Cooperative game theory and the Shapley value provide a stable way to measure channel influence and fairly divide the credit for conversions between the channels, based on their individual contribution to the total payoff.
 
 ```python
 import itertools
