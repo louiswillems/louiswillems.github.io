@@ -74,6 +74,7 @@ conv_channel['conversion_rate'] = (conv_channel['conversions'] / conv_channel['v
 conv_channel['conversion_rate'] = conv_channel['conversion_rate'].map('{:,.1f}%'.format)
 conv_channel
 ```
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
 <br>
 <br>
 
@@ -97,6 +98,7 @@ conv_path['conversion_rate'] = conv_path['conversion_rate'].map('{:,.1f}%'.forma
 conv_path['channel'] = conv_path['channel'].str.replace('\'|\'','')
 conv_path.head(10)
 ```
+<img height="350" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_path.JPG">
 <br>
 <br>
 
@@ -195,6 +197,9 @@ df_markov = mm.attribution_model_
 
 ## 5. Shapley values
 
+
+In the context of marketing analytics, Shapley value method relies on the marginal contribution of each marketing channel to weight its contribution to overall conversion. Cooperative game theory and the Shapley value provide a stable way to measure channel influence and fairly divide the credit for conversions between the channels, based on their individual contribution to the total payoff.
+
 ```python
 import itertools
 from math import factorial
@@ -266,6 +271,8 @@ df_shap['conversion_rate'] = (df_shap['shap_conversions']/df_shap['shap_conversi
 
 ## 6. Results
 
+Here, we will compare our Rule-based (First, Last and Linear touchs) and Data-driven models (Markov chain and Shapley values) for each channel.
+
 ```python
 # Cleaning dataframes
 df_markov = df_markov.rename(columns = {'channel_name': 'channel', 'total_conversions': 'markov_conversions'})
@@ -290,6 +297,7 @@ models = df_all.set_index('channel')
 models = models[cols].applymap("{:,.1f}%".format)
 models
 ```
+<img height="320" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/final_results.JPG">
 <br>
 <br>
 
