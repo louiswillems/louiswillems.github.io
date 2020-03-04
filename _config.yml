@@ -9,7 +9,7 @@ tagline:             ''
 description:         'Think with data science'
 url:                 https://louiswillems.github.io/
 baseurl:             ''
-paginate:            5
+paginate:            20
 
 # About/contact
 author:
