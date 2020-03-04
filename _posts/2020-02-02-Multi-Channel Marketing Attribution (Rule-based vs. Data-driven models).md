@@ -18,7 +18,9 @@ In web analytics tools such as Google Analytics, there are several attribution m
 
 Data-driven attribution models (algorithmic or probabilistic) determine how channels, and more importantly how different combinations of channels, interact with users to influence a desired conversion.
 Rule-based models are still a kind of algorithms, but they use a set of relational rules that collectively represent the knowledge.
-In this post we will explore Rule-based (First, Last and Linear touch) and Data-driven (Markov chain and Shapley values) attribution methods .
+In this post we will explore Rule-based (First, Last and Linear touch) and Data-driven (Markov chain and Shapley values) attribution methods.
+
+([Notebook here](https://colab.research.google.com/drive/1qinJbt1rNAOFSDT5I1VldyMtXP0xwc5d))
 
 <br>
 
