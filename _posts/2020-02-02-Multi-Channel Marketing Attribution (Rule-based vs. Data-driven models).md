@@ -297,7 +297,7 @@ models = df_all.set_index('channel')
 models = models[cols].applymap("{:,.1f}%".format)
 models
 ```
-<img height="320" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/final_results.JPG">
+<img height="350" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/final_results.JPG">
 <br>
 <br>
 
