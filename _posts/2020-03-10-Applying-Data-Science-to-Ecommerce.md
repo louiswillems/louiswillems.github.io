@@ -140,13 +140,13 @@ For RFM clustering, instead of using kmeans, we will use Fisher-Jenks algorithm 
 
 ### Recency (Inactive days)
 
-<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Recency.JPG" src="/public/Recency.JPG">
+<img height="600" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Recency.JPG" src="/public/Recency.JPG">
 
 <br>
 
 ### Frequency (Number of orders)
 
-<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Frequency.JPG" src="/public/Frequency.JPG">
+<img height="600" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Frequency.JPG" src="/public/Frequency.JPG">
 
 <br>
 
@@ -158,7 +158,7 @@ For RFM clustering, instead of using kmeans, we will use Fisher-Jenks algorithm 
 
 ### RFM Score
 
-<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RFM_3D.JPG" src="/public/RFM_3D.JPG">
+<img height="600" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RFM_3D.JPG" src="/public/RFM_3D.JPG">
 
 <br>
 <br>
