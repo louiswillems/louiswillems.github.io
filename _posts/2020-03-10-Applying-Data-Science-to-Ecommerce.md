@@ -118,6 +118,7 @@ df_monthly.style.format({"Customers": "{:.0f}",
                     .bar(subset=["Revenue",], color='lightgreen')\
                     .bar(subset=["Customers"], color='#FFA07A')
 ```
+
 <img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data=src="/public/Revenue&Growth.JPG" src="/public/Revenue&Growth.JPG">
 
 <br>
@@ -146,7 +147,8 @@ df_retention['RetentionRate'] = df_retention['RetainedCustomers']/df_retention['
 g = sns.catplot(x="YearMonth", y="RetentionRate", data=df_retention, kind="point", aspect=2.5, color="#95a5a6").set(title = "Monthly Retention rate")
 g.set_axis_labels("", "Retention Rate").set(ylim=(0, 0.6)).despine(left=True);
 ```
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RetentionRate.JPG" src="/public/RetentionRate.JPG">
+
+<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RetentionRate.JPG" src="/public/RetentionRate.JPG">
 
 <br>
 
@@ -184,7 +186,8 @@ df_cohort = pd.DataFrame(retention_array)
 df_cohort.index = months
 df_cohort
 ```
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/CohortAnalysis.JPG" src="/public/CohortAnalysis.JPG">
+
+<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/CohortAnalysis.JPG" src="/public/CohortAnalysis.JPG">
 
 <br>
 <br>
@@ -201,25 +204,25 @@ For RFM clustering, instead of using kmeans, we will use Fisher-Jenks algorithm 
 
 ### Recency (Inactive days)
 
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Recency.JPG" src="/public/Recency.JPG">
+<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Recency.JPG" src="/public/Recency.JPG">
 
 <br>
 
 ### Frequency (Number of orders)
 
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Frequency.JPG" src="/public/Frequency.JPG">
+<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Frequency.JPG" src="/public/Frequency.JPG">
 
 <br>
 
 ### Monetary (Revenue)
 
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Monetary.JPG" src="/public/Revenue.JPG">
+<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Monetary.JPG" src="/public/Revenue.JPG">
 
 <br>
 
 ### RFM Score
 
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RFM_3D.JPG" src="/public/RFM_3D.JPG">
+<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RFM_3D.JPG" src="/public/RFM_3D.JPG">
 
 <br>
 <br>
@@ -437,7 +440,7 @@ shap_values = explainer.shap_values(X)
 shap.summary_plot(shap_values, X)
 ```
 
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/SHAP.JPG" src="/public/SHAP.JPG">
+<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/SHAP.JPG" src="/public/SHAP.JPG">
 
 <br>
 <br>
@@ -493,7 +496,7 @@ plt.title("Forecasted Value vs Actuals")
 plt.show()
 ```
 
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Prophet.JPG" src="/public/Prophet.JPG">
+<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Prophet.JPG" src="/public/Prophet.JPG">
 
 After running the code above, we get a MAPE of 27.5%. Not a really good predcition. This indicates that over all the points predicted, we are out with an average of 27.5% from the true value.
 
