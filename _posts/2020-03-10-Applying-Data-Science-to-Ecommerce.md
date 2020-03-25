@@ -84,7 +84,7 @@ g = sns.catplot(x="YearMonth", y="RetentionRate", data=df_retention, kind="point
 g.set_axis_labels("", "Retention Rate").set(ylim=(0, 0.6)).despine(left=True);
 ```
 
-<img height="300" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RetentionRate.JPG" src="/public/RetentionRate.JPG">
+<img height="300" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RetentionRate.JPG" src="/public/RetentionRate.JPG">
 
 <br>
 
@@ -123,7 +123,7 @@ df_cohort.index = months
 df_cohort
 ```
 
-<img height="300" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/CohortAnalysis.JPG" src="/public/CohortAnalysis.JPG">
+<img height="300" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/CohortAnalysis.JPG" src="/public/CohortAnalysis.JPG">
 
 <br>
 <br>
