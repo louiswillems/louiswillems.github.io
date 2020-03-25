@@ -20,73 +20,9 @@ Content ([Notebook here](https://colab.research.google.com/drive/1C0DbCQ9T36FIx0
 - Forecasting Revenue
 
 <br>
-
-## 1. Preparing environment & uploading data
-
-```python
-# !pip install jenkspy
-# !pip install catboost
-# !pip install shap
-
-%reload_ext autoreload
-%autoreload 2
-%matplotlib inline
-
-import pandas as pd
-import numpy as np
-import itertools
-import matplotlib.pyplot as plt
-import plotly.express as px
-import seaborn as sns
-
-from scipy import stats
-from scipy.stats import norm, skew
-
-import jenkspy
-from sklearn.svm import SVC
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-import xgboost as xgb
-from sklearn.model_selection import KFold, cross_val_score, train_test_split
-from fbprophet import Prophet
-from catboost import CatBoostClassifier, Pool, cv
-from sklearn.metrics import accuracy_score
-
-import warnings
-warnings.filterwarnings("ignore")
-
-# Importing date from Google Drive
-from google.colab import drive
-drive.mount('/content/drive')
-
-csv_data = r'/content/drive/My Drive/Data/onlineretail.csv'
-data = pd.read_csv(csv_data, engine='python')
-
-
-# Do not include data from December 2011 (incomplete)
-data['InvoiceDate'] = pd.to_datetime(data['InvoiceDate'])
-data['date'] = data['InvoiceDate'].dt.normalize()
-df = data.copy
-df = data[data.date.between('12-01-2010', '11-30-2011')]
-
-df['YearMonth'] = df['InvoiceDate'].map(lambda date: 100*date.year + date.month)
-df['Revenue'] = df['UnitPrice'] * df['Quantity']
-
-print(df.shape)
-print('Customers: {:,}'.format(df.CustomerID.nunique()))
-print('Orders: {:,}'.format(df.InvoiceNo.nunique()))
-```
-
-(516384, 11)
-
-Customers: 4,331
-
-Orders: 24,885
-
-<br>
 <br>
 
-## 2. E-commerce Data Analysis
+## 1. E-commerce Data Analysis
 
 ### Revenue & Growth Rate
 
@@ -119,7 +55,7 @@ df_monthly.style.format({"Customers": "{:.0f}",
                     .bar(subset=["Customers"], color='#FFA07A')
 ```
 
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data=src="/public/Revenue&Growth.JPG" src="/public/Revenue&Growth.JPG">
+<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Revenue&Growth.JPG" src="/public/Revenue&Growth.JPG">
 
 <br>
 
