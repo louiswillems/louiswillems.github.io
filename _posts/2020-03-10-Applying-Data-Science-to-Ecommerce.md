@@ -217,94 +217,262 @@ For RFM clustering, instead of using kmeans, we will use Fisher-Jenks algorithm 
 In this section, we will try to predict if a customer is likely to make a new purchase.
 For this, we will use 9 months of data to predict if a customer will make another order in the next 40 days.
 
-<br>
-<br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 2. Conversion by Path
+### Data (3, 9 months)
 
 ```python
-# Channels to list
-df_paths = df.groupby(['visitors', 'date'])['channel'].aggregate(lambda x: x.unique().tolist()).reset_index()
-df_last_interaction = df.groupby(['visitors', 'date'])['conversions'].sum().reset_index()
-df_paths = pd.merge(df_paths, df_last_interaction, how='left', on=['visitors', 'date'])
+# Next Purchase data
+df_9m = df[df.date.between('12-01-2010', '08-31-2011')]
+df_3m = df[df.date.between('09-01-2011', '11-30-2011')]
 
-# df for models
-conv_model = df_paths.copy()
-conv_model['channel'] = conv_model['channel'].astype(str)
-conv_model['channel'] = conv_model['channel'].replace(to_replace ='\[|]', value = '', regex = True)
+pred_user = pd.DataFrame(df_9m['CustomerID'].unique())
+pred_user.columns = ['CustomerID']
 
-# Conversion by path
-conv_path = conv_model.groupby(['channel']).agg({'conversions': 'sum', 'visitors': 'count'}).sort_values('conversions', ascending=False).reset_index()
-conv_path['conversion_rate'] = (conv_path['conversions'] / conv_path['visitors'])*100
-conv_path['conversion_rate'] = conv_path['conversion_rate'].map('{:,.1f}%'.format)
-conv_path['channel'] = conv_path['channel'].str.replace('\'|\'','')
-conv_path.head(10)
+next_3m = df_3m.groupby('CustomerID').InvoiceDate.min().reset_index()
+next_3m.columns = ['CustomerID','MinPurchaseDate']
+
+last_9m = df_9m.groupby('CustomerID').InvoiceDate.max().reset_index()
+last_9m.columns = ['CustomerID','MaxPurchaseDate']
+
+user_m = pd.merge(last_9m, next_3m,on='CustomerID',how='left')
+user_m['NextPurchaseDay'] = (user_m['MinPurchaseDate'] - user_m['MaxPurchaseDate']).dt.days
+
+user_next = pd.merge(pred_user, user_m[['CustomerID','NextPurchaseDay']],on='CustomerID',how='left')
+user_next = user_next.fillna(0)
+print(user_next.shape)
 ```
-<img height="350" width="450" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_path.JPG">
+
+### Feature Engineering
+
+For our classification problem, we will create the feature below:
+
+- RFM scores & clusters
+- Days between the last three purchases
+- Mean & standard deviation of the difference between purchases in days
+
+```python
+# RFM scores & clusters
+rfm_user = pd.DataFrame(df_9m['CustomerID'].unique())
+rfm_user.columns = ['CustomerID']
+
+recency_max_date = df_9m.groupby('CustomerID').InvoiceDate.max().reset_index()
+recency_max_date.columns = ['CustomerID','MaxDate']
+recency_max_date['Recency'] = (recency_max_date['MaxDate'].max() - recency_max_date['MaxDate']).dt.days
+rfm_user = pd.merge(rfm_user, recency_max_date[['CustomerID','Recency']], on='CustomerID')
+breaks = jenkspy.jenks_breaks(rfm_user['Recency'], nb_class=4)
+rfm_user['Recency_Cluster'] = pd.cut(rfm_user['Recency'], bins=breaks, labels=['class_1', 'class_2', 'class_3', 'class_4'], include_lowest=True)
+rfm_user = order_cluster('Recency_Cluster', 'Recency', rfm_user,False)
+
+rfm_frequency = df_9m.groupby('CustomerID').InvoiceDate.count().reset_index()
+rfm_frequency.columns = ['CustomerID','Frequency']
+rfm_user = pd.merge(rfm_user, rfm_frequency, on='CustomerID')
+breaks = jenkspy.jenks_breaks(rfm_user['Frequency'], nb_class=4)
+rfm_user['Frequency_Cluster'] = pd.cut(rfm_user['Frequency'], bins=breaks, labels=['class_1', 'class_2', 'class_3', 'class_4'], include_lowest=True)
+rfm_user = order_cluster('Frequency_Cluster', 'Frequency', rfm_user,True)
+
+rfm_revenue = df_9m.groupby('CustomerID').Revenue.sum().reset_index()
+rfm_user = pd.merge(rfm_user, rfm_revenue[['CustomerID', 'Revenue']], on='CustomerID')
+breaks = jenkspy.jenks_breaks(rfm_user['Revenue'], nb_class=4)
+rfm_user['Revenue_Cluster'] = pd.cut(rfm_user['Revenue'], bins=breaks, labels=['class_1', 'class_2', 'class_3', 'class_4'], include_lowest=True)
+rfm_user = order_cluster('Revenue_Cluster', 'Revenue', rfm_user,True)
+
+
+# Days between the last three purchases
+days_order = df_9m.copy()
+days_order = days_order[['CustomerID','InvoiceDate']]
+
+days_order['InvoiceDay'] = df_9m['InvoiceDate'].dt.date
+days_order = days_order.sort_values(['CustomerID','InvoiceDate'])
+days_order = days_order.drop_duplicates(subset=['CustomerID','InvoiceDay'],keep='first')
+
+days_order['PrevInvoiceDate'] = days_order.groupby('CustomerID')['InvoiceDay'].shift(1)
+days_order['T2InvoiceDate'] = days_order.groupby('CustomerID')['InvoiceDay'].shift(2)
+days_order['T3InvoiceDate'] = days_order.groupby('CustomerID')['InvoiceDay'].shift(3)
+
+days_order['DayDiff'] = (days_order['InvoiceDay'] - days_order['PrevInvoiceDate']).dt.days
+days_order['DayDiff2'] = (days_order['InvoiceDay'] - days_order['T2InvoiceDate']).dt.days
+days_order['DayDiff3'] = (days_order['InvoiceDay'] - days_order['T3InvoiceDate']).dt.days
+
+# Mean & standard deviation of the difference between purchases in days
+days_diff = days_order.groupby('CustomerID').agg({'DayDiff': ['mean','std']}).reset_index()
+days_diff.columns = ['CustomerID', 'DayDiffMean','DayDiffStd']
+
+# Only keep customers who have > 3 purchases
+days_order_last = days_order.drop_duplicates(subset=['CustomerID'],keep='last')
+days_order_last = days_order_last.dropna()
+
+days_order_last = pd.merge(days_order_last, days_diff, on='CustomerID')
+predict_user = pd.merge(user_next, days_order_last[['CustomerID','DayDiff','DayDiff2','DayDiff3','DayDiffMean','DayDiffStd']], on='CustomerID')
+predict = pd.merge(rfm_user, predict_user, on='CustomerID')# RFM scores & clusters
+rfm_user = pd.DataFrame(df_9m['CustomerID'].unique())
+rfm_user.columns = ['CustomerID']
+
+recency_max_date = df_9m.groupby('CustomerID').InvoiceDate.max().reset_index()
+recency_max_date.columns = ['CustomerID','MaxDate']
+recency_max_date['Recency'] = (recency_max_date['MaxDate'].max() - recency_max_date['MaxDate']).dt.days
+rfm_user = pd.merge(rfm_user, recency_max_date[['CustomerID','Recency']], on='CustomerID')
+breaks = jenkspy.jenks_breaks(rfm_user['Recency'], nb_class=4)
+rfm_user['Recency_Cluster'] = pd.cut(rfm_user['Recency'], bins=breaks, labels=['class_1', 'class_2', 'class_3', 'class_4'], include_lowest=True)
+rfm_user = order_cluster('Recency_Cluster', 'Recency', rfm_user,False)
+
+rfm_frequency = df_9m.groupby('CustomerID').InvoiceDate.count().reset_index()
+rfm_frequency.columns = ['CustomerID','Frequency']
+rfm_user = pd.merge(rfm_user, rfm_frequency, on='CustomerID')
+breaks = jenkspy.jenks_breaks(rfm_user['Frequency'], nb_class=4)
+rfm_user['Frequency_Cluster'] = pd.cut(rfm_user['Frequency'], bins=breaks, labels=['class_1', 'class_2', 'class_3', 'class_4'], include_lowest=True)
+rfm_user = order_cluster('Frequency_Cluster', 'Frequency', rfm_user,True)
+
+rfm_revenue = df_9m.groupby('CustomerID').Revenue.sum().reset_index()
+rfm_user = pd.merge(rfm_user, rfm_revenue[['CustomerID', 'Revenue']], on='CustomerID')
+breaks = jenkspy.jenks_breaks(rfm_user['Revenue'], nb_class=4)
+rfm_user['Revenue_Cluster'] = pd.cut(rfm_user['Revenue'], bins=breaks, labels=['class_1', 'class_2', 'class_3', 'class_4'], include_lowest=True)
+rfm_user = order_cluster('Revenue_Cluster', 'Revenue', rfm_user,True)
+
+
+# Days between the last three purchases
+days_order = df_9m.copy()
+days_order = days_order[['CustomerID','InvoiceDate']]
+
+days_order['InvoiceDay'] = df_9m['InvoiceDate'].dt.date
+days_order = days_order.sort_values(['CustomerID','InvoiceDate'])
+days_order = days_order.drop_duplicates(subset=['CustomerID','InvoiceDay'],keep='first')
+
+days_order['PrevInvoiceDate'] = days_order.groupby('CustomerID')['InvoiceDay'].shift(1)
+days_order['T2InvoiceDate'] = days_order.groupby('CustomerID')['InvoiceDay'].shift(2)
+days_order['T3InvoiceDate'] = days_order.groupby('CustomerID')['InvoiceDay'].shift(3)
+
+days_order['DayDiff'] = (days_order['InvoiceDay'] - days_order['PrevInvoiceDate']).dt.days
+days_order['DayDiff2'] = (days_order['InvoiceDay'] - days_order['T2InvoiceDate']).dt.days
+days_order['DayDiff3'] = (days_order['InvoiceDay'] - days_order['T3InvoiceDate']).dt.days
+
+# Mean & standard deviation of the difference between purchases in days
+days_diff = days_order.groupby('CustomerID').agg({'DayDiff': ['mean','std']}).reset_index()
+days_diff.columns = ['CustomerID', 'DayDiffMean','DayDiffStd']
+
+# Only keep customers who have > 3 purchases
+days_order_last = days_order.drop_duplicates(subset=['CustomerID'],keep='last')
+days_order_last = days_order_last.dropna()
+
+days_order_last = pd.merge(days_order_last, days_diff, on='CustomerID')
+predict_user = pd.merge(user_next, days_order_last[['CustomerID','DayDiff','DayDiff2','DayDiff3','DayDiffMean','DayDiffStd']], on='CustomerID')
+predict = pd.merge(rfm_user, predict_user, on='CustomerID')
+```
+
+### Target
+
+For our binary classification, the target variable will be creted as follow:
+
+- Class 0 — Customers that will purchase in 0–60 days
+- Class 1 — Customers that will purchase in more than 2 months (≥ 60)
+
+```python
+df_next = predict.copy()
+df_next['NextPurchaseDayRange'] = 0
+df_next.loc[df_next.NextPurchaseDay>40,'NextPurchaseDayRange'] = 1
+df_next['NextPurchaseDayRange'].value_counts(normalize=True)*100
+```
+### Model
+
+
+```python
+#Train & Validation
+dataset = df_next.drop(['NextPurchaseDay', 'CustomerID', 'Frequency_Cluster','DayDiff'],axis=1)
+X, y = dataset.drop('NextPurchaseDayRange',axis=1), dataset.NextPurchaseDayRange
+
+X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.2, random_state=44)
+
+model = CatBoostClassifier(iterations=150,random_seed=42,eval_metric='AUC',logging_level='Silent')
+model.fit(X_train, y_train, eval_set=(X_valid, y_valid))
+
+cv_params = model.get_params()
+print('cv params: ', cv_params)
+
+cv_data = cv(
+    Pool(X, y),
+    cv_params,
+    seed=17,
+    fold_count=5
+)
+
+print('Best validation accuracy score: {:.2f}±{:.4f} on step {}'.format(np.max(cv_data['test-AUC-mean']),
+    cv_data['test-AUC-std'][np.argmax(cv_data['test-AUC-mean'])],
+    np.argmax(cv_data['test-AUC-mean'])
+))
+```
+
+
+### Model Analysis (Interpretability)
+
+In this section, we will try to understand how the model makes predictions.
+What features in the data did the model think are most important?
+
+```python
+import shap
+shap.initjs()
+
+explainer = shap.TreeExplainer(model)
+shap_values = explainer.shap_values(X)
+
+#  effects of all the features
+shap.summary_plot(shap_values, X)
+```
+
 <br>
 <br>
 
-## 8. Conclusion
+## 4. Forecasting Revenue
 
-To summarize, the results are surprisingly consistent across all of the approaches.
-The rank order is the same across all results. Even in the case of the Markov chain and Shapley values methods the differences in the conversion rates are very low.
+Forecasting daily or monthly revenue can be used for planning budgtes/targets or as a benchmark.
 
-So which method should we use?... It depends! :)
+Choice of forecasting methods is on a case by case basis depending on the nature of the dataset. Some of these methods include Moving Average, Exponential Smoothing (Simple, Double), Holt-Winters, ARIMA, SARIMA, LSTM and Prophet among others.
 
-Shapley value method:
-- Broader industry adoption
-- Nobel Prize winning research.
-- More straightforward approach to the attribution problem in which sequence doesn’t matter.
+In this section, we will forecast with Prophet (15 days). Prophet is very powerful and effective in time series forecasting. It works best with time series that have strong seasonal effects and several seasons of historical data.
 
-Markov chain method:
-- It considers channel sequence as a fundamental part of the algorithm which is more closely aligned to a user’s journey.
+```python
+# MAPE
+def mean_absolute_percentage_error(y_true, y_pred): 
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+    return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
+
+# Copy
+df_forecast = df.copy()
+df_forecast = df_forecast.groupby('date').Revenue.sum().reset_index()
+
+
+# Train & Valid
+periods=15
+df_forecast.columns = ['ds','y']
+train_data = df_forecast.iloc[:len(df_forecast)- periods]
+valid_data = df_forecast.iloc[len(df_forecast)-periods:]
+
+
+# Model Optimization
+m = Prophet(seasonality_mode='multiplicative', changepoint_prior_scale=0.5, seasonality_prior_scale= 10)
+m.add_seasonality(name='daily', period=1, fourier_order=15)
+m.add_seasonality(name='weekly', period=7, fourier_order=20)
+m.add_seasonality(name='monthly', period=30.5, fourier_order=12)
+m.add_country_holidays(country_name='CA')
+m.fit(train_data)
+future = m.make_future_dataframe(periods=periods)
+
+forecast = m.predict(future)
+
+# Predictions
+prophet_pred = pd.DataFrame({"Date" : forecast[-periods:]['ds'], "Pred" : forecast[-periods:]["yhat"]})
+prophet_pred = prophet_pred.set_index("Date")
+valid_data["Prophet_Predictions"] = prophet_pred['Pred'].values
+print('Baseline MAPE: {}'.format(mean_absolute_percentage_error(valid_data["y"], valid_data["Prophet_Predictions"])))
+
+# Visualization
+plt.figure(figsize=(16,5))
+ax = sns.lineplot(x= df_forecast.ds, y=df_forecast["y"])
+sns.lineplot(x=valid_data.ds, y = valid_data["Prophet_Predictions"]);
+plt.title("Forecasted Value vs Actuals")
+plt.show()
+```
+
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
 
 <br>
-
-Others recommendations:
-
-- Split paths by conversion and compute the model for first-time buyers and n-times buyers separately.
-- Split unique channels and multi-channel paths. We definitely know the channel that brought a conversion and we don’t need to distribute that value into other channels.
-- Replace (with previous channel) or remove "Direct" channel
-- Change order of Markov chain to compute transition probabilities based on the previous two, three or more channels.
-- Model paths that haven't led to converion in order to look at the complete “picture” of the business, not just conversions.
-- The pychattr package allows distributing revenue and cost through channels. For this, we need to add the parameter “revenue_feature” and “cost_feature” with columns of revenues and cost into MarkovModel() and HeuristicModel() functions. 
 
 <em>
 <br>
