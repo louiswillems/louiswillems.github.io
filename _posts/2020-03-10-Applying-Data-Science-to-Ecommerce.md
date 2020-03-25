@@ -24,9 +24,9 @@ Content ([Notebook here](https://colab.research.google.com/drive/1C0DbCQ9T36FIx0
 ## 1. Preparing environment & uploading data
 
 ```python
-!pip install jenkspy
-!pip install catboost
-!pip install shap
+# !pip install jenkspy
+# !pip install catboost
+# !pip install shap
 
 %reload_ext autoreload
 %autoreload 2
