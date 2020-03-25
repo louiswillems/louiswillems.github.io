@@ -243,6 +243,8 @@ user_next = user_next.fillna(0)
 print(user_next.shape)
 ```
 
+<br>
+
 ### Feature Engineering
 
 For our classification problem, we will create the feature below:
@@ -478,6 +480,10 @@ plt.show()
 ```
 
 <img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
+
+After running the code above, we get a MAPE of 27.5%. Not a really good predcition. This indicates that over all the points predicted, we are out with an average of 27.5% from the true value.
+
+Typical forecasting errors are around 5% for predictions of one month and 11% for one year. So our prediction.
 
 <br>
 
