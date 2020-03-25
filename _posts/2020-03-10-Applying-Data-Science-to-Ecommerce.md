@@ -76,6 +76,10 @@ print(df.shape)
 print('Customers: {:,}'.format(df.CustomerID.nunique()))
 print('Orders: {:,}'.format(df.InvoiceNo.nunique()))
 ```
+(516384, 11)
+Customers: 4,331
+Orders: 24,885
+
 <br>
 <br>
 
@@ -111,7 +115,7 @@ df_monthly.style.format({"Customers": "{:.0f}",
                     .bar(subset=["Revenue",], color='lightgreen')\
                     .bar(subset=["Customers"], color='#FFA07A')
 ```
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data=src="/public/Revenue&Growth.JPG" src="/public/conv_by_channel.JPG">
 
 <br>
 
@@ -139,7 +143,7 @@ df_retention['RetentionRate'] = df_retention['RetainedCustomers']/df_retention['
 g = sns.catplot(x="YearMonth", y="RetentionRate", data=df_retention, kind="point", aspect=2.5, color="#95a5a6").set(title = "Monthly Retention rate")
 g.set_axis_labels("", "Retention Rate").set(ylim=(0, 0.6)).despine(left=True);
 ```
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RetentionRate.JPG" src="/public/conv_by_channel.JPG">
 
 <br>
 
@@ -177,7 +181,7 @@ df_cohort = pd.DataFrame(retention_array)
 df_cohort.index = months
 df_cohort
 ```
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/CohortAnalysis.JPG">
 
 <br>
 <br>
@@ -193,25 +197,25 @@ For RFM clustering, instead of using kmeans, we will use Fisher-Jenks algorithm 
 
 ### Recency (Inactive days)
 
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/Recency.JPG">
 
 <br>
 
 ### Frequency (Number of orders)
 
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/Frequency.JPG">
 
 <br>
 
 ### Monetary (Revenue)
 
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/Revenue.JPG">
 
 <br>
 
 ### RFM Score
 
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/RFM_3D.JPG">
 
 <br>
 <br>
@@ -375,6 +379,9 @@ df_next['NextPurchaseDayRange'] = 0
 df_next.loc[df_next.NextPurchaseDay>40,'NextPurchaseDayRange'] = 1
 df_next['NextPurchaseDayRange'].value_counts(normalize=True)*100
 ```
+1    50.050352
+0    49.949648
+
 <br>
 
 ### Model
@@ -404,6 +411,8 @@ print('Best validation accuracy score: {:.2f}±{:.4f} on step {}'.format(np.max(
     np.argmax(cv_data['test-AUC-mean'])
 ))
 ```
+cv params:  {'eval_metric': 'AUC', 'logging_level': 'Silent', 'random_seed': 42, 'iterations': 150}
+Best validation accuracy score: 0.77±0.0366 on step 64
 
 <br>
 
@@ -423,7 +432,7 @@ shap_values = explainer.shap_values(X)
 shap.summary_plot(shap_values, X)
 ```
 
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/SHAP.JPG" src="/public/conv_by_channel.JPG">
 
 <br>
 <br>
@@ -479,7 +488,7 @@ plt.title("Forecasted Value vs Actuals")
 plt.show()
 ```
 
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Prophet.JPG" src="/public/conv_by_channel.JPG">
 
 After running the code above, we get a MAPE of 27.5%. Not a really good predcition. This indicates that over all the points predicted, we are out with an average of 27.5% from the true value.
 
