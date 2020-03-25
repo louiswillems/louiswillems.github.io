@@ -152,13 +152,11 @@ For RFM clustering, instead of using kmeans, we will use Fisher-Jenks algorithm 
 
 ### Monetary (Revenue)
 
-<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Monetary.JPG" src="/public/Revenue.JPG">
+<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Monetary.JPG" src="/public/Monetary.JPG">
 
 <br>
 
-### RFM Score
-
-<img height="600" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RFM_3D.JPG" src="/public/RFM_3D.JPG">
+<img height="600" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RFM_3DJPG.JPG" src="/public/RFM_3DJPG.JPG">
 
 <br>
 <br>
@@ -376,7 +374,7 @@ shap_values = explainer.shap_values(X)
 shap.summary_plot(shap_values, X)
 ```
 
-<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/SHAP.JPG" src="/public/SHAP.JPG">
+<img height="400" width="600" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/SHAP.JPG" src="/public/SHAP.JPG">
 
 <br>
 <br>
