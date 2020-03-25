@@ -61,7 +61,7 @@ SELECT
 <br>
 <br>
 
-## 1. Conversion by Channel
+## 2. Conversion by Channel
 
 ```python
 # Fill NAs, rename columns, datatypes
@@ -80,7 +80,7 @@ conv_channel
 <br>
 <br>
 
-## 2. Conversion by Path
+## 3. Conversion by Path
 
 ```python
 # Channels to list
@@ -104,7 +104,7 @@ conv_path.head(10)
 <br>
 <br>
 
-## 3. Rule-based methods
+## 4. Rule-based methods
 
 Rule-based methods (e.g. "last non-direct click") are used for solve problems in a quick way and delivers results that are sufficient enough to be useful given time constraints.
 In this section, I will use a Python implementation based on the ChannelAttribution package in R developed by Davide Altomare and David Loris. You can find more information [here](https://github.com/jmwoloso/pychattr).
@@ -147,7 +147,7 @@ df_heuristic = hm.attribution_model_
 <br>
 <br>
 
-## 4. Markov chains
+## 5. Markov chains
 
 Markov chains allow us to switch from rule-based/heuristic methods to probabilistic ones. We can represent every customer journey (sequence of channels/touchpoints) as a chain in a directed Markov graph.
 
@@ -197,7 +197,7 @@ df_markov = mm.attribution_model_
 <br>
 <br>
 
-## 5. Shapley values
+## 6. Shapley values
 
 
 Shapley value method relies on the marginal contribution of each marketing channel to weight its contribution to overall conversion. Cooperative game theory and the Shapley value provide a stable way to measure channel influence and fairly divide the credit for conversions between the channels, based on their individual contribution to the total payoff.
@@ -271,7 +271,7 @@ df_shap['conversion_rate'] = (df_shap['shap_conversions']/df_shap['shap_conversi
 <br>
 <br>
 
-## 6. Results
+## 7. Results
 
 Here, we will compare our Rule-based (First, Last and Linear touchs) and Data-driven models (Markov chain and Shapley values) for each channel.
 
@@ -303,7 +303,7 @@ models
 <br>
 <br>
 
-## 6. Conclusion
+## 8. Conclusion
 
 To summarize, the results are surprisingly consistent across all of the approaches.
 The rank order is the same across all results. Even in the case of the Markov chain and Shapley values methods the differences in the conversion rates are very low.
