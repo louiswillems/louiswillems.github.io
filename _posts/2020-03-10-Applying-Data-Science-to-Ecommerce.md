@@ -55,7 +55,7 @@ df_monthly.style.format({"Customers": "{:.0f}",
                     .bar(subset=["Customers"], color='#FFA07A')
 ```
 
-<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Revenue&Growth.JPG" src="/public/Revenue&Growth.JPG">
+<img height="600" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Revenue&Growth.JPG" src="/public/Revenue&Growth.JPG">
 
 <br>
 
