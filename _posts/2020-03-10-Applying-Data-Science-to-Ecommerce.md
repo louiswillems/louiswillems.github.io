@@ -114,7 +114,6 @@ df_monthly.style.format({"Customers": "{:.0f}",
 <img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
 
 <br>
-<br>
 
 ### Retention Rate
 ```python
@@ -142,7 +141,6 @@ g.set_axis_labels("", "Retention Rate").set(ylim=(0, 0.6)).despine(left=True);
 ```
 <img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
 
-<br>
 <br>
 
 ### Cohort Based Analysis
@@ -197,25 +195,31 @@ For RFM clustering, instead of using kmeans, we will use Fisher-Jenks algorithm 
 
 <img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
 
+<br>
+
 ### Frequency (Number of orders)
 
 <img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
 
+<br>
 
 ### Monetary (Revenue)
 
 <img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
 
+<br>
+
 ### RFM Score
 
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
+
+<br>
 <br>
 
 ## 3. Predicting Next Purchase
 
 In this section, we will try to predict if a customer is likely to make a new purchase.
 For this, we will use 9 months of data to predict if a customer will make another order in the next 40 days.
-
-### Data (3, 9 months)
 
 ```python
 # Next Purchase data
@@ -354,6 +358,7 @@ days_order_last = pd.merge(days_order_last, days_diff, on='CustomerID')
 predict_user = pd.merge(user_next, days_order_last[['CustomerID','DayDiff','DayDiff2','DayDiff3','DayDiffMean','DayDiffStd']], on='CustomerID')
 predict = pd.merge(rfm_user, predict_user, on='CustomerID')
 ```
+<br>
 
 ### Target
 
@@ -368,8 +373,9 @@ df_next['NextPurchaseDayRange'] = 0
 df_next.loc[df_next.NextPurchaseDay>40,'NextPurchaseDayRange'] = 1
 df_next['NextPurchaseDayRange'].value_counts(normalize=True)*100
 ```
-### Model
+<br>
 
+### Model
 
 ```python
 #Train & Validation
@@ -397,6 +403,7 @@ print('Best validation accuracy score: {:.2f}±{:.4f} on step {}'.format(np.max(
 ))
 ```
 
+<br>
 
 ### Model Analysis (Interpretability)
 
@@ -413,6 +420,8 @@ shap_values = explainer.shap_values(X)
 #  effects of all the features
 shap.summary_plot(shap_values, X)
 ```
+
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/conv_by_channel.JPG">
 
 <br>
 <br>
