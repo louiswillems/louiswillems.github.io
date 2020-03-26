@@ -320,13 +320,10 @@ df_next['NextPurchaseDayRange'] = 0
 df_next.loc[df_next.NextPurchaseDay>40,'NextPurchaseDayRange'] = 1
 df_next['NextPurchaseDayRange'].value_counts(normalize=True)*100
 ```
-1    50.050352
-
-0    49.949648
 
 <br>
 
-### Model
+### Binary Classification
 
 ```python
 #Train & Validation
