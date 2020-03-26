@@ -84,7 +84,7 @@ g = sns.catplot(x="YearMonth", y="RetentionRate", data=df_retention, kind="point
 g.set_axis_labels("", "Retention Rate").set(ylim=(0, 0.6)).despine(left=True);
 ```
 
-<img height="400" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RetentionRate.JPG" src="/public/RetentionRate.JPG">
+<img height="300" width="700" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RetentionRate.JPG" src="/public/RetentionRate.JPG">
 
 <br>
 
@@ -123,7 +123,7 @@ df_cohort.index = months
 df_cohort
 ```
 
-<img height="400" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/CohortAnalysis.JPG" src="/public/CohortAnalysis.JPG">
+<img height="700" width="700" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/CohortAnalysis.JPG" src="/public/CohortAnalysis.JPG">
 
 <br>
 <br>
@@ -140,23 +140,23 @@ For RFM clustering, instead of using kmeans, we will use Fisher-Jenks algorithm 
 
 ### Recency (Inactive days)
 
-<img height="600" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Recency.JPG" src="/public/Recency.JPG">
+<img height="500" width="700" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Recency.JPG" src="/public/Recency.JPG">
 
 <br>
 
 ### Frequency (Number of orders)
 
-<img height="600" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Frequency.JPG" src="/public/Frequency.JPG">
+<img height="500" width="700" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Frequency.JPG" src="/public/Frequency.JPG">
 
 <br>
 
 ### Monetary (Revenue)
 
-<img height="600" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Monetary.JPG" src="/public/Monetary.JPG">
+<img height="500" width="700" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Monetary.JPG" src="/public/Monetary.JPG">
 
 <br>
 
-<img height="600" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RFM_3DJPG.JPG" src="/public/RFM_3DJPG.JPG">
+<img height="500" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RFM_3DJPG.JPG" src="/public/RFM_3DJPG.JPG">
 
 <br>
 <br>
@@ -371,7 +371,7 @@ shap_values = explainer.shap_values(X)
 shap.summary_plot(shap_values, X)
 ```
 
-<img height="400" width="600" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/SHAP.JPG" src="/public/SHAP.JPG">
+<img height="300" width="500" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/SHAP.JPG" src="/public/SHAP.JPG">
 
 <br>
 <br>
