@@ -156,7 +156,7 @@ For RFM clustering, instead of using kmeans, we will use Fisher-Jenks algorithm 
 
 <br>
 
-<img height="500" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RFM_3DJPG.JPG" src="/public/RFM_3DJPG.JPG">
+<img height="400" width="600" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RFM_3DJPG.JPG" src="/public/RFM_3DJPG.JPG">
 
 <br>
 <br>
@@ -371,7 +371,7 @@ shap_values = explainer.shap_values(X)
 shap.summary_plot(shap_values, X)
 ```
 
-<img height="300" width="500" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/SHAP.JPG" src="/public/SHAP.JPG">
+<img height="400" width="500" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/SHAP.JPG" src="/public/SHAP.JPG">
 
 <br>
 <br>
