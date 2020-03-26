@@ -59,35 +59,6 @@ df_monthly.style.format({"Customers": "{:.0f}",
 
 <br>
 
-### Retention Rate
-```python
-# Monthly Retention rate
-df_customer_monthly_revenue = df.groupby(['CustomerID','YearMonth'])['Revenue'].sum().reset_index()
-
-df_retention = pd.crosstab(df_customer_monthly_revenue['CustomerID'], df_customer_monthly_revenue['YearMonth']).reset_index()
-
-months = df_retention.columns[1:]
-retention_array = []
-for i in range(len(months)-1):
-    retention_data = {}
-    selected_month = months[i+1]
-    prev_month = months[i]
-    retention_data['YearMonth'] = int(selected_month)
-    retention_data['Customers'] = df_retention[selected_month].sum()
-    retention_data['RetainedCustomers'] = df_retention[(df_retention[selected_month]>0) & (df_retention[prev_month]>0)][selected_month].sum()
-    retention_array.append(retention_data)
-
-df_retention = pd.DataFrame(retention_array)
-df_retention['RetentionRate'] = df_retention['RetainedCustomers']/df_retention['Customers']
-
-g = sns.catplot(x="YearMonth", y="RetentionRate", data=df_retention, kind="point", aspect=2.5, color="#95a5a6").set(title = "Monthly Retention rate")
-g.set_axis_labels("", "Retention Rate").set(ylim=(0, 0.6)).despine(left=True);
-```
-
-<img height="400" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/RetentionRate.JPG" src="/public/RetentionRate.JPG">
-
-<br>
-
 ### Cohort Based Analysis
 
 A cohort analysis is the process of analyzing the behavior of groups of users who share a common characteristic. Here, the common characteristic is identified by the first purchase in each month.
