@@ -123,7 +123,7 @@ df_cohort.index = months
 df_cohort
 ```
 
-<img height="700" width="500" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/CohortAnalysis.JPG" src="/public/CohortAnalysis.JPG">
+<img height="500" width="700" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/CohortAnalysis.JPG" src="/public/CohortAnalysis.JPG">
 
 <br>
 <br>
