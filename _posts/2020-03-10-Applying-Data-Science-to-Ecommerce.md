@@ -101,7 +101,7 @@ df_cohort
 
 ## 2. Customer Segmentation (RFM Clustering)
 
-In order to create our customer segments, we will use the method RFM. We will calculate Recency, Frequency and Monetary and apply unsupervised machine learning to identify our different segments:
+In order to create our customer segments, we will use the RFM method. We will calculate Recency, Frequency and Monetary and apply unsupervised machine learning to identify our different segments:
 
 - Not Engaged
 - Engaged
@@ -163,7 +163,7 @@ print(user_next.shape)
 
 ### Feature Engineering
 
-For our classification problem, we will create the feature below:
+For our classification problem, we will create the features below:
 
 - RFM scores & clusters
 - Days between the last three purchases
@@ -175,8 +175,8 @@ For our classification problem, we will create the feature below:
 
 For our binary classification, the target variable will be creted as follow:
 
-- Class 0 — Customers that will purchase in 0–60 days
-- Class 1 — Customers that will purchase in more than 2 months (≥ 60)
+- Class 0 — Customers that will purchase in 0–40 days
+- Class 1 — Customers that will purchase in more than 2 months (≥ 40)
 
 ```python
 df_next = predict.copy()
@@ -222,6 +222,7 @@ Best validation accuracy score: 0.77±0.0366 on step 64
 ### Model Analysis (Interpretability)
 
 In this section, we will try to understand how the model makes predictions.
+
 What features in the data did the model think are most important?
 
 ```python
