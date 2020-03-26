@@ -427,7 +427,7 @@ plt.title("Forecasted Value vs Actuals")
 plt.show()
 ```
 
-<img height="400" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Prophet.JPG" src="/public/Prophet.JPG">
+<img height="300" width="900" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Prophet.JPG" src="/public/Prophet.JPG">
 
 After running the code above, we get a MAPE of 27.5%. Not a really good predcition. This indicates that over all the points predicted, we are out with an average of 27.5% from the true value.
 
