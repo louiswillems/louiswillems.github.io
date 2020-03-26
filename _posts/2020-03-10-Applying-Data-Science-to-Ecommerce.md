@@ -295,7 +295,7 @@ plt.show()
 
 We get a MAPE of 27.5%. Not a really a good predcition. This indicates that over all the points predicted, we are out with an average of 27.5% from the true value.
 
-Typical forecasting errors are around 5% for predictions of one month and 11% for one year. So our prediction.
+Typical forecasting errors are around 5% for predictions of one month and 11% for one year.
 
 <br>
 
