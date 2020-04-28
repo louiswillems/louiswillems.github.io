@@ -41,6 +41,8 @@ span{
 <br>
 
 ## Certificates
+* <em><a href="https://coursera.org/share/b95fe5828e916d03c4e5a933f0e98e52" target="_blank">AI Engineering - IBM</a><em>
+* <em><a href="https://databricks.com/" target="_blank">Databricks Training - Customer/Partner Learning</a><em>
 * <em><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/EQJA4458HTRS" target="_blank">Tensorflow in Practice - deeplearning.ai</a><em>
 * <em><a href="https://www.coursera.org/account/accomplishments/records/MMX587GVST6E" target="_blank">Machine Learning for Business Professionals</a><em>
 * <em><a href="https://www.coursera.org/account/accomplishments/specialization/WJK9V23LXGFY" target="_blank">Security in Google Cloud Platform Specialization</a><em>
@@ -59,6 +61,9 @@ span{
 <br>
 
 ## Preferred Books
+* <em>Deep Learning for Coders with fastai and PyTorch by by Jeremy Howard and Sylvain Gugger</em>
+* <em>Data Science in Production: Building Scalable Model Pipelines with Python by Ben G. Weber</em>
+* <em>Missing Semester of Your CS education | MIT Open Learning</em>
 * <em>Data Science on the Google Cloud Platform by Valliappa Lakshmanan</em>
 * <em>Two Scoops of Django: Best Practices for Django 1.8 Book by Audrey Roy and Daniel Roy Greenfeld</em>
 * <em>Python Machine Learning by Sebastian Raschka</em>
