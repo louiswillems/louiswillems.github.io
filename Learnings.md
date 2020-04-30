@@ -41,7 +41,7 @@ span{
 <br>
 
 ## Certificates
-* <em><a href="https://coursera.org/share/b95fe5828e916d03c4e5a933f0e98e52" target="_blank">AI Engineering - IBM</a><em>
+* <em><a href="https://coursera.org/share/b95fe5828e916d03c4e5a933f0e98e52" target="_blank">IBM AI Engineering Professional Certificate</a><em>
 * <em><a href="https://databricks.com/" target="_blank">Databricks Training - Customer/Partner Learning</a><em>
 * <em><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/EQJA4458HTRS" target="_blank">Tensorflow in Practice - deeplearning.ai</a><em>
 * <em><a href="https://www.coursera.org/account/accomplishments/records/MMX587GVST6E" target="_blank">Machine Learning for Business Professionals</a><em>
