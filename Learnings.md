@@ -34,8 +34,7 @@ span{
   animation: blink 1s infinite;
 }
 </style>
-<p class="css-typing">“Without data you're just another person with an opinion”</p>
-<p class="css-typing">— W. E. Deming</p>
+<p class="css-typing">Nothing will work unless You do - Maya Angelo</p>
 <br>
 <hr>
 
