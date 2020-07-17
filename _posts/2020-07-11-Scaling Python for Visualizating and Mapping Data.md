@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Scaling Python for Visualizating and Mapping Data
 ---
 
