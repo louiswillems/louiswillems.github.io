@@ -3,10 +3,9 @@ layout: page
 title: Scaling Python for Visualizating and Mapping Data
 ---
 
-<br>
 
 
-<img height="165" width="500" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/attribution_1.JPG">
+<img height="165" width="500" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/dask_datashader.JPG" src="/public/dask_datashader.JPG">
 
 
 
