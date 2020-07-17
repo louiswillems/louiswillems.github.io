@@ -6,6 +6,9 @@ title: Scaling Python for Visualizating and Mapping Data
 <br>
 
 
+<img height="165" width="500" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/fast-colab.JPG" src="/public/attribution_1.JPG">
+
+
 
 Each day, NYC311 receives thousands of calls related to several hundred types of non-emergency services, including noise complaints, plumbing issues, and illegally parked cars. These calls are received by NYC311 and forwarded to the relevant agencies, such as the Police, Buildings or Transportation. The agency responds to the request, addresses it and the request is then closed.
 
