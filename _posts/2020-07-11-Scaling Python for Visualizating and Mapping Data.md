@@ -152,7 +152,7 @@ We will also convert the data from CSV to Parquet format to minimize processing 
 
 
 ```python
-# Preparing data for map tilling
+# # Converting longitude/latitude to Web Mercator formats
 with ProgressBar():
     web_mercator_x, web_mercator_y = lnglat_to_meters(filtered_data['Longitude'], filtered_data['Latitude'])
 
