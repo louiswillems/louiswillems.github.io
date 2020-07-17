@@ -5,7 +5,7 @@ title: Scaling Python for Visualizating and Mapping Data
 
 
 
-<img height="165" width="500" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/dask_datashader.JPG" src="/public/dask_datashader.JPG">
+<img height="170" width="500" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/dask_datashader.JPG" src="/public/dask_datashader.JPG">
 
 
 
@@ -22,8 +22,6 @@ As a motivating scenario for this chapter, we’ll use this data to answer the f
 <br>
 
 ## Parallelizing the Python Ecosystem with Dask
-
-
 
 Dask is a parallel computing library for Python.
 
@@ -146,6 +144,9 @@ dynamic_hover.opts(
     opts(bgcolor='white', xaxis=None, yaxis=None, width=600, height=600))
 ```
 
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/datashader_picture1.JPG" src="/public/datashader_picture1.JPG">
+
+
 We plotted about 4 million datapoints in a matter of a few seconds.
 
 Now, we will overlay our original visualization on top of a map, so we can tell which parts of the city we’re looking at. However, most mapping services don’t index map tiles by latitude/longitude coordinates, they use a different coordinate system called Web Mercator. So, in order to produce the correct images, we will convert our latitude/longitude coordinates into Web Mercator coordinates.
@@ -179,5 +180,6 @@ complaint_type = dynspread(datashade(points, color_key=colors, element_type=geov
 
 geomap * complaint_type
 ```
+<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/datashader_picture2.JPG" src="/public/datashader_picture2.JPG">
 
 You can see that as we zoom in, the image updates along with the map tiles. It should take less than one second to re-render the image at the new zoom level. You can also see that relative to the area we’ve zoomed in on, there are some areas where more service calls happen than in other areas.
