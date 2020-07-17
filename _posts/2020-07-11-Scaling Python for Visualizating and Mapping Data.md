@@ -144,7 +144,7 @@ dynamic_hover.opts(
     opts(bgcolor='white', xaxis=None, yaxis=None, width=600, height=600))
 ```
 
-<img height="600" width="600" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/datashader_picture1.JPG" src="/public/datashader_picture1.JPG">
+<img height="700" width="700" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/datashader_picture1.JPG" src="/public/datashader_picture1.JPG">
 
 
 We plotted about 4 million datapoints in a matter of a few seconds.
