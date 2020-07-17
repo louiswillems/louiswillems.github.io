@@ -15,7 +15,7 @@ NYC OpenData has published the data regarding [311 service requests](https://dat
 
 Using the NYC 311 Service Call dataset, we will show the frequency of service calls based on location and plot this data on a map to find common problem areas.
 
-([Notebook here](https://colab.research.google.com/drive/1qinJbt1rNAOFSDT5I1VldyMtXP0xwc5d))
+([Notebook here](https://colab.research.google.com/drive/19m0baE3zqDaQX5amFXBwqSDF3K-FbOlX#scrollTo=NAZhkzvlFVVx))
 
 <br>
 
