@@ -5,7 +5,7 @@ title: Scaling Python for Visualizating and Mapping Data
 
 
 
-<img height="180" width="500" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/dask_datashader.JPG" src="/public/dask_datashader.JPG">
+<img height="190" width="500" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/dask_datashader.JPG" src="/public/dask_datashader.JPG">
 
 
 
