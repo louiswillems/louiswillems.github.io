@@ -180,6 +180,6 @@ complaint_type = dynspread(datashade(points, color_key=colors, element_type=geov
 
 geomap * complaint_type
 ```
-<img height="300" width="400" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/datashader_picture2.JPG" src="/public/datashader_picture2.JPG">
+<img height="700" width="700" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/datashader_picture2.JPG" src="/public/datashader_picture2.JPG">
 
 You can see that as we zoom in, the image updates along with the map tiles. It should take less than one second to re-render the image at the new zoom level. You can also see that relative to the area we’ve zoomed in on, there are some areas where more service calls happen than in other areas.
