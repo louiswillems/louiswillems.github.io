@@ -13,15 +13,15 @@ Each day, NYC311 receives thousands of calls related to several hundred types of
 
 NYC OpenData has published the data regarding [311 service requests](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9) every day from 2010 to present (last update April 22, 2020). The size of our file it's about 20GB as a raw CSV and contains about 23 million of records. However, this data does not present a full picture of 311 calls or service requests, in part because of operational and system complexities.
 
-As a motivating scenario for this chapter, we’ll use this data to answer the following question:
-
-*Using the NYC 311 Service Call dataset, how can we show the frequency of service calls based on location and plot this data on a map to find common problem areas?*
+Using the NYC 311 Service Call dataset, we will show the frequency of service calls based on location and plot this data on a map to find common problem areas.
 
 ([Notebook here](https://colab.research.google.com/drive/1qinJbt1rNAOFSDT5I1VldyMtXP0xwc5d))
 
 <br>
 
 ## Parallelizing the Python Ecosystem with Dask
+
+<br>
 
 Dask is a parallel computing library for Python.
 
@@ -115,6 +115,8 @@ diag.visualize([prof, rprof]);
 <br>
 
 ## Visualizing Location Data with Datashader
+
+<br>
 
 
 Datashader is a relatively new library in the Python Open Data Science Stack that was created to produce meaningful visualizations of very large datasets. Datashader’s plotting methods accept Dask objects directly and can take full advantage of distributed computing.
