@@ -182,6 +182,9 @@ complaint_type = dynspread(datashade(points, color_key=colors, element_type=geov
 
 geomap * complaint_type
 ```
+
+<br>
+
 <img height="250" width="600" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/countplot.JPG" src="/public/countplot.JPG">
 
 <img height="700" width="700" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/datashader_picture2.JPG" src="/public/datashader_picture2.JPG">
