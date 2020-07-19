@@ -60,7 +60,7 @@ span{
 <br>
 <br>
 
-### Digital Marketing / Ecommerce Strategist - <small><em>Rudsak - 2016/2017</em></small>
+### Digital Marketing / Ecommerce Strategist - <small><em>Rudsak - 2015/2016</em></small>
 * Planned and monitored digital marketing campaigns in collaboration with sales and marketing departments.
 * Analyzed web performance and made suggestions on search/display ads and SEO (onsite & offsite).
 * Increased conversion rates by 32% after leading complete redesign of product landing pages (A/B, multivariate).
