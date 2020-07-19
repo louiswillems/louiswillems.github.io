@@ -70,7 +70,7 @@ span{
 <br>
 <br>
 
-### Ecommerce Assistant Manager - <small><em>Christian Louboutin - 2012/2014</em></small>
+### Ecommerce After Sales Service - <small><em>Christian Louboutin - 2012/2014</em></small>
 
 * Reported KPIs, traffic behavior and sales across channels to guide marketing decisions.
 * Implemented the Ecommerce After Sale Service, managed product inventory and quality control procedures.
