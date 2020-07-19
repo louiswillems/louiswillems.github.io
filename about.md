@@ -70,10 +70,10 @@ span{
 <br>
 <br>
 
-### Ecommerce After Sales Service - <small><em>Christian Louboutin - 2012/2014</em></small>
+### E-commerce After Sales Service - <small><em>Christian Louboutin - 2012/2014</em></small>
 
 * Reported KPIs, traffic behavior and sales across channels to guide marketing decisions.
-* Implemented the Ecommerce After Sale Service, managed product inventory and quality control procedures.
+* Implemented the E-commerce After Sale Service, managed product inventory and quality control procedures.
 * Increased customer retention by 28% between 2013 and 2014. 30% decrease of transport issues in 12 months.
 * Planned and executed men loyalty program (23% increase in sales in 6 months).
 * Created email templates responses for the online customer service.
