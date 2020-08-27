@@ -8,6 +8,7 @@ title: Qu'aurait dit le général de Gaulle ? (Fine-tuning a French language mod
 
 <script src="https://gist.github.com/louiswillems/0cc82496ec17be7df0b77b99bbcd04fe.js"></script>
 
+
 In this post, we will train a language model with Fastai for a text generation task ([Notebook here](https://colab.research.google.com/drive/1fyfnrzCOXt_L7eNSvfqCnGVqmR6N3xQt)).
 
 This is an implementation of the ULMFit model (Universal Language Model Fine-tuning for Text Classification) on French language.
