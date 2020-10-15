@@ -5,6 +5,10 @@ title: Applying Data Science to E-commerce
 
 <br>
 
+"*Documentation is a love letter that you write to your future self.*" ― Damian Conway
+
+<br>
+
 
 In this post, I will try to apply Data Science methods to an eCommerce business. To do so, we will extract the dataset of an online retail from [Kaggle](https://www.kaggle.com/vijayuv/onlineretail) then we will analyse the data.
 Here, I did my best to follow a comprehensive, but not exhaustive, analysis of E-commerce data. I'm far from reporting a rigorous analysis in this post, but I hope that it can be useful.
