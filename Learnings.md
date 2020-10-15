@@ -41,9 +41,9 @@ span{
 <br>
 
 ## Certificates
-* <em><a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-3d5f8b98-055d-4b1d-aced-f621ccdd1ca6.pdf" target="_blank">Rasa Certification Workshop</a><em>
-* <em><a href="https://www.credential.net/1c8ee086-ef72-4d53-b7c6-edda39f86314#gs.f1fqqm" target="_blank">TensorFlow Developer Certificate</a><em>
-* <em><a href="https://drive.google.com/file/d/1mwRj4A67GttT8jKQ6F4oyi-5ZzY4TEZZ/view" target="_blank">Intelligence artificielle appliquée</a><em>
+* <em><a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-3d5f8b98-055d-4b1d-aced-f621ccdd1ca6.pdf" target="_blank">Rasa Certification Workshop - Udemy</a><em>
+* <em><a href="https://www.credential.net/1c8ee086-ef72-4d53-b7c6-edda39f86314#gs.f1fqqm" target="_blank">TensorFlow Developer Certificate - TensorFlow Certificate Program</a><em>
+* <em><a href="https://drive.google.com/file/d/1mwRj4A67GttT8jKQ6F4oyi-5ZzY4TEZZ/view" target="_blank">Intelligence artificielle appliquée - Collège de Bois-de-Boulogne</a><em>
 * <em><a href="https://www.coursera.org/account/accomplishments/specialization/SRPJ2YSRFQDJ?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=s12n" target="_blank">Database systems Specialization</a><em>
 * <em><a href="https://coursera.org/share/b95fe5828e916d03c4e5a933f0e98e52" target="_blank">IBM AI Engineering Professional Certificate</a><em>
 * <em><a href="https://databricks.com/" target="_blank">Databricks Training - Customer/Partner Learning</a><em>
