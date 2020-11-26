@@ -38,6 +38,13 @@ span{
 <hr>
 <br>
 
+### Data Scientist (Consultant) - <small><em>CIUSSS de l'Est-de-l'île-de-Montréal - 2018/2020</em></small>
+* Designed and developed PRATICAdr web app (Django/Bootstrap 4/ PostgreSQL) currently used in a pilot study – as part of a research project with the Research Chair in Mental Health and Work at Institut universitaire en santé mentale de Montréal. “Development and Implementation of a return-to-work program for employees of large organizations on sick leave due to common mental disorders”.
+
+
+<br>
+<br>
+
 ### Data Analyst - <small><em>Québecor - 2017/2019</em></small>
 * Collected and analyzed large datasets (millions monthly visitors) to identify trends and guide marketing strategies.
 * Designed and implemented daily, weekly & monthly automated reports (50) for data intelligence and analysis. 
