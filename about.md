@@ -62,7 +62,7 @@ span{
 <br>
 <br>
 
-### Digital Marketing & E-Commerce Analyst - <small><em>Rudsak - 2015/2016</em></small>
+### Digital Marketing & E-Commerce Analyst - <small><em>Rudsak - 2015</em></small>
 * Planned and monitored digital marketing campaigns in collaboration with sales and marketing departments.
 * Analyzed web performance and made suggestions on search/display ads and SEO (onsite & offsite).
 * Optimization of marketing and display campaigns. Improved Google AdWords ROI by 120%.
