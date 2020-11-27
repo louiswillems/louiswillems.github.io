@@ -39,7 +39,7 @@ span{
 <br>
 
 ### Data Scientist (Consultant) - <small><em>CIUSSS de l'Est-de-l'île-de-Montréal - 2018/2020</em></small>
-* Designed and developed PRATICAdr web app (Django/Bootstrap 4/ PostgreSQL).
+* Designed and developed PRATICAdr web app (Django/Bootstrap4/PostgreSQL).
 * Pilot study with the Research Chair in Mental Health and Work at Institut universitaire en santé mentale de Montréal.
 
 
