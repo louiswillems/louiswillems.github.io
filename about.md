@@ -61,9 +61,13 @@ Prototyped a content-based recommendation engine with TensorFlow/Keras on Google
 
 ### Analyst, Cybermetrics, Marketing & Innovation - <small><em>Ivanhoé Cambridge - 2016/2017</em></small>
 Defined KPIs and created reports to measure marketing campaigns performance across all channels for 20 shopping malls.
+
 Created dashboards with Tableau to provide data-driven consumer insights for websites (20) and mobile apps (9).
+
 Applied unsupervised machine learning methods to identify customers segments and improve user experience.
+
 Implemented and managed proper use of tags and code for data governance.
+
 Led technical implementation (web & mobile) of Google/Firebase Analytics with Google Tag Manager.
 
 <br>
@@ -71,6 +75,7 @@ Led technical implementation (web & mobile) of Google/Firebase Analytics with Go
 
 ### Digital Marketing & E-Commerce Analyst - <small><em>Rudsak - 2015</em></small>
 Planned and monitored digital marketing campaigns in collaboration with sales and marketing departments.
+
 Analyzed web performance and made suggestions on search/display ads and SEO (onsite & offsite).
 Optimization of marketing and display campaigns. Improved Google AdWords ROI by 120%.
 Increased conversion rates by 32% after leading complete redesign of product landing pages (A/B, multivariate).
