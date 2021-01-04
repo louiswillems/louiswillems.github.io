@@ -121,8 +121,9 @@ for k,v in counter.items():
   per = v / len(target) * 100
   print('Class=%d, Count=%d, Percentage=%.1f%%' % (k, v, per))
 ```
-Class=0, Count=955782, Percentage=98.5%
-Class=1, Count=14750, Percentage=1.5%
+*Class=0, Count=955782, Percentage=98.5%*
+
+*Class=1, Count=14750, Percentage=1.5%*
 
 <br>
 
@@ -136,7 +137,7 @@ purchasers = purcharsers.groupby('fullVisitorId').transactions.sum().reset_index
 result = purchasers.fullVisitorId.nunique()/ df.fullVisitorId.nunique()*100
 print('{:.1f}% of the total visitors made a purchase'.format(result))
 ```
-2.7% of the total visitors made a purchase
+*2.7% of the total visitors made a purchase*
 
 ### What % of visitors bought on subsequent visits to the website?
 
@@ -144,7 +145,7 @@ print('{:.1f}% of the total visitors made a purchase'.format(result))
 result = df.groupby('NextPurchase').fullVisitorId.nunique()[1]/df.groupby('NextPurchase').fullVisitorId.nunique()[0]*100
 print('{:.1f}% of the total visitors will return and purchase from website'.format(result))
 ```
-1.6% of the total visitors will return and purchase from website
+*1.6% of the total visitors will return and purchase from website*
 
 <br>
 
@@ -188,8 +189,9 @@ scores = cross_val_score(model, X, y, scoring='roc_auc', cv=cval, n_jobs=-1)
 print('Baseline: Log Loss: %.3f' % (avg_logloss))
 print('Baseline: ROC AUC: %.3f (%.3f)' % (mean(scores), std(scores)))
 ```
-Baseline: Log Loss: 0.693
-Baseline: ROC AUC: 0.500 (0.002)
+*Baseline: Log Loss: 0.693*
+
+*Baseline: ROC AUC: 0.500 (0.002)*
 
 As expected, the no-skill classifier achieves a mean ROC AUC of 0.5. This provides a baseline in performance, above which a model can be considered skillful on this dataset. Alternatively, a Logloss scores below 0.69 will also represent a model that has some skill.
 
@@ -273,7 +275,7 @@ roc_auc = auc(fpr, tpr)
 print()
 print('ROC AUC: %.3f' % (roc_auc))
 ```
-ROC AUC: 0.978
+*ROC AUC: 0.978*
 
 <img hheight="400" width="550" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/confusion_matrix.png" src="/public/confusion_matrix.png">
 
