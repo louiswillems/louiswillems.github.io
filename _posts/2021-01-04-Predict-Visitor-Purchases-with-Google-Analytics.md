@@ -129,7 +129,7 @@ for k,v in counter.items():
 
 ## Data Exploration
 
-### What % of the total visitors made a purchase?
+#### What % of the total visitors made a purchase?
 
 ```python
 purcharsers = df.loc[df['transactions'] > 0]
@@ -139,7 +139,7 @@ print('{:.1f}% of the total visitors made a purchase'.format(result))
 ```
 *2.7% of the total visitors made a purchase*
 
-### What % of visitors bought on subsequent visits to the website?
+#### What % of visitors bought on subsequent visits to the website?
 
 ```python
 result = df.groupby('NextPurchase').fullVisitorId.nunique()[1]/df.groupby('NextPurchase').fullVisitorId.nunique()[0]*100
