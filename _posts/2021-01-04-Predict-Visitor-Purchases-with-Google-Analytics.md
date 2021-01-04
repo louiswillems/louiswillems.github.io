@@ -293,7 +293,7 @@ explainer = shap.TreeExplainer(model)
 shap_values = explainer.shap_values(X_test)
 shap.summary_plot(shap_values, X_test, plot_type="bar")
 ```
-<img height="400" width="650" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Shap1.png" src="/public/Shap1.png">
+<img height="400" width="700" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Shap1.png" src="/public/Shap1.png">
 
 We can see that **time_on_site**, **pageviews** and **bounces** are the top 3 feautures.
 
@@ -307,7 +307,7 @@ explainer = shap.TreeExplainer(model)
 shap_values = explainer.shap_values(X_test)
 shap.summary_plot(shap_values, X_test)
 ```
-<img height="400" width="650"  class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Shap2.png" src="/public/Shap2.png">
+<img height="400" width="700"  class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Shap2.png" src="/public/Shap2.png">
 
 - High values of **time_on_site** and **pageviews** caused higher predictions, and low values caused low predictions.
 - Low values of **bounces** caused higher predictions, and high values caused low predictions.
