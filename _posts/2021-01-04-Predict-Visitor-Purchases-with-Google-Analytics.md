@@ -38,7 +38,7 @@ The field definitions for the data-to-insights ecommerce dataset are [here](http
 from google.colab import auth
 auth.authenticate_user()
 
-project_id = 'testlouis-187422' # To remove
+project_id = '[YOUR PROJECT ID]'
 
 data = pd.io.gbq.read_gbq(
 '''
