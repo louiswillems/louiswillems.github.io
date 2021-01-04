@@ -139,6 +139,8 @@ print('{:.1f}% of the total visitors made a purchase'.format(result))
 ```
 *2.7% of the total visitors made a purchase*
 
+<br>
+
 #### What % of visitors bought on subsequent visits to the website?
 
 ```python
