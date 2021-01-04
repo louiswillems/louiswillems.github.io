@@ -195,6 +195,8 @@ print('Baseline: ROC AUC: %.3f (%.3f)' % (mean(scores), std(scores)))
 
 As expected, the no-skill classifier achieves a mean ROC AUC of 0.5. This provides a baseline in performance, above which a model can be considered skillful on this dataset. Alternatively, a Logloss scores below 0.69 will also represent a model that has some skill.
 
+<br>
+
 ### Cross-Validation for Imbalanced Classification
 
 We will use mostly default model hyperparameters, with the exception of the class weight parameter, which we will set to 'Balance' in order to make our algorithm cost-sensitive for our task.
