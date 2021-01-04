@@ -63,8 +63,6 @@ SELECT
 ''', project_id=project_id, dialect='standard')
 ```
 
-<img height="500" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Revenue&Growth.JPG" src="/public/Revenue&Growth.JPG">
-
 <br>
 
 ### Processing & Description
@@ -103,6 +101,7 @@ for c in df.columns:
     EDA = EDA.append(eda)
 EDA
 ```
+<img height="500" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/EDA.png" src="/public/EDA.png">
 
 
 <br>
@@ -163,7 +162,6 @@ test = df[df.date.between('20170701', '20170801')] # 1 month
 X, y = train[['bounces', 'time_on_site','pageviews',
               'source', 'channelGrouping', 'deviceCategory',
               'country','DayTime']], train.NextPurchase
-
 ```
 
 <br>
@@ -225,15 +223,6 @@ print('Best validation ROC AUC score: {:.2f}±{:.4f} on step {}'.format(np.max(c
     cv_data['test-AUC-std'][np.argmax(cv_data['test-AUC-mean'])],
     np.argmax(cv_data['test-AUC-mean'])))
 ```
-Confusion matrix, without normalization
-[[73366  6074]
- [   39  1391]]
- 
-Normalized confusion matrix
-[[0.92 0.08]
- [0.03 0.97]]
- 
-ROC AUC: 0.978
 
 The results suggest that the CatBoost algorithm performs well, achieving a mean ROC AUC above the naive model with 0.98.
 
@@ -284,6 +273,9 @@ roc_auc = auc(fpr, tpr)
 print()
 print('ROC AUC: %.3f' % (roc_auc))
 ```
+ROC AUC: 0.978
+
+<img height="500" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/confusion_matrix.png" src="/public/confusion_matrix.png">
 
 The reported performance is good, but not highly optimized (e.g. hyperparameters are not tuned).
 
@@ -301,6 +293,8 @@ explainer = shap.TreeExplainer(model)
 shap_values = explainer.shap_values(X_test)
 shap.summary_plot(shap_values, X_test, plot_type="bar")
 ```
+<img height="500" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Shap1.png" src="/public/Shap1.png">
+
 We can see that **time_on_site**, **pageviews** and **bounces** are the top 3 feautures.
 
 Now, let's use a summary plot of the SHAP values.
@@ -313,6 +307,7 @@ explainer = shap.TreeExplainer(model)
 shap_values = explainer.shap_values(X_test)
 shap.summary_plot(shap_values, X_test)
 ```
+<img height="500" width="800" class="center" class="progressiveMedia-image js-progressiveMedia-image" data-src="/public/Shap2.png" src="/public/Shap2.png">
 
 - High values of **time_on_site** and **pageviews** caused higher predictions, and low values caused low predictions.
 - Low values of **bounces** caused higher predictions, and high values caused low predictions.
