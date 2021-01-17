@@ -39,22 +39,23 @@ span{
 <br>
 
 ### Data Scientist (Consultant) - <small><em>CIUSSS de l'Est-de-l'île-de-Montréal - 2018/2020</em></small>
-* Architected, developed and deployed PRATICAdr Web app.
-* Pilot study with the Research Chair in Mental Health and Work at Institut universitaire en santé mentale de Montréal.
+
+Research project with the Research Chair in Mental Health and Work at the Institut universitaire en santé mentale de Montréal. Corbière, M., Willems, L., Panaccio, A., Guay, S., Lecomte, T., Mazaniello-Chézol, M., Développement et implantation de l’application Web PRATICAdr: Plateforme de Retour Au Travail axée sur les Interactions et la Communication entre les Acteurs, intégrant un programme Durable favorisant le Rétablissement
+(Submitted in September 2020)
 
 
 <br>
 <br>
 
 ### Data Analyst - <small><em>Québecor - 2017/2019</em></small>
-** My mission was to support the organization in the decision making process and to contribute to the implementation of predictive and analytical methods to meet strategic needs.**
+My mission was to support the organization in the decision making process and to contribute to the implementation of predictive and analytical methods to meet strategic needs.
 
 <br>
 <br>
 
 ### Analyst, Cybermetrics, Marketing & Innovation - <small><em>Ivanhoé Cambridge - 2016/2017</em></small>
 
-** My main missions were to participate in the definition of business needs, analyze user data and implement web tracking technology solutions for data collection. **
+My main missions were to participate in the definition of business needs, analyze user data and implement web tracking technology solutions for data collection.
 
 
 <br>
