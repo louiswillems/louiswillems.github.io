@@ -40,8 +40,6 @@ span{
 
 ### Data Scientist (Consultant) - <small><em>CIUSSS de l'Est-de-l'île-de-Montréal - 2018/2020</em></small>
 
-*Research project with the Research Chair in Mental Health and Work at the Institut universitaire en santé mentale de Montréal. Corbière, M., Willems, L., Panaccio, A., Guay, S., Lecomte, T., Mazaniello-Chézol, M., Développement et implantation de l’application Web PRATICAdr: Plateforme de Retour Au Travail axée sur les Interactions et la Communication entre les Acteurs, intégrant un programme Durable favorisant le Rétablissement
-(Submitted in September 2020)*
 
 <br>
 
