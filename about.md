@@ -38,7 +38,12 @@ span{
 <hr>
 <br>
 
-### Data Scientist (Consultant) - <small><em>CIUSSS de l'Est-de-l'île-de-Montréal - 2018/2020</em></small>
+### Data Scientist (Consultant) - <small><em>CIUSSS de l'Est-de-l'île-de-Montréal - 2018/2021</em></small>
+
+
+<br>
+
+### Data Analyst - <small><em>SOQUIJ - 2020/2021</em></small>
 
 
 <br>
