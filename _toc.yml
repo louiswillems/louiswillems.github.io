@@ -1,0 +1,16 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+  - file: 2-personnalisation-terminal
+  - file: 3-utilisation-terminal
+  - file: 4-installation-python
+  - file: 5-gestion-version-et-packaging-python
+  - file: 6-environnements-virtuels
+  - file: 7-configuration-vscode
+  - file: 8-installation-git
+  - file: 9-utilisation-git
+  - file: 10-git-local-vers-git-collaboratif
+  - file: 11-utilisation-git-avance

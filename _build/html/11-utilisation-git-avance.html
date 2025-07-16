@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Le Guide du Data Junior</title>
+
+
+
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+  <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+  <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+  <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+  <link rel="stylesheet" type="text/css"
+    href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+  <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+  <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+  <script src="_static/doctools.js?v=9a2dae69"></script>
+  <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+  <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+  <script src="_static/copybutton.js?v=f281be69"></script>
+  <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+  <script>let toggleHintShow = 'Click to show';</script>
+  <script>let toggleHintHide = 'Click to hide';</script>
+  <script>let toggleOpenOnPrint = 'true';</script>
+  <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+  <script src="_static/design-tabs.js?v=f930bc37"></script>
+  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+  <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+  <script>DOCUMENTATION_OPTIONS.pagename = 'content';</script>
+  <link rel="icon" href="_static/logo.png" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="stylesheet" href="_static/custom.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en" />
+
+</head>
+
+
+<body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%"
+  data-default-mode="">
+
+
+
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  <div id="pst-scroll-pixel-helper"></div>
+
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+
+  <input type="checkbox" class="sidebar-toggle" id="pst-primary-sidebar-checkbox" />
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+
+  <input type="checkbox" class="sidebar-toggle" id="pst-secondary-sidebar-checkbox" />
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      <form class="bd-search d-flex align-items-center" action="search.html" method="get">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..."
+          aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off"
+          spellcheck="false" />
+        <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+      </form>
+    </div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+    <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+  </div>
+
+
+  <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  </header>
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+
+
+
+
+
+      <div class="bd-sidebar-primary bd-sidebar">
+
+
+
+        <div class="sidebar-header-items sidebar-primary__section">
+
+
+
+
+        </div>
+
+        <div class="sidebar-primary-items__start sidebar-primary__section">
+          <div class="sidebar-primary-item">
+
+
+
+
+
+            <a class="navbar-brand logo" href="intro.html">
+
+
+
+
+
+
+
+
+
+
+              <img src="_static/logo.png" class="logo__image only-light" alt="le_stack_du_data_pro - Home" />
+              <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
+
+
+            </a>
+          </div>
+          <div class="sidebar-primary-item">
+
+            <script>
+              document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+            </script>
+          </div>
+
+          <div class="sidebar-primary-item">
+            <nav class="bd-links bd-docs-nav" aria-label="Main">
+              <div class="bd-toc-item navbar-nav active">
+
+
+                <!-- Chapitre 1 dans la première liste -->
+                <ul class="nav bd-sidenav bd-sidenav__home-link">
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="1-installation-vscode.html">
+                      1. Installation VS Code
+                    </a>
+                  </li>
+                </ul>
+
+                <!-- Chapitres 2 à 11 -->
+                <ul class="nav bd-sidenav">
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="2-personnalisation-terminal.html">
+                      2. Personnalisation du terminal
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="3-utilisation-terminal.html">
+                      3. Utilisation du terminal
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="4-installation-python.html">
+                      4. Installation Python
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="5-gestion-version-et-packaging-python.html">
+                      5. Gestion des versions & packaging Python
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="6-environnements-virtuels.html">
+                      6. Environnements virtuels
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="7-configuration-vscode.html">
+                      7. Configuration VS Code
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="8-installation-git.html">
+                      8. Installation Git
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="9-utilisation-git.html">
+                      9. Utilisation Git
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">
+                      10. Git local vers Git collaboratif
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="11-utilisation-git-avance.html">
+                      11. Utilisation Git (avancé)
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+            </nav>
+          </div>
+        </div>
+
+
+        <div class="sidebar-primary-items__end sidebar-primary__section">
+        </div>
+
+        <div id="rtd-footer-container"></div>
+
+
+      </div>
+
+      <main id="main-content" class="bd-main" role="main">
+
+
+
+        <div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+
+            <div class="bd-header-article d-print-none">
+              <div class="header-article-items header-article__inner">
+
+                <div class="header-article-items__start">
+
+                  <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm"
+                      title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                      <span class="fa-solid fa-bars"></span>
+                    </button></div>
+
+                </div>
+
+
+                <div class="header-article-items__end">
+
+                  <div class="header-article-item">
+
+                    <div class="article-header-buttons">
+
+
+
+
+
+                      <div class="dropdown dropdown-source-buttons">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" aria-label="Source repositories">
+                          <i class="fab fa-github"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+
+
+
+                          <li><a href="https://github.com/louiswillems/le_stack_du_data_pro" target="_blank"
+                              class="btn btn-sm btn-source-repository-button dropdown-item" title="Source repository"
+                              data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fab fa-github"></i>
+                              </span>
+                              <span class="btn__text-container">Repository</span>
+                            </a>
+                          </li>
+
+
+
+
+                          <li><a
+                              href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
+                              target="_blank" class="btn btn-sm btn-source-issues-button dropdown-item"
+                              title="Open an issue" data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-lightbulb"></i>
+                              </span>
+                              <span class="btn__text-container">Open issue</span>
+                            </a>
+                          </li>
+
+                        </ul>
+                      </div>
+
+
+
+
+
+
+                      <div class="dropdown dropdown-download-buttons">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" aria-label="Download this page">
+                          <i class="fas fa-download"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+
+
+
+                          <li><a href="_sources/content.md" target="_blank"
+                              class="btn btn-sm btn-download-source-button dropdown-item" title="Download source file"
+                              data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-file"></i>
+                              </span>
+                              <span class="btn__text-container">.md</span>
+                            </a>
+                          </li>
+
+
+
+
+                          <li>
+                            <button onclick="window.print()" class="btn btn-sm btn-download-pdf-button dropdown-item"
+                              title="Print to PDF" data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-file-pdf"></i>
+                              </span>
+                              <span class="btn__text-container">.pdf</span>
+                            </button>
+                          </li>
+
+                        </ul>
+                      </div>
+
+
+
+
+                      <button onclick="toggleFullScreen()" class="btn btn-sm btn-fullscreen-button"
+                        title="Fullscreen mode" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+
+                        <span class="btn__icon-container">
+                          <i class="fas fa-expand"></i>
+                        </span>
+
+                      </button>
+
+
+
+                      <script>
+                        document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+                      </script>
+
+
+                      <script>
+                        document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+                      </script>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+
+            <article class="bd-article">
+
+              <section id="utilisation-git-avance">
+                <h1>11. Utilisation de Git (avancé)<a class="headerlink" href="#utilisation-git-avance">#</a></h1>
+
+                <p>Git est bien plus qu’un simple outil de versionnement. Il vous permet aussi de naviguer dans
+                  l’historique de votre projet, de revenir à une version antérieure, d’explorer l’origine d’un bug ou
+                  encore d’expérimenter en toute sécurité sur des branches parallèles. Grâce à ses commandes, vous
+                  pouvez isoler des fonctionnalités, fusionner ou réorganiser vos travaux, et même annuler proprement
+                  des modifications, que vous travailliez seul ou en équipe. Dans ce module, nous allons découvrir
+                  comment tirer parti de ces possibilités : explorer les commits passés, manipuler les branches,
+                  comprendre les fusions (merge et rebase), se déplacer dans l’arbre des versions avec des références
+                  relatives, et annuler des changements avec précision. Comprendre ces déplacements dans l’historique de
+                  Git vous donnera une grande liberté et une meilleure compréhension de l’évolution de votre code.</p>
+
+                <h2>Voyager dans le temps avec Git</h2>
+                <p>Avec Git, remonter dans le temps pour explorer des versions précédentes de votre projet est à la fois
+                  simple et puissant. Que ce soit via l’interface de votre éditeur (comme la section Commits de VS Code)
+                  ou en ligne de commande avec git log, chaque commit est identifié par un hash unique, une sorte
+                  d’empreinte numérique. Pour revenir à un état antérieur du code, il suffit d’utiliser la commande git
+                  checkout &lt;hash_du_commit&gt;.</p>
+                <p>Avant d’effectuer ce saut dans le passé, assurez-vous d’avoir enregistré vos modifications. Si vous
+                  avez déjà fait un git add mais ne souhaitez pas encore faire de commit, vous pouvez temporairement
+                  mettre vos changements de côté avec la commande git stash.</p>
+                <p>Voyager à travers l’historique permet notamment d’identifier le moment exact où un bug est apparu.
+                  Lorsqu’un problème survient et que vous ne parvenez pas à en cerner rapidement la cause, revenir à la
+                  dernière version stable peut être une solution précieuse.</p>
+                <p>Plus vos commits sont petits, fréquents et accompagnés de messages clairs, plus il sera facile de
+                  localiser l’introduction d’un bug. Une bonne hygiène de versionnage permet souvent d’éviter des
+                  retours en arrière trop brutaux, voire de contourner complètement le besoin d’un revert. D’ailleurs,
+                  Git ne se limite pas à des déplacements linéaires dans l’historique : il offre une grande souplesse
+                  pour naviguer, expérimenter et restructurer votre travail.</p>
+
+                <h2>Branches et fusion dans Git</h2>
+                <p>Que vous travailliez en solo ou en équipe, la branche principale de votre projet — souvent appelée
+                  main ou master — représente la version de référence de votre code.</p>
+                <p>Lorsque vous développez de nouvelles fonctionnalités ou corrigez des bugs, il est courant de créer
+                  des branches spécifiques.</p>
+                <p>Les préfixes les plus courants que vous verrez dans les noms de branches sont :</p>
+                <ul>
+                  <li><strong>feat/ ou feature/</strong> : indique que vous ajoutez une nouvelle
+                    fonctionnalité.<br>Exemple : feature/hyperparametrage ou feature/previsions</li>
+                  <li><strong>fix/ ou bugfix/</strong> : implique que vous ne prévoyez pas d'ajouter de nouvelles
+                    fonctionnalités, mais que vous corrigez un problème dans une fonctionnalité existante.<br>Exemple :
+                    bugfix/erreur-pretraitement ou fix/modele-churn</li>
+                </ul>
+                <p>Les branches dans Git sont extrêmement légères : ce ne sont que des pointeurs vers un commit donné.
+                  Cela signifie qu’il n’y a pratiquement aucun coût en termes de mémoire ou de performance à en créer,
+                  ce qui encourage la bonne pratique : branchez tôt, branchez souvent.</p>
+                <p>Travailler avec plusieurs branches vous permet d’isoler des modifications, de tester sans risquer de
+                  casser la version principale, et de collaborer plus efficacement. Une branche représente l’intention
+                  d’inclure un ensemble de commits, à partir d’un point précis de l’historique.</p>
+                <p>Nous allons voir comment ces branches interagissent entre elles lors des opérations de fusion (merge)
+                  ou de réécriture de l’historique (rebase). La gestion des branches est l’un des aspects les plus
+                  puissants mais aussi les plus délicats de Git. Bien la comprendre, c’est poser les bases d’un flux de
+                  travail solide et maîtrisé.</p>
+
+                <h3>Mettre temporairement de côté des changements</h3>
+                <div class="highlight highlight-bash">
+                  <pre>
+git stash    # met de côté les modifications en cours sans les ajouter à l’historique
+git stash pop  # restaure les modifications précédemment mises de côté
+  </pre>
+                </div>
+
+                <h3>Fusionner des branches : merge et rebase</h3>
+                <p>Maintenant que vous maîtrisez les commits et la création de branches, il est temps d’apprendre à
+                  combiner le travail effectué sur différentes branches. C’est une étape clé dans tout flux de
+                  développement : elle permet par exemple de créer une branche pour une nouvelle fonctionnalité, y
+                  développer indépendamment, puis intégrer ces changements à la branche principale (main ou master).</p>
+                <p>La première méthode pour fusionner deux branches est git merge. Cette commande crée un commit de
+                  fusion spécial, qui possède deux parents. Cela signifie : « Je souhaite intégrer le contenu de ces
+                  deux branches et de leurs historiques respectifs ». C’est une façon simple et claire d’unifier deux
+                  lignes de développement, tout en conservant leur historique parallèle.</p>
+                <p>Une autre approche, plus avancée, est la commande git rebase. Contrairement à merge, rebase rejoue
+                  les commits d’une branche en les recopiant à la suite d’une autre. L’objectif est d’obtenir un
+                  historique linéaire, comme si les développements avaient été faits l’un après l’autre, plutôt qu’en
+                  parallèle. Cette méthode rend les journaux de commits (git log) beaucoup plus lisibles et compacts.
+                </p>
+                <p>Prenons un exemple : vous êtes sur la branche bugfix et vous souhaitez appliquer son contenu sur la
+                  branche main. Avec <code>git rebase main</code>, vous "déplacez" les commits de bugfix à la suite des
+                  derniers commits de main. Cela donne l’impression que tout a été développé dans un seul fil
+                  conducteur, même si ce n’est pas le cas.</p>
+                <p>Chacune de ces méthodes a ses avantages, et le choix entre merge et rebase dépend de votre flux de
+                  travail, de votre équipe, et du besoin de clarté dans l’historique du projet.</p>
+
+                <h2>Conflits de merge (Merge Conflicts)</h2>
+                <p>Un conflit de merge survient lorsque deux branches ont modifié exactement les mêmes lignes dans un
+                  même fichier. Git ne peut pas déterminer automatiquement quelle version conserver.</p>
+                <p>Pourquoi les conflits se produisent-ils ?</p>
+                <ul>
+                  <li>Deux développeurs modifient la même partie d'un fichier</li>
+                  <li>Un développeur supprime un fichier tandis qu'un autre le modifie</li>
+                  <li>Deux branches réorganisent différemment la même structure de code</li>
+                </ul>
+                <p>Résolution des conflits</p>
+                <p>Il n'existe pas de méthode automatique pour résoudre ces conflits. Vous devez les résoudre
+                  manuellement :</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+<<<<<<< HEAD
+Code de votre branche actuelle
+=======
+Code de la branche que vous essayez de fusionner
+>>>>>>> nom-de-branche
+  </pre>
+                </div>
+                <p>Vous devez éditer le fichier pour choisir la version à conserver :</p>
+                <ul>
+                  <li>Garder l'une des versions</li>
+                  <li>Combiner les deux versions</li>
+                  <li>Écrire quelque chose de complètement différent</li>
+                </ul>
+                <p>Une fois les modifications effectuées, vous marquez le conflit comme résolu :</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git add fichier-avec-conflit.txt
+git commit -m "Résolution des conflits entre la branche feature/login et master"
+  </pre>
+                </div>
+                <p>Bonnes pratiques :</p>
+                <ul>
+                  <li>Si le conflit implique des modifications de deux développeurs différents, il peut être utile
+                    d'organiser un appel pour trouver ensemble la meilleure solution</li>
+                  <li>Utilisez des outils de résolution de conflits (comme ceux intégrés dans VS Code)</li>
+                  <li>Intégrez régulièrement les changements de la branche principale dans vos branches de
+                    fonctionnalités pour minimiser les conflits</li>
+                </ul>
+
+                <h2>Naviguer dans l’arbre des commits Git</h2>
+                <p>Avant d’explorer des fonctionnalités avancées de Git, il est important de comprendre comment se
+                  déplacer dans l’historique des commits – souvent appelé arbre Git. Une bonne maîtrise de cette
+                  navigation rendra l’utilisation des autres commandes bien plus intuitive et efficace.</p>
+                <h3>Le rôle de HEAD</h3>
+                <p>Un concept central dans Git est HEAD. Il s’agit d’un pointeur symbolique qui désigne le commit actuel
+                  – autrement dit, le point de départ de toutes vos actions. En général, HEAD pointe vers le dernier
+                  commit d’une branche (par exemple, bugFix).</p>
+                <p>Chaque fois que vous effectuez un commit, Git enregistre les modifications, met à jour la branche
+                  active et avance automatiquement HEAD vers ce nouveau commit. C’est pourquoi HEAD est au cœur de
+                  nombreuses commandes Git comme commit, merge ou rebase.</p>
+
+                <h3>Utiliser les identifiants de commits</h3>
+                <p>Dans la pratique, vous n’aurez pas toujours un graphique visuel de l’historique à portée de main.
+                  Pour explorer les commits, il faudra souvent utiliser git log, qui vous fournit les identifiants
+                  uniques (hashes) de chaque commit. Ces identifiants peuvent être longs et difficiles à mémoriser — par
+                  exemple :</p>
+                <pre class="highlight highlight-bash"><code>
+fed2da64c0efc5293610bdd892f82a58e8cbc5d8
+  </code></pre>
+                <p>Heureusement, Git permet d’utiliser les premiers caractères d’un identifiant, tant qu’ils restent
+                  uniques. Ainsi, fed2 suffit généralement pour désigner ce commit.</p>
+
+                <h3>Références relatives : une navigation simplifiée</h3>
+                <p>Plutôt que de manipuler des identifiants complexes, Git offre une syntaxe plus simple et intuitive :
+                  les références relatives.</p>
+                <p>Elles permettent de partir d’un point de référence connu (comme HEAD ou main) et de remonter
+                  l’historique avec des opérateurs :</p>
+                <p><strong>L’opérateur ^</strong><br>
+                  L’accent circonflexe (^) permet de remonter d’un parent. Par exemple :<br>
+                  main^ désigne le parent immédiat du dernier commit sur la branche main.<br>
+                  main^^ pointe vers le grand-parent (deux générations en arrière).</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git checkout main^
+  </pre>
+                </div>
+                <p><strong>L’opérateur ~</strong><br>
+                  Le tilde (~) permet de remonter plusieurs commits d’un coup :<br>
+                  HEAD~4 signifie « 4 commits en arrière à partir de HEAD ».</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git checkout HEAD~4
+  </pre>
+                </div>
+                <p>Les références relatives sont également utiles pour réorganiser les branches. Avec l’option -f, vous
+                  pouvez forcer une branche à pointer vers un autre commit :</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git branch -f main HEAD~3
+  </pre>
+                </div>
+                <p>Cette commande replace la branche main trois commits avant HEAD. C’est un outil puissant pour
+                  corriger l’historique ou repositionner des branches lors de manipulations avancées.</p>
+
+                <h2>Annuler des changements avec Git</h2>
+                <p>Dans Git, il existe plusieurs façons d’annuler un commit, mais la méthode utilisée en pratique —
+                  notamment sur les branches partagées — est git revert, car elle respecte l’historique du projet.</p>
+
+                <h3><code>git revert</code> : annuler un commit proprement</h3>
+                <div class="highlight highlight-bash">
+                  <pre>
+git revert HEAD
+  </pre>
+                </div>
+                <p>Cette commande génère un commit qui inverse les changements introduits par le dernier commit (HEAD).
+                </p>
+
+                <h3>Et <code>git reset</code> ?</h3>
+                <p>Il est bon de savoir qu’il existe aussi la commande git reset, qui permet de déplacer une branche
+                  vers un commit antérieur, supprimant ainsi des commits de l’historique. Cela fonctionne bien en local,
+                  mais ne doit pas être utilisé sur des branches partagées, car cela modifie l’historique de manière
+                  destructrice.</p>
+
+                <h2>Gestion des versions avec les Tags Git</h2>
+                <p>Les tags Git constituent un mécanisme pour identifier et marquer les étapes importantes d'un projet.
+                  Contrairement aux commits qui sont destinés au développement, les tags peuvent être utilisés pour
+                  signaler les versions stables pour la production.</p>
+                <p>Un tag Git fonctionne comme une étiquette permanente attachée à un commit spécifique, permettant de
+                  retrouver facilement des versions importantes sans mémoriser des identifiants de commit. Le
+                  versionnage sémantique (v1.0.0, v1.2.3) s'impose comme standard pour structurer les releases de
+                  manière cohérente et prévisible.</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git tag &lt;nom-tag&gt;        # Créer un tag sur le commit actuel
+git checkout &lt;nom-tag&gt;   # Revenir à une version taguée
+git tag v1.0.0               # Exemple avec versionnage sémantique
+  </pre>
+                </div>
+                <p>Trois approches se distinguent : les tags de version (v1.0.0) pour marquer des releases spécifiques,
+                  le tag "stable" pour identifier la dernière version fiable, et le tag "latest" pointant vers la
+                  version la plus récente. Cette flexibilité permet d'adapter le système de versionnage aux besoins
+                  spécifiques de chaque projet tout en maintenant une communication claire sur l'état des versions
+                  disponibles.</p>
+
+                <h2>Pour aller plus loin</h2>
+                <p>Je recommande vivement d’explorer cet outil interactif pour visualiser et expérimenter les concepts
+                  abordés ici. Il permet de manipuler HEAD, les références relatives (^, ~), et les branches dans un
+                  environnement visuel, ce qui facilite grandement la compréhension de Git.</p>
+                <p><strong>Bonnes pratiques Git</strong><br>
+                  1 modification = 1 commit<br>
+                  Essayez de garder vos commits petits, ciblés et cohérents. Ce n’est pas une règle absolue, mais suivre
+                  le principe “commitez tôt, commitez souvent” facilite la relecture, les tests et les retours en
+                  arrière.</p>
+                <p><strong>Pour aller plus loin</strong><br>
+                  Ce guide n’a pas pour objectif d’offrir une formation exhaustive sur Git.<br>
+                  Il se concentre volontairement sur les bases et les étapes clés d’un workflow Git courant.<br>
+                  Git est un outil puissant, avec de nombreuses fonctionnalités avancées que nous n’avons pas abordées
+                  ici.</p>
+                <ul>
+                  <li>🔍 Visualiser et expérimenter Git – Visualizing Git</li>
+                  <li>Learn Git Branching (version française)</li>
+                  <li>GitHub – Git Cheat Sheet (PDF)</li>
+                  <li>GitLab – Git Cheat Sheet (PDF)</li>
+                </ul>
+
+              </section>
+
+            </article>
+
+
+
+
+
+
+            <footer class="prev-next-footer d-print-none">
+
+              <div class="prev-next-area">
+                <a class="left-prev" href="markdown.html" title="previous page">
+                  <i class="fa-solid fa-angle-left"></i>
+                  <div class="prev-next-info">
+                    <p class="prev-next-subtitle">previous</p>
+                    <p class="prev-next-title">Markdown Files</p>
+                  </div>
+                </a>
+                <a class="right-next" href="markdown-notebooks.html" title="next page">
+                  <div class="prev-next-info">
+                    <p class="prev-next-subtitle">next</p>
+                    <p class="prev-next-title">Notebooks with MyST Markdown</p>
+                  </div>
+                  <i class="fa-solid fa-angle-right"></i>
+                </a>
+              </div>
+            </footer>
+
+          </div>
+
+
+
+          <div class="bd-sidebar-secondary bd-toc">
+            <div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+              <div class="sidebar-secondary-item">
+                <div class="page-toc tocsection onthispage">
+                  <i class="fa-solid fa-list"></i> Contents
+                </div>
+                <nav class="bd-toc-nav page-toc">
+                  <ul class="visible nav section-nav flex-column">
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#installation-vs-code">Installation macOS et Linux</a></li>
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#installation-windows-wsl2">Installation Windows & WSL2</a></li>
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#code-blocks-and-outputs">Code blocks and outputs</a></li>
+                  </ul>
+                </nav>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+        <footer class="bd-footer-content">
+
+          <div class="bd-footer-content__inner container">
+
+            <div class="footer-item">
+
+              <p class="component-author">
+                By Louis Willems
+              </p>
+
+            </div>
+
+            <div class="footer-item">
+
+
+              <p class="copyright">
+
+                © Copyright 2025.
+                <br />
+
+              </p>
+
+            </div>
+
+            <div class="footer-item">
+
+            </div>
+
+            <div class="footer-item">
+
+            </div>
+
+          </div>
+        </footer>
+
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+</body>
+
+</html>

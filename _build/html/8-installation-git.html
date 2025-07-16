@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Le Guide du Data Junior</title>
+
+
+
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+  <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+  <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+  <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+  <link rel="stylesheet" type="text/css"
+    href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+  <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+  <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+  <script src="_static/doctools.js?v=9a2dae69"></script>
+  <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+  <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+  <script src="_static/copybutton.js?v=f281be69"></script>
+  <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+  <script>let toggleHintShow = 'Click to show';</script>
+  <script>let toggleHintHide = 'Click to hide';</script>
+  <script>let toggleOpenOnPrint = 'true';</script>
+  <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+  <script src="_static/design-tabs.js?v=f930bc37"></script>
+  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+  <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+  <script>DOCUMENTATION_OPTIONS.pagename = 'content';</script>
+  <link rel="icon" href="_static/logo.png" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="stylesheet" href="_static/custom.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en" />
+
+</head>
+
+
+<body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%"
+  data-default-mode="">
+
+
+
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  <div id="pst-scroll-pixel-helper"></div>
+
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+
+  <input type="checkbox" class="sidebar-toggle" id="pst-primary-sidebar-checkbox" />
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+
+  <input type="checkbox" class="sidebar-toggle" id="pst-secondary-sidebar-checkbox" />
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      <form class="bd-search d-flex align-items-center" action="search.html" method="get">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..."
+          aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off"
+          spellcheck="false" />
+        <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+      </form>
+    </div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+    <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+  </div>
+
+
+  <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  </header>
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+
+
+
+
+
+      <div class="bd-sidebar-primary bd-sidebar">
+
+
+
+        <div class="sidebar-header-items sidebar-primary__section">
+
+
+
+
+        </div>
+
+        <div class="sidebar-primary-items__start sidebar-primary__section">
+          <div class="sidebar-primary-item">
+
+
+
+
+
+            <a class="navbar-brand logo" href="intro.html">
+
+
+
+
+
+
+
+
+
+
+              <img src="_static/logo.png" class="logo__image only-light" alt="le_stack_du_data_pro - Home" />
+              <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
+
+
+            </a>
+          </div>
+          <div class="sidebar-primary-item">
+
+            <script>
+              document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+            </script>
+          </div>
+
+          <div class="sidebar-primary-item">
+            <nav class="bd-links bd-docs-nav" aria-label="Main">
+              <div class="bd-toc-item navbar-nav active">
+
+
+                <!-- Chapitre 1 dans la première liste -->
+                <ul class="nav bd-sidenav bd-sidenav__home-link">
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="1-installation-vscode.html">
+                      1. Installation VS Code
+                    </a>
+                  </li>
+                </ul>
+
+                <!-- Chapitres 2 à 11 -->
+                <ul class="nav bd-sidenav">
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="2-personnalisation-terminal.html">
+                      2. Personnalisation du terminal
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="3-utilisation-terminal.html">
+                      3. Utilisation du terminal
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="4-installation-python.html">
+                      4. Installation Python
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="5-gestion-version-et-packaging-python.html">
+                      5. Gestion des versions & packaging Python
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="6-environnements-virtuels.html">
+                      6. Environnements virtuels
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="7-configuration-vscode.html">
+                      7. Configuration VS Code
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="8-installation-git.html">
+                      8. Installation Git
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="9-utilisation-git.html">
+                      9. Utilisation Git
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">
+                      10. Git local vers Git collaboratif
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="11-utilisation-git-avance.html">
+                      11. Utilisation Git (avancé)
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+            </nav>
+          </div>
+        </div>
+
+
+        <div class="sidebar-primary-items__end sidebar-primary__section">
+        </div>
+
+        <div id="rtd-footer-container"></div>
+
+
+      </div>
+
+      <main id="main-content" class="bd-main" role="main">
+
+
+
+        <div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+
+            <div class="bd-header-article d-print-none">
+              <div class="header-article-items header-article__inner">
+
+                <div class="header-article-items__start">
+
+                  <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm"
+                      title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                      <span class="fa-solid fa-bars"></span>
+                    </button></div>
+
+                </div>
+
+
+                <div class="header-article-items__end">
+
+                  <div class="header-article-item">
+
+                    <div class="article-header-buttons">
+
+
+
+
+
+                      <div class="dropdown dropdown-source-buttons">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" aria-label="Source repositories">
+                          <i class="fab fa-github"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+
+
+
+                          <li><a href="https://github.com/louiswillems/le_stack_du_data_pro" target="_blank"
+                              class="btn btn-sm btn-source-repository-button dropdown-item" title="Source repository"
+                              data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fab fa-github"></i>
+                              </span>
+                              <span class="btn__text-container">Repository</span>
+                            </a>
+                          </li>
+
+
+
+
+                          <li><a
+                              href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
+                              target="_blank" class="btn btn-sm btn-source-issues-button dropdown-item"
+                              title="Open an issue" data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-lightbulb"></i>
+                              </span>
+                              <span class="btn__text-container">Open issue</span>
+                            </a>
+                          </li>
+
+                        </ul>
+                      </div>
+
+
+
+
+
+
+                      <div class="dropdown dropdown-download-buttons">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" aria-label="Download this page">
+                          <i class="fas fa-download"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+
+
+
+                          <li><a href="_sources/content.md" target="_blank"
+                              class="btn btn-sm btn-download-source-button dropdown-item" title="Download source file"
+                              data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-file"></i>
+                              </span>
+                              <span class="btn__text-container">.md</span>
+                            </a>
+                          </li>
+
+
+
+
+                          <li>
+                            <button onclick="window.print()" class="btn btn-sm btn-download-pdf-button dropdown-item"
+                              title="Print to PDF" data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-file-pdf"></i>
+                              </span>
+                              <span class="btn__text-container">.pdf</span>
+                            </button>
+                          </li>
+
+                        </ul>
+                      </div>
+
+
+
+
+                      <button onclick="toggleFullScreen()" class="btn btn-sm btn-fullscreen-button"
+                        title="Fullscreen mode" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+
+                        <span class="btn__icon-container">
+                          <i class="fas fa-expand"></i>
+                        </span>
+
+                      </button>
+
+
+
+                      <script>
+                        document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+                      </script>
+
+
+                      <script>
+                        document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+                      </script>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+
+            <article class="bd-article">
+
+              <section id="installation-git">
+                <h1>8. Installation Git<a class="headerlink" href="#installation-git">#</a></h1>
+
+                <p>Git est un système de contrôle de version qui enregistre et orchestre l'évolution de vos fichiers de
+                  code au fil du temps. Créé par Linus Torvalds en 2005 (créateur de Linux), Git est aujourd'hui l'outil
+                  de versionnement de référence dans le développement logiciel.</p>
+
+                <p>Le principe du versionnement : Conserver un historique complet de toutes les modifications effectuées
+                  sur vos fichiers, vous permettant de revenir en arrière, comparer les versions, et collaborer sans
+                  conflits.</p>
+
+                <p>Git offre ainsi la possibilité d'enregistrer des "versions figées" de votre projet à chaque commit,
+                  créant ainsi une séquence chronologique de l'évolution de votre code. Cette timeline interactive vous
+                  permet de naviguer dans l'historique, comparer les modifications, et synchroniser le développement
+                  collaboratif.</p>
+
+                <p>Imaginez que vous et votre équipe travaillez sur un document Google Docs. Git reprend cette
+                  philosophie collaborative, mais chaque développeur dispose d'une copie locale complète du projet sur
+                  son ordinateur. Vous téléchargez "votre propre version" du projet, travaillez en autonomie, puis
+                  synchronisez vos modifications avec l'équipe quand vous êtes prêt.</p>
+
+                <p>Lorsque vous êtes satisfait de votre travail :</p>
+                <ul>
+                  <li>Vous faites un “commit” pour enregistrer les changements (équivalent d’un enregistrement de
+                    version).</li>
+                  <li>Vous “push” ensuite ces modifications vers le dépôt central (l’équivalent d’une synchronisation
+                    vers Google Drive).</li>
+                </ul>
+
+                <p>Néanmoins, Git ne se limite pas à copier-coller le concept de Google Docs ; il rajoute des
+                  fonctionnalités spécialement conçues pour le développement :</p>
+                <ul>
+                  <li><strong>Historique détaillé</strong> : savoir qui a apporté quelle modification et à quel moment.
+                  </li>
+                  <li><strong>Voyage dans le temps</strong> : revenir à n’importe quelle version précédente du projet.
+                  </li>
+                  <li><strong>Collaboration fluide</strong> : plusieurs personnes peuvent travailler en parallèle sans
+                    conflits permanents.</li>
+                  <li><strong>Expérimentation sécurisée (branches)</strong> : créer des environnements isolés pour
+                    tester de nouvelles idées sans risquer de “casser” le projet principal.</li>
+                </ul>
+
+                <h2>Installation de Git</h2>
+                <p>Ce guide explique comment installer et mettre à jour Git sur différents systèmes d'exploitation.</p>
+
+                <h3>Installation sur macOS (ou système d'exploitation Linux)</h3>
+                <p>Vérifiez si Git est déjà installé :</p>
+                <div class="highlight highlight-bash">
+                  <pre>git --version</pre>
+                </div>
+                <p>Installer une version plus récente :</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+# Installation de Git
+brew install git
+
+# Mise à jour (si Git est déjà installé)
+brew upgrade git
+    </pre>
+                </div>
+                <p>Vérifiez la nouvelle version :</p>
+                <div class="highlight highlight-bash">
+                  <pre>git --version</pre>
+                </div>
+
+                <h3>Installation sur Windows (WSL2)</h3>
+                <p>Si vous utilisez Windows avec le Sous-système Windows pour Linux (WSL2), suivez ces étapes :</p>
+                <p>Vérifiez si Git est déjà installé :</p>
+                <div class="highlight highlight-bash">
+                  <pre>git --version</pre>
+                </div>
+                <p>Installer une version plus récente :</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+# Ajout du dépôt contenant les versions récentes de Git
+sudo add-apt-repository ppa:git-core/ppa
+
+# Mise à jour des indices du gestionnaire de paquets
+sudo apt-get update
+
+# Installation de Git
+sudo apt-get install git
+    </pre>
+                </div>
+                <p>Vérifiez la nouvelle version :</p>
+                <div class="highlight highlight-bash">
+                  <pre>git --version</pre>
+                </div>
+
+                <p>Avant de continuer avec les sections suivantes, assurez-vous que la commande Git fonctionne
+                  correctement sur votre machine.</p>
+
+                <p>Pour une expérience Git optimale dans VS Code, pensez à installer l'extension GitLens. Cette
+                  extension enrichit les fonctionnalités Git intégrées en ajoutant la visualisation de l'historique des
+                  lignes de code, la navigation dans les commits, et d'autres fonctionnalités qui faciliteront votre
+                  travail avec les dépôts Git.</p>
+
+                <h2>Configuration avancée avec Azure DevOps</h2>
+                <p>Pour tirer pleinement parti de GitLens dans un environnement Azure DevOps, configurez l'intégration
+                  native en utilisant la fonctionnalité "Connect an Integration". Cette configuration permet à GitLens
+                  d'accéder directement aux informations Azure DevOps, enrichissant ainsi l'affichage avec :</p>
+                <ul>
+                  <li>Pull Requests associées : Visualisation des PR liées aux commits directement dans l'éditeur</li>
+                  <li>Work Items : Affichage des éléments de travail Azure DevOps connectés aux modifications de code
+                  </li>
+                  <li>Informations contextuelles : Détails supplémentaires sur les builds, les déploiements et les
+                    reviews</li>
+                </ul>
+                <p>Procédure d'activation :</p>
+                <ol>
+                  <li>Après installation de GitLens, accédez à la palette de commandes (Ctrl+Shift+P / Cmd+Shift+P)</li>
+                  <li>Recherchez "GitLens: Connect an Integration"</li>
+                  <li>Sélectionnez "Azure DevOps" dans la liste des intégrations disponibles</li>
+                  <li>Suivez les instructions d'authentification pour connecter votre compte Azure DevOps</li>
+                </ol>
+                <p>Cette intégration transforme GitLens en véritable centre de contrôle pour votre workflow de
+                  développement, centralisant toutes les informations projet directement dans votre éditeur.</p>
+
+                <h2>Lexique Git : Concepts essentiels</h2>
+                <ul>
+                  <li><strong>Repositories (Dépôts)</strong><br>Dossier contenant votre projet et son historique
+                    complet. Le dépôt garde en mémoire toutes les versions et modifications de vos fichiers grâce au
+                    dossier caché <code>.git</code>.</li>
+                  <li><strong>Commits</strong><br>Un commit est essentiellement un ensemble de modifications dans votre
+                    dossier caché <code>.git</code>.</li>
+                  <li><strong>Branches</strong><br>Lignes de développement indépendantes. Elles permettent de travailler
+                    sur de nouvelles fonctionnalités ou corrections sans affecter la branche principale
+                    (main/master).</li>
+                  <li><strong>Merging (Fusion)</strong><br>Processus d'intégration des modifications d'une branche dans
+                    une autre. Git tente de combiner automatiquement les changements et signale les conflits quand
+                    nécessaire.</li>
+                  <li><strong>Tags (Étiquettes)</strong><br>Marqueurs permanents attachés à des commits spécifiques,
+                    généralement utilisés pour identifier des versions officielles (v1.0, v2.0) du projet. Nous pouvons
+                    utiliser des balises (tags) pour attribuer des étiquettes ou des alias à des commits, ce qui
+                    facilite la navigation d’une version à l’autre.</li>
+                </ul>
+
+                <h2>Ressources</h2>
+                <ul>
+                  <li><a href="https://git-scm.com/downloads/win" target="_blank">https://git-scm.com/downloads/win</a>
+                  </li>
+                  <li><a href="https://cbcradiocanada.atlassian.net/wiki/spaces/AQ/pages/4056285730"
+                      target="_blank">https://cbcradiocanada.atlassian.net/wiki/spaces/AQ/pages/4056285730</a></li>
+                </ul>
+
+              </section>
+
+            </article>
+
+
+
+
+
+
+
+
+
+
+
+            <footer class="prev-next-footer d-print-none">
+
+              <div class="prev-next-area">
+                <a class="left-prev" href="markdown.html" title="previous page">
+                  <i class="fa-solid fa-angle-left"></i>
+                  <div class="prev-next-info">
+                    <p class="prev-next-subtitle">previous</p>
+                    <p class="prev-next-title">Markdown Files</p>
+                  </div>
+                </a>
+                <a class="right-next" href="markdown-notebooks.html" title="next page">
+                  <div class="prev-next-info">
+                    <p class="prev-next-subtitle">next</p>
+                    <p class="prev-next-title">Notebooks with MyST Markdown</p>
+                  </div>
+                  <i class="fa-solid fa-angle-right"></i>
+                </a>
+              </div>
+            </footer>
+
+          </div>
+
+
+
+          <div class="bd-sidebar-secondary bd-toc">
+            <div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+              <div class="sidebar-secondary-item">
+                <div class="page-toc tocsection onthispage">
+                  <i class="fa-solid fa-list"></i> Contents
+                </div>
+                <nav class="bd-toc-nav page-toc">
+                  <ul class="visible nav section-nav flex-column">
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#installation-vs-code">Installation macOS et Linux</a></li>
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#installation-windows-wsl2">Installation Windows & WSL2</a></li>
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#code-blocks-and-outputs">Code blocks and outputs</a></li>
+                  </ul>
+                </nav>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+        <footer class="bd-footer-content">
+
+          <div class="bd-footer-content__inner container">
+
+            <div class="footer-item">
+
+              <p class="component-author">
+                By Louis Willems
+              </p>
+
+            </div>
+
+            <div class="footer-item">
+
+
+              <p class="copyright">
+
+                © Copyright 2025.
+                <br />
+
+              </p>
+
+            </div>
+
+            <div class="footer-item">
+
+            </div>
+
+            <div class="footer-item">
+
+            </div>
+
+          </div>
+        </footer>
+
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+</body>
+
+</html>
