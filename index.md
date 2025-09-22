@@ -24,10 +24,19 @@ Ce livre s'adresse à :
 
 ## Structure du livre
 
-Le livre est organisé en chapitres, chacun couvrant un sujet spécifique :
-- **Installation et configuration des outils** : Apprenez à installer et configurer VSCode, Git, et Python.
-- **Utilisation du terminal** : Découvrez comment automatiser vos tâches et naviguer efficacement.
-- **Gestion de projets collaboratifs** : Maîtrisez Git et les workflows collaboratifs.
+Le livre est organisé en chapitres, chacun couvrant un sujet spécifique. Cliquez sur les liens ci-dessous pour accéder directement aux chapitres :
+
+- [1. Installation de VSCode](1-installation-vscode.html)
+- [2. Personnalisation du terminal](2-personnalisation-terminal.html)
+- [3. Utilisation du terminal](3-utilisation-terminal.html)
+- [4. Installation de Python](4-installation-python.html)
+- [5. Gestion de version et packaging Python](5-gestion-version-et-packaging-python.html)
+- [6. Environnements virtuels](6-environnements-virtuels.html)
+- [7. Configuration de VSCode](7-configuration-vscode.html)
+- [8. Installation de Git](8-installation-git.html)
+- [9. Utilisation de Git](9-utilisation-git.html)
+- [10. Git local vers Git collaboratif](10-git-local-vers-git-collaboratif.html)
+- [11. Utilisation avancée de Git](11-utilisation-git-avance.html)
 
 Nous espérons que ce livre vous sera utile et qu'il vous aidera à devenir un expert dans l'utilisation des outils du data pro.
 
