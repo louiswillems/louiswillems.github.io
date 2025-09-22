@@ -1,9 +1,9 @@
-# le_stack_du_data_pro
+# Le guide du data pro
 
 This cookiecutter creates a simple boilerplate for a Jupyter Book.
 
 ## Usage
-
+I 
 ### Building the book
 
 If you'd like to develop and/or build the le_stack_du_data_pro book, you should:
