@@ -8,6 +8,7 @@
 title: Le Guide du Data Pro # The title of the book. Will be placed in the left navbar.
 author: Louis Willems # The author of the book
 copyright: "2025" # Copyright year to be placed in the footer
+intro: intro.html
 logo: logo.png # A path to the book logo
 
 # Force re-execution of notebooks on each build.
