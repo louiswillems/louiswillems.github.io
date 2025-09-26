@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Le Guide du Data Junior</title>
+
+
+
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+  <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+  <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+  <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+  <link rel="stylesheet" type="text/css"
+    href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+  <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+  <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+  <script src="_static/doctools.js?v=9a2dae69"></script>
+  <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+  <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+  <script src="_static/copybutton.js?v=f281be69"></script>
+  <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+  <script>let toggleHintShow = 'Click to show';</script>
+  <script>let toggleHintHide = 'Click to hide';</script>
+  <script>let toggleOpenOnPrint = 'true';</script>
+  <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+  <script src="_static/design-tabs.js?v=f930bc37"></script>
+  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+  <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+  <script>DOCUMENTATION_OPTIONS.pagename = 'content';</script>
+  <link rel="icon" href="_static/logo.png" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="stylesheet" href="_static/custom.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en" />
+
+</head>
+
+
+<body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%"
+  data-default-mode="">
+
+
+
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  <div id="pst-scroll-pixel-helper"></div>
+
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+
+  <input type="checkbox" class="sidebar-toggle" id="pst-primary-sidebar-checkbox" />
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+
+  <input type="checkbox" class="sidebar-toggle" id="pst-secondary-sidebar-checkbox" />
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      <form class="bd-search d-flex align-items-center" action="search.html" method="get">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..."
+          aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off"
+          spellcheck="false" />
+        <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+      </form>
+    </div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+    <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+  </div>
+
+
+  <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  </header>
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+
+
+
+
+
+      <div class="bd-sidebar-primary bd-sidebar">
+
+
+
+        <div class="sidebar-header-items sidebar-primary__section">
+
+
+
+
+        </div>
+
+        <div class="sidebar-primary-items__start sidebar-primary__section">
+          <div class="sidebar-primary-item">
+
+
+
+
+
+            <a class="navbar-brand logo" href="intro.html">
+
+
+
+
+
+
+
+
+
+
+              <img src="_static/logo.png" class="logo__image only-light" alt="le_stack_du_data_pro - Home" />
+              <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
+
+
+            </a>
+          </div>
+          <div class="sidebar-primary-item">
+
+            <script>
+              document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+            </script>
+          </div>
+
+          <div class="sidebar-primary-item">
+            <nav class="bd-links bd-docs-nav" aria-label="Main">
+              <div class="bd-toc-item navbar-nav active">
+
+
+                <!-- Chapitre 1 dans la première liste -->
+                <ul class="nav bd-sidenav bd-sidenav__home-link">
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="1-installation-vscode.html">
+                      1. Installation VS Code
+                    </a>
+                  </li>
+                </ul>
+
+                <!-- Chapitres 2 à 11 -->
+                <ul class="nav bd-sidenav">
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="2-personnalisation-terminal.html">
+                      2. Personnalisation du terminal
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="3-utilisation-terminal.html">
+                      3. Utilisation du terminal
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="4-installation-python.html">
+                      4. Installation Python
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="5-gestion-version-et-packaging-python.html">
+                      5. Gestion des versions & packaging Python
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="6-environnements-virtuels.html">
+                      6. Environnements virtuels
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="7-configuration-vscode.html">
+                      7. Configuration VS Code
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="8-installation-git.html">
+                      8. Installation Git
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="9-utilisation-git.html">
+                      9. Utilisation Git
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">
+                      10. Git local vers Git collaboratif
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="11-utilisation-git-avance.html">
+                      11. Utilisation Git (avancé)
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+            </nav>
+          </div>
+        </div>
+
+
+        <div class="sidebar-primary-items__end sidebar-primary__section">
+        </div>
+
+        <div id="rtd-footer-container"></div>
+
+
+      </div>
+
+      <main id="main-content" class="bd-main" role="main">
+
+
+
+        <div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+
+            <div class="bd-header-article d-print-none">
+              <div class="header-article-items header-article__inner">
+
+                <div class="header-article-items__start">
+
+                  <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm"
+                      title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                      <span class="fa-solid fa-bars"></span>
+                    </button></div>
+
+                </div>
+
+
+                <div class="header-article-items__end">
+
+                  <div class="header-article-item">
+
+                    <div class="article-header-buttons">
+
+
+
+
+
+                      <div class="dropdown dropdown-source-buttons">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" aria-label="Source repositories">
+                          <i class="fab fa-github"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+
+
+
+                          <li><a href="https://github.com/louiswillems/le_stack_du_data_pro" target="_blank"
+                              class="btn btn-sm btn-source-repository-button dropdown-item" title="Source repository"
+                              data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fab fa-github"></i>
+                              </span>
+                              <span class="btn__text-container">Repository</span>
+                            </a>
+                          </li>
+
+
+
+
+                          <li><a
+                              href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
+                              target="_blank" class="btn btn-sm btn-source-issues-button dropdown-item"
+                              title="Open an issue" data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-lightbulb"></i>
+                              </span>
+                              <span class="btn__text-container">Open issue</span>
+                            </a>
+                          </li>
+
+                        </ul>
+                      </div>
+
+
+
+
+
+
+                      <div class="dropdown dropdown-download-buttons">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" aria-label="Download this page">
+                          <i class="fas fa-download"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+
+
+
+                          <li><a href="_sources/content.md" target="_blank"
+                              class="btn btn-sm btn-download-source-button dropdown-item" title="Download source file"
+                              data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-file"></i>
+                              </span>
+                              <span class="btn__text-container">.md</span>
+                            </a>
+                          </li>
+
+
+
+
+                          <li>
+                            <button onclick="window.print()" class="btn btn-sm btn-download-pdf-button dropdown-item"
+                              title="Print to PDF" data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-file-pdf"></i>
+                              </span>
+                              <span class="btn__text-container">.pdf</span>
+                            </button>
+                          </li>
+
+                        </ul>
+                      </div>
+
+
+
+
+                      <button onclick="toggleFullScreen()" class="btn btn-sm btn-fullscreen-button"
+                        title="Fullscreen mode" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+
+                        <span class="btn__icon-container">
+                          <i class="fas fa-expand"></i>
+                        </span>
+
+                      </button>
+
+
+
+                      <script>
+                        document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+                      </script>
+
+
+                      <script>
+                        document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+                      </script>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+
+            <div id="searchbox"></div>
+            <article class="bd-article">
+
+              <section class="tex2jax_ignore mathjax_ignore" id="personnalisation-terminal">
+                <h1>2. Personnalisation du terminal<a class="headerlink" href="#personnalisation-terminal"
+                    title="Link to this heading">#</a></h1>
+
+                <p>Le terminal représente une interface de commande textuelle permettant d'interagir directement avec
+                  votre système d'exploitation via des commandes écrites. Au lieu d'utiliser une interface graphique
+                  avec souris et icônes, vous saisissez des instructions textuelles spécifiques.</p>
+
+                <p>Cette approche offre plusieurs avantages : une exécution plus rapide des tâches, l'accès à des
+                  fonctions système avancées, et la possibilité d'automatiser des opérations récurrentes.</p>
+
+                <!-- Placez ce HTML là où vous voulez l’admonition -->
+                <div class="custom-admonition info">
+                  <p class="custom-admonition-title">📚 Vocabulaire</p>
+                  <ul>
+                    <li><strong>Terminal</strong> : Le programme qui affiche l’interface de commande</li>
+                    <li><strong>Ligne de commande</strong> : L’espace texte où s’écrivent les instructions</li>
+                    <li><strong>Shell</strong> : Le programme qui traite et exécute les commandes saisies</li>
+                  </ul>
+                </div>
+
+                <section id="a-propos-shell">
+                  <h2>À propos du Shell<a class="headerlink" href="#a-propos-shell" title="Link to this heading">#</a>
+                  </h2>
+                  <p>Le Shell constitue l'interpréteur de commandes - c'est lui qui comprend et exécute vos
+                    instructions. Parmi les shells les plus utilisés :</p>
+                  <ul>
+                    <li><strong>Bash</strong> : Standard sur la majorité des distributions Linux</li>
+                    <li><strong>Zsh</strong> : Version enrichie de Bash offrant des fonctionnalités supplémentaires</li>
+                  </ul>
+                </section>
+
+                <section id="migration-vers-zsh">
+                  <h2>Migration vers ZSH<a class="headerlink" href="#migration-vers-zsh"
+                      title="Link to this heading">#</a></h2>
+                  <p>Cette section vous guide dans le passage de Bash (le shell standard) à ZSH (Z Shell), une
+                    alternative moderne offrant une meilleure expérience utilisateur.</p>
+
+                  <section id="benefices-migration">
+                    <h3>Bénéfices de cette migration<a class="headerlink" href="#benefices-migration"
+                        title="Link to this heading">#</a></h3>
+                    <p>L'adoption de ZSH enrichira significativement votre environnement de travail avec :</p>
+                    <ul>
+                      <li>Une complétion automatique plus intelligente</li>
+                      <li>Une navigation facilitée dans l'historique et les répertoires</li>
+                      <li>Des options de personnalisation étendues</li>
+                      <li>Des outils intégrés pour optimiser votre productivité quotidienne</li>
+                    </ul>
+                  </section>
+
+                  <section id="guides-installation-systeme">
+                    <h3>Guides d'installation selon votre système<a class="headerlink"
+                        href="#guides-installation-systeme" title="Link to this heading">#</a></h3>
+                    <ul>
+                      <li><strong>Pour macOS</strong> : Consultez le guide détaillé sur <a
+                          href="https://sourabhbajaj.com/mac-setup/iTerm/zsh.html"
+                          target="_blank">https://sourabhbajaj.com/mac-setup/iTerm/zsh.html</a></li>
+                      <li><strong>Pour Windows avec WSL2</strong> : Suivez les instructions sur <a
+                          href="https://blog.joaograssi.com/windows-subsystem-for-linux-with-oh-my-zsh-conemu/"
+                          target="_blank">https://blog.joaograssi.com/windows-subsystem-for-linux-with-oh-my-zsh-conemu/</a>
+                      </li>
+                    </ul>
+
+                    <div class="custom-admonition info">
+                      <p class="custom-admonition-title">💡 Compatibilité</p>
+                      <p>ZSH reste totalement compatible avec vos commandes Bash existantes !</p>
+                    </div>
+                  </section>
+                </section>
+
+                <section id="installation-oh-my-zsh">
+                  <h2>Installation de Oh My Zsh<a class="headerlink" href="#installation-oh-my-zsh"
+                      title="Link to this heading">#</a></h2>
+                  <p>Oh My Zsh représente un framework qui enrichit considérablement ZSH en proposant :</p>
+                  <ul>
+                    <li>Une personnalisation visuelle via différents thèmes</li>
+                    <li>Un écosystème de plugins pour Git, Docker et autres outils</li>
+                    <li>Une collection d'alias préconfigurés pour accélérer les tâches courantes</li>
+                    <li>Des fonctionnalités d'autocomplétion avancées</li>
+                  </ul>
+
+                  <p><strong>Installation</strong> : Rendez-vous sur <a href="https://ohmyz.sh/"
+                      target="_blank">https://ohmyz.sh/</a> pour macOS et Windows WSL2</p>
+
+                  <!-- ➤ Avertissement WSL (jaune) -->
+                  <div class="custom-admonition warning">
+                    <p class="custom-admonition-title">⚠️ ZSH nécessite WSL pour fonctionner sur Windows</p>
+                    <p>
+                      ZSH (Z Shell) est un shell Unix/Linux qui ne peut pas être installé nativement sur Windows.
+                      Pour utiliser ZSH sur un système Windows, vous devez impérativement :
+                    </p>
+                    <ul>
+                      <li>Si vous n'avez pas encore configuré WSL, reportez‑vous à la section précédente sur
+                        l'installation de WSL.</li>
+                      <li><strong>Alternative</strong> : utilisez PowerShell + Oh My Posh pour une expérience terminal
+                        améliorée.</li>
+                    </ul>
+                  </div>
+                </section>
+
+                <section id="personnalisation-visuelle">
+                  <h2>Personnalisation visuelle du terminal<a class="headerlink" href="#personnalisation-visuelle"
+                      title="Link to this heading">#</a></h2>
+                  <p>Cette étape vous permettra de modifier l'aspect visuel de votre terminal en configurant les thèmes
+                    ZSH.</p>
+
+                  <p>Le fichier <code>.zshrc</code> constitue le cœur de la configuration de votre environnement ZSH -
+                    c'est votre fichier de préférences personnelles pour le terminal.</p>
+
+                  <section id="architecture-configuration">
+                    <h3>Architecture de la configuration<a class="headerlink" href="#architecture-configuration"
+                        title="Link to this heading">#</a></h3>
+                    <ul>
+                      <li><code>.zshrc</code> → Fichier de configuration principal de ZSH</li>
+                      <li><strong>Oh My Zsh</strong> → S'appuie sur ce fichier pour ajouter ses fonctionnalités avancées
+                      </li>
+                    </ul>
+
+
+                    <div class="custom-admonition info">
+                      <p class="custom-admonition-title">🔧 Comment ça fonctionne ?</p>
+                      <p>Lors de chaque ouverture d'un nouveau terminal, ZSH charge automatiquement le contenu du
+                        fichier <code>.zshrc</code> et applique toutes vos configurations. Il agit comme un script
+                        d'initialisation qui met en place votre environnement personnalisé.</p>
+                    </div>
+                  </section>
+
+                  <section id="edition-configuration">
+                    <h3>Édition de la configuration<a class="headerlink" href="#edition-configuration"
+                        title="Link to this heading">#</a></h3>
+                    <p>Avec VS Code, ZSH et Oh My Zsh maintenant installés, vous pouvez éditer votre configuration en
+                      exécutant :</p>
+
+                    <div class="cell docutils container">
+                      <div class="cell_input docutils container">
+                        <div class="highlight-bash notranslate">
+                          <div class="highlight">
+                            <pre><span></span>code<span class="w"> </span>~/.zshrc
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p>Cette commande démontre l'interaction fluide entre terminal et interface graphique : vous
+                      utilisez la ligne de commande pour naviguer, puis VS Code pour modifier confortablement le
+                      fichier.</p>
+
+                    <p>Le fichier <code>.zshrc</code> peut paraître intimidant avec ses nombreuses lignes commentées,
+                      mais son organisation reste accessible. La variable <code>ZSH_THEME</code> contrôle l'apparence
+                      visuelle - le thème "robbyrussell" étant sélectionné par défaut.</p>
+                  </section>
+
+                  <section id="changement-theme">
+                    <h3>Changement de thème<a class="headerlink" href="#changement-theme"
+                        title="Link to this heading">#</a></h3>
+                    <p>Pour enrichir l'apparence de votre terminal, modifiez la ligne :</p>
+
+                    <div class="cell docutils container">
+                      <div class="cell_input docutils container">
+                        <div class="highlight-bash notranslate">
+                          <div class="highlight">
+                            <pre><span></span><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&quot;robbyrussell&quot;</span>
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p>par</p>
+
+                    <div class="cell docutils container">
+                      <div class="cell_input docutils container">
+                        <div class="highlight-bash notranslate">
+                          <div class="highlight">
+                            <pre><span></span><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&quot;bira&quot;</span>
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p>Après avoir enregistré le fichier (<code>Ctrl+S</code>), actualisez votre configuration en
+                      saisissant <code>zsh</code> dans le terminal, ou ouvrez simplement une nouvelle fenêtre pour
+                      appliquer le nouveau thème.</p>
+
+                    <div class="admonition tip">
+                      <p class="admonition-title">🎨 Plus de thèmes</p>
+                      <p>Consultez la galerie de thèmes Oh My ZSH pour découvrir d'autres options visuelles qui
+                        pourraient correspondre à vos préférences.</p>
+                    </div>
+                  </section>
+                </section>
+
+                <section id="plugins-extensions">
+                  <h2>Plugins (extensions)<a class="headerlink" href="#plugins-extensions"
+                      title="Link to this heading">#</a></h2>
+                  <p>Maintenant que nous avons changé le visuel du terminal, nous allons aller plus loin en
+                    personnalisant les fonctionnalités du terminal. Et la façon dont nous allons procéder, c'est en
+                    découvrant comment activer et désactiver les plugins Z Shell.</p>
+
+                  <p>En plus des thèmes, Oh My ZSH offre une multitude de plugins qui améliorent considérablement votre
+                    productivité dans le terminal. Pour enrichir votre environnement de développement Python, ajoutez
+                    ces plugins à votre fichier <code>~/.zshrc</code> :</p>
+
+                  <p>Pour ouvrir le fichier de configuration principal de ZSH, utilisez la commande dans votre terminal:
+                  </p>
+
+                  <div class="cell docutils container">
+                    <div class="cell_input docutils container">
+                      <div class="highlight-bash notranslate">
+                        <div class="highlight">
+                          <pre><span></span>code<span class="w"> </span>~/.zshrc
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p>Localisez la ligne <code>plugins</code></p>
+
+                  <div class="admonition note">
+                    <p class="admonition-title">🔧 Plugin Git intégré</p>
+                    <p>Le plugin Git, qui est déjà activé, transforme votre prompt en affichant la branche Git active,
+                      des indicateurs colorés de l'état du dépôt (fichiers modifiés, commits en attente, etc.) et active
+                      l'autocomplétion pour les branches et fichiers, vous donnant un aperçu visuel instantané de votre
+                      projet Git.</p>
+                  </div>
+
+                  <section id="configuration-plugins-python">
+                    <h3>Configuration des plugins Python pour ZSH<a class="headerlink"
+                        href="#configuration-plugins-python" title="Link to this heading">#</a></h3>
+
+                    <section id="decouverte-plugins">
+                      <h4>Découverte des plugins disponibles<a class="headerlink" href="#decouverte-plugins"
+                          title="Link to this heading">#</a></h4>
+                      <p>Maintenant que vous maîtrisez le plugin Git, explorons l'écosystème complet des extensions
+                        disponibles.</p>
+
+                      <p>Pour obtenir la liste complète des plugins installés avec Oh My Zsh, utilisez cette commande :
+                      </p>
+
+                      <div class="cell docutils container">
+                        <div class="cell_input docutils container">
+                          <div class="highlight-bash notranslate">
+                            <div class="highlight">
+                              <pre><span></span>ls<span class="w"> </span>~/.oh-my-zsh/plugins
+</pre>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section id="configuration-plugins">
+                      <h4>Configuration des plugins<a class="headerlink" href="#configuration-plugins"
+                          title="Link to this heading">#</a></h4>
+                      <p>Configurons maintenant les extensions spécialement conçues pour le développement Python. Ces
+                        outils vont transformer votre expérience de codage.</p>
+
+                      <p><strong>Configuration dans .zshrc:</strong></p>
+
+                      <div class="cell docutils container">
+                        <div class="cell_input docutils container">
+                          <div class="highlight-bash notranslate">
+                            <div class="highlight">
+                              <pre><span></span><span class="nv">plugins</span><span class="o">=(</span>git<span class="w"> </span>python<span class="w"> </span>pyenv<span class="w"> </span>virtualenv<span class="w"> </span>pip<span class="o">)</span>
+</pre>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <p><strong>Fonctionnalités de ces plugins:</strong></p>
+                      <ul>
+                        <li><strong>python</strong> : Raccourcis intelligents pour vos commandes Python favorites</li>
+                        <li><strong>pyenv</strong> : Basculement fluide entre différentes versions Python</li>
+                        <li><strong>virtualenv</strong> : Détection et activation automatique de vos environnements
+                          virtuels</li>
+                        <li><strong>pip</strong> : Autocomplétion instantanée des packages et commandes</li>
+                      </ul>
+
+                      <p>Enregistrez le fichier (<code>Ctrl+S</code>) et redémarrez votre terminal (ou exécutez
+                        <code>zsh</code>) pour voir votre nouvelle interface en action.
+                      </p>
+
+                      <div class="admonition success">
+                        <p class="admonition-title">✨ Productivité améliorée</p>
+                        <p>Ces plugins transforment les tâches fastidieuses en actions fluides, vous permettant de
+                          rester concentré sur votre code plutôt que sur la syntaxe des commandes.</p>
+                      </div>
+                    </section>
+                  </section>
+                </section>
+
+                <section id="personnalisation-avancee">
+                  <h2>Personnalisation avancée<a class="headerlink" href="#personnalisation-avancee"
+                      title="Link to this heading">#</a></h2>
+                  <p>Au-delà des plugins standards, nous allons découvrir des extensions personnalisées qui améliorent
+                    l'expérience utilisateur. En effet, Oh My Zsh peut être enrichi avec des plugins externes
+                    particulièrement performants:</p>
+
+                  <section id="zsh-autosuggestions">
+                    <h3>zsh-autosuggestions<a class="headerlink" href="#zsh-autosuggestions"
+                        title="Link to this heading">#</a></h3>
+                    <p>Ce plugin suggère automatiquement des commandes basées sur votre historique pendant que vous
+                      tapez.</p>
+
+                    <div class="cell docutils container">
+                      <div class="cell_input docutils container">
+                        <div class="highlight-bash notranslate">
+                          <div class="highlight">
+                            <pre><span></span><span class="c1"># Cloner le dépôt dans le dossier des plugins personnalisés</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/zsh-users/zsh-autosuggestions<span class="w"> </span><span class="si">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="nv">~/.oh-my-zsh/custom</span><span class="si">}</span>/plugins/zsh-autosuggestions
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section id="zsh-syntax-highlighting">
+                    <h3>zsh-syntax-highlighting<a class="headerlink" href="#zsh-syntax-highlighting"
+                        title="Link to this heading">#</a></h3>
+                    <p>Ce plugin ajoute une coloration syntaxique en temps réel à vos commandes, mettant en évidence les
+                      erreurs avant même d'appuyer sur Entrée.</p>
+
+                    <div class="cell docutils container">
+                      <div class="cell_input docutils container">
+                        <div class="highlight-bash notranslate">
+                          <div class="highlight">
+                            <pre><span></span><span class="c1"># Cloner le dépôt dans le dossier des plugins personnalisés</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/zsh-users/zsh-syntax-highlighting.git<span class="w"> </span><span class="si">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="nv">~/.oh-my-zsh/custom</span><span class="si">}</span>/plugins/zsh-syntax-highlighting
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section id="activation-plugins-personnalises">
+                    <h3>Activation des plugins personnalisés<a class="headerlink"
+                        href="#activation-plugins-personnalises" title="Link to this heading">#</a></h3>
+                    <p>Après avoir installé ces plugins, vous devez les ajouter à votre configuration:</p>
+
+                    <ol>
+                      <li>Ouvrez votre fichier de configuration:</li>
+                    </ol>
+
+                    <div class="cell docutils container">
+                      <div class="cell_input docutils container">
+                        <div class="highlight-bash notranslate">
+                          <div class="highlight">
+                            <pre><span></span>code<span class="w"> </span>~/.zshrc
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <ol start="2">
+                      <li>Localisez la ligne qui commence par <code>plugins=()</code></li>
+                      <li>Ajoutez les nouveaux plugins à la liste:</li>
+                    </ol>
+
+                    <div class="cell docutils container">
+                      <div class="cell_input docutils container">
+                        <div class="highlight-bash notranslate">
+                          <div class="highlight">
+                            <pre><span></span><span class="nv">plugins</span><span class="o">=(</span>git<span class="w"> </span>python<span class="w"> </span><span class="c1"># Autres plugins...</span>
+<span class="w">         </span>zsh-autosuggestions<span class="w"> </span>zsh-syntax-highlighting<span class="o">)</span>
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p>Enregistrez le fichier (<code>Ctrl+S</code>) et redémarrez votre terminal (ou exécutez
+                      <code>zsh</code>) pour voir votre nouvelle interface en action.
+                    </p>
+
+                    <div class="admonition success">
+                      <p class="admonition-title">🎉 Terminal optimisé</p>
+                      <p>Votre terminal est maintenant configuré avec les meilleures extensions pour le développement
+                        Python. Vous bénéficiez d'une interface moderne, productive et visuellement attrayante.</p>
+                    </div>
+                  </section>
+
+
+            </article>
+
+
+
+
+            <footer class="prev-next-footer d-print-none">
+
+              <div class="prev-next-area">
+                <a class="left-prev" href="markdown.html" title="previous page">
+                  <i class="fa-solid fa-angle-left"></i>
+                  <div class="prev-next-info">
+                    <p class="prev-next-subtitle">previous</p>
+                    <p class="prev-next-title">Markdown Files</p>
+                  </div>
+                </a>
+                <a class="right-next" href="markdown-notebooks.html" title="next page">
+                  <div class="prev-next-info">
+                    <p class="prev-next-subtitle">next</p>
+                    <p class="prev-next-title">Notebooks with MyST Markdown</p>
+                  </div>
+                  <i class="fa-solid fa-angle-right"></i>
+                </a>
+              </div>
+            </footer>
+
+          </div>
+
+
+
+          <div class="bd-sidebar-secondary bd-toc">
+            <div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+              <div class="sidebar-secondary-item">
+                <div class="page-toc tocsection onthispage">
+                  <i class="fa-solid fa-list"></i> Contents
+                </div>
+                <nav class="bd-toc-nav page-toc">
+                  <ul class="visible nav section-nav flex-column">
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#installation-vs-code">Installation macOS et Linux</a></li>
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#installation-windows-wsl2">Installation Windows & WSL2</a></li>
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#code-blocks-and-outputs">Code blocks and outputs</a></li>
+                  </ul>
+                </nav>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+        <footer class="bd-footer-content">
+
+          <div class="bd-footer-content__inner container">
+
+            <div class="footer-item">
+
+              <p class="component-author">
+                By Louis Willems
+              </p>
+
+            </div>
+
+            <div class="footer-item">
+
+
+              <p class="copyright">
+
+                © Copyright 2025.
+                <br />
+
+              </p>
+
+            </div>
+
+            <div class="footer-item">
+
+            </div>
+
+            <div class="footer-item">
+
+            </div>
+
+          </div>
+        </footer>
+
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Le Guide du Data Junior</title>
+
+
+
+    <script data-cfasync="false">
+        document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+        document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    </script>
+
+    <!-- Loaded before other Sphinx assets -->
+    <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+    <link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+    <link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+
+    <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css"
+        href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
+    <!-- Pre-loaded scripts that we'll load fully later -->
+    <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+    <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+    <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content';</script>
+    <link rel="icon" href="_static/logo.png" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="stylesheet" href="_static/custom.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+</head>
+
+
+<body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%"
+    data-default-mode="">
+
+
+
+    <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+    <div id="pst-scroll-pixel-helper"></div>
+
+    <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+        <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+
+    <input type="checkbox" class="sidebar-toggle" id="pst-primary-sidebar-checkbox" />
+    <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+
+    <input type="checkbox" class="sidebar-toggle" id="pst-secondary-sidebar-checkbox" />
+    <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+
+    <div class="search-button__wrapper">
+        <div class="search-button__overlay"></div>
+        <div class="search-button__search-container">
+            <form class="bd-search d-flex align-items-center" action="search.html" method="get">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..."
+                    aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off"
+                    spellcheck="false" />
+                <span class="search-button__kbd-shortcut"><kbd
+                        class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+            </form>
+        </div>
+    </div>
+
+    <div class="pst-async-banner-revealer d-none">
+        <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+    </div>
+
+
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+
+
+    <div class="bd-container">
+        <div class="bd-container__inner bd-page-width">
+
+
+
+
+
+            <div class="bd-sidebar-primary bd-sidebar">
+
+
+
+                <div class="sidebar-header-items sidebar-primary__section">
+
+
+
+
+                </div>
+
+                <div class="sidebar-primary-items__start sidebar-primary__section">
+                    <div class="sidebar-primary-item">
+
+
+
+
+
+                        <a class="navbar-brand logo" href="intro.html">
+
+
+
+
+
+
+
+
+
+
+                            <img src="_static/logo.png" class="logo__image only-light"
+                                alt="le_stack_du_data_pro - Home" />
+                            <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
+
+
+                        </a>
+                    </div>
+                    <div class="sidebar-primary-item">
+
+                        <script>
+                            document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+                        </script>
+                    </div>
+
+                    <div class="sidebar-primary-item">
+                        <nav class="bd-links bd-docs-nav" aria-label="Main">
+                            <div class="bd-toc-item navbar-nav active">
+
+
+                                <!-- Chapitre 1 dans la première liste -->
+                                <ul class="nav bd-sidenav bd-sidenav__home-link">
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="1-installation-vscode.html">
+                                            1. Installation VS Code
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <!-- Chapitres 2 à 11 -->
+                                <ul class="nav bd-sidenav">
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="2-personnalisation-terminal.html">
+                                            2. Personnalisation du terminal
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="3-utilisation-terminal.html">
+                                            3. Utilisation du terminal
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="4-installation-python.html">
+                                            4. Installation Python
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="5-gestion-version-et-packaging-python.html">
+                                            5. Gestion des versions & packaging Python
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="6-environnements-virtuels.html">
+                                            6. Environnements virtuels
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="7-configuration-vscode.html">
+                                            7. Configuration VS Code
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="8-installation-git.html">
+                                            8. Installation Git
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="9-utilisation-git.html">
+                                            9. Utilisation Git
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">
+                                            10. Git local vers Git collaboratif
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="11-utilisation-git-avance.html">
+                                            11. Utilisation Git (avancé)
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+
+                <div class="sidebar-primary-items__end sidebar-primary__section">
+                </div>
+
+                <div id="rtd-footer-container"></div>
+
+
+            </div>
+
+            <main id="main-content" class="bd-main" role="main">
+
+
+
+                <div class="sbt-scroll-pixel-helper"></div>
+
+                <div class="bd-content">
+                    <div class="bd-article-container">
+
+                        <div class="bd-header-article d-print-none">
+                            <div class="header-article-items header-article__inner">
+
+                                <div class="header-article-items__start">
+
+                                    <div class="header-article-item"><button
+                                            class="sidebar-toggle primary-toggle btn btn-sm"
+                                            title="Toggle primary sidebar" data-bs-placement="bottom"
+                                            data-bs-toggle="tooltip">
+                                            <span class="fa-solid fa-bars"></span>
+                                        </button></div>
+
+                                </div>
+
+
+                                <div class="header-article-items__end">
+
+                                    <div class="header-article-item">
+
+                                        <div class="article-header-buttons">
+
+
+
+
+
+                                            <div class="dropdown dropdown-source-buttons">
+                                                <button class="btn dropdown-toggle" type="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                                    aria-label="Source repositories">
+                                                    <i class="fab fa-github"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+
+
+
+                                                    <li><a href="https://github.com/louiswillems/le_stack_du_data_pro"
+                                                            target="_blank"
+                                                            class="btn btn-sm btn-source-repository-button dropdown-item"
+                                                            title="Source repository" data-bs-placement="left"
+                                                            data-bs-toggle="tooltip">
+
+
+                                                            <span class="btn__icon-container">
+                                                                <i class="fab fa-github"></i>
+                                                            </span>
+                                                            <span class="btn__text-container">Repository</span>
+                                                        </a>
+                                                    </li>
+
+
+
+
+                                                    <li><a href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
+                                                            target="_blank"
+                                                            class="btn btn-sm btn-source-issues-button dropdown-item"
+                                                            title="Open an issue" data-bs-placement="left"
+                                                            data-bs-toggle="tooltip">
+
+
+                                                            <span class="btn__icon-container">
+                                                                <i class="fas fa-lightbulb"></i>
+                                                            </span>
+                                                            <span class="btn__text-container">Open issue</span>
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+
+
+
+
+
+
+                                            <div class="dropdown dropdown-download-buttons">
+                                                <button class="btn dropdown-toggle" type="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                                    aria-label="Download this page">
+                                                    <i class="fas fa-download"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+
+
+
+                                                    <li><a href="_sources/content.md" target="_blank"
+                                                            class="btn btn-sm btn-download-source-button dropdown-item"
+                                                            title="Download source file" data-bs-placement="left"
+                                                            data-bs-toggle="tooltip">
+
+
+                                                            <span class="btn__icon-container">
+                                                                <i class="fas fa-file"></i>
+                                                            </span>
+                                                            <span class="btn__text-container">.md</span>
+                                                        </a>
+                                                    </li>
+
+
+
+
+                                                    <li>
+                                                        <button onclick="window.print()"
+                                                            class="btn btn-sm btn-download-pdf-button dropdown-item"
+                                                            title="Print to PDF" data-bs-placement="left"
+                                                            data-bs-toggle="tooltip">
+
+
+                                                            <span class="btn__icon-container">
+                                                                <i class="fas fa-file-pdf"></i>
+                                                            </span>
+                                                            <span class="btn__text-container">.pdf</span>
+                                                        </button>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+
+
+
+
+                                            <button onclick="toggleFullScreen()"
+                                                class="btn btn-sm btn-fullscreen-button" title="Fullscreen mode"
+                                                data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+
+                                                <span class="btn__icon-container">
+                                                    <i class="fas fa-expand"></i>
+                                                </span>
+
+                                            </button>
+
+
+
+                                            <script>
+                                                document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+                                            </script>
+
+
+                                            <script>
+                                                document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+                                            </script>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <article class="bd-article">
+                            <section id="environnements-virtuels">
+                                <h1>6. Environnements virtuels<a class="headerlink"
+                                        href="#environnements-virtuels">#</a></h1>
+
+                                <p>
+                                    Nous avons vu qu’un package Python constitue une collection organisée de modules :
+                                    des fichiers de
+                                    code Python
+                                    structurés pour accomplir des fonctionnalités spécifiques. Ces packages représentent
+                                    l'intelligence
+                                    collective
+                                    de la communauté mondiale des développeurs Python, mise à disposition sous forme de
+                                    solutions
+                                    réutilisables.
+                                </p>
+
+                                <p>Dans vos développements, vous mobilisez constamment deux catégories de
+                                    bibliothèques :</p>
+                                <ul>
+                                    <li><strong>Bibliothèques natives</strong> : Intégrées par défaut à Python</li>
+                                    <li><strong>Bibliothèques tierces</strong> : Développées par la communauté pour des
+                                        besoins
+                                        spécialisés
+                                        (pandas, prophet ou numpy par exemple)
+                                    </li>
+                                </ul>
+                                <p>
+                                    Ces packages encapsulent des solutions éprouvées pour des problématiques
+                                    récurrentes, vous permettant
+                                    de vous
+                                    concentrer sur la logique métier plutôt que sur l'implémentation de fonctionnalités
+                                    de base.
+                                </p>
+
+                                <p>Quelques exemples de bibliothèques essentielles pour les analyses de données :</p>
+                                <ul>
+                                    <li><code>pandas</code> : Manipulation et analyse de données structurées</li>
+                                    <li><code>numpy</code> : Calculs scientifiques et algèbre linéaire</li>
+                                    <li><code>pyspark</code> : Traitement distribué de données à grande échelle</li>
+                                </ul>
+
+                                <p>
+                                    Python fournit nativement un ensemble limité de modules. L'écosystème complet
+                                    s'appuie sur PyPI
+                                    (Python Package
+                                    Index), le référentiel central hébergeant plus de 500 000 packages spécialisés.
+                                </p>
+                                <p>
+                                    Les gestionnaires de packages comme <code>pip</code> permettent d'administrer
+                                    efficacement ces
+                                    bibliothèques
+                                     – installation, mise à jour, résolution de dépendances. Une commande telle que
+                                    <code>pip install pandas</code> vous donne accès instantané à des outils
+                                    sophistiqués développés par
+                                    des
+                                    experts internationaux, transformant des semaines de développement en quelques
+                                    lignes de code.
+                                </p>
+                                <p>
+                                    Cependant, cette facilité d'installation soulève une problématique cruciale :
+                                    comment gérer les
+                                    différentes
+                                    versions de packages requis par vos multiples projets ? Comment éviter que
+                                    l'installation d'une
+                                    nouvelle
+                                    bibliothèque pour un projet n'impacte un autre projet en cours ? Cette problématique
+                                    nous amène
+                                    naturellement à la notion d'<strong>environnements virtuels</strong>, solution
+                                    fondamentale pour
+                                    l'isolation et
+                                    la gestion des dépendances en Python professionnel.
+                                </p>
+
+                                <h2>Qu’est-ce qu’un environnement virtuel ?</h2>
+                                <p>
+                                    Un environnement virtuel est un espace de travail Python isolé et indépendant qui
+                                    permet de créer des
+                                    installations Python séparées sur une même machine. Chaque environnement virtuel
+                                    dispose de sa propre
+                                    collection de packages et de sa propre version de l'interpréteur Python,
+                                    complètement isolée des
+                                    autres
+                                    environnements et de l'installation Python système.
+                                </p>
+                                <p>
+                                    Un environnement virtuel peut être comparé à une machine virtuelle (VM), mais
+                                    uniquement pour Python.
+                                    Tout
+                                    comme une machine virtuelle crée un système d'exploitation isolé sur votre
+                                    ordinateur, un
+                                    environnement
+                                    virtuel crée un espace Python isolé sur votre système. La différence principale est
+                                    qu'une machine
+                                    virtuelle
+                                    virtualise l'ensemble du système (processeur, mémoire, disque) alors que
+                                    l'environnement virtuel ne
+                                    virtualise que l'écosystème Python (interpréteur, packages, dépendances).
+                                </p>
+                                <p>
+                                    Ainsi, l'environnement virtuel applique le concept de virtualisation de manière
+                                    ciblée et efficace. Il
+                                    crée une barrière logique qui permet à plusieurs projets Python de coexister sur la
+                                    même machine avec
+                                    des
+                                    configurations différentes, sans interférence mutuelle. Cette isolation légère est
+                                    essentielle pour
+                                    maintenir la cohérence et la reproductibilité des développements Python
+                                    professionnels.
+                                </p>
+
+                                <h2>Pourquoi utiliser des environnements virtuels ?</h2>
+                                <p>
+                                    En tant qu'analyste ou développeur, vous travaillerez souvent sur plusieurs projets
+                                    simultanément.
+                                    Chaque
+                                    projet peut nécessiter des versions spécifiques de certaines bibliothèques.
+                                </p>
+                                <p><strong>Exemple :</strong></p>
+                                <ul class="admonition note">
+                                    <li>Votre projet de segmentation nécessite : <code>pandas 1.0.6</code>,
+                                        <code>pyspark 3.5.1</code>
+                                    </li>
+                                    <li>Votre projet d’exploration de données requiert : <code>numpy 1.18.4</code>,
+                                        <code>pandas 2.2.3</code>
+                                    </li>
+                                </ul>
+                                <p>
+                                    Le problème est évident : les deux projets utilisent pandas, mais dans des versions
+                                    différentes. Sans
+                                    environnements virtuels, il serait très difficile de satisfaire ces deux exigences
+                                    simultanément avec
+                                    votre
+                                    machine. Les environnements virtuels résolvent ce problème en créant des espaces
+                                    isolés où chaque
+                                    projet
+                                    peut avoir sa propre configuration de paquets, indépendamment des autres projets.
+                                </p>
+                                <p>
+                                    Cette illustration présente l'architecture de votre machine avec plusieurs
+                                    environnements virtuels
+                                    Python.
+                                    Chaque environnement virtuel forme une arborescence de fichiers comprenant une
+                                    version dédiée de
+                                    Python,
+                                    ses dépendances et ses scripts associés. Puisqu'il s'agit simplement de dossiers
+                                    contenant des
+                                    fichiers,
+                                    vous pouvez créer autant d'environnements virtuels que nécessaire sur votre système.
+                                </p>
+
+                                <h3>Comment peut‑on se retrouver avec deux versions différentes ?</h3>
+                                <ul>
+                                    <li><strong>Évolution des bibliothèques</strong> : Les paquets populaires comme
+                                        pandas évoluent
+                                        constamment.
+                                        Un projet démarré il y a 4 ans utilisera une version plus ancienne que celle
+                                        d'un projet récent.
+                                    </li>
+                                    <li><strong>Compatibilité</strong> : Certains projets peuvent nécessiter une version
+                                        spécifique d'une
+                                        bibliothèque pour fonctionner avec d'autres composants ou pour maintenir la
+                                        stabilité.
+                                    </li>
+                                    <li><strong>Projets hérités</strong> : Vous pourriez reprendre un projet développé
+                                        par quelqu'un
+                                        d'autre qui
+                                        utilisait une version spécifique.
+                                    </li>
+                                </ul>
+                                <p>
+                                    C'est précisément pour résoudre ce type de conflit que les environnements virtuels
+                                    ont été créés. Un
+                                    environnement virtuel fonctionne comme un conteneur isolé qui maintient séparées les
+                                    dépendances de
+                                    chaque
+                                    projet. On peut penser à une sorte de machine virtuelle mais uniquement pour Python.
+                                </p>
+                                <p>
+                                    Lorsque vous commencez un nouveau projet, vous créez un environnement virtuel dédié.
+                                    Cet environnement
+                                    contient :
+                                </p>
+                                <ul>
+                                    <li>Sa propre installation Python indépendante</li>
+                                    <li>Un espace isolé où vous installez uniquement les packages nécessaires à ce
+                                        projet spécifique</li>
+                                    <li>Un mécanisme d'activation/désactivation pour basculer facilement entre
+                                        différents projets</li>
+                                </ul>
+                                <p>
+                                    Cette isolation garantit que vous travaillez toujours avec les versions exactes des
+                                    bibliothèques
+                                    requises
+                                    par chaque projet, évitant ainsi les conflits de dépendances et simplifiant
+                                    considérablement la
+                                    gestion de
+                                    vos développements Python.
+                                </p>
+
+                                <h2>uv : L'outil unifié pour l'écosystème Python moderne</h2>
+                                <p>
+                                    <strong>uv</strong> révolutionne la gestion des environnements Python en unifiant
+                                    trois fonctions
+                                    critiques :
+                                    la gestion des versions Python, la création d'environnements virtuels et la gestion
+                                    des dépendances.
+                                </p>
+                                <p>
+                                    Historiquement, les développeurs Python jonglaient entre plusieurs outils
+                                    spécialisés –
+                                    <code>venv</code> +
+                                    <code>pip</code> avec des fichiers <code>requirements.txt</code> pour les besoins
+                                    basiques,
+                                    <code>conda</code>
+                                    pour les environnements complexes incluant des dépendances non‑Python, et
+                                    <code>pyenv</code> pour
+                                    gérer les
+                                    versions de l'interpréteur Python. Cette approche fragmentée imposait la maîtrise de
+                                    syntaxes et
+                                    workflows
+                                    multiples, ralentissant la productivité.
+                                </p>
+                                <p>
+                                    <strong>uv</strong> unifie ces trois composants en une seule solution performante,
+                                    éliminant la
+                                    complexité
+                                    des approches traditionnelles tout en offrant des performances considérablement
+                                    supérieures.
+                                </p>
+                                <p>
+                                    Nous adoptons exclusivement <strong>uv</strong> pour l'ensemble de nos besoins – de
+                                    la gestion des
+                                    versions
+                                    Python à l'installation des dépendances. Cette stratégie simplifie l'outillage tout
+                                    en optimisant les
+                                    performances, un avantage particulièrement crucial dans la section MLOps.
+                                </p>
+
+                                <h2>uv : Création d’un environnement virtuel</h2>
+                                <p>
+                                    <strong>uv</strong> est un outil développé en Rust, qui combine plusieurs
+                                    fonctionnalités :
+                                </p>
+                                <ul>
+                                    <li>Gestionnaire de paquets : Alternative à pip, 10–100× plus rapide</li>
+                                    <li>Gestionnaire d'environnements virtuels : Remplace venv avec la même simplicité
+                                    </li>
+                                    <li>Résolveur de dépendances : Évite intelligemment les conflits</li>
+                                </ul>
+                                <p>
+                                    Ses principaux avantages sont sa vitesse d'installation, sa compatibilité avec
+                                    l'écosystème Python
+                                    existant
+                                    (requirements.txt, setuptools), et sa facilité d'utilisation avec une syntaxe
+                                    familière.
+                                    <strong>uv</strong> est significativement plus rapide que les alternatives
+                                    traditionnelles (venv,
+                                    virtualenv,
+                                    pyenv+pyenv-virtualenv, conda ou pipenv) tout en restant compatible avec
+                                    l'écosystème Python existant.
+                                </p>
+
+                                <p>Voici un récapitulatif pour créer un environnement virtuel avec uv sur macOS et
+                                    Linux/WSL2 :</p>
+                                <div class="highlight highlight-bash">
+                                    <pre>
+# 1. Installation de uv
+curl -sSf https://install.ultraviolet.rs | sh
+# Alternative sur macOS
+brew install uv
+
+# 2. Création d'un environnement virtuel
+uv venv               # par défaut .venv
+uv venv -p 3.11 .venv # spécifier Python 3.11
+uv venv mon_projet_env
+
+# 3. Activation de l'environnement
+source .venv/bin/activate
+# OU
+source mon_projet_env/bin/activate
+
+# 4. Installation de paquets / synchronisation
+uv sync --all-extras          # synchronise selon pyproject.toml
+uv pip install -r requirements.txt
+
+# 5. Désactivation
+deactivate
+      </pre>
+                                </div>
+
+                                <h2>Points clés à retenir</h2>
+                                <ul>
+                                    <li><strong>Un projet = un environnement virtuel dédié</strong> : Créez
+                                        systématiquement un nouvel
+                                        environnement
+                                        virtuel pour chaque projet Python.
+                                    </li>
+                                    <li><strong>Jamais d’installation globale de packages tiers</strong> : N'installez
+                                        jamais de packages
+                                        externes
+                                        dans votre Python système ou géré globalement.</li>
+                                    <li>
+                                        <strong>Concrètement</strong> :
+                                        <ul>
+                                            <li><code>uv add pandas</code> ✅ (dans un environnement virtuel)</li>
+                                            <li><code>pip install pandas</code> ❌ (installation globale)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            </section>
+                        </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <footer class="prev-next-footer d-print-none">
+
+                            <div class="prev-next-area">
+                                <a class="left-prev" href="markdown.html" title="previous page">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                    <div class="prev-next-info">
+                                        <p class="prev-next-subtitle">previous</p>
+                                        <p class="prev-next-title">Markdown Files</p>
+                                    </div>
+                                </a>
+                                <a class="right-next" href="markdown-notebooks.html" title="next page">
+                                    <div class="prev-next-info">
+                                        <p class="prev-next-subtitle">next</p>
+                                        <p class="prev-next-title">Notebooks with MyST Markdown</p>
+                                    </div>
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </footer>
+
+                    </div>
+
+
+
+                    <div class="bd-sidebar-secondary bd-toc">
+                        <div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+                            <div class="sidebar-secondary-item">
+                                <div class="page-toc tocsection onthispage">
+                                    <i class="fa-solid fa-list"></i> Contents
+                                </div>
+                                <nav class="bd-toc-nav page-toc">
+                                    <ul class="visible nav section-nav flex-column">
+                                        <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                                                href="#installation-vs-code">Installation macOS et Linux</a></li>
+                                        <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                                                href="#installation-windows-wsl2">Installation Windows & WSL2</a></li>
+                                        <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                                                href="#code-blocks-and-outputs">Code blocks and outputs</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <footer class="bd-footer-content">
+
+                    <div class="bd-footer-content__inner container">
+
+                        <div class="footer-item">
+
+                            <p class="component-author">
+                                By Louis Willems
+                            </p>
+
+                        </div>
+
+                        <div class="footer-item">
+
+
+                            <p class="copyright">
+
+                                © Copyright 2025.
+                                <br />
+
+                            </p>
+
+                        </div>
+
+                        <div class="footer-item">
+
+                        </div>
+
+                        <div class="footer-item">
+
+                        </div>
+
+                    </div>
+                </footer>
+
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts loaded after <body> so the DOM is not blocked -->
+    <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+    <script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <footer class="bd-footer">
+    </footer>
+</body>
+
+</html>

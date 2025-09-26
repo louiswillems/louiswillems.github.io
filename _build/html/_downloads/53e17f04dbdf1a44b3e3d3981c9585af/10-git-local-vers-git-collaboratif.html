@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Le Guide du Data Junior</title>
+
+
+
+    <script data-cfasync="false">
+        document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+        document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    </script>
+
+    <!-- Loaded before other Sphinx assets -->
+    <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+    <link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+    <link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+
+    <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css"
+        href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
+    <!-- Pre-loaded scripts that we'll load fully later -->
+    <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+    <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+    <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content';</script>
+    <link rel="icon" href="_static/logo.png" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="stylesheet" href="_static/custom.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+</head>
+
+
+<body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%"
+    data-default-mode="">
+
+
+
+    <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+    <div id="pst-scroll-pixel-helper"></div>
+
+    <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+        <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+
+    <input type="checkbox" class="sidebar-toggle" id="pst-primary-sidebar-checkbox" />
+    <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+
+    <input type="checkbox" class="sidebar-toggle" id="pst-secondary-sidebar-checkbox" />
+    <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+
+    <div class="search-button__wrapper">
+        <div class="search-button__overlay"></div>
+        <div class="search-button__search-container">
+            <form class="bd-search d-flex align-items-center" action="search.html" method="get">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..."
+                    aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off"
+                    spellcheck="false" />
+                <span class="search-button__kbd-shortcut"><kbd
+                        class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+            </form>
+        </div>
+    </div>
+
+    <div class="pst-async-banner-revealer d-none">
+        <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+    </div>
+
+
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+
+
+    <div class="bd-container">
+        <div class="bd-container__inner bd-page-width">
+
+
+
+
+
+            <div class="bd-sidebar-primary bd-sidebar">
+
+
+
+                <div class="sidebar-header-items sidebar-primary__section">
+
+
+
+
+                </div>
+
+                <div class="sidebar-primary-items__start sidebar-primary__section">
+                    <div class="sidebar-primary-item">
+
+
+
+
+
+                        <a class="navbar-brand logo" href="intro.html">
+
+
+
+
+
+
+
+
+
+
+                            <img src="_static/logo.png" class="logo__image only-light"
+                                alt="le_stack_du_data_pro - Home" />
+                            <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
+
+
+                        </a>
+                    </div>
+                    <div class="sidebar-primary-item">
+
+                        <script>
+                            document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+                        </script>
+                    </div>
+
+                    <div class="sidebar-primary-item">
+                        <nav class="bd-links bd-docs-nav" aria-label="Main">
+                            <div class="bd-toc-item navbar-nav active">
+
+
+                                <!-- Chapitre 1 dans la première liste -->
+                                <ul class="nav bd-sidenav bd-sidenav__home-link">
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="1-installation-vscode.html">
+                                            1. Installation VS Code
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <!-- Chapitres 2 à 11 -->
+                                <ul class="nav bd-sidenav">
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="2-personnalisation-terminal.html">
+                                            2. Personnalisation du terminal
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="3-utilisation-terminal.html">
+                                            3. Utilisation du terminal
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="4-installation-python.html">
+                                            4. Installation Python
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="5-gestion-version-et-packaging-python.html">
+                                            5. Gestion des versions & packaging Python
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="6-environnements-virtuels.html">
+                                            6. Environnements virtuels
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="7-configuration-vscode.html">
+                                            7. Configuration VS Code
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="8-installation-git.html">
+                                            8. Installation Git
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="9-utilisation-git.html">
+                                            9. Utilisation Git
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">
+                                            10. Git local vers Git collaboratif
+                                        </a>
+                                    </li>
+                                    <li class="toctree-l1">
+                                        <a class="reference internal" href="11-utilisation-git-avance.html">
+                                            11. Utilisation Git (avancé)
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+
+                <div class="sidebar-primary-items__end sidebar-primary__section">
+                </div>
+
+                <div id="rtd-footer-container"></div>
+
+
+            </div>
+
+            <main id="main-content" class="bd-main" role="main">
+
+
+
+                <div class="sbt-scroll-pixel-helper"></div>
+
+                <div class="bd-content">
+                    <div class="bd-article-container">
+
+                        <div class="bd-header-article d-print-none">
+                            <div class="header-article-items header-article__inner">
+
+                                <div class="header-article-items__start">
+
+                                    <div class="header-article-item"><button
+                                            class="sidebar-toggle primary-toggle btn btn-sm"
+                                            title="Toggle primary sidebar" data-bs-placement="bottom"
+                                            data-bs-toggle="tooltip">
+                                            <span class="fa-solid fa-bars"></span>
+                                        </button></div>
+
+                                </div>
+
+
+                                <div class="header-article-items__end">
+
+                                    <div class="header-article-item">
+
+                                        <div class="article-header-buttons">
+
+
+
+
+
+                                            <div class="dropdown dropdown-source-buttons">
+                                                <button class="btn dropdown-toggle" type="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                                    aria-label="Source repositories">
+                                                    <i class="fab fa-github"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+
+
+
+                                                    <li><a href="https://github.com/louiswillems/le_stack_du_data_pro"
+                                                            target="_blank"
+                                                            class="btn btn-sm btn-source-repository-button dropdown-item"
+                                                            title="Source repository" data-bs-placement="left"
+                                                            data-bs-toggle="tooltip">
+
+
+                                                            <span class="btn__icon-container">
+                                                                <i class="fab fa-github"></i>
+                                                            </span>
+                                                            <span class="btn__text-container">Repository</span>
+                                                        </a>
+                                                    </li>
+
+
+
+
+                                                    <li><a href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
+                                                            target="_blank"
+                                                            class="btn btn-sm btn-source-issues-button dropdown-item"
+                                                            title="Open an issue" data-bs-placement="left"
+                                                            data-bs-toggle="tooltip">
+
+
+                                                            <span class="btn__icon-container">
+                                                                <i class="fas fa-lightbulb"></i>
+                                                            </span>
+                                                            <span class="btn__text-container">Open issue</span>
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+
+
+
+
+
+
+                                            <div class="dropdown dropdown-download-buttons">
+                                                <button class="btn dropdown-toggle" type="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                                    aria-label="Download this page">
+                                                    <i class="fas fa-download"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+
+
+
+                                                    <li><a href="_sources/content.md" target="_blank"
+                                                            class="btn btn-sm btn-download-source-button dropdown-item"
+                                                            title="Download source file" data-bs-placement="left"
+                                                            data-bs-toggle="tooltip">
+
+
+                                                            <span class="btn__icon-container">
+                                                                <i class="fas fa-file"></i>
+                                                            </span>
+                                                            <span class="btn__text-container">.md</span>
+                                                        </a>
+                                                    </li>
+
+
+
+
+                                                    <li>
+                                                        <button onclick="window.print()"
+                                                            class="btn btn-sm btn-download-pdf-button dropdown-item"
+                                                            title="Print to PDF" data-bs-placement="left"
+                                                            data-bs-toggle="tooltip">
+
+
+                                                            <span class="btn__icon-container">
+                                                                <i class="fas fa-file-pdf"></i>
+                                                            </span>
+                                                            <span class="btn__text-container">.pdf</span>
+                                                        </button>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+
+
+
+
+                                            <button onclick="toggleFullScreen()"
+                                                class="btn btn-sm btn-fullscreen-button" title="Fullscreen mode"
+                                                data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+
+                                                <span class="btn__icon-container">
+                                                    <i class="fas fa-expand"></i>
+                                                </span>
+
+                                            </button>
+
+
+
+                                            <script>
+                                                document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+                                            </script>
+
+
+                                            <script>
+                                                document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+                                            </script>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <article class="bd-article">
+
+                            <section id="git-local-collaboratif">
+                                <h1>10. Git local vers Git collaboratif<a class="headerlink"
+                                        href="#git-local-collaboratif">#</a></h1>
+
+                                <p>Jusqu'à présent, votre connaissance de Git s'est construite dans l'environnement de
+                                    votre machine
+                                    locale. Vous avez appris à versioner votre code, et à créer des branches. Cette
+                                    fondation constitue la
+                                    base du développement professionnel, mais elle ne représente qu'une facette de
+                                    l'écosystème Git.</p>
+
+                                <p>En effet, le développement avec Git repose sur la collaboration d'équipe et la
+                                    synchronisation
+                                    distribuée. Dans un environnement professionnel, votre code doit être partagé,
+                                    révisé, intégré et
+                                    déployé en coordination avec vos collègues.</p>
+
+                                <p>L'évolution vers Git collaboratif introduit une dimension stratégique : la gestion
+                                    des dépôts
+                                    distants. Les plateformes cloud (GitHub, GitLab, Azure Repos) ne sont pas de simples
+                                    espaces de
+                                    stockage, mais des écosystèmes complets qui orchestrent les workflows de
+                                    développement, automatisent
+                                    les processus de validation et facilitent la revue de code. Cette transition
+                                    implique de maîtriser de
+                                    nouveaux concepts et pratiques : la synchronisation bidirectionnelle entre votre
+                                    environnement local
+                                    et les serveurs distants, la gestion des branches partagées et des conflits de
+                                    fusion, les workflows
+                                    de revue de code via les pull requests et les pipelines automatisés CI/CD.</p>
+
+                                <p>Cette section vous préparera aux exigences du développement professionnel, où la
+                                    capacité à
+                                    travailler en équipe de manière fluide et organisée devient aussi importante que la
+                                    maîtrise technique
+                                    individuelle de Git.</p>
+
+                                <h2>Architecture Git : Client vs Serveur</h2>
+                                <p>Git fonctionne selon un modèle distribué qui combine autonomie locale et
+                                    collaboration centralisée.
+                                    Sur votre machine, l'installation Git opère comme un client autonome complet,
+                                    archivant l'historique
+                                    intégral de votre projet dans le répertoire caché <code>.git</code> qui encapsule
+                                    toutes les
+                                    métadonnées de versionnement, chaque utilisateur possède ainsi une réplique complète
+                                    et fonctionnelle
+                                    du dépôt sur son poste. Parallèlement, les plateformes de dépôts distants (GitHub,
+                                    Azure Repos, entre
+                                    autres) agissent comme des serveurs centralisés servant de "source de vérité"
+                                    commune, orchestrant la
+                                    synchronisation entre tous les clients Git de l'équipe.</p>
+
+                                <p>Git permet à chaque développeur de travailler de manière autonome avec l'historique
+                                    complet, puis de
+                                    se synchroniser avec le serveur distant uniquement quand nécessaire, offrant ainsi
+                                    flexibilité,
+                                    performance et résilience dans le workflow collaboratif.</p>
+
+                                <p>Ainsi, un dépôt distant hébergé dans le cloud constitue le pilier du développement
+                                    collaboratif.
+                                    Cette infrastructure centralisée transforme la manière dont les équipes travaillent
+                                    ensemble en
+                                    établissant une source de vérité unique, accessible à tous les membres de l'équipe.
+                                </p>
+
+                                <p>Au-delà de la collaboration, le dépôt distant offre une sécurité renforcée grâce à la
+                                    sauvegarde
+                                    automatique et continue de l'ensemble du code source. Cette protection contre la
+                                    perte de données
+                                    locales (panne matérielle, erreur humaine ou tout autre incident) assure la
+                                    pérennité du travail de
+                                    développement.</p>
+
+                                <h2>Gestion de version centralisée</h2>
+                                <p>Le paysage des plateformes de dépôts distants est dominé par plusieurs acteurs clés,
+                                    chacun proposant
+                                    des spécificités adaptées à différents contextes organisationnels. GitHub s'impose
+                                    comme le leader
+                                    incontesté du marché, fort de son rachat par Microsoft et de son écosystème open
+                                    source de référence
+                                    qui attire des millions de développeurs à travers le monde. Cette plateforme a
+                                    révolutionné la manière
+                                    dont les projets open source sont développés et partagés, créant une véritable
+                                    communauté mondiale de
+                                    développeurs.</p>
+
+                                <p>GitLab propose une alternative complète particulièrement séduisante pour les
+                                    entreprises cherchant
+                                    une solution tout-en-un. Sa force réside dans l'intégration native de
+                                    fonctionnalités DevOps avancées,
+                                    permettant de gérer l'intégralité du cycle de vie des applications depuis une
+                                    interface unique, de la
+                                    planification jusqu'au déploiement en production.</p>
+
+                                <p>Bitbucket, développé par Atlassian, est utilisé dans les environnements d'entreprise
+                                    grâce à sa
+                                    synergie avec l'écosystème Atlassian. Cette intégration avec JIRA pour la gestion de
+                                    projet et
+                                    Confluence pour la documentation technique crée un environnement de travail optimisé
+                                    pour les équipes
+                                    déjà investies dans ces outils.</p>
+
+                                <p>Azure Repos complète cette offre en tant que plateforme d'entreprise intégrée à Azure
+                                    DevOps, offrant
+                                    une solution native pour les organisations déjà engagées dans l'écosystème Microsoft
+                                    Azure. Cette
+                                    intégration permet une continuité entre le développement, l'intégration continue et
+                                    le déploiement
+                                    dans l'infrastructure cloud Microsoft.</p>
+
+                                <p>Dans notre environnement professionnel, Azure Repos constitue l’infrastructure Git
+                                    centralisée sur
+                                    laquelle repose notre gestion de code. Intégré à l’écosystème Azure DevOps, il
+                                    permet de regrouper, au
+                                    sein d’un même espace, le code source, les pipelines CI/CD et les outils de
+                                    collaboration. Cette
+                                    solution offre plusieurs avantages stratégiques. Elle s’intègre avec les outils
+                                    Microsoft déjà
+                                    déployés dans l’entreprise, simplifie la gestion des permissions grâce à une
+                                    administration
+                                    centralisée, et permet l’automatisation des processus de développement via des
+                                    pipelines DevOps
+                                    intégrés.</p>
+
+                                <p>Dans la section suivante, nous verrons comment connecter un dépôt Git local à Azure
+                                    Repos, et comment
+                                    maîtriser les workflows collaboratifs essentiels pour travailler efficacement au
+                                    sein d’une équipe.
+                                </p>
+
+                                <h2>Mise en pratique : Connecter local et distant Azure Repos</h2>
+                                <p>Dans un environnement de développement collaboratif, comprendre comment connecter et
+                                    synchroniser un
+                                    dépôt local avec une plateforme Git distante est essentiel. Dans notre cas, Azure
+                                    Repos constitue le
+                                    point central de gestion du code source, intégrant l’ensemble des outils Azure
+                                    DevOps tels que les
+                                    pipelines CI/CD, le suivi des tâches et les permissions d’équipe (via service
+                                    principals).</p>
+                                <p>Cette section présente les différents workflows Git dans Azure Repos, depuis le
+                                    clonage d’un projet
+                                    existant, en passant par la création d’un nouveau dépôt, jusqu’à la migration d’un
+                                    projet local déjà
+                                    en production. Chaque scénario est accompagné d’exemples de commandes Git
+                                    commentées, pour permettre
+                                    une prise en main rapide.</p>
+                                <p>Nous aborderons également des notions plus avancées telles que la gestion
+                                    multi-remote, utile pour
+                                    synchroniser un même projet entre plusieurs plateformes (Azure Repos, GitHub…),
+                                    ainsi que le
+                                    fonctionnement des pull requests, élément important du travail collaboratif et de la
+                                    revue de code.
+                                </p>
+
+                                <h3>Scénario 1 : Cloner un projet existant</h3>
+                                <p>Contexte : Vous rejoignez un projet en cours ou souhaitez utiliser un template
+                                    (repos) d'équipe déjà
+                                    hébergé sur Azure Repos.</p>
+                                <div class="highlight highlight-bash">
+                                    <pre>
+git clone https://organisation@dev.azure.com/org/projet/_git/nom-du-depot
+    </pre>
+                                </div>
+                                <p>Ce que fait cette commande :</p>
+                                <ul>
+                                    <li>Télécharge l'intégralité du dépôt distant (historique, branches, tags)</li>
+                                    <li>Crée automatiquement un dossier local portant le nom du dépôt</li>
+                                    <li>Crée automatiquement un remote nommé « origin ».</li>
+                                </ul>
+
+                                <p>Après le clonage :</p>
+                                <div class="highlight highlight-bash">
+                                    <pre>
+cd nom-du-depot          # Entrer dans le dossier projet
+git status               # Vérifier l'état du dépôt
+git branch -a            # Afficher toutes les branches (locales et distantes)
+    </pre>
+                                </div>
+
+                                <h3>Scénario 2 : Créer un nouveau projet de zéro</h3>
+                                <p>Contexte : Démarrage d'un nouveau projet que vous souhaitez héberger sur Azure Repos.
+                                </p>
+                                <p><strong>Étape 1 : Création du dépôt sur Azure Repos</strong></p>
+                                <ol>
+                                    <li>Interface Azure DevOps :
+                                        <ul>
+                                            <li>Connexion à Azure DevOps (dev.azure.com)</li>
+                                            <li>Navigation vers votre organisation/projet</li>
+                                            <li>Sélection "Repos" dans le menu latéral gauche</li>
+                                            <li>Clic sur "New repository" ou "Nouveau dépôt"</li>
+                                            <li>Configuration : Nom du dépôt, visibilité, options d'initialisation</li>
+                                            <li>Création : Validation et génération de l'URL de connexion</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Étape 2 : Initialisation locale et première synchronisation</strong>
+                                    </li>
+                                </ol>
+                                <div class="highlight highlight-bash">
+                                    <pre>
+# Création de l'environnement projet
+mkdir mon-nouveau-projet
+cd mon-nouveau-projet
+# Initialisation Git
+git init
+# Création du fichier de documentation initial
+echo "# Mon Nouveau Projet" > README.md
+echo "Description du projet et instructions d'installation" >> README.md
+# Premier commit local
+git add README.md
+git commit -m "docs: initialisation du projet avec README"
+    </pre>
+                                </div>
+
+                                <p>(optionnel) <strong>Étape 3 : Configuration de la branche principale</strong></p>
+                                <div class="highlight highlight-bash">
+                                    <pre>
+git branch -M main
+    </pre>
+                                </div>
+
+                                <p><strong>Étape 4 : Connexion au dépôt distant</strong></p>
+                                <div class="highlight highlight-bash">
+                                    <pre>
+git remote add origin https://organisation@dev.azure.com/org/projet/_git/nom-du-depot
+    </pre>
+                                </div>
+
+                                <p><strong>Étape 5 : Synchronisation initiale</strong></p>
+                                <div class="highlight highlight-bash">
+                                    <pre>
+git push -u origin main
+    </pre>
+                                </div>
+
+                                <h3>Scénario 3 : Migrer un projet existant vers Azure Repos</h3>
+                                <p>Contexte : Vous disposez d'un projet Git local fonctionnel que vous souhaitez
+                                    héberger sur
+                                    Azure Repos.</p>
+                                <ol>
+                                    <li>Prérequis : Création du dépôt vide sur Azure Repos (sans README, .gitignore)
+                                    </li>
+                                    <li>Depuis votre dossier projet existant :</li>
+                                </ol>
+                                <div class="highlight highlight-bash">
+                                    <pre>
+cd mon-projet-existant
+git branch -M main
+git remote add origin https://organisation@dev.azure.com/org/projet/_git/nom-du-depot
+git remote -v
+git push -u origin main
+git push origin --all
+git push origin --tags
+    </pre>
+                                </div>
+
+                                <h3>Fonctionnalité avancée : Gestion multi-remote</h3>
+                                <div class="highlight highlight-bash">
+                                    <pre>
+git remote -v
+git remote add github https://github.com/username/repository.git
+git push origin main   # Vers Azure Repos
+git push github main   # Vers GitHub
+    </pre>
+                                </div>
+
+                            </section>
+
+                        </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <footer class="prev-next-footer d-print-none">
+
+                            <div class="prev-next-area">
+                                <a class="left-prev" href="markdown.html" title="previous page">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                    <div class="prev-next-info">
+                                        <p class="prev-next-subtitle">previous</p>
+                                        <p class="prev-next-title">Markdown Files</p>
+                                    </div>
+                                </a>
+                                <a class="right-next" href="markdown-notebooks.html" title="next page">
+                                    <div class="prev-next-info">
+                                        <p class="prev-next-subtitle">next</p>
+                                        <p class="prev-next-title">Notebooks with MyST Markdown</p>
+                                    </div>
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </footer>
+
+                    </div>
+
+
+
+                    <div class="bd-sidebar-secondary bd-toc">
+                        <div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+                            <div class="sidebar-secondary-item">
+                                <div class="page-toc tocsection onthispage">
+                                    <i class="fa-solid fa-list"></i> Contents
+                                </div>
+                                <nav class="bd-toc-nav page-toc">
+                                    <ul class="visible nav section-nav flex-column">
+                                        <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                                                href="#installation-vs-code">Installation macOS et Linux</a></li>
+                                        <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                                                href="#installation-windows-wsl2">Installation Windows & WSL2</a></li>
+                                        <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                                                href="#code-blocks-and-outputs">Code blocks and outputs</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <footer class="bd-footer-content">
+
+                    <div class="bd-footer-content__inner container">
+
+                        <div class="footer-item">
+
+                            <p class="component-author">
+                                By Louis Willems
+                            </p>
+
+                        </div>
+
+                        <div class="footer-item">
+
+
+                            <p class="copyright">
+
+                                © Copyright 2025.
+                                <br />
+
+                            </p>
+
+                        </div>
+
+                        <div class="footer-item">
+
+                        </div>
+
+                        <div class="footer-item">
+
+                        </div>
+
+                    </div>
+                </footer>
+
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts loaded after <body> so the DOM is not blocked -->
+    <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+    <script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <footer class="bd-footer">
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Le Guide du Data Junior</title>
+
+
+
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+  <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+  <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+  <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+  <link rel="stylesheet" type="text/css"
+    href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+  <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+  <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+  <script src="_static/doctools.js?v=9a2dae69"></script>
+  <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+  <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+  <script src="_static/copybutton.js?v=f281be69"></script>
+  <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+  <script>let toggleHintShow = 'Click to show';</script>
+  <script>let toggleHintHide = 'Click to hide';</script>
+  <script>let toggleOpenOnPrint = 'true';</script>
+  <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+  <script src="_static/design-tabs.js?v=f930bc37"></script>
+  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+  <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+  <script>DOCUMENTATION_OPTIONS.pagename = 'content';</script>
+  <link rel="icon" href="_static/logo.png" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="stylesheet" href="_static/custom.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en" />
+
+</head>
+
+
+<body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%"
+  data-default-mode="">
+
+
+
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  <div id="pst-scroll-pixel-helper"></div>
+
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+
+  <input type="checkbox" class="sidebar-toggle" id="pst-primary-sidebar-checkbox" />
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+
+  <input type="checkbox" class="sidebar-toggle" id="pst-secondary-sidebar-checkbox" />
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      <form class="bd-search d-flex align-items-center" action="search.html" method="get">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..."
+          aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off"
+          spellcheck="false" />
+        <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+      </form>
+    </div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+    <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+  </div>
+
+
+  <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  </header>
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+
+
+
+
+
+      <div class="bd-sidebar-primary bd-sidebar">
+
+
+
+        <div class="sidebar-header-items sidebar-primary__section">
+
+
+
+
+        </div>
+
+        <div class="sidebar-primary-items__start sidebar-primary__section">
+          <div class="sidebar-primary-item">
+
+
+
+
+
+            <a class="navbar-brand logo" href="intro.html">
+
+
+
+
+
+
+
+
+
+
+              <img src="_static/logo.png" class="logo__image only-light" alt="le_stack_du_data_pro - Home" />
+              <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
+
+
+            </a>
+          </div>
+          <div class="sidebar-primary-item">
+
+            <script>
+              document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+            </script>
+          </div>
+
+          <div class="sidebar-primary-item">
+            <nav class="bd-links bd-docs-nav" aria-label="Main">
+              <div class="bd-toc-item navbar-nav active">
+
+
+                <!-- Chapitre 1 dans la première liste -->
+                <ul class="nav bd-sidenav bd-sidenav__home-link">
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="1-installation-vscode.html">
+                      1. Installation VS Code
+                    </a>
+                  </li>
+                </ul>
+
+                <!-- Chapitres 2 à 11 -->
+                <ul class="nav bd-sidenav">
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="2-personnalisation-terminal.html">
+                      2. Personnalisation du terminal
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="3-utilisation-terminal.html">
+                      3. Utilisation du terminal
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="4-installation-python.html">
+                      4. Installation Python
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="5-gestion-version-et-packaging-python.html">
+                      5. Gestion des versions & packaging Python
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="6-environnements-virtuels.html">
+                      6. Environnements virtuels
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="7-configuration-vscode.html">
+                      7. Configuration VS Code
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="8-installation-git.html">
+                      8. Installation Git
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="9-utilisation-git.html">
+                      9. Utilisation Git
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">
+                      10. Git local vers Git collaboratif
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="11-utilisation-git-avance.html">
+                      11. Utilisation Git (avancé)
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+            </nav>
+          </div>
+        </div>
+
+
+        <div class="sidebar-primary-items__end sidebar-primary__section">
+        </div>
+
+        <div id="rtd-footer-container"></div>
+
+
+      </div>
+
+      <main id="main-content" class="bd-main" role="main">
+
+
+
+        <div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+
+            <div class="bd-header-article d-print-none">
+              <div class="header-article-items header-article__inner">
+
+                <div class="header-article-items__start">
+
+                  <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm"
+                      title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                      <span class="fa-solid fa-bars"></span>
+                    </button></div>
+
+                </div>
+
+
+                <div class="header-article-items__end">
+
+                  <div class="header-article-item">
+
+                    <div class="article-header-buttons">
+
+
+
+
+
+                      <div class="dropdown dropdown-source-buttons">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" aria-label="Source repositories">
+                          <i class="fab fa-github"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+
+
+
+                          <li><a href="https://github.com/louiswillems/le_stack_du_data_pro" target="_blank"
+                              class="btn btn-sm btn-source-repository-button dropdown-item" title="Source repository"
+                              data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fab fa-github"></i>
+                              </span>
+                              <span class="btn__text-container">Repository</span>
+                            </a>
+                          </li>
+
+
+
+
+                          <li><a
+                              href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
+                              target="_blank" class="btn btn-sm btn-source-issues-button dropdown-item"
+                              title="Open an issue" data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-lightbulb"></i>
+                              </span>
+                              <span class="btn__text-container">Open issue</span>
+                            </a>
+                          </li>
+
+                        </ul>
+                      </div>
+
+
+
+
+
+
+                      <div class="dropdown dropdown-download-buttons">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" aria-label="Download this page">
+                          <i class="fas fa-download"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+
+
+
+                          <li><a href="_sources/content.md" target="_blank"
+                              class="btn btn-sm btn-download-source-button dropdown-item" title="Download source file"
+                              data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-file"></i>
+                              </span>
+                              <span class="btn__text-container">.md</span>
+                            </a>
+                          </li>
+
+
+
+
+                          <li>
+                            <button onclick="window.print()" class="btn btn-sm btn-download-pdf-button dropdown-item"
+                              title="Print to PDF" data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-file-pdf"></i>
+                              </span>
+                              <span class="btn__text-container">.pdf</span>
+                            </button>
+                          </li>
+
+                        </ul>
+                      </div>
+
+
+
+
+                      <button onclick="toggleFullScreen()" class="btn btn-sm btn-fullscreen-button"
+                        title="Fullscreen mode" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+
+                        <span class="btn__icon-container">
+                          <i class="fas fa-expand"></i>
+                        </span>
+
+                      </button>
+
+
+
+                      <script>
+                        document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+                      </script>
+
+
+                      <script>
+                        document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+                      </script>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+
+
+            <article class="bd-article">
+              <section id="gestion-versions-packaging-python">
+                <h1>5. Gestion des versions et packaging Python<a class="headerlink"
+                    href="#gestion-versions-packaging-python">#</a></h1>
+
+                <p>
+                  Dans le monde du développement logiciel, il est essentiel de communiquer clairement l'ampleur et la
+                  nature
+                  des changements apportés à chaque nouvelle version d'un programme.
+                </p>
+                <p>
+                  Contrairement à ce qu'on pourrait penser, les numéros de version des logiciels ne sont pas choisis au
+                  hasard.
+                  Ils suivent une logique précise qui a un impact direct sur tous ceux qui utilisent votre code –
+                  équipes de
+                  développement, utilisateurs finaux et systèmes automatisés.
+                </p>
+                <p>
+                  Les ingénieurs logiciels utilisent donc des conventions de versioning pour transmettre des
+                  informations
+                  essentielles : quels types de changements ont été apportés, si une mise à jour risque de casser le
+                  code existant,
+                  ou si elle apporte simplement des corrections mineures.
+                </p>
+                <p>
+                  Dans cette section, nous allons explorer le versioning sémantique (semantic versioning), l'une des
+                  approches
+                  les plus répandues et efficaces pour structurer les versions de logiciels. Cette méthode offre un
+                  cadre commun
+                  pour comprendre immédiatement l'impact potentiel d'une mise à jour sur la compatibilité et la
+                  stabilité d'une
+                  application.
+                </p>
+
+                <h2>Format du versioning sémantique</h2>
+                <p>
+                  Vous avez sûrement déjà rencontré de nombreux exemples de versioning sémantique sans le savoir. Ce
+                  système suit
+                  un format très simple et reconnaissable : exactement trois nombres séparés par des points :
+                </p>
+                <ul>
+                  <li><code>MAJEUR.MINEUR.CORRECTIF</code></li>
+                </ul>
+                <p>Exemples :</p>
+                <ul>
+                  <li>Extensions VS Code : <code>3.5.0</code></li>
+                  <li>Bibliothèques Python : <code>2.1.4</code></li>
+                  <li>Frameworks : <code>1.0.0</code></li>
+                </ul>
+                <p>
+                  Cette structure à trois composants permet de transmettre immédiatement des informations cruciales sur
+                  la nature
+                  des changements, sans avoir besoin de lire de longues notes de version.
+                </p>
+                <p>Selon la spécification officielle (<a href="http://semver.org" target="_blank">semver.org</a>) :</p>
+                <ul>
+                  <li><strong>MAJEUR</strong> : Changements incompatibles avec l'API existante</li>
+                  <li><strong>MINEUR</strong> : Nouvelles fonctionnalités compatibles avec les versions précédentes</li>
+                  <li><strong>CORRECTIF</strong> : Corrections de bugs sans nouvelles fonctionnalités</li>
+                </ul>
+                <p>
+                  Durant la phase initiale de développement, on débute souvent en <code>0.1.0</code> et on incrémente le
+                  mineur à
+                  chaque release, signalant un projet en phase active. Le passage à <code>1.0.0</code> marque un jalon
+                  de
+                  stabilité pour la production. La version <code>0.0.0</code> reste réservée aux phases alpha ou
+                  prototypes.
+                </p>
+
+                <h2>La grande transition : Python 2 vers Python 3</h2>
+                <p>
+                  L'histoire du versionnage en Python offre une leçon importante sur l'impact des changements majeurs.
+                  En décembre
+                  2008, Python 3.0.0 a marqué une rupture historique avec Python 2, illustrant parfaitement ce
+                  qu'implique un
+                  changement de version majeure selon le versionnage sémantique.
+                </p>
+                <p>Par exemple :</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+                  # Python 2
+                  print "Hello world"
+
+                  # Python 3
+                  print("Hello world")
+                        </pre>
+                </div>
+                <p>
+                  Au-delà de ce simple changement de syntaxe, Python 3 a introduit de profondes modifications
+                  incompatibles qui
+                  ont rendu nécessaire la réécriture de nombreuses bibliothèques. Cette transition a temporairement
+                  divisé la
+                  communauté.
+                </p>
+                <p>
+                  Pour éviter de futurs bouleversements, Python s'appuie sur les Python Enhancement Proposals (PEP), qui
+                  formalisent
+                  le processus de proposition, garantissent l'étude minutieuse des évolutions, préservent la
+                  rétrocompatibilité et
+                  font participer la communauté à chaque décision.
+                </p>
+                <p>
+                  Depuis, chaque version mineure de Python 3 enrichit le langage (type hinting, async/await, f-strings,
+                  dataclasses,
+                  walrus operator…), tout en respectant la compatibilité ascendante. Les versions 3.11 et 3.12 ont même
+                  apporté
+                  jusqu’à 60 % de gain de performance et des messages d’erreur améliorés.
+                </p>
+
+                <h2>La cohérence entre dev et production</h2>
+                <p>
+                  La cohérence des versions Python entre développement et production est cruciale. Des différences même
+                  mineures
+                  (3.11.2 vs 3.11.8) peuvent causer des incompatibilités subtiles, notamment sur des plateformes
+                  spécialisées
+                  comme Databricks.
+                </p>
+                <p><strong>Bonnes pratiques :</strong></p>
+                <ul>
+                  <li>Maintenir une version Python identique sur tous les environnements</li>
+                  <li>Isoler chaque projet dans son propre environnement virtuel</li>
+                  <li>Spécifier clairement les versions requises dans la documentation technique</li>
+                  <li>
+                    <strong>Focus Databricks</strong> : Les runtimes Databricks embarquent des bibliothèques
+                    préoptimisées ; veillez
+                    à la compatibilité exacte pour éviter conflits et comportements imprévisibles.
+                  </li>
+                </ul>
+
+                <h2>Le packaging Python</h2>
+                <p>
+                  Chaque fois que vous exécutez <code>pip install numpy</code>, vous interagissez avec le système de
+                  packaging
+                  Python. Un package est un ensemble cohérent et distributable comprenant :
+                </p>
+                <ol>
+                  <li>Le code Python fonctionnel</li>
+                  <li>Les métadonnées de configuration</li>
+                  <li>Les instructions d'installation</li>
+                </ol>
+                <p>
+                  Le Python Package Index (PyPI) sert de dépôt central : vous y trouvez des archives ZIP avec tout le
+                  nécessaire
+                  pour installer une bibliothèque.
+                </p>
+                <p>
+                  Le packaging repose sur trois piliers fondamentaux :
+                </p>
+                <ul>
+                  <li>
+                    <strong>Distribution simplifiée</strong> : <code>pip install</code> transforme votre code en produit
+                    installable.
+                  </li>
+                  <li>
+                    <strong>Imports clairs</strong> : Fini <code>sys.path</code> et chemins relatifs compliqués ; un
+                    package
+                    structuré permet <code>from mypkg.utils import func</code>.
+                  </li>
+                  <li>
+                    <strong>Reproductibilité</strong> : Des installations identiques quel que soit l’environnement.
+                  </li>
+                </ul>
+                <p>
+                  <strong>Terminologie</strong> :
+                </p>
+                <ul>
+                  <li><strong>Module</strong> : un fichier Python (e.g. <code>my_file.py</code>)</li>
+                  <li><strong>Package</strong> : un dossier avec <code>__init__.py</code> et sous-modules</li>
+                  <li><strong>Distribution package</strong> : l’archive installable via pip</li>
+                </ul>
+                <p>
+                  Une structure moderne inclut : un dossier <code>src/</code> organisé en packages, un
+                  <code>pyproject.toml</code> et un README.
+                </p>
+
+                <h3>Histoire du packaging</h3>
+                <p>
+                  Dans les années 90, Python offrait Distutils, jugé trop complexe ; Setuptools a simplifié l’interface
+                  et introduit
+                  <code>setup.py</code>. Aujourd’hui, des outils modernes comme Poetry, pip-tools et même
+                  <strong>uv</strong>
+                  enrichissent l’écosystème.
+                </p>
+                <p>
+                  Avec <strong>uv</strong>, les workflows courants deviennent ultra-rapides :
+                </p>
+                <div class="highlight highlight-bash">
+                  <pre>
+uv pip install -e .     # installation en mode dev
+uv pip compile          # génère requirements.lock
+uv pip sync             # synchronise l’environnement
+uv build                # construit le package distribuable
+      </pre>
+                </div>
+                <p>
+                  Maîtriser le packaging transforme votre façon de développer et partager votre code, marqueur de
+                  professionnalisme
+                  essentiel pour collaborer dans l’écosystème Python moderne.
+                </p>
+              </section>
+            </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <footer class="prev-next-footer d-print-none">
+
+              <div class="prev-next-area">
+                <a class="left-prev" href="markdown.html" title="previous page">
+                  <i class="fa-solid fa-angle-left"></i>
+                  <div class="prev-next-info">
+                    <p class="prev-next-subtitle">previous</p>
+                    <p class="prev-next-title">Markdown Files</p>
+                  </div>
+                </a>
+                <a class="right-next" href="markdown-notebooks.html" title="next page">
+                  <div class="prev-next-info">
+                    <p class="prev-next-subtitle">next</p>
+                    <p class="prev-next-title">Notebooks with MyST Markdown</p>
+                  </div>
+                  <i class="fa-solid fa-angle-right"></i>
+                </a>
+              </div>
+            </footer>
+
+          </div>
+
+
+
+          <div class="bd-sidebar-secondary bd-toc">
+            <div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+              <div class="sidebar-secondary-item">
+                <div class="page-toc tocsection onthispage">
+                  <i class="fa-solid fa-list"></i> Contents
+                </div>
+                <nav class="bd-toc-nav page-toc">
+                  <ul class="visible nav section-nav flex-column">
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#installation-vs-code">Installation macOS et Linux</a></li>
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#installation-windows-wsl2">Installation Windows & WSL2</a></li>
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#code-blocks-and-outputs">Code blocks and outputs</a></li>
+                  </ul>
+                </nav>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+        <footer class="bd-footer-content">
+
+          <div class="bd-footer-content__inner container">
+
+            <div class="footer-item">
+
+              <p class="component-author">
+                By Louis Willems
+              </p>
+
+            </div>
+
+            <div class="footer-item">
+
+
+              <p class="copyright">
+
+                © Copyright 2025.
+                <br />
+
+              </p>
+
+            </div>
+
+            <div class="footer-item">
+
+            </div>
+
+            <div class="footer-item">
+
+            </div>
+
+          </div>
+        </footer>
+
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+</body>
+
+</html>

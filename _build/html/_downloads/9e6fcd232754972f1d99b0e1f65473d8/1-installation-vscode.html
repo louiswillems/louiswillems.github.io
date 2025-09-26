@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Content in Jupyter Book &#8212; le_stack_du_data_pro</title>
+
+
+
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+  <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+  <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+  <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+  <link rel="stylesheet" type="text/css"
+    href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+  <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+  <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+  <script src="_static/doctools.js?v=9a2dae69"></script>
+  <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+  <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+  <script src="_static/copybutton.js?v=f281be69"></script>
+  <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+  <script>let toggleHintShow = 'Click to show';</script>
+  <script>let toggleHintHide = 'Click to hide';</script>
+  <script>let toggleOpenOnPrint = 'true';</script>
+  <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+  <script src="_static/design-tabs.js?v=f930bc37"></script>
+  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+  <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+  <script>DOCUMENTATION_OPTIONS.pagename = 'content';</script>
+  <link rel="icon" href="_static/logo.png" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="stylesheet" href="_static/custom.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en" />
+
+</head>
+
+
+<body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%"
+  data-default-mode="">
+
+
+
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  <div id="pst-scroll-pixel-helper"></div>
+
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+
+  <input type="checkbox" class="sidebar-toggle" id="pst-primary-sidebar-checkbox" />
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+
+  <input type="checkbox" class="sidebar-toggle" id="pst-secondary-sidebar-checkbox" />
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      <form class="bd-search d-flex align-items-center" action="search.html" method="get">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..."
+          aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off"
+          spellcheck="false" />
+        <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+      </form>
+    </div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+    <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+  </div>
+
+
+  <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  </header>
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+
+
+
+
+
+      <div class="bd-sidebar-primary bd-sidebar">
+
+
+
+        <div class="sidebar-header-items sidebar-primary__section">
+
+
+
+
+        </div>
+
+        <div class="sidebar-primary-items__start sidebar-primary__section">
+          <div class="sidebar-primary-item">
+
+
+
+
+
+            <a class="navbar-brand logo" href="intro.html">
+
+
+
+
+
+
+
+
+
+
+              <img src="_static/logo.png" class="logo__image only-light" alt="le_stack_du_data_pro - Home" />
+              <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
+
+
+            </a>
+          </div>
+          <div class="sidebar-primary-item">
+
+            <script>
+              document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+            </script>
+          </div>
+
+          <div class="sidebar-primary-item">
+            <nav class="bd-links bd-docs-nav" aria-label="Main">
+              <div class="bd-toc-item navbar-nav active">
+
+
+                <!-- Chapitre 1 dans la première liste -->
+                <ul class="nav bd-sidenav bd-sidenav__home-link">
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="1-installation-vscode.html">
+                      1. Installation VS Code
+                    </a>
+                  </li>
+                </ul>
+
+                <!-- Chapitres 2 à 11 -->
+                <ul class="nav bd-sidenav">
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="2-personnalisation-terminal.html">
+                      2. Personnalisation du terminal
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="3-utilisation-terminal.html">
+                      3. Utilisation du terminal
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="4-installation-python.html">
+                      4. Installation Python
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="5-gestion-version-et-packaging-python.html">
+                      5. Gestion des versions & packaging Python
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="6-environnements-virtuels.html">
+                      6. Environnements virtuels
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="7-configuration-vscode.html">
+                      7. Configuration VS Code
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="8-installation-git.html">
+                      8. Installation Git
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="9-utilisation-git.html">
+                      9. Utilisation Git
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">
+                      10. Git local vers Git collaboratif
+                    </a>
+                  </li>
+                  <li class="toctree-l1">
+                    <a class="reference internal" href="11-utilisation-git-avance.html">
+                      11. Utilisation Git (avancé)
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+            </nav>
+          </div>
+        </div>
+
+
+        <div class="sidebar-primary-items__end sidebar-primary__section">
+        </div>
+
+        <div id="rtd-footer-container"></div>
+
+
+      </div>
+
+      <main id="main-content" class="bd-main" role="main">
+
+
+
+        <div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+
+            <div class="bd-header-article d-print-none">
+              <div class="header-article-items header-article__inner">
+
+                <div class="header-article-items__start">
+
+                  <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm"
+                      title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+                      <span class="fa-solid fa-bars"></span>
+                    </button></div>
+
+                </div>
+
+
+                <div class="header-article-items__end">
+
+                  <div class="header-article-item">
+
+                    <div class="article-header-buttons">
+
+
+
+
+
+                      <div class="dropdown dropdown-source-buttons">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" aria-label="Source repositories">
+                          <i class="fab fa-github"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+
+
+
+                          <li><a href="https://github.com/louiswillems/le_stack_du_data_pro" target="_blank"
+                              class="btn btn-sm btn-source-repository-button dropdown-item" title="Source repository"
+                              data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fab fa-github"></i>
+                              </span>
+                              <span class="btn__text-container">Repository</span>
+                            </a>
+                          </li>
+
+
+
+
+                          <li><a
+                              href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
+                              target="_blank" class="btn btn-sm btn-source-issues-button dropdown-item"
+                              title="Open an issue" data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-lightbulb"></i>
+                              </span>
+                              <span class="btn__text-container">Open issue</span>
+                            </a>
+                          </li>
+
+                        </ul>
+                      </div>
+
+
+
+
+
+
+                      <div class="dropdown dropdown-download-buttons">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false" aria-label="Download this page">
+                          <i class="fas fa-download"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+
+
+
+                          <li><a href="_sources/content.md" target="_blank"
+                              class="btn btn-sm btn-download-source-button dropdown-item" title="Download source file"
+                              data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-file"></i>
+                              </span>
+                              <span class="btn__text-container">.md</span>
+                            </a>
+                          </li>
+
+
+
+
+                          <li>
+                            <button onclick="window.print()" class="btn btn-sm btn-download-pdf-button dropdown-item"
+                              title="Print to PDF" data-bs-placement="left" data-bs-toggle="tooltip">
+
+
+                              <span class="btn__icon-container">
+                                <i class="fas fa-file-pdf"></i>
+                              </span>
+                              <span class="btn__text-container">.pdf</span>
+                            </button>
+                          </li>
+
+                        </ul>
+                      </div>
+
+
+
+
+                      <button onclick="toggleFullScreen()" class="btn btn-sm btn-fullscreen-button"
+                        title="Fullscreen mode" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+
+                        <span class="btn__icon-container">
+                          <i class="fas fa-expand"></i>
+                        </span>
+
+                      </button>
+
+
+
+                      <script>
+                        document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+                      </script>
+
+
+                      <script>
+                        document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+                      </script>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+
+
+            <article class="bd-article">
+
+              <section id="installation-vs-code">
+                <h1>1. Installation VS Code<a class="headerlink" href="#installation-vs-code">#</a></h1>
+
+                <div class="intro-section">
+                  <p>Dans l'écosystème du développement Python, deux environnements de développement intégrés (IDE)
+                    prédominent actuellement (2025) : <strong>Visual Studio Code</strong> et <strong>PyCharm</strong>.
+                  </p>
+
+                  <p>Ce guide adopte spécifiquement <strong>Visual Studio Code</strong> comme plateforme de référence
+                    pour l'implémentation et la configuration des outils d'amélioration de la qualité du code Python.
+                    Cette standardisation permet une reproduction fidèle des configurations présentées dans les
+                    démonstrations et templates fournis.</p>
+                </div>
+
+                <h2>Installation macOS (ou système d'exploitation Linux)</h2>
+                <p>Si vous utilisez actuellement macOS ou un système d'exploitation Linux comme Ubuntu, l’installation
+                  est la suivante:</p>
+
+                <section id="telechargement-mac">
+                  <h3>Téléchargement</h3>
+                  <ol>
+                    <li>Visitez <a href="https://code.visualstudio.com" target="_blank"
+                        rel="noopener noreferrer">code.visualstudio.com</a></li>
+                    <li>Cliquez sur le bouton <strong>"Télécharger pour Mac"</strong></li>
+                  </ol>
+                </section>
+
+                <section id="installation-mac">
+                  <h3>Installation</h3>
+                  <ol>
+                    <li>Ouvrez le fichier téléchargé (<code>.dmg</code>)</li>
+                    <li>Glissez l'icône VS Code dans le dossier <strong>Applications</strong></li>
+                    <li>Éjectez l'image disque</li>
+                  </ol>
+                </section>
+
+                <section id="configuration-commande-code">
+                  <h3>Configuration de la commande <code>code</code></h3>
+                  <ol>
+                    <li>Lancez VS Code</li>
+                    <li>Appuyez sur <kbd>Cmd + Shift + P</kbd> (macOS) ou <kbd>Ctrl + Shift + P</kbd> (Linux)</li>
+                    <li>Tapez <code>Shell Command</code> et sélectionnez <strong>"Install 'code' command in
+                        PATH"</strong></li>
+                  </ol>
+                </section>
+
+                <h2>Installation Windows &amp; WSL2 (Windows Subsystem for Linux)</h2>
+                <p>L'activation de WSL nécessite une demande via le portail de services de l'entreprise : Service Portal
+                </p>
+
+                <p>L'écosystème de développement moderne s'appuie majoritairement sur des environnements Linux, tant
+                  pour la création que pour le déploiement des applications. Cette réalité technique crée un
+                  déséquilibre pour les développeurs Windows.</p>
+
+                <p>Le défi Windows dans l'écosystème Python : Les utilisateurs Windows font face à des limitations
+                  significatives : documentation incomplète, outils non compatibles, ou configurations complexes pour de
+                  nombreuses bibliothèques Python essentielles.</p>
+
+                <p>L'importance du terminal Linux : Le terminal Linux constitue l'interface de référence pour la
+                  majorité des outils de développement.</p>
+
+                <p>Comme l’objectif de ce guide est de développer du code Python destiné à la mise en production,
+                  investir dans l'accès à un terminal Linux – que ce soit via WSL, une machine virtuelle, ou un
+                  environnement cloud – représente un investissement stratégique qui facilitera considérablement le
+                  développement.</p>
+
+                <p>Cette étape initiale peut éviter de nombreuses frustrations techniques et permet de se concentrer sur
+                  l'apprentissage des concepts MLOps plutôt que sur la résolution de problèmes de compatibilité.</p>
+
+                <h3>Installez VS Code sur Windows :</h3>
+                <ul>
+                  <li>Visitez code.visualstudio.com</li>
+                  <li>Téléchargez et exécutez l'installateur Windows</li>
+                  <li>Suivez les instructions (gardez les options par défaut)</li>
+                </ul>
+
+                <h3>Installez WSL2 (<a href="https://learn.microsoft.com/en-us/windows/wsl/install"
+                    target="_blank">https://learn.microsoft.com/en-us/windows/wsl/install</a>) :</h3>
+                <ul>
+                  <li>Ouvrez PowerShell en administrateur (très important!)</li>
+                  <li>Exécutez : <code>wsl --install</code> (Par défaut, installation de la distribution Ubuntu).</li>
+                  <li>Redémarrez votre ordinateur</li>
+                  <li>Entrez votre nouveau nom d'utilisateur UNIX et définissez un mot de passe (sans espace ni
+                    caractères spéciaux) – cette étape est importante pour l'exécution des commandes administrateur avec
+                    "sudo"</li>
+                </ul>
+
+                <p>Vous pouvez trouver le sous-système Windows pour Linux (terminal) en retournant dans la barre de
+                  recherche et en cherchant “Ubuntu”.</p>
+
+                <h2>Pourquoi utiliser WSL2 ?</h2>
+                <p>Le sous-système Windows pour Linux2 (WSL2) fonctionne comme un environnement Linux virtualisé intégré
+                  à Windows. En pratique, il permet d'exécuter simultanément deux systèmes d'exploitation – Windows et
+                  Linux – qui partagent un même système de fichiers. Concrètement, lorsque vous travaillez dans
+                  l'environnement Linux, vous pouvez créer et modifier des fichiers texte, des images et d'autres
+                  documents qui sont physiquement stockés sur votre disque dur. Ces mêmes fichiers vont également être
+                  accessibles depuis Windows. C'est comme avoir deux interfaces différentes pour interagir avec le même
+                  espace de stockage – vous disposez essentiellement de deux systèmes d'exploitation sur une seule
+                  machine qui partagent un espace de travail commun.</p>
+
+                <p>Cette configuration offre l'avantage de pouvoir accéder et modifier des fichiers résidant sur un
+                  disque Windows directement depuis l'environnement Linux, créant ainsi une expérience de développement
+                  simplifiée avec les outils Linux tout en conservant l'interface Windows. Cette approche offre un
+                  environnement Linux et une intégration native avec VS Code via l’extension Remote-WSL.</p>
+
+                <p>Il existe d’autres alternatives à Windows Subsystem for Linux : Machines Virtuelles (VirtualBox,
+                  VMware), Git Bash, Docker Desktop et Dual Boot Windows/Linux, entre autres. Cependant, WSL2 représente
+                  le meilleur compromis pour la plupart des développeurs sur Windows. Les alternatives ont chacune leurs
+                  cas d'usage spécifiques, mais très peu offrent l'équilibre de WSL2 pour le développement avec VS Code.
+                </p>
+
+                <h2>Installez l'extension WSL de VS Code :</h2>
+                <p>Bien que VS Code intègre un terminal PowerShell, notre objectif est d'utiliser un terminal Linux
+                  directement depuis l'éditeur. Pour créer cette passerelle entre l'environnement Windows et le
+                  sous-système Linux (WSL2), une extension spécialisée est nécessaire.</p>
+                <ul>
+                  <li>Lancez Visual Studio Code</li>
+                  <li>Allez dans l'onglet Extensions (Ctrl+Shift+X)</li>
+                  <li>Recherchez "WSL" et installez l'extension "WSL" développée par Microsoft</li>
+                </ul>
+
+                <h2>Connexion à WSL2 :</h2>
+                <ul>
+                  <li>Cliquez sur l'icône verte en bas à gauche de VS Code</li>
+                  <li>Sélectionnez "Connect to WSL" dans le menu</li>
+                </ul>
+                <p>Cette connexion établit un pont entre deux environnements : votre interface VS Code (qui s'affiche
+                  sur Windows) communique désormais avec un serveur VS Code qui s'exécute à l'intérieur de votre
+                  environnement Linux WSL2. En pratique, cela signifie que vous gardez l'interface familière de VS Code
+                  sur Windows, mais tous vos outils de développement, votre terminal et vos fichiers de projet
+                  fonctionnent dans l'environnement Linux. Cette configuration "client-serveur" vous offre le meilleur
+                  des deux mondes : la convivialité de l'interface Windows et la puissance de l'écosystème Linux.</p>
+
+                <h2>Installation de la commande <code>code</code> dans WSL2 :</h2>
+                <p>Depuis le terminal WSL2 (Ubuntu), la commande sera automatiquement disponible.</p>
+                <p>Testez avec <code>code .</code> pour ouvrir un dossier</p>
+
+                <h2>Lancement de VS Code depuis l'environnement WSL2</h2>
+                <p>Pour ouvrir VS Code avec toutes vos configurations WSL2 actives :</p>
+                <ul>
+                  <li>Ouvrez Ubuntu depuis le menu Démarrer de Windows (recherchez "Ubuntu")</li>
+                  <li>Naviguez vers votre dossier de projet avec la commande <code>cd</code></li>
+                  <li>Lancez VS Code avec la commande : <code>code .</code></li>
+                </ul>
+                <p>Le point <code>.</code> est important : il indique à VS Code d'ouvrir le répertoire courant comme
+                  espace de travail. Cette méthode garantit que VS Code démarre avec la bonne configuration WSL2 et que
+                  tous vos outils de développement Python fonctionnent dans l'environnement Linux optimal.</p>
+                <p>Cette simple commande <code>code .</code> va automatiquement :</p>
+                <ul>
+                  <li>Ouvrir VS Code sur votre système Windows</li>
+                  <li>Établir la connexion avec l'environnement WSL2</li>
+                  <li>Charger votre projet avec tous les outils Linux disponibles</li>
+                  <li>Activer le terminal Linux intégré</li>
+                </ul>
+
+                <h2>Alternative pratique :</h2>
+                <p>Si vous avez déjà un dossier ouvert dans VS Code sous Windows, vous pouvez facilement basculer vers
+                  WSL2 en cliquant sur l'icône verte en bas à gauche et en sélectionnant "Reopen Folder in WSL". Cette
+                  option permet de migrer instantanément votre espace de travail actuel vers l'environnement Linux sans
+                  avoir à fermer et rouvrir manuellement le projet.</p>
+
+                <h2>Raccourcis clavier VS Code</h2>
+                <p>Pour gagner en efficacité dans votre travail quotidien, rien ne remplace la maîtrise des raccourcis
+                  clavier. Comme toute compétence technique, leur acquisition demande de la pratique et de la
+                  régularité, mais l'investissement en vaut largement la peine.</p>
+                <p>Nous vous encourageons à télécharger et garder à portée de main le guide officiel correspondant à
+                  votre système :</p>
+                <ul>
+                  <li>MacOS : <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf"
+                      target="_blank">https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf</a></li>
+                  <li>Windows : <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf"
+                      target="_blank">https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf</a></li>
+                  <li>Linux : <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf"
+                      target="_blank">https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf</a></li>
+                </ul>
+                <p>Pour débuter efficacement, ces deux raccourcis vous feront économiser de nombreux clics :</p>
+                <ul>
+                  <li><strong>Accéder rapidement à toutes les fonctionnalités :</strong><br>
+                    Windows/Linux : <kbd>Ctrl</kbd> + <kbd>Maj</kbd> + <kbd>P</kbd><br>
+                    MacOS : <kbd>Cmd</kbd> + <kbd>Maj</kbd> + <kbd>P</kbd>
+                  </li>
+                  <li><strong>Basculer vers le terminal intégré sans quitter votre éditeur :</strong><br>
+                    Windows/Linux : <kbd>Ctrl</kbd> + <kbd>`</kbd><br>
+                    MacOS : <kbd>Cmd</kbd> + <kbd>J</kbd>
+                  </li>
+                </ul>
+
+              </section>
+
+            </article>
+
+
+
+
+
+
+            <footer class="prev-next-footer d-print-none">
+
+              <div class="prev-next-area">
+                <a class="left-prev" href="markdown.html" title="previous page">
+                  <i class="fa-solid fa-angle-left"></i>
+                  <div class="prev-next-info">
+                    <p class="prev-next-subtitle">previous</p>
+                    <p class="prev-next-title">Markdown Files</p>
+                  </div>
+                </a>
+                <a class="right-next" href="markdown-notebooks.html" title="next page">
+                  <div class="prev-next-info">
+                    <p class="prev-next-subtitle">next</p>
+                    <p class="prev-next-title">Notebooks with MyST Markdown</p>
+                  </div>
+                  <i class="fa-solid fa-angle-right"></i>
+                </a>
+              </div>
+            </footer>
+
+          </div>
+
+
+
+          <div class="bd-sidebar-secondary bd-toc">
+            <div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+              <div class="sidebar-secondary-item">
+                <div class="page-toc tocsection onthispage">
+                  <i class="fa-solid fa-list"></i> Contents
+                </div>
+                <nav class="bd-toc-nav page-toc">
+                  <ul class="visible nav section-nav flex-column">
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#installation-vs-code">Installation macOS et Linux</a></li>
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#installation-windows-wsl2">Installation Windows & WSL2</a></li>
+                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
+                        href="#code-blocks-and-outputs">Code blocks and outputs</a></li>
+                  </ul>
+                </nav>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+        <footer class="bd-footer-content">
+
+          <div class="bd-footer-content__inner container">
+
+            <div class="footer-item">
+
+              <p class="component-author">
+                By Louis Willems
+              </p>
+
+            </div>
+
+            <div class="footer-item">
+
+
+              <p class="copyright">
+
+                © Copyright 2025.
+                <br />
+
+              </p>
+
+            </div>
+
+            <div class="footer-item">
+
+            </div>
+
+            <div class="footer-item">
+
+            </div>
+
+          </div>
+        </footer>
+
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+</body>
+
+</html>
