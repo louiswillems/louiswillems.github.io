@@ -25,13 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Install dependencies
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: pip # Implicitly depends upon requirements.txt
-
       # Deploy the book's HTML to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
