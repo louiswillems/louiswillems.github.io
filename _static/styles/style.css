@@ -1,0 +1,159 @@
+.css-typing {
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    margin: 25px 0;
+    line-height: 1.7;
+    animation: type 4s steps(40, end) forwards;
+}
+
+.css-typing::after {
+    content: '';
+    position: absolute;
+    right: -2px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: #3498db;
+    animation: blink 0.8s infinite, hide-cursor 0s 4s forwards;
+}
+
+#structure-du-guide a {
+    color: #333;
+    /* Couleur neutre pour les liens */
+    text-decoration: none;
+    /* Supprime le soulignement */
+    font-size: 15px;
+    /* Taille de police sobre */
+    font-family: Arial, sans-serif;
+    /* Police simple */
+}
+
+#structure-du-guide a:hover {
+    color: #007bff;
+    /* Couleur différente au survol */
+    text-decoration: underline;
+    /* Ajoute un soulignement au survol */
+}
+
+#structure-du-guide ul {
+    list-style-type: none;
+    /* Supprime les puces */
+    padding: 10;
+    margin: 0;
+}
+
+#structure-du-guide ul li {
+    margin: 4px 0;
+    padding: 4px 0;
+    /* border-bottom: 1px solid #ddd; */
+    /* Ligne séparatrice entre les éléments */
+}
+
+#structure-du-guide ul li:last-child {
+    border-bottom: none;
+    /* Supprime la ligne pour le dernier élément */
+}
+
+.prev-next-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    /* Couleur du carré gris */
+    border-top: 1px solid #ddd;
+    /* Bordure supérieure */
+    box-sizing: border-box;
+    /* S'assure que la bordure est incluse dans la taille du footer */
+    width: 100%;
+    /* S'assure que le footer ne dépasse pas */
+}
+
+.prev-next-area {
+    width: 100%;
+    /* S'assure que le contenu reste à l'intérieur */
+}
+
+.prev-next-area a {
+    text-decoration: none;
+    color: #007bff;
+    /* Couleur des liens */
+}
+
+.prev-next-area a:hover {
+    color: #0056b3;
+    /* Couleur au survol */
+}
+
+blockquote {
+    margin: 50px 0;
+    /* Ajoute un espace autour de la citation */
+    padding-left: 15px;
+    /* Ajoute un espace à gauche de la citation */
+    border-left: 4px solid #ddd;
+    /* Ajoute une bordure à gauche pour styliser la citation */
+    font-style: italic;
+    /* Met le texte en italique */
+    color: #555;
+    /* Change la couleur du texte pour un gris doux */
+}
+
+p {
+    margin-bottom: 20px;
+    /* Ajoute un espace entre les paragraphes */
+}
+
+h1 {
+    margin-bottom: 40px;
+    /* Ajoute un espace en dessous du titre */
+}
+
+h3 {
+    border-bottom: 2px solid #ddd;
+    /* Ligne grise sous le titre */
+    margin-top: 50px;
+    /* Ajoute un espace au-dessus du sous-titre */
+    margin-bottom: 25px;
+    /* Ajoute un espace en dessous du sous-titre */
+    font-size: 1.6rem;
+    /* Ajuste la taille du sous-titre */
+    font-family: Arial, sans-serif;
+    /* Police simple et professionnelle */
+    color: #444;
+    /* Couleur neutre pour le sous-titre */
+}
+
+h5 {
+    font-size: 1.0rem;
+    /* Ajuste la taille du texte */
+    font-weight: bold;
+    /* Rend le texte plus visible */
+    color: #b5b7b9;
+    /* Couleur élégante et professionnelle */
+    /* text-transform: uppercase; */
+    /* Met le texte en majuscules */
+    background-color: #f8f9fa;
+    /* Surlignement gris clair */
+    border-left: 4px solid hwb(180 71% 29%);
+    /* Ajoute une bordure colorée à gauche */
+    padding-left: 10px;
+    /* Ajoute un espace entre le texte et la bordure */
+    margin-top: 30px;
+    /* Ajoute un espace au-dessus */
+    margin-bottom: 10px;
+    /* Ajoute un espace en dessous */
+}
+
+ul {
+    padding-left: 20px;
+}
+
+a:hover {
+    text-decoration: underline;
+    font-size: 1.05rem;
+}
