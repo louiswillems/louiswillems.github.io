@@ -57,17 +57,13 @@
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content';</script>
     <link rel="icon" href="_static/logo.png" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="stylesheet" href="_static/custom.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/style.css">
 
 </head>
 
@@ -109,52 +105,21 @@
         <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
     </div>
 
-
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
 
-
     <div class="bd-container">
         <div class="bd-container__inner bd-page-width">
-
-
-
-
-
             <div class="bd-sidebar-primary bd-sidebar">
-
-
-
                 <div class="sidebar-header-items sidebar-primary__section">
-
-
-
-
                 </div>
 
                 <div class="sidebar-primary-items__start sidebar-primary__section">
                     <div class="sidebar-primary-item">
-
-
-
-
-
                         <a class="navbar-brand logo" href="intro.html">
-
-
-
-
-
-
-
-
-
-
                             <img src="_static/logo.png" class="logo__image only-light"
                                 alt="le_stack_du_data_pro - Home" />
                             <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
-
-
                         </a>
                     </div>
                     <div class="sidebar-primary-item">
@@ -169,12 +134,9 @@
  `);
                         </script>
                     </div>
-
                     <div class="sidebar-primary-item">
                         <nav class="bd-links bd-docs-nav" aria-label="Main">
                             <div class="bd-toc-item navbar-nav active">
-
-
                                 <!-- Chapitre 1 dans la première liste -->
                                 <ul class="nav bd-sidenav bd-sidenav__home-link">
                                     <li class="toctree-l1">
@@ -281,11 +243,6 @@
                                     <div class="header-article-item">
 
                                         <div class="article-header-buttons">
-
-
-
-
-
                                             <div class="dropdown dropdown-source-buttons">
                                                 <button class="btn dropdown-toggle" type="button"
                                                     data-bs-toggle="dropdown" aria-expanded="false"
@@ -293,9 +250,6 @@
                                                     <i class="fab fa-github"></i>
                                                 </button>
                                                 <ul class="dropdown-menu">
-
-
-
                                                     <li><a href="https://github.com/louiswillems/le_stack_du_data_pro"
                                                             target="_blank"
                                                             class="btn btn-sm btn-source-repository-button dropdown-item"
@@ -309,9 +263,6 @@
                                                             <span class="btn__text-container">Repository</span>
                                                         </a>
                                                     </li>
-
-
-
 
                                                     <li><a href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
                                                             target="_blank"
@@ -329,12 +280,6 @@
 
                                                 </ul>
                                             </div>
-
-
-
-
-
-
                                             <div class="dropdown dropdown-download-buttons">
                                                 <button class="btn dropdown-toggle" type="button"
                                                     data-bs-toggle="dropdown" aria-expanded="false"
@@ -342,8 +287,6 @@
                                                     <i class="fas fa-download"></i>
                                                 </button>
                                                 <ul class="dropdown-menu">
-
-
 
                                                     <li><a href="_sources/content.md" target="_blank"
                                                             class="btn btn-sm btn-download-source-button dropdown-item"
@@ -357,9 +300,6 @@
                                                             <span class="btn__text-container">.md</span>
                                                         </a>
                                                     </li>
-
-
-
 
                                                     <li>
                                                         <button onclick="window.print()"
@@ -377,10 +317,6 @@
 
                                                 </ul>
                                             </div>
-
-
-
-
                                             <button onclick="toggleFullScreen()"
                                                 class="btn btn-sm btn-fullscreen-button" title="Fullscreen mode"
                                                 data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -391,8 +327,6 @@
                                                 </span>
 
                                             </button>
-
-
 
                                             <script>
                                                 document.write(`
@@ -425,8 +359,7 @@
 
                         <article class="bd-article">
                             <section id="environnements-virtuels">
-                                <h1>6. Environnements virtuels<a class="headerlink"
-                                        href="#environnements-virtuels">#</a></h1>
+                                <h1>Environnements virtuels 🔐</h1>
 
                                 <p>
                                     Nous avons vu qu’un package Python constitue une collection organisée de modules :
@@ -476,7 +409,7 @@
                                     efficacement ces
                                     bibliothèques
                                      – installation, mise à jour, résolution de dépendances. Une commande telle que
-                                    <code>pip install pandas</code> vous donne accès instantané à des outils
+                                    <code>pip install &lt;package&gt;</code> vous donne accès instantané à des outils
                                     sophistiqués développés par
                                     des
                                     experts internationaux, transformant des semaines de développement en quelques
@@ -494,10 +427,10 @@
                                     naturellement à la notion d'<strong>environnements virtuels</strong>, solution
                                     fondamentale pour
                                     l'isolation et
-                                    la gestion des dépendances en Python professionnel.
+                                    la gestion des dépendances en Python.
                                 </p>
 
-                                <h2>Qu’est-ce qu’un environnement virtuel ?</h2>
+                                <h3>Qu’est-ce qu’un environnement virtuel ?</h3>
                                 <p>
                                     Un environnement virtuel est un espace de travail Python isolé et indépendant qui
                                     permet de créer des
@@ -524,30 +457,27 @@
                                 </p>
                                 <p>
                                     Ainsi, l'environnement virtuel applique le concept de virtualisation de manière
-                                    ciblée et efficace. Il
-                                    crée une barrière logique qui permet à plusieurs projets Python de coexister sur la
+                                    ciblée. Il
+                                    crée une barrière qui permet à plusieurs projets Python de coexister sur la
                                     même machine avec
                                     des
-                                    configurations différentes, sans interférence mutuelle. Cette isolation légère est
-                                    essentielle pour
-                                    maintenir la cohérence et la reproductibilité des développements Python
-                                    professionnels.
+                                    configurations différentes, sans interférence mutuelle.
                                 </p>
 
-                                <h2>Pourquoi utiliser des environnements virtuels ?</h2>
+                                <h3>Pourquoi utiliser des environnements virtuels ?</h3>
                                 <p>
                                     En tant qu'analyste ou développeur, vous travaillerez souvent sur plusieurs projets
                                     simultanément.
                                     Chaque
                                     projet peut nécessiter des versions spécifiques de certaines bibliothèques.
                                 </p>
-                                <p><strong>Exemple :</strong></p>
-                                <ul class="admonition note">
-                                    <li>Votre projet de segmentation nécessite : <code>pandas 1.0.6</code>,
+                                <p>Exemple :</p>
+                                <ul>
+                                    <li>Votre projet de prévisions nécessite : <code>pandas 1.0.6</code>,
                                         <code>pyspark 3.5.1</code>
                                     </li>
-                                    <li>Votre projet d’exploration de données requiert : <code>numpy 1.18.4</code>,
-                                        <code>pandas 2.2.3</code>
+                                    <li>Votre projet d’exploration de données requiert : <code>pandas 2.2.3</code>,
+                                        <code>numpy 1.18.4</code>
                                     </li>
                                 </ul>
                                 <p>
@@ -559,7 +489,7 @@
                                     machine. Les environnements virtuels résolvent ce problème en créant des espaces
                                     isolés où chaque
                                     projet
-                                    peut avoir sa propre configuration de paquets, indépendamment des autres projets.
+                                    peut avoir sa propre configuration, indépendamment des autres projets.
                                 </p>
                                 <p>
                                     Cette illustration présente l'architecture de votre machine avec plusieurs
@@ -574,105 +504,49 @@
                                     vous pouvez créer autant d'environnements virtuels que nécessaire sur votre système.
                                 </p>
 
-                                <h3>Comment peut‑on se retrouver avec deux versions différentes ?</h3>
-                                <ul>
-                                    <li><strong>Évolution des bibliothèques</strong> : Les paquets populaires comme
-                                        pandas évoluent
-                                        constamment.
+
+                                <img src="_static/images/chap6_image_1.png" alt="Exemple de ligne plugins dans .zshrc"
+                                    style="max-width: 100%; height: auto; margin-top: 20px; margin-bottom: 30px;">
+
+                                <div class="custom-admonition info">
+                                    <p>
+                                        Plusieurs raisons expliquent pourquoi différents projets peuvent nécessiter
+                                        différentes versions
+                                        d'une même bibliothèque :
+                                    </p>
+                                    <p><strong>Évolution des bibliothèques</strong> : Les bibliothèques populaires comme
+                                        pandas évoluent constamment.
                                         Un projet démarré il y a 4 ans utilisera une version plus ancienne que celle
                                         d'un projet récent.
-                                    </li>
-                                    <li><strong>Compatibilité</strong> : Certains projets peuvent nécessiter une version
-                                        spécifique d'une
-                                        bibliothèque pour fonctionner avec d'autres composants ou pour maintenir la
-                                        stabilité.
-                                    </li>
-                                    <li><strong>Projets hérités</strong> : Vous pourriez reprendre un projet développé
-                                        par quelqu'un
-                                        d'autre qui
+                                    </p>
+                                    <p><strong>Contraintes de compatibilité</strong> : Certains projets peuvent
+                                        nécessiter une version
+                                        spécifique d'une bibliothèque
+                                        pour fonctionner avec d'autres composants ou pour maintenir la stabilité.
+                                    </p>
+                                    <p><strong>Projets existants</strong> : Vous pourriez reprendre un projet développé
+                                        par quelqu'un d'autre qui
                                         utilisait une version spécifique.
-                                    </li>
-                                </ul>
+                                    </p>
+                                </div>
                                 <p>
-                                    C'est précisément pour résoudre ce type de conflit que les environnements virtuels
-                                    ont été créés. Un
-                                    environnement virtuel fonctionne comme un conteneur isolé qui maintient séparées les
-                                    dépendances de
-                                    chaque
-                                    projet. On peut penser à une sorte de machine virtuelle mais uniquement pour Python.
-                                </p>
-                                <p>
-                                    Lorsque vous commencez un nouveau projet, vous créez un environnement virtuel dédié.
-                                    Cet environnement
-                                    contient :
-                                </p>
-                                <ul>
-                                    <li>Sa propre installation Python indépendante</li>
-                                    <li>Un espace isolé où vous installez uniquement les packages nécessaires à ce
-                                        projet spécifique</li>
-                                    <li>Un mécanisme d'activation/désactivation pour basculer facilement entre
-                                        différents projets</li>
-                                </ul>
-                                <p>
-                                    Cette isolation garantit que vous travaillez toujours avec les versions exactes des
-                                    bibliothèques
-                                    requises
-                                    par chaque projet, évitant ainsi les conflits de dépendances et simplifiant
-                                    considérablement la
-                                    gestion de
-                                    vos développements Python.
+                                    Chaque projet a donc son environnement virtuel avec sa propre installation Python et
+                                    ses packages dédiés. L'activation permet de basculer rapidement entre projets sans
+                                    conflits de versions. Reste à savoir : quel outil utiliser pour créer et gérer ces
+                                    environnements ?
                                 </p>
 
-                                <h2>uv : L'outil unifié pour l'écosystème Python moderne</h2>
+                                <h3>uv : L'outil unifié pour l'écosystème Python moderne</h3>
+
                                 <p>
-                                    <strong>uv</strong> révolutionne la gestion des environnements Python en unifiant
+                                    <strong>uv</strong> est un outil développé en Rust, qui révolutionne la gestion des
+                                    environnements Python en unifiant
                                     trois fonctions
                                     critiques :
                                     la gestion des versions Python, la création d'environnements virtuels et la gestion
                                     des dépendances.
                                 </p>
-                                <p>
-                                    Historiquement, les développeurs Python jonglaient entre plusieurs outils
-                                    spécialisés –
-                                    <code>venv</code> +
-                                    <code>pip</code> avec des fichiers <code>requirements.txt</code> pour les besoins
-                                    basiques,
-                                    <code>conda</code>
-                                    pour les environnements complexes incluant des dépendances non‑Python, et
-                                    <code>pyenv</code> pour
-                                    gérer les
-                                    versions de l'interpréteur Python. Cette approche fragmentée imposait la maîtrise de
-                                    syntaxes et
-                                    workflows
-                                    multiples, ralentissant la productivité.
-                                </p>
-                                <p>
-                                    <strong>uv</strong> unifie ces trois composants en une seule solution performante,
-                                    éliminant la
-                                    complexité
-                                    des approches traditionnelles tout en offrant des performances considérablement
-                                    supérieures.
-                                </p>
-                                <p>
-                                    Nous adoptons exclusivement <strong>uv</strong> pour l'ensemble de nos besoins – de
-                                    la gestion des
-                                    versions
-                                    Python à l'installation des dépendances. Cette stratégie simplifie l'outillage tout
-                                    en optimisant les
-                                    performances, un avantage particulièrement crucial dans la section MLOps.
-                                </p>
 
-                                <h2>uv : Création d’un environnement virtuel</h2>
-                                <p>
-                                    <strong>uv</strong> est un outil développé en Rust, qui combine plusieurs
-                                    fonctionnalités :
-                                </p>
-                                <ul>
-                                    <li>Gestionnaire de paquets : Alternative à pip, 10–100× plus rapide</li>
-                                    <li>Gestionnaire d'environnements virtuels : Remplace venv avec la même simplicité
-                                    </li>
-                                    <li>Résolveur de dépendances : Évite intelligemment les conflits</li>
-                                </ul>
                                 <p>
                                     Ses principaux avantages sont sa vitesse d'installation, sa compatibilité avec
                                     l'écosystème Python
@@ -685,34 +559,91 @@
                                     pyenv+pyenv-virtualenv, conda ou pipenv) tout en restant compatible avec
                                     l'écosystème Python existant.
                                 </p>
+                                <p>
+                                    Historiquement, les développeurs Python jonglaient entre plusieurs outils
+                                    spécialisés –
+                                    <code>venv</code> +
+                                    <code>pip</code> avec des fichiers <code>requirements.txt</code> pour les besoins
+                                    basiques,
+                                    <code>conda</code>
+                                    pour les environnements complexes incluant des dépendances non‑Python, et
+                                    <code>pyenv</code> pour
+                                    gérer les
+                                    versions de l'interpréteur Python. Cette approche fragmentée imposait la
+                                    connaissance de
+                                    syntaxes et
+                                    workflows
+                                    multiples, ralentissant la productivité.
+                                </p>
+                                <p>
+                                    Je vous recommande donc d'utiliser exclusivement <strong>uv</strong> pour l'ensemble
+                                    de nos besoins, de
+                                    la gestion des
+                                    versions
+                                    Python à l'installation des dépendances.
+                                </p>
 
-                                <p>Voici un récapitulatif pour créer un environnement virtuel avec uv sur macOS et
-                                    Linux/WSL2 :</p>
+                                <h3>uv : Création d’un environnement virtuel</h3>
+
+                                <p>Voici un récapitulatif pour créer un environnement virtuel avec <strong>uv</strong>
+                                    sur macOS et Linux/WSL2 :</p>
+
+                                <h5>1. Installation de uv</h5>
                                 <div class="highlight highlight-bash">
                                     <pre>
-# 1. Installation de uv
+# Méthode recommandée
 curl -sSf https://install.ultraviolet.rs | sh
+
 # Alternative sur macOS
-brew install uv
-
-# 2. Création d'un environnement virtuel
-uv venv               # par défaut .venv
-uv venv -p 3.11 .venv # spécifier Python 3.11
-uv venv mon_projet_env
-
-# 3. Activation de l'environnement
-source .venv/bin/activate
-# OU
-source mon_projet_env/bin/activate
-
-# 4. Installation de paquets / synchronisation
-uv sync --all-extras          # synchronise selon pyproject.toml
-uv pip install -r requirements.txt
-
-# 5. Désactivation
-deactivate
-      </pre>
+brew install uv</pre>
                                 </div>
+
+                                <h5>2. Création d'un environnement virtuel</h5>
+                                <div class="highlight highlight-bash">
+                                    <pre>
+# Création avec nom par défaut (.venv)
+uv venv
+
+# Ou avec Python 3.11
+uv venv -p 3.11 .venv
+
+# OU avec un nom personnalisé
+uv venv mon_projet_env</pre>
+                                </div>
+
+                                <h5>3. Activation de l'environnement</h5>
+                                <div class="highlight highlight-bash">
+                                    <pre>
+# Pour l'environnement par défaut
+source .venv/bin/activate
+
+# OU pour un environnement personnalisé
+source mon_projet_env/bin/activate</pre>
+                                </div>
+
+                                <h5>4. Installation de paquets</h5>
+                                <p>
+                                    La sous-commande <code>sync</code> synchronise l'environnement virtuel actuel avec
+                                    les dépendances spécifiées dans vos fichiers de configuration
+                                    (généralement <code>pyproject.toml</code> ou <code>requirements.txt</code>).
+                                    L'option <code>--all-extras</code> indique à <strong>uv</strong>
+                                    d'installer toutes les dépendances optionnelles définies dans votre fichier de
+                                    configuration.
+                                </p>
+                                <div class="highlight highlight-bash">
+                                    <pre>
+uv sync --all-extras
+                                
+# Ou depuis un fichier requirements.txt
+uv pip install -r requirements.txt</pre>
+                                </div>
+
+                                <h5>5. Désactivation quand vous avez terminé</h5>
+                                <div class="highlight highlight-bash">
+                                    <pre>
+deactivate</pre>
+                                </div>
+
 
                                 <h2>Points clés à retenir</h2>
                                 <ul>

@@ -57,17 +57,13 @@
   <script src="_static/togglebutton.js?v=4a39c7ea"></script>
   <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
   <script src="_static/design-tabs.js?v=f930bc37"></script>
-  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-  <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-  <script>DOCUMENTATION_OPTIONS.pagename = 'content';</script>
   <link rel="icon" href="_static/logo.png" />
   <link rel="index" title="Index" href="genindex.html" />
   <link rel="search" title="Search" href="search.html" />
   <link rel="stylesheet" href="_static/custom.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en" />
+  <link rel="stylesheet" type="text/css" href="_static/styles/style.css">
 
 </head>
 
@@ -112,43 +108,16 @@
   <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
   </header>
 
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-
-
-
-
-
       <div class="bd-sidebar-primary bd-sidebar">
-
-
-
         <div class="sidebar-header-items sidebar-primary__section">
-
-
-
-
         </div>
 
         <div class="sidebar-primary-items__start sidebar-primary__section">
           <div class="sidebar-primary-item">
 
-
-
-
-
             <a class="navbar-brand logo" href="intro.html">
-
-
-
-
-
-
-
-
-
-
               <img src="_static/logo.png" class="logo__image only-light" alt="le_stack_du_data_pro - Home" />
               <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
 
@@ -412,8 +381,7 @@
 
             <article class="bd-article">
               <section id="gestion-versions-packaging-python">
-                <h1>5. Gestion des versions et packaging Python<a class="headerlink"
-                    href="#gestion-versions-packaging-python">#</a></h1>
+                <h1>Gestion des versions et packaging 📦</h1>
 
                 <p>
                   Dans le monde du développement logiciel, il est essentiel de communiquer clairement l'ampleur et la
@@ -437,23 +405,22 @@
                 <p>
                   Dans cette section, nous allons explorer le versioning sémantique (semantic versioning), l'une des
                   approches
-                  les plus répandues et efficaces pour structurer les versions de logiciels. Cette méthode offre un
+                  les plus répandues pour structurer les versions de logiciels. Cette méthode offre un
                   cadre commun
-                  pour comprendre immédiatement l'impact potentiel d'une mise à jour sur la compatibilité et la
+                  pour comprendre l'impact potentiel d'une mise à jour sur la compatibilité et la
                   stabilité d'une
                   application.
                 </p>
 
-                <h2>Format du versioning sémantique</h2>
+                <h3>Format du versioning sémantique</h3>
                 <p>
                   Vous avez sûrement déjà rencontré de nombreux exemples de versioning sémantique sans le savoir. Ce
-                  système suit
-                  un format très simple et reconnaissable : exactement trois nombres séparés par des points :
+                  système suit un format très simple et reconnaissable : trois nombres séparés par des points :
                 </p>
                 <ul>
                   <li><code>MAJEUR.MINEUR.CORRECTIF</code></li>
                 </ul>
-                <p>Exemples :</p>
+                <p><u>Exemples :</u></p>
                 <ul>
                   <li>Extensions VS Code : <code>3.5.0</code></li>
                   <li>Bibliothèques Python : <code>2.1.4</code></li>
@@ -466,186 +433,218 @@
                 </p>
                 <p>Selon la spécification officielle (<a href="http://semver.org" target="_blank">semver.org</a>) :</p>
                 <ul>
-                  <li><strong>MAJEUR</strong> : Changements incompatibles avec l'API existante</li>
+                  <li><strong>MAJEUR</strong> : Changements incompatibles (rupture de compatibilité)</li>
                   <li><strong>MINEUR</strong> : Nouvelles fonctionnalités compatibles avec les versions précédentes</li>
                   <li><strong>CORRECTIF</strong> : Corrections de bugs sans nouvelles fonctionnalités</li>
                 </ul>
                 <p>
-                  Durant la phase initiale de développement, on débute souvent en <code>0.1.0</code> et on incrémente le
-                  mineur à
-                  chaque release, signalant un projet en phase active. Le passage à <code>1.0.0</code> marque un jalon
-                  de
-                  stabilité pour la production. La version <code>0.0.0</code> reste réservée aux phases alpha ou
-                  prototypes.
+                  Durant la phase initiale de développement, la gestion des versions suit une approche progressive. Il
+                  est recommandé de débuter avec la version <code>0.1.0</code>, puis d'incrémenter le numéro mineur à
+                  chaque nouvelle
+                  nouvelle version. Cette numérotation débutant par 0 (ex: <code>0.1.0</code>, <code>0.2.5</code>)
+                  signale que le
+                  projet est encore en phase de développement actif.
                 </p>
 
-                <h2>La grande transition : Python 2 vers Python 3</h2>
+                <p>
+                  Le passage à la version <code>1.0.0</code> marque une phase importante : il indique que le logiciel
+                  est suffisamment stable pour une utilisation en production.
+                  Si votre code est déjà déployé dans un environnement de production, il devrait porter au minimum le
+                  numéro de version <code>1.0.0</code>.
+                  Cette convention communique aux utilisateurs que l'API est stable et que les changements futurs
+                  respecteront la rétrocompatibilité.
+                </p>
+                <p>
+                  La version <code>0.0.0</code> est généralement réservée aux aux prototypes, signalant un code
+                  susceptible de subir des modifications importantes.
+                </p>
+
+
+
+
+                <h3>Exemple de version majeure : Python 2 vers Python 3</h3>
                 <p>
                   L'histoire du versionnage en Python offre une leçon importante sur l'impact des changements majeurs.
                   En décembre
-                  2008, Python 3.0.0 a marqué une rupture historique avec Python 2, illustrant parfaitement ce
+                  2008, Python 3.0.0 a marqué une rupture historique avec Python 2, illustrant ce
                   qu'implique un
-                  changement de version majeure selon le versionnage sémantique.
-                </p>
-                <p>Par exemple :</p>
-                <div class="highlight highlight-bash">
-                  <pre>
-                  # Python 2
-                  print "Hello world"
-
-                  # Python 3
-                  print("Hello world")
-                        </pre>
-                </div>
-                <p>
-                  Au-delà de ce simple changement de syntaxe, Python 3 a introduit de profondes modifications
-                  incompatibles qui
-                  ont rendu nécessaire la réécriture de nombreuses bibliothèques. Cette transition a temporairement
-                  divisé la
-                  communauté.
-                </p>
-                <p>
-                  Pour éviter de futurs bouleversements, Python s'appuie sur les Python Enhancement Proposals (PEP), qui
-                  formalisent
-                  le processus de proposition, garantissent l'étude minutieuse des évolutions, préservent la
-                  rétrocompatibilité et
-                  font participer la communauté à chaque décision.
-                </p>
-                <p>
-                  Depuis, chaque version mineure de Python 3 enrichit le langage (type hinting, async/await, f-strings,
-                  dataclasses,
-                  walrus operator…), tout en respectant la compatibilité ascendante. Les versions 3.11 et 3.12 ont même
-                  apporté
-                  jusqu’à 60 % de gain de performance et des messages d’erreur améliorés.
-                </p>
-
-                <h2>La cohérence entre dev et production</h2>
-                <p>
-                  La cohérence des versions Python entre développement et production est cruciale. Des différences même
-                  mineures
-                  (3.11.2 vs 3.11.8) peuvent causer des incompatibilités subtiles, notamment sur des plateformes
-                  spécialisées
-                  comme Databricks.
-                </p>
-                <p><strong>Bonnes pratiques :</strong></p>
-                <ul>
-                  <li>Maintenir une version Python identique sur tous les environnements</li>
-                  <li>Isoler chaque projet dans son propre environnement virtuel</li>
-                  <li>Spécifier clairement les versions requises dans la documentation technique</li>
-                  <li>
-                    <strong>Focus Databricks</strong> : Les runtimes Databricks embarquent des bibliothèques
-                    préoptimisées ; veillez
-                    à la compatibilité exacte pour éviter conflits et comportements imprévisibles.
-                  </li>
-                </ul>
-
-                <h2>Le packaging Python</h2>
-                <p>
-                  Chaque fois que vous exécutez <code>pip install numpy</code>, vous interagissez avec le système de
-                  packaging
-                  Python. Un package est un ensemble cohérent et distributable comprenant :
-                </p>
-                <ol>
-                  <li>Le code Python fonctionnel</li>
-                  <li>Les métadonnées de configuration</li>
-                  <li>Les instructions d'installation</li>
-                </ol>
-                <p>
-                  Le Python Package Index (PyPI) sert de dépôt central : vous y trouvez des archives ZIP avec tout le
-                  nécessaire
-                  pour installer une bibliothèque.
-                </p>
-                <p>
-                  Le packaging repose sur trois piliers fondamentaux :
-                </p>
-                <ul>
-                  <li>
-                    <strong>Distribution simplifiée</strong> : <code>pip install</code> transforme votre code en produit
-                    installable.
-                  </li>
-                  <li>
-                    <strong>Imports clairs</strong> : Fini <code>sys.path</code> et chemins relatifs compliqués ; un
-                    package
-                    structuré permet <code>from mypkg.utils import func</code>.
-                  </li>
-                  <li>
-                    <strong>Reproductibilité</strong> : Des installations identiques quel que soit l’environnement.
-                  </li>
-                </ul>
-                <p>
-                  <strong>Terminologie</strong> :
-                </p>
-                <ul>
-                  <li><strong>Module</strong> : un fichier Python (e.g. <code>my_file.py</code>)</li>
-                  <li><strong>Package</strong> : un dossier avec <code>__init__.py</code> et sous-modules</li>
-                  <li><strong>Distribution package</strong> : l’archive installable via pip</li>
-                </ul>
-                <p>
-                  Une structure moderne inclut : un dossier <code>src/</code> organisé en packages, un
-                  <code>pyproject.toml</code> et un README.
-                </p>
-
-                <h3>Histoire du packaging</h3>
-                <p>
-                  Dans les années 90, Python offrait Distutils, jugé trop complexe ; Setuptools a simplifié l’interface
-                  et introduit
-                  <code>setup.py</code>. Aujourd’hui, des outils modernes comme Poetry, pip-tools et même
-                  <strong>uv</strong>
-                  enrichissent l’écosystème.
-                </p>
-                <p>
-                  Avec <strong>uv</strong>, les workflows courants deviennent ultra-rapides :
+                  changement de version majeure selon le versionnage sémantique. Cette transition a introduit des
+                  modifications incompatibles, comme l'obligation d'utiliser des parenthèses pour la fonction
+                  <code>print</code> :
                 </p>
                 <div class="highlight highlight-bash">
                   <pre>
-uv pip install -e .     # installation en mode dev
-uv pip compile          # génère requirements.lock
-uv pip sync             # synchronise l’environnement
-uv build                # construit le package distribuable
-      </pre>
+# Python 2
+print "Hello world"
+
+# Python 3
+print("Hello world")</pre>
                 </div>
                 <p>
-                  Maîtriser le packaging transforme votre façon de développer et partager votre code, marqueur de
-                  professionnalisme
-                  essentiel pour collaborer dans l’écosystème Python moderne.
+                  Au-delà de ce changement symbolique, Python 3 a apporté des modifications qui ont nécessité la
+                  réécriture de nombreuses bibliothèques. Cette transition difficile a temporairement divisé la
+                  communauté et certains projets ont été abandonnés faute de ressources pour la migration.
                 </p>
+                <p>
+                  Pour éviter de futurs bouleversements et garantir une évolution maîtrisée, Python s'appuie sur le
+                  système des
+                  <strong>Python Enhancement Proposals (PEP)</strong>. Ces documents formalisent le processus de
+                  proposition et
+                  d'adoption de nouvelles fonctionnalités, créant un cadre structuré pour l'évolution du langage.
+                </p>
+                <p>
+                  Le système PEP fonctionne comme un garde-fou qui assure que les nouvelles fonctionnalités sont
+                  minutieusement
+                  étudiées avant leur intégration. La rétrocompatibilité est préservée autant que possible, évitant
+                  ainsi les changements disruptifs comme celle vécue lors du passage de Python 2 à Python 3. Ce
+                  processus assure également l'implication de la communauté dans les décisions importantes et une
+                  documentation complète de chaque changement.
+                </p>
+                <p>
+                  Depuis la stabilisation qui a suivi l'adoption de Python 3, chaque version apporte des améliorations
+                  tout en respectant la rétrocompatibilité. Python <code>3.5</code> et <code>3.6</code> ont modernisé le
+                  langage avec le type hinting, la syntaxe async/await et les f-strings, transformant la façon d'écrire
+                  du code Python.. Les
+                  versions <code>3.7</code> et <code>3.8</code>
+                  ont enrichi l'expressivité du langage avec les dataclasses et l'opérateur walrus
+                  (<code>:=</code>),
+                  simplifiant l'écriture de code.
+                </p>
+
+                <p>
+                  Python <code>3.9</code> et <code>3.10</code> ont introduit de nouveaux opérateurs de fusion pour les
+                  dictionnaires et le pattern matching. Python<code>3.11</code> et <code>3.12</code> ont apporté des
+                  améliorations de
+                  performance
+                  ainsi que des messages d'erreur plus détaillés pour faciliter le débogage.
+                </p>
+                <p>
+                  Ces évolutions illustrent parfaitement l'application du versionnage sémantique : chaque version
+                  mineure enrichit le langage de nouvelles fonctionnalités sans jamais compromettre le code existant,
+                  permettant aux développeurs d'adopter les nouveautés à leur rythme tout en maintenant la stabilité de
+                  leurs projets.
+                </p>
+
+
+
+                <!-- Placez ce HTML là où vous voulez l’admonition -->
+                <div class="custom-admonition info">
+                  <p>
+                    Dans un contexte Ops (MLOps, DevOps, DataOps), la cohérence des versions Python entre les
+                    environnement de développement et de production est importante. Des différences
+                    même
+                    mineures
+                    (<code>3.11.2</code> vs <code>3.11.8</code>) peuvent causer des incompatibilités subtiles, notamment
+                    sur des plateformes cloud.
+                  </p>
+                  <p><strong>Bonnes pratiques :</strong></p>
+                  <ul>
+                    <li>Maintenir une version Python identique sur tous les environnements.</li>
+                    <li>Isoler chaque projet dans son propre environnement virtuel.</li>
+                    <li>Spécifier clairement les versions requises dans la documentation technique.</li>
+                    </li>
+                  </ul>
+                </div>
+
+                <h3>Le packaging Python</h3>
+
+                <p>
+                  Le packaging Python désigne l'ensemble des pratiques et outils permettant de transformer du code en
+                  une distribution installable. Si un module est un fichier Python et une librairie un ensemble de
+                  fonctionnalités, un package est une unité structurée avec métadonnées, dépendances et instructions
+                  d'installation. </p>
+
+                <p>Chaque fois que vous
+                  exécutez <code>pip install &lt;package&gt;</code>, vous interagissez avec le
+                  système de
+                  packaging Python sans nécessairement en comprendre les mécanismes.
+                  Un package regroupe donc du code Python, des métadonnées de configuration et des instructions
+                  d'installation dans un format distribuable. Le <strong>Python Package Index (PyPI)</strong> sert de
+                  référentiel
+                  central, hébergeant ces packages sous forme d'archives ZIP.
+                </p>
+
+                <p>
+                  Le packaging repose sur trois piliers fondamentaux. Premièrement, il offre une distribution
+                  simplifiée en transformant votre code en un produit facilement installable via une simple
+                  commande <code>pip install</code>.
+                  Deuxièmement, il révolutionne la gestion des imports en éliminant les chemins relatifs complexes. Là
+                  où vous deviez auparavant manipuler <code>sys.path</code> et utiliser des imports alambiqués comme
+                  <code>from ../../utils/helpers import function</code>, un package bien structuré permet des imports
+                  clairs.
+                  Troisièmement, et c'est peut-être l'aspect le plus important, le packaging garantit la
+                  reproductibilité en assurant des résultats identiques indépendamment de
+                  l'environnement d'exécution.
+                </p>
+
+                <p>
+                  Pour naviguer dans l'univers du packaging, il est essentiel de comprendre la distinction entre ses
+                  différents composants.
+                  Un module est simplement un fichier Python importable, comme <code>my_file.py</code>.
+                  Un package est un dossier contenant un fichier <code>__init__.py</code> et
+                  potentiellement d'autres modules ou sous-packages.
+                  Cette structure hiérarchique permet d'organiser logiquement le code en unités cohérentes.
+                  Le <strong>distribution package</strong>, quant à lui, représente l'archive installable via
+                  <code>pip</code>, c'est ce que vous téléchargez lorsque vous installez <code>numpy</code>,
+                  <code>pandas</code> ou toute autre bibliothèque depuis PyPI.
+                  Une structure de package moderne et complète comprend généralement un dossier source contenant le code
+                  organisé en packages et sous-packages, chacun avec son fichier <code>__init__.py</code>, ainsi qu'un
+                  fichier <code>pyproject.toml</code> pour la configuration et un README pour la documentation.
+                </p>
+
+                <p>
+                  L'histoire du packaging Python reflète l'évolution de la communauté et ses besoins croissants.
+                  Dans les années 90, Python proposait <strong>Distutils</strong> comme solution native, mais sa
+                  complexité décourageait son adoption.
+                  La communauté a répondu en créant <strong>Setuptools</strong>, un wrapper qui simplifiait
+                  considérablement l'interface tout en introduisant le désormais familier <code>setup.py</code>.
+                  Aujourd'hui, l'écosystème s'est enrichi d'outils modernes comme <strong>Poetry</strong>,
+                  <strong>pip-tools</strong> et plus récemment <strong>uv</strong>, qui simplifient encore davantage la
+                  gestion des dépendances et le packaging.
+                </p>
+
+
+                <!-- Placez ce HTML là où vous voulez l’admonition -->
+                <div class="custom-admonition info">
+                  <p class="custom-admonition-title">💡 Simplification avec uv</p>
+                  <p>
+                    Avec <strong>uv</strong>, les opérations courantes deviennent particulièrement simples.
+                    L'installation en mode développement
+                    se fait via <code>uv pip install -e .</code>, permettant de tester les modifications en temps réel.
+                    La compilation des dépendances avec <code>uv pip compile</code> et la synchronisation de
+                    l'environnement via
+                    <code>uv pip sync</code> assurent une gestion rigoureuse des versions. Enfin, <code>uv build</code>
+                    permet de créer
+                    facilement un package distribuable prêt à être partagé ou déployé.
+                  </p>
+                  <p>
+                    Cette connaissance du packaging transforme la façon dont vous développez et partagez votre code
+                    Python,
+                    marquant la transition
+                    vers un développement professionnel et collaboratif.
+                  </p>
+                </div>
+
+
+                <p>Le packaging Python est une compétence clé pour distribuer du code efficacement et travailler de
+                  manière professionnelle dans l'écosystème Python.</p>
+
+
               </section>
             </article>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <footer class="prev-next-footer d-print-none">
-
               <div class="prev-next-area">
-                <a class="left-prev" href="markdown.html" title="previous page">
+                <a class="left-prev" href="2-personnalisation-terminal.html" title="Page précédente">
                   <i class="fa-solid fa-angle-left"></i>
                   <div class="prev-next-info">
-                    <p class="prev-next-subtitle">previous</p>
-                    <p class="prev-next-title">Markdown Files</p>
+                    <span class="prev-next-subtitle">Précedent</span>
                   </div>
                 </a>
-                <a class="right-next" href="markdown-notebooks.html" title="next page">
+                <a class="right-next" href="4-installation-python.html" title="Page suivante">
                   <div class="prev-next-info">
-                    <p class="prev-next-subtitle">next</p>
-                    <p class="prev-next-title">Notebooks with MyST Markdown</p>
+                    <span class="prev-next-subtitle">Suivant</span>
                   </div>
                   <i class="fa-solid fa-angle-right"></i>
                 </a>

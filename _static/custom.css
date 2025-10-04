@@ -84,8 +84,9 @@ h2 {
     background-color: #e6f7f8;
     border-left: 4px solid #47c0c1;
     border-radius: 0.5rem;
-    padding: 0.7rem 1.1rem;
-    margin: 2rem 0;
+    padding: 0.7rem 1.0rem;
+    margin: 2rem 0 1rem 0 !important;
+    /* Réduit la marge inférieure et force son application */
 }
 
 .custom-admonition-title.info {
