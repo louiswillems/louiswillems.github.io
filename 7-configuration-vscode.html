@@ -57,18 +57,13 @@
   <script src="_static/togglebutton.js?v=4a39c7ea"></script>
   <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
   <script src="_static/design-tabs.js?v=f930bc37"></script>
-  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-  <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-  <script>DOCUMENTATION_OPTIONS.pagename = 'content';</script>
   <link rel="icon" href="_static/logo.png" />
   <link rel="index" title="Index" href="genindex.html" />
   <link rel="search" title="Search" href="search.html" />
   <link rel="stylesheet" href="_static/custom.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en" />
-
+  <link rel="stylesheet" type="text/css" href="_static/styles/style.css">
 </head>
 
 
@@ -107,47 +102,18 @@
   <div class="pst-async-banner-revealer d-none">
     <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
   </div>
-
-
   <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
   </header>
-
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-
-
-
-
-
       <div class="bd-sidebar-primary bd-sidebar">
-
-
-
         <div class="sidebar-header-items sidebar-primary__section">
-
-
-
-
         </div>
 
         <div class="sidebar-primary-items__start sidebar-primary__section">
           <div class="sidebar-primary-item">
 
-
-
-
-
             <a class="navbar-brand logo" href="intro.html">
-
-
-
-
-
-
-
-
-
 
               <img src="_static/logo.png" class="logo__image only-light" alt="le_stack_du_data_pro - Home" />
               <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
@@ -246,13 +212,9 @@
         </div>
 
         <div id="rtd-footer-container"></div>
-
-
       </div>
 
       <main id="main-content" class="bd-main" role="main">
-
-
 
         <div class="sbt-scroll-pixel-helper"></div>
 
@@ -303,9 +265,6 @@
                             </a>
                           </li>
 
-
-
-
                           <li><a
                               href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
                               target="_blank" class="btn btn-sm btn-source-issues-button dropdown-item"
@@ -321,11 +280,6 @@
 
                         </ul>
                       </div>
-
-
-
-
-
 
                       <div class="dropdown dropdown-download-buttons">
                         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -348,9 +302,6 @@
                             </a>
                           </li>
 
-
-
-
                           <li>
                             <button onclick="window.print()" class="btn btn-sm btn-download-pdf-button dropdown-item"
                               title="Print to PDF" data-bs-placement="left" data-bs-toggle="tooltip">
@@ -366,9 +317,6 @@
                         </ul>
                       </div>
 
-
-
-
                       <button onclick="toggleFullScreen()" class="btn btn-sm btn-fullscreen-button"
                         title="Fullscreen mode" data-bs-placement="bottom" data-bs-toggle="tooltip">
 
@@ -378,8 +326,6 @@
                         </span>
 
                       </button>
-
-
 
                       <script>
                         document.write(`
@@ -413,7 +359,7 @@
             <article class="bd-article">
 
               <section id="configuration-vscode">
-                <h1>7. Configuration VS Code<a class="headerlink" href="#configuration-vscode">#</a></h1>
+                <h1>Configuration VS Code</h1>
 
                 <p>Nous allons maintenant configurer VS Code spécifiquement pour Python.</p>
 
@@ -422,11 +368,10 @@
                   l'éditeur provient de son écosystème d'extensions qui permet d'ajouter progressivement les outils
                   spécialisés selon vos besoins de développement.</p>
 
-                <p>Pour Python, nous transformerons VS Code en environnement de développement complet grâce à des
-                  extensions ciblées.</p>
-
-                <p>Pour installer des extensions dans VS Code, vous devez accéder à la section Extensions en suivant ces
-                  étapes:</p>
+                <p>Pour Python, nous transformerons VS Code en environnement de développement professionnel grâce à
+                  certaines extensions. Pour installer des extensions dans VS Code, vous devez accéder à la section
+                  <strong>Extensions</strong> en suivant les étapes ci-dessous :
+                </p>
                 <ol>
                   <li>Ouvrez Visual Studio Code</li>
                   <li>Cliquez sur l'icône Extensions dans la barre d'activité latérale (ou utilisez le raccourci
@@ -437,7 +382,8 @@
                 </ol>
 
                 <p>La recherche d'extensions est sensible à la casse, donc assurez-vous d'utiliser exactement les noms
-                  mentionnés comme "Markdown All in One" ou "ESLint" pour trouver l'extension officielle. Vérifiez
+                  mentionnés comme "Markdown All in One" ou "GitHub Actions" pour trouver l'extension officielle.
+                  Vérifiez
                   également le nombre de téléchargements et les évaluations pour vous assurer de choisir des extensions
                   fiables et bien maintenues.</p>
 
@@ -445,7 +391,7 @@
                   nécessiter une configuration supplémentaire accessible via les paramètres de VS Code. Téléchargez les
                   extension suivantes:</p>
 
-                <h2>Extensions essentielles :</h2>
+                <h5>Extensions essentielles :</h5>
                 <ul>
                   <li><strong>Python</strong> : Extension officielle Microsoft offrant un support complet pour le
                     développement Python, incluant l'autocomplétion, le linting et le débogage.</li>
@@ -455,7 +401,7 @@
                     conventions.</li>
                 </ul>
 
-                <h2>Édition de fichiers :</h2>
+                <h5>Édition de fichiers :</h5>
                 <ul>
                   <li><strong>Markdown All in One</strong> : Suite complète d'outils pour l'édition Markdown incluant
                     l'aperçu en temps réel et la génération de tables des matières. (Ctrl + Shift + V (Open Preview)).
@@ -467,73 +413,27 @@
                   <li><strong>YAML</strong> : Coloration syntaxique et validation pour les fichiers YAML.</li>
                 </ul>
 
-                <h2>Extensions Ops :</h2>
+                <h5>Extensions Ops :</h5>
                 <ul>
-                  <li><strong>Databricks</strong> : L'extension Databricks permet de développer et déployer du code
-                    directement depuis VS Code vers vos environnements Databricks cloud.</li>
                   <li><strong>ipython</strong> : Utilisé pour la lecture des Notebooks dans VS Code.</li>
-                  <li><strong>Azure repos</strong> : Intégration avec les dépôts Git Azure DevOps.</li>
                 </ul>
-
-                <h2>Ressources complémentaires</h2>
-                <ul>
-                  <li><a href="" target="_blank">article1</a></li>
-                  <li><a href="" target="_blank">article2</a></li>
-                </ul>
+                </footer>
 
               </section>
 
             </article>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <footer class="prev-next-footer d-print-none">
-
               <div class="prev-next-area">
-                <a class="left-prev" href="markdown.html" title="previous page">
+                <a class="left-prev" href="5-gestion-version-et-packaging-python.html" title="Page précédente">
                   <i class="fa-solid fa-angle-left"></i>
                   <div class="prev-next-info">
-                    <p class="prev-next-subtitle">previous</p>
-                    <p class="prev-next-title">Markdown Files</p>
+                    <span class="prev-next-subtitle">Précedent</span>
                   </div>
                 </a>
-                <a class="right-next" href="markdown-notebooks.html" title="next page">
+                <a class="right-next" href="7-configuration-vscode.html" title="Page suivante">
                   <div class="prev-next-info">
-                    <p class="prev-next-subtitle">next</p>
-                    <p class="prev-next-title">Notebooks with MyST Markdown</p>
+                    <span class="prev-next-subtitle">Suivant</span>
                   </div>
                   <i class="fa-solid fa-angle-right"></i>
                 </a>

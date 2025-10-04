@@ -57,17 +57,13 @@
   <script src="_static/togglebutton.js?v=4a39c7ea"></script>
   <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
   <script src="_static/design-tabs.js?v=f930bc37"></script>
-  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-  <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-  <script>DOCUMENTATION_OPTIONS.pagename = 'content';</script>
   <link rel="icon" href="_static/logo.png" />
   <link rel="index" title="Index" href="genindex.html" />
   <link rel="search" title="Search" href="search.html" />
   <link rel="stylesheet" href="_static/custom.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en" />
+  <link rel="stylesheet" type="text/css" href="_static/styles/style.css">
 
 </head>
 
@@ -115,43 +111,16 @@
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-
-
-
-
-
       <div class="bd-sidebar-primary bd-sidebar">
-
-
-
         <div class="sidebar-header-items sidebar-primary__section">
-
-
-
-
         </div>
 
         <div class="sidebar-primary-items__start sidebar-primary__section">
           <div class="sidebar-primary-item">
-
-
-
-
-
             <a class="navbar-brand logo" href="intro.html">
-
-
-
-
-
-
-
-
-
 
               <img src="_static/logo.png" class="logo__image only-light" alt="le_stack_du_data_pro - Home" />
               <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
-
 
             </a>
           </div>
@@ -241,18 +210,13 @@
           </div>
         </div>
 
-
         <div class="sidebar-primary-items__end sidebar-primary__section">
         </div>
 
         <div id="rtd-footer-container"></div>
 
-
       </div>
-
       <main id="main-content" class="bd-main" role="main">
-
-
 
         <div class="sbt-scroll-pixel-helper"></div>
 
@@ -271,16 +235,11 @@
 
                 </div>
 
-
                 <div class="header-article-items__end">
 
                   <div class="header-article-item">
 
                     <div class="article-header-buttons">
-
-
-
-
 
                       <div class="dropdown dropdown-source-buttons">
                         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -303,9 +262,6 @@
                             </a>
                           </li>
 
-
-
-
                           <li><a
                               href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
                               target="_blank" class="btn btn-sm btn-source-issues-button dropdown-item"
@@ -321,11 +277,6 @@
 
                         </ul>
                       </div>
-
-
-
-
-
 
                       <div class="dropdown dropdown-download-buttons">
                         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -348,9 +299,6 @@
                             </a>
                           </li>
 
-
-
-
                           <li>
                             <button onclick="window.print()" class="btn btn-sm btn-download-pdf-button dropdown-item"
                               title="Print to PDF" data-bs-placement="left" data-bs-toggle="tooltip">
@@ -366,20 +314,14 @@
                         </ul>
                       </div>
 
-
-
-
                       <button onclick="toggleFullScreen()" class="btn btn-sm btn-fullscreen-button"
                         title="Fullscreen mode" data-bs-placement="bottom" data-bs-toggle="tooltip">
-
 
                         <span class="btn__icon-container">
                           <i class="fas fa-expand"></i>
                         </span>
 
                       </button>
-
-
 
                       <script>
                         document.write(`
@@ -408,28 +350,26 @@
               </div>
             </div>
 
-
-
             <article class="bd-article">
 
               <section id="utilisation-git">
-                <h1>9. Utilisation Git<a class="headerlink" href="#utilisation-git">#</a></h1>
+                <h1>Utilisation Git 🗃️</h1>
                 <blockquote>« Tout devrait être rendu aussi simple que possible, mais pas plus simple »<br>— Albert
                   Einstein</blockquote>
 
                 <p>Git fonctionne nativement en ligne de commande sur votre machine locale, mais sa véritable puissance
                   se révèle lorsque vous synchronisez votre code avec des plateformes d'hébergement cloud telles que
-                  GitHub, GitLab, Bitbucket ou Azure Repos (notre cas !).</p>
+                  GitHub, GitLab, Bitbucket ou Azure Repos.</p>
 
                 <p>Lorsque votre code est hébergé sur ces plateformes, on parle de dépôt distant (ou remote). Ce dépôt
-                  distant devient le référentiel centralisé accessible à toute l'équipe depuis le cloud.</p>
+                  distant devient le référentiel centralisé accessible depuis le cloud.</p>
 
-                <p>Bien que Git opère localement via la ligne de commande, les plateformes d'hébergement Git comme Azure
-                  Repos étendent ses capacités en stockant les différents projets dans le cloud. Ces services
-                  transforment les dépôts locaux en dépôts distants collaboratifs, enrichis de fonctionnalités d'équipe
-                  et d'outils CI/CD intégrés.</p>
+                <p>Bien que Git opère localement via la ligne de commande, les plateformes d'hébergement Git comme
+                  GitHub étendent ses capacités en stockant les différents projets dans le cloud. Ces services
+                  transforment les dépôts locaux en dépôts distants collaboratifs, enrichis de fonctionnalités et
+                  d'outils CI/CD intégrés.</p>
 
-                <h2>Organisation de l'espace de travail</h2>
+                <h3>Organisation de l'espace de travail</h3>
                 <p>Avant d'utiliser Git, organisez votre espace de travail en créant un répertoire dédié qui
                   centralisera tous vos projets versionnés. Créez un dossier nommé "repos" sur votre machine. Ce
                   répertoire principal hébergera l'ensemble de vos dépôts Git locaux, facilitant ainsi la navigation
@@ -439,45 +379,79 @@
                   <pre>
 # Création d'un dossier "repos"
 mkdir repos
+
 # Aller dans "repos"
-cd repos
-    </pre>
+cd repos</pre>
                 </div>
 
-                <p>Pour transformer n'importe quel dossier en dépôt Git fonctionnel, utilisez la commande git init.
-                  Cette opération fondamentale va créer l'infrastructure de versionnement en générant un répertoire
+                <p>Pour transformer n'importe quel dossier en dépôt Git fonctionnel, utilisez la commande
+                  <code>git init</code>.
+                  Cette opération va créer l'infrastructure de versionnement en générant un répertoire
                   caché .git qui contient toute la mécanique Git : historique des commits, configuration locale,
-                  références des branches, et métadonnées du projet.</p>
+                  références des branches, et métadonnées du projet.
+                </p>
+
+
+                <p>Il est, cependant, important de comprendre que <code>git init</code> doit être exécuté dans chaque
+                  projet
+                  individuel, et non dans le dossier "repos". Le répertoire "repos" n'est qu'un conteneur
+                  organisationnel, comme un classeur qui regroupe plusieurs projets. Ainsi, chaque projet
+                  doit avoir son propre système de versioning indépendant.</p>
 
                 <div class="highlight highlight-bash">
                   <pre>
 # Aller dans repos
 cd ~/repos
+
 # Créer un nouveau projet
 mkdir mon-projet-python
+
 cd mon-projet-python
 # Initialiser Git DANS le projet
-git init
-    </pre>
+git init</pre>
                 </div>
 
-                <p>On peut vérifier l’existence du fichier caché avec la commande ls –a :</p>
+                <p>L'exécution de <code>git init</code> marque le début du suivi de version pour ce dossier. À partir de
+                  ce moment,
+                  Git peut enregistrer et gérer toutes les modifications apportées aux fichiers de ce répertoire.</p>
+
+                <p>On peut vérifier l’existence du fichier caché avec la commande :</p>
                 <div class="highlight highlight-bash">
                   <pre>ls -a</pre>
                 </div>
 
-                <h2>Configuration de l'identité utilisateur</h2>
+                <p>Cette commande affichera le répertoire <code>.git</code> nouvellement créé, preuve que votre dossier
+                  est
+                  maintenant sous contrôle de version Git.
+                <p>
+
+                <h3>Configuration de l'identité utilisateur</h3>
                 <p>Avec votre dépôt Git maintenant initialisé, vous disposez de l'infrastructure nécessaire pour
                   versionner votre code. Cependant, avant de créer votre premier commit, Git a besoin de savoir qui vous
                   êtes. Cette identification constitue la base de la traçabilité et de la collaboration dans tout projet
                   versionné.</p>
 
+                <p>Chaque commit dans Git est signé avec les informations de son auteur. Cette signature permet de
+                  tracer qui a effectué quelles modifications et quand, essentiel pour la collaboration et l'audit de
+                  code.</p>
+
+                <p>Les paramètres <code>--global</code> s'appliquent à tous vos projets Git sur votre machine, évitant
+                  de reconfigurer ces informations pour chaque nouveau dépôt.</p>
+
                 <div class="highlight highlight-bash">
                   <pre>
 git config --global user.name "Votre Nom Complet"
-git config --global user.email "votre.email@radio-canada.ca"
-    </pre>
+
+git config --global user.email "votre@email.com"</pre>
                 </div>
+
+                <p>Pour maintenir une identité cohérente et professionnelle dans vos projets Git utilisez
+                  systématiquement votre nom complet tel qu'il apparaît dans les documents officiels de votre
+                  organisation, garantissant ainsi une identification claire et uniforme. Pour les projets d'entreprise,
+                  privilégiez toujours votre adresse email professionnelle, ce qui facilite la communication et renforce
+                  la traçabilité organisationnelle. Enfin, veillez à conserver une orthographe identique de votre nom à
+                  travers tous vos projets et contributions, évitant les variations qui pourraient fragmenter votre
+                  historique de commits et compliquer les recherches futures.</p>
 
                 <p>Validez que votre configuration a été correctement enregistrée en consultant les paramètres globaux :
                 </p>
@@ -485,182 +459,207 @@ git config --global user.email "votre.email@radio-canada.ca"
                   <pre>git config --global --list</pre>
                 </div>
 
-                <h2>Processus de sauvegarde</h2>
+                <h3>Utilisation de Git</h3>
                 <p>Une fois votre configuration terminée, passons à l'utilisation concrète de Git. L'étape suivante
                   consiste à comprendre comment sauvegarder efficacement vos modifications en utilisant le système
                   unique de Git qui sépare la préparation des fichiers de leur validation définitive.</p>
 
-                <h3>1. Zone de staging : préparez vos changements</h3>
+                <p>Git utilise un workflow en deux phases pour enregistrer vos modifications : la zone de staging
+                  (préparation) puis le commit (validation définitive). Cette approche vous permet de contrôler
+                  précisément quelles modifications inclure dans chaque sauvegarde.</p>
+
+                <h5>1. Zone de staging : préparez vos changements</h5>
                 <p>La zone de staging est comme une "salle d'attente" où vous rassemblez les modifications avant de les
                   sauvegarder définitivement. Cette étape intermédiaire vous permet de choisir précisément ce qui sera
                   inclus dans votre prochain commit.</p>
 
                 <div class="highlight highlight-bash">
                   <pre>
-git add contact.html
-git add styles/contact.css
-    </pre>
+git add exemple.html</pre>
                 </div>
+                <p>Cette approche vous permet de créer des commits logiques en regroupant les fichiers liés.</p>
 
-                <p>Ajout global (avec prudence) :</p>
+                <p>Ajout de tous les fichiers (à utiliser avec précaution) :</p>
                 <div class="highlight highlight-bash">
                   <pre>git add .</pre>
                 </div>
 
-                <h3>2. Commit : sauvegardez définitivement</h3>
+                <p>Utilisez <code>git status</code> pour vérifier ce qui est en staging avant de commiter
+                  (d'enregister les modifications).
+
+                <h5>2. Commit : sauvegardez définitivement</h5>
                 <p>Le commit transforme les fichiers en staging en un point de sauvegarde permanent dans l'historique.
                 </p>
                 <div class="highlight highlight-bash">
-                  <pre>git commit -m "Ajoute formulaire de contact avec validation email"</pre>
+                  <pre>git commit -m "Ajout formulaire de contact avec validation email"</pre>
                 </div>
 
-                <h2>Commandes Git essentielles</h2>
-                <p>Dans 90 % des situations, ces 5 commandes couvriront presque tous vos besoins :</p>
+
+                <div class="custom-admonition info">
+                  <p class="custom-admonition-title">💡 Bonnes pratiques pour les messages de commit</p>
+                  <p>
+                    Un bon message de commit explique le changement. Il doit répondre au "pourquoi" :
+                  </p>
+                  <p><strong>✅ Messages recommandés :</strong></p>
+                  <ul>
+                    <li>
+                      <em>"Optimise les requêtes SQL pour réduire le temps de chargement"</em>
+                    </li>
+                    <li><em>"Ajoute validation du modèle en production"</em></li>
+                  </ul>
+                  <p><strong>❌ Messages à éviter :</strong></p>
+                  <ul>
+                    <li><em>"correctifs"</em></li>
+                    <li><em>"changements divers"</em></li>
+                  </ul>
+                  <p>
+                    Écrivez vos messages comme des ordres : <em>"Ajoute", "Corrige", "Supprime"</em>. Pourquoi ? Car Git
+                    lui-même utilise ce style :
+                    <em>"Merge branch..."</em>, <em>"Revert commit..."</em>.
+                  </p>
+                  <p>
+                    Si vous devez utiliser "et" dans votre message, c'est probablement que votre commit fait trop de
+                    choses. Divisez-le !
+                  </p>
+                </div>
+
+                <h3>Commandes Git essentielles</h3>
+
+                <p>Vous connaissez désormais le processus de sauvegarde et les commandes Git essentielles. Bien que Git
+                  propose des dizaines de commandes, vous n'utiliserez au quotidien qu'un petit ensemble d'entre elles.
+                  Ces 5 commandes constituent votre point de départ avec Git :
+                </p>
                 <ul>
-                  <li><strong>git status</strong> – Votre tableau de bord</li>
+                  <li><code>git status</code> – Votre tableau de bord</li>
                 </ul>
                 <div class="highlight highlight-bash">
                   <pre>git status</pre>
                 </div>
 
+                <p>Cette commande affiche l'état actuel de votre dépôt : fichiers modifiés,
+                  ajouts en attente, et position par rapport à la branche distante. Utilisez-la fréquemment pour garder
+                  une vue claire de votre travail.</p>
+
                 <ul>
-                  <li><strong>git add</strong> – Sélectionner vos changements</li>
+                  <li><code>git add</code> – Sélectionner vos changements</li>
                 </ul>
                 <div class="highlight highlight-bash">
                   <pre>
-git add fichier.py
-git add src/  # Ajouter un dossier entier
-    </pre>
+git add exemple.py</pre>
                 </div>
 
+                <p>Cette commande choisit précisément quels fichiers inclure dans votre prochain commit.</p>
+
                 <ul>
-                  <li><strong>git commit</strong> – Sauvegarder définitivement</li>
+                  <li><code>git commit</code> – Sauvegarder définitivement</li>
                 </ul>
                 <div class="highlight highlight-bash">
-                  <pre>git commit -m "Ajoute validation des données utilisateur"</pre>
+                  <pre>git commit -m "Ajout validation des données"</pre>
                 </div>
 
+                <p>Transforme vos modifications sélectionnées en un point de sauvegarde permanent. Le message doit
+                  expliquer le "pourquoi" du changement.</p>
+
                 <ul>
-                  <li><strong>git pull</strong> – Synchroniser avec l'équipe</li>
+                  <li><code>git pull</code> – Récupérer les modifications du dépôt distant</li>
                 </ul>
                 <div class="highlight highlight-bash">
                   <pre>git pull origin main</pre>
                 </div>
+                <p>Récupère et intègre les modifications du dépôt à distance. Exécutez cette commande régulièrement pour
+                  éviter les conflits majeurs.</p>
 
                 <ul>
-                  <li><strong>git push</strong> – Partager votre travail</li>
+                  <li><code>git push</code> – Intégrer les modifications distantes</li>
                 </ul>
                 <div class="highlight highlight-bash">
                   <pre>git push origin main</pre>
                 </div>
 
-                <h3>Enrichissement du workflow</h3>
-                <div class="highlight highlight-bash">
-                  <pre>
-git branch                 # Liste toutes les branches locales
-git branch -d feature-login  # Supprime une branche fusionnée
-git checkout -b nouvelle-feature  # Crée et bascule sur une nouvelle branche
-git switch main           # Changer de branche
-    </pre>
-                </div>
-                <div class="highlight highlight-bash">
-                  <pre>
-git log --oneline
-git log --graph
-git diff
-    </pre>
-                </div>
-                <div class="highlight highlight-bash">
-                  <pre>
-git merge feature-branch
-git rebase main
-git stash
-    </pre>
+                <p>Envoie vos commits locaux vers le dépôt partagé, rendant le code accessible dans le dépôt distant.
+                </p>
+
+                <div class="custom-admonition info">
+                  <p class="custom-admonition-title">Commandes Git avancées</p>
+                  <p>Une fois à l'aise avec les bases, ces commandes enrichiront votre workflow :</p>
+
+                  <p><strong>Gestion des branches :</strong></p>
+                  <ul>
+                    <li><code>git branch</code> : Liste toutes les branches locales</li>
+                    <li><code>git branch -d feature-login</code> : Supprime une branche fusionnée</li>
+                    <li><code>git checkout -b nouvelle-feature</code> : Crée et bascule sur une nouvelle branche</li>
+                    <li><code>git switch main</code> ou <code>git checkout</code> : Méthodes pour changer de branche
+                    </li>
+                  </ul>
+
+                  <p><strong>Navigation et historique :</strong></p>
+                  <ul>
+                    <li><code>git log --oneline</code> : Affiche l'historique de manière compacte</li>
+                    <li><code>git log --graph</code> : Visualise l'arbre des commits</li>
+                    <li><code>git diff</code> : Montre les modifications non commitées</li>
+                  </ul>
+
+                  <p><strong>Collaboration avancée :</strong></p>
+                  <ul>
+                    <li><code>git merge feature-branch</code> : Intègre une branche dans la branche courante</li>
+                    <li><code>git rebase main</code> : Réapplique vos commits sur une base mise à jour</li>
+                    <li><code>git stash</code> : Met temporairement de côté vos modifications</li>
+                  </ul>
                 </div>
 
-                <h2>Bonnes pratiques pour un workflow efficace</h2>
+                <h3>Git au quotidien : bonnes pratiques</h3>
                 <p>Chaque commit doit représenter une seule unité logique de changement. Au lieu d'un commit géant
                   "Refonte complète du module", préférez plusieurs commits ciblés :</p>
                 <ul>
-                  <li>"Extrait la logique de validation dans une fonction séparée"</li>
-                  <li>"Ajoute tests unitaires pour le validateur"</li>
-                  <li>"Optimise les performances de la validation"</li>
+                  <li><em>"Extrait la logique de validation dans une fonction séparée"</em></li>
+                  <li><em>"Ajout tests unitaires pour le validateur"</em></li>
+                  <li><em>"Optimise les performances de la validation"</em></li>
                 </ul>
-                <p>Une routine de travail structurée avec Git permet de collaborer efficacement tout en maintenant un
+                <p>Si vous travaillez en équipe, une routine de travail structurée avec Git permet de collaborer
+                  efficacement tout en maintenant un
                   historique propre et compréhensible. Commencez chaque session par un <code>git pull</code> afin de
                   synchroniser votre environnement avec les dernières modifications du projet. Ensuite, concentrez-vous
                   sur une fonctionnalité précise et utilisez régulièrement <code>git status</code> pour suivre l’état de
                   vos fichiers. Commitez vos changements par petites étapes cohérentes, chacune représentant une action
                   logique. Une fois le travail terminé, utilisez <code>git push</code> pour partager vos contributions
                   avec l’équipe.</p>
-                <p>Git excelle en versionnement local, mais sa vraie puissance émerge dans la collaboration cloud. Les
-                  plateformes d'hébergement – GitHub, GitLab, Azure Repos, Bitbucket – transforment votre travail
-                  individuel en environnement collaboratif.</p>
+
+                <p>Cette approche méthodique réduit les risques de conflits, facilite les revues de code et améliore la
+                  lisibilité du projet dans le temps. Gardez en tête que Git n’est pas seulement un outil de
+                  versionnement : c’est aussi un moyen de communication. Vos commits racontent l’évolution du projet aux
+                  autres développeurs.</p>
+
                 <p>Avant d'explorer les git remote et workflows collaboratifs, consultez ces aide-mémoires :</p>
                 <ul>
-                  <li>Aide-mémoire GitHub : Référence visuelle complète</li>
-                  <li>Aide-mémoire Azure DevOps : Adapté à notre environnement</li>
+                  <li>
+                    <a href="https://training.github.com/downloads/fr/github-git-cheat-sheet.pdf" target="_blank"
+                      rel="noopener noreferrer">
+                      Aide-mémoire GitHub : Référence visuelle complète
+                    </a>
+                  </li>
                 </ul>
-                <p>Prochaine étape : Transformation de votre maîtrise Git locale en workflows collaboratifs via les
+
+                <p>Conseil : Parcourez ces documents pour identifier les commandes inconnues et créer votre roadmap
+                  d'approfondissement personnel.</p>
+
+                <p>Prochaine étape : Transformation de votre connaissance Git locale en workflows collaboratifs via les
                   dépôts distants.</p>
 
               </section>
 
             </article>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <footer class="prev-next-footer d-print-none">
-
               <div class="prev-next-area">
-                <a class="left-prev" href="markdown.html" title="previous page">
+                <a class="left-prev" href="8-installation-git.html" title="Page précédente">
                   <i class="fa-solid fa-angle-left"></i>
                   <div class="prev-next-info">
-                    <p class="prev-next-subtitle">previous</p>
-                    <p class="prev-next-title">Markdown Files</p>
+                    <span class="prev-next-subtitle">Précedent</span>
                   </div>
                 </a>
-                <a class="right-next" href="markdown-notebooks.html" title="next page">
+                <a class="right-next" href="10-git-local-vers-git-collaboratif.html" title="Page suivante">
                   <div class="prev-next-info">
-                    <p class="prev-next-subtitle">next</p>
-                    <p class="prev-next-title">Notebooks with MyST Markdown</p>
+                    <span class="prev-next-subtitle">Suivant</span>
                   </div>
                   <i class="fa-solid fa-angle-right"></i>
                 </a>

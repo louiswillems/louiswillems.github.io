@@ -57,17 +57,13 @@
   <script src="_static/togglebutton.js?v=4a39c7ea"></script>
   <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
   <script src="_static/design-tabs.js?v=f930bc37"></script>
-  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-  <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-  <script>DOCUMENTATION_OPTIONS.pagename = 'content';</script>
   <link rel="icon" href="_static/logo.png" />
   <link rel="index" title="Index" href="genindex.html" />
   <link rel="search" title="Search" href="search.html" />
   <link rel="stylesheet" href="_static/custom.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en" />
+  <link rel="stylesheet" type="text/css" href="_static/styles/style.css">
 
 </head>
 
@@ -108,47 +104,20 @@
     <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
   </div>
 
-
   <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
   </header>
-
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
 
-
-
-
-
       <div class="bd-sidebar-primary bd-sidebar">
 
-
-
         <div class="sidebar-header-items sidebar-primary__section">
-
-
-
-
         </div>
 
         <div class="sidebar-primary-items__start sidebar-primary__section">
           <div class="sidebar-primary-item">
-
-
-
-
-
             <a class="navbar-brand logo" href="intro.html">
-
-
-
-
-
-
-
-
-
-
               <img src="_static/logo.png" class="logo__image only-light" alt="le_stack_du_data_pro - Home" />
               <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
 
@@ -252,8 +221,6 @@
 
       <main id="main-content" class="bd-main" role="main">
 
-
-
         <div class="sbt-scroll-pixel-helper"></div>
 
         <div class="bd-content">
@@ -277,11 +244,6 @@
                   <div class="header-article-item">
 
                     <div class="article-header-buttons">
-
-
-
-
-
                       <div class="dropdown dropdown-source-buttons">
                         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
                           aria-expanded="false" aria-label="Source repositories">
@@ -303,9 +265,6 @@
                             </a>
                           </li>
 
-
-
-
                           <li><a
                               href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
                               target="_blank" class="btn btn-sm btn-source-issues-button dropdown-item"
@@ -321,11 +280,6 @@
 
                         </ul>
                       </div>
-
-
-
-
-
 
                       <div class="dropdown dropdown-download-buttons">
                         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -348,9 +302,6 @@
                             </a>
                           </li>
 
-
-
-
                           <li>
                             <button onclick="window.print()" class="btn btn-sm btn-download-pdf-button dropdown-item"
                               title="Print to PDF" data-bs-placement="left" data-bs-toggle="tooltip">
@@ -365,10 +316,6 @@
 
                         </ul>
                       </div>
-
-
-
-
                       <button onclick="toggleFullScreen()" class="btn btn-sm btn-fullscreen-button"
                         title="Fullscreen mode" data-bs-placement="bottom" data-bs-toggle="tooltip">
 
@@ -378,8 +325,6 @@
                         </span>
 
                       </button>
-
-
 
                       <script>
                         document.write(`
@@ -412,7 +357,7 @@
             <article class="bd-article">
 
               <section id="installation-git">
-                <h1>8. Installation Git<a class="headerlink" href="#installation-git">#</a></h1>
+                <h1>Installation Git 🗃️</h1>
 
                 <p>Git est un système de contrôle de version qui enregistre et orchestre l'évolution de vos fichiers de
                   code au fil du temps. Créé par Linus Torvalds en 2005 (créateur de Linux), Git est aujourd'hui l'outil
@@ -422,8 +367,10 @@
                   sur vos fichiers, vous permettant de revenir en arrière, comparer les versions, et collaborer sans
                   conflits.</p>
 
-                <p>Git offre ainsi la possibilité d'enregistrer des "versions figées" de votre projet à chaque commit,
-                  créant ainsi une séquence chronologique de l'évolution de votre code. Cette timeline interactive vous
+                <p>Git offre ainsi la possibilité d'enregistrer des "versions figées" de votre projet à chaque commit
+                  (c'est-à-dire à chaque point de sauvegarde),
+                  créant ainsi une séquence chronologique de l'évolution de votre code. Cette chronologie interactive
+                  vous
                   permet de naviguer dans l'historique, comparer les modifications, et synchroniser le développement
                   collaboratif.</p>
 
@@ -434,9 +381,11 @@
 
                 <p>Lorsque vous êtes satisfait de votre travail :</p>
                 <ul>
-                  <li>Vous faites un “commit” pour enregistrer les changements (équivalent d’un enregistrement de
-                    version).</li>
-                  <li>Vous “push” ensuite ces modifications vers le dépôt central (l’équivalent d’une synchronisation
+                  <li>Vous faites un <code>commit</code> pour enregistrer les changements (équivalent d’un
+                    enregistrement de
+                    version pour Google Docs).</li>
+                  <li>Vous envoyez ensuite avec un <code>push</code> ces modifications vers le dépôt central
+                    (l’équivalent d’une synchronisation
                     vers Google Drive).</li>
                 </ul>
 
@@ -449,87 +398,12 @@
                   </li>
                   <li><strong>Collaboration fluide</strong> : plusieurs personnes peuvent travailler en parallèle sans
                     conflits permanents.</li>
-                  <li><strong>Expérimentation sécurisée (branches)</strong> : créer des environnements isolés pour
+                  <li><strong>Expérimentation sécurisée (<code>branches</code>)</strong> : créer des environnements
+                    isolés pour
                     tester de nouvelles idées sans risquer de “casser” le projet principal.</li>
                 </ul>
 
-                <h2>Installation de Git</h2>
-                <p>Ce guide explique comment installer et mettre à jour Git sur différents systèmes d'exploitation.</p>
-
-                <h3>Installation sur macOS (ou système d'exploitation Linux)</h3>
-                <p>Vérifiez si Git est déjà installé :</p>
-                <div class="highlight highlight-bash">
-                  <pre>git --version</pre>
-                </div>
-                <p>Installer une version plus récente :</p>
-                <div class="highlight highlight-bash">
-                  <pre>
-# Installation de Git
-brew install git
-
-# Mise à jour (si Git est déjà installé)
-brew upgrade git
-    </pre>
-                </div>
-                <p>Vérifiez la nouvelle version :</p>
-                <div class="highlight highlight-bash">
-                  <pre>git --version</pre>
-                </div>
-
-                <h3>Installation sur Windows (WSL2)</h3>
-                <p>Si vous utilisez Windows avec le Sous-système Windows pour Linux (WSL2), suivez ces étapes :</p>
-                <p>Vérifiez si Git est déjà installé :</p>
-                <div class="highlight highlight-bash">
-                  <pre>git --version</pre>
-                </div>
-                <p>Installer une version plus récente :</p>
-                <div class="highlight highlight-bash">
-                  <pre>
-# Ajout du dépôt contenant les versions récentes de Git
-sudo add-apt-repository ppa:git-core/ppa
-
-# Mise à jour des indices du gestionnaire de paquets
-sudo apt-get update
-
-# Installation de Git
-sudo apt-get install git
-    </pre>
-                </div>
-                <p>Vérifiez la nouvelle version :</p>
-                <div class="highlight highlight-bash">
-                  <pre>git --version</pre>
-                </div>
-
-                <p>Avant de continuer avec les sections suivantes, assurez-vous que la commande Git fonctionne
-                  correctement sur votre machine.</p>
-
-                <p>Pour une expérience Git optimale dans VS Code, pensez à installer l'extension GitLens. Cette
-                  extension enrichit les fonctionnalités Git intégrées en ajoutant la visualisation de l'historique des
-                  lignes de code, la navigation dans les commits, et d'autres fonctionnalités qui faciliteront votre
-                  travail avec les dépôts Git.</p>
-
-                <h2>Configuration avancée avec Azure DevOps</h2>
-                <p>Pour tirer pleinement parti de GitLens dans un environnement Azure DevOps, configurez l'intégration
-                  native en utilisant la fonctionnalité "Connect an Integration". Cette configuration permet à GitLens
-                  d'accéder directement aux informations Azure DevOps, enrichissant ainsi l'affichage avec :</p>
-                <ul>
-                  <li>Pull Requests associées : Visualisation des PR liées aux commits directement dans l'éditeur</li>
-                  <li>Work Items : Affichage des éléments de travail Azure DevOps connectés aux modifications de code
-                  </li>
-                  <li>Informations contextuelles : Détails supplémentaires sur les builds, les déploiements et les
-                    reviews</li>
-                </ul>
-                <p>Procédure d'activation :</p>
-                <ol>
-                  <li>Après installation de GitLens, accédez à la palette de commandes (Ctrl+Shift+P / Cmd+Shift+P)</li>
-                  <li>Recherchez "GitLens: Connect an Integration"</li>
-                  <li>Sélectionnez "Azure DevOps" dans la liste des intégrations disponibles</li>
-                  <li>Suivez les instructions d'authentification pour connecter votre compte Azure DevOps</li>
-                </ol>
-                <p>Cette intégration transforme GitLens en véritable centre de contrôle pour votre workflow de
-                  développement, centralisant toutes les informations projet directement dans votre éditeur.</p>
-
-                <h2>Lexique Git : Concepts essentiels</h2>
+                <h5>Lexique Git : Concepts essentiels</h5>
                 <ul>
                   <li><strong>Repositories (Dépôts)</strong><br>Dossier contenant votre projet et son historique
                     complet. Le dépôt garde en mémoire toutes les versions et modifications de vos fichiers grâce au
@@ -548,12 +422,90 @@ sudo apt-get install git
                     facilite la navigation d’une version à l’autre.</li>
                 </ul>
 
+
+
+
+                <h3>Installation de Git</h3>
+                <p>Ce guide explique comment installer et mettre à jour Git sur différents systèmes d'exploitation.</p>
+
+                <h5>Installation sur macOS (ou système d'exploitation Linux)</h5>
+                <p>1. Vérifiez si Git est déjà installé :</p>
+                <div class="highlight highlight-bash">
+                  <pre>git --version</pre>
+                </div>
+                <p>2. Installer une version plus récente :</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+# Installation de Git
+brew install git
+
+# Mise à jour (si Git est déjà installé)
+brew upgrade git</pre>
+                </div>
+                <p>3. Vérifiez la nouvelle version :</p>
+                <div class="highlight highlight-bash">
+                  <pre>git --version</pre>
+                </div>
+
+                <h5>Installation sur Windows (WSL2)</h5>
+                <p>Si vous utilisez Windows avec le Sous-système Windows pour Linux (WSL2), suivez ces étapes :</p>
+                <p>1. Vérifiez si Git est déjà installé :</p>
+                <div class="highlight highlight-bash">
+                  <pre>git --version</pre>
+                </div>
+                <p>2. Installer une version plus récente :</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+# Ajout du dépôt contenant les versions récentes de Git
+sudo add-apt-repository ppa:git-core/ppa
+
+# Mise à jour des indices du gestionnaire de paquets
+sudo apt-get update
+
+# Installation de Git
+sudo apt-get install git</pre>
+                </div>
+                <p>3. Vérifiez la nouvelle version :</p>
+                <div class="highlight highlight-bash">
+                  <pre>git --version</pre>
+                </div>
+
+                <p>Avant de continuer avec les sections suivantes, assurez-vous que la commande Git fonctionne
+                  correctement sur votre machine.</p>
+
+                <p>Pour une expérience Git optimale dans VS Code, pensez à installer l'extension GitLens. Cette
+                  extension enrichit les fonctionnalités Git intégrées en ajoutant la visualisation de l'historique des
+                  lignes de code, la navigation dans les commits, et d'autres fonctionnalités qui faciliteront votre
+                  travail avec les dépôts Git.</p>
+
+
+
+                <h3>Configuration avancée avec GitHub</h3>
+                <p>Pour tirer pleinement parti de GitLens dans un environnement GitHub, configurez l'intégration native
+                  en utilisant la fonctionnalité "Connect an Integration". Cette configuration permet à GitLens
+                  d'accéder directement aux informations GitHub, enrichissant ainsi l'affichage avec :</p>
+                <ul>
+                  <li>Pull Requests associées : Visualisation des PR liées aux commits directement dans l'éditeur</li>
+                  <li>Issues : Affichage des tickets GitHub connectés aux modifications de code</li>
+                  <li>Informations contextuelles : Détails supplémentaires sur les workflows GitHub Actions, les
+                    déploiements et les reviews</li>
+                </ul>
+                <p>Procédure d'activation :</p>
+                <ol>
+                  <li>Après installation de GitLens, accédez à la palette de commandes (Ctrl+Shift+P / Cmd+Shift+P)</li>
+                  <li>Recherchez "GitLens: Connect an Integration"</li>
+                  <li>Sélectionnez "GitHub" dans la liste des intégrations disponibles</li>
+                  <li>Suivez les instructions d'authentification pour connecter votre compte GitHub</li>
+                </ol>
+                <p>Cette intégration transforme GitLens en véritable centre de contrôle pour votre workflow de
+                  développement, centralisant toutes les informations directement dans votre VS Code.</p>
+
+
+
                 <h2>Ressources</h2>
                 <ul>
                   <li><a href="https://git-scm.com/downloads/win" target="_blank">https://git-scm.com/downloads/win</a>
                   </li>
-                  <li><a href="https://cbcradiocanada.atlassian.net/wiki/spaces/AQ/pages/4056285730"
-                      target="_blank">https://cbcradiocanada.atlassian.net/wiki/spaces/AQ/pages/4056285730</a></li>
                 </ul>
 
               </section>
@@ -562,28 +514,17 @@ sudo apt-get install git
 
 
 
-
-
-
-
-
-
-
-
             <footer class="prev-next-footer d-print-none">
-
               <div class="prev-next-area">
-                <a class="left-prev" href="markdown.html" title="previous page">
+                <a class="left-prev" href="7-configuration-vscode.html" title="Page précédente">
                   <i class="fa-solid fa-angle-left"></i>
                   <div class="prev-next-info">
-                    <p class="prev-next-subtitle">previous</p>
-                    <p class="prev-next-title">Markdown Files</p>
+                    <span class="prev-next-subtitle">Précedent</span>
                   </div>
                 </a>
-                <a class="right-next" href="markdown-notebooks.html" title="next page">
+                <a class="right-next" href="9-utilisation-git.html" title="Page suivante">
                   <div class="prev-next-info">
-                    <p class="prev-next-subtitle">next</p>
-                    <p class="prev-next-title">Notebooks with MyST Markdown</p>
+                    <span class="prev-next-subtitle">Suivant</span>
                   </div>
                   <i class="fa-solid fa-angle-right"></i>
                 </a>
