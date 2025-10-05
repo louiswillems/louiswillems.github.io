@@ -57,17 +57,13 @@
   <script src="_static/togglebutton.js?v=4a39c7ea"></script>
   <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
   <script src="_static/design-tabs.js?v=f930bc37"></script>
-  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-  <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-  <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-  <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-  <script>DOCUMENTATION_OPTIONS.pagename = 'content';</script>
   <link rel="icon" href="_static/logo.png" />
   <link rel="index" title="Index" href="genindex.html" />
   <link rel="search" title="Search" href="search.html" />
   <link rel="stylesheet" href="_static/custom.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en" />
+  <link rel="stylesheet" type="text/css" href="_static/styles/style.css">
 
 </head>
 
@@ -116,44 +112,25 @@
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
 
-
-
-
-
       <div class="bd-sidebar-primary bd-sidebar">
-
-
-
         <div class="sidebar-header-items sidebar-primary__section">
-
-
-
 
         </div>
 
         <div class="sidebar-primary-items__start sidebar-primary__section">
           <div class="sidebar-primary-item">
+            <a class="navbar-brand logo" href="index.html">
+              <p class="title logo__title">Le Guide du Data Pro</p>
 
 
 
+              <a class="navbar-brand logo" href="intro.html">
+
+                <img src="_static/logo.png" class="logo__image only-light" alt="le_stack_du_data_pro - Home" />
+                <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
 
 
-            <a class="navbar-brand logo" href="intro.html">
-
-
-
-
-
-
-
-
-
-
-              <img src="_static/logo.png" class="logo__image only-light" alt="le_stack_du_data_pro - Home" />
-              <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
-
-
-            </a>
+              </a>
           </div>
           <div class="sidebar-primary-item">
 
@@ -173,66 +150,68 @@
               <div class="bd-toc-item navbar-nav active">
 
 
-                <!-- Chapitre 1 dans la première liste -->
-                <ul class="nav bd-sidenav bd-sidenav__home-link">
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="1-installation-vscode.html">
-                      1. Installation VS Code
-                    </a>
-                  </li>
-                </ul>
 
-                <!-- Chapitres 2 à 11 -->
+                <!-- Chapitres organisés par parties -->
                 <ul class="nav bd-sidenav">
+                  <!-- Partie 1 : Environnement de développement -->
                   <li class="toctree-l1">
-                    <a class="reference internal" href="2-personnalisation-terminal.html">
-                      2. Personnalisation du terminal
-                    </a>
+                    Partie 1 : Dev 💻
+                    <ul>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="1-installation-vscode.html">1. Installation VS Code</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="2-configuration-vscode.html">2. Configuration VS Code</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="3-utilisation-terminal.html">3. Utilisation du terminal</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="4-personnalisation-terminal.html">4. Personnalisation du
+                          terminal</a>
+                      </li>
+                    </ul>
                   </li>
+                  <br>
+
+                  <!-- Partie 2 : Python -->
                   <li class="toctree-l1">
-                    <a class="reference internal" href="3-utilisation-terminal.html">
-                      3. Utilisation du terminal
-                    </a>
+                    Partie 2 : Python 🐍
+                    <ul>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="5-installation-python.html">5. Installation Python</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="6-gestion-version-et-packaging-python.html">6. Gestion des
+                          versions & packaging Python</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="7-environnements-virtuels.html">7. Environnements
+                          virtuels</a>
+                      </li>
+                    </ul>
                   </li>
+                  <br>
+
+                  <!-- Partie 3 : Git et collaboration -->
                   <li class="toctree-l1">
-                    <a class="reference internal" href="4-installation-python.html">
-                      4. Installation Python
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="5-gestion-version-et-packaging-python.html">
-                      5. Gestion des versions & packaging Python
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="6-environnements-virtuels.html">
-                      6. Environnements virtuels
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="7-configuration-vscode.html">
-                      7. Configuration VS Code
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="8-installation-git.html">
-                      8. Installation Git
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="9-utilisation-git.html">
-                      9. Utilisation Git
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">
-                      10. Git local vers Git collaboratif
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="11-utilisation-git-avance.html">
-                      11. Utilisation Git (avancé)
-                    </a>
+                    Partie 3 : Git et collaboration 🤝
+                    <ul>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="8-installation-git.html">8. Installation Git</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="9-utilisation-git.html">9. Utilisation Git (bases)</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">10. Git local vers
+                          Git collaboratif</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="11-utilisation-git-avance.html">11. Utilisation Git
+                          (avancé)</a>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
 
@@ -279,9 +258,6 @@
                     <div class="article-header-buttons">
 
 
-
-
-
                       <div class="dropdown dropdown-source-buttons">
                         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
                           aria-expanded="false" aria-label="Source repositories">
@@ -304,8 +280,6 @@
                           </li>
 
 
-
-
                           <li><a
                               href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
                               target="_blank" class="btn btn-sm btn-source-issues-button dropdown-item"
@@ -321,10 +295,6 @@
 
                         </ul>
                       </div>
-
-
-
-
 
 
                       <div class="dropdown dropdown-download-buttons">
@@ -348,9 +318,6 @@
                             </a>
                           </li>
 
-
-
-
                           <li>
                             <button onclick="window.print()" class="btn btn-sm btn-download-pdf-button dropdown-item"
                               title="Print to PDF" data-bs-placement="left" data-bs-toggle="tooltip">
@@ -366,9 +333,6 @@
                         </ul>
                       </div>
 
-
-
-
                       <button onclick="toggleFullScreen()" class="btn btn-sm btn-fullscreen-button"
                         title="Fullscreen mode" data-bs-placement="bottom" data-bs-toggle="tooltip">
 
@@ -378,8 +342,6 @@
                         </span>
 
                       </button>
-
-
 
                       <script>
                         document.write(`
@@ -412,7 +374,7 @@
             <article class="bd-article">
 
               <section id="utilisation-git-avance">
-                <h1>11. Utilisation de Git (avancé)<a class="headerlink" href="#utilisation-git-avance">#</a></h1>
+                <h1>Utilisation de Git (avancé)</h1>
 
                 <p>Git est bien plus qu’un simple outil de versionnement. Il vous permet aussi de naviguer dans
                   l’historique de votre projet, de revenir à une version antérieure, d’explorer l’origine d’un bug ou
@@ -424,7 +386,7 @@
                   relatives, et annuler des changements avec précision. Comprendre ces déplacements dans l’historique de
                   Git vous donnera une grande liberté et une meilleure compréhension de l’évolution de votre code.</p>
 
-                <h2>Voyager dans le temps avec Git</h2>
+                <h3>Voyager dans le temps avec Git</h3>
                 <p>Avec Git, remonter dans le temps pour explorer des versions précédentes de votre projet est à la fois
                   simple et puissant. Que ce soit via l’interface de votre éditeur (comme la section Commits de VS Code)
                   ou en ligne de commande avec git log, chaque commit est identifié par un hash unique, une sorte
@@ -442,7 +404,7 @@
                   Git ne se limite pas à des déplacements linéaires dans l’historique : il offre une grande souplesse
                   pour naviguer, expérimenter et restructurer votre travail.</p>
 
-                <h2>Branches et fusion dans Git</h2>
+                <h3>Branches et fusion dans Git</h3>
                 <p>Que vous travailliez en solo ou en équipe, la branche principale de votre projet — souvent appelée
                   main ou master — représente la version de référence de votre code.</p>
                 <p>Lorsque vous développez de nouvelles fonctionnalités ou corrigez des bugs, il est courant de créer
@@ -495,7 +457,7 @@ git stash pop  # restaure les modifications précédemment mises de côté
                 <p>Chacune de ces méthodes a ses avantages, et le choix entre merge et rebase dépend de votre flux de
                   travail, de votre équipe, et du besoin de clarté dans l’historique du projet.</p>
 
-                <h2>Conflits de merge (Merge Conflicts)</h2>
+                <h3>Conflits de merge (Merge Conflicts)</h3>
                 <p>Un conflit de merge survient lorsque deux branches ont modifié exactement les mêmes lignes dans un
                   même fichier. Git ne peut pas déterminer automatiquement quelle version conserver.</p>
                 <p>Pourquoi les conflits se produisent-ils ?</p>
@@ -538,7 +500,7 @@ git commit -m "Résolution des conflits entre la branche feature/login et master
                     fonctionnalités pour minimiser les conflits</li>
                 </ul>
 
-                <h2>Naviguer dans l’arbre des commits Git</h2>
+                <h3>Naviguer dans l’arbre des commits Git</h3>
                 <p>Avant d’explorer des fonctionnalités avancées de Git, il est important de comprendre comment se
                   déplacer dans l’historique des commits – souvent appelé arbre Git. Une bonne maîtrise de cette
                   navigation rendra l’utilisation des autres commandes bien plus intuitive et efficace.</p>
@@ -659,10 +621,6 @@ git tag v1.0.0               # Exemple avec versionnage sémantique
             </article>
 
 
-
-
-
-
             <footer class="prev-next-footer d-print-none">
 
               <div class="prev-next-area">
@@ -684,8 +642,6 @@ git tag v1.0.0               # Exemple avec versionnage sémantique
             </footer>
 
           </div>
-
-
 
           <div class="bd-sidebar-secondary bd-toc">
             <div class="sidebar-secondary-items sidebar-secondary__inner">

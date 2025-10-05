@@ -57,17 +57,13 @@
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content';</script>
     <link rel="icon" href="_static/logo.png" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="stylesheet" href="_static/custom.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/style.css">
 
 </head>
 
@@ -108,54 +104,29 @@
     <div class="pst-async-banner-revealer d-none">
         <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
     </div>
-
-
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
-
-
     <div class="bd-container">
         <div class="bd-container__inner bd-page-width">
-
-
-
-
-
             <div class="bd-sidebar-primary bd-sidebar">
 
-
-
                 <div class="sidebar-header-items sidebar-primary__section">
-
-
-
 
                 </div>
 
                 <div class="sidebar-primary-items__start sidebar-primary__section">
                     <div class="sidebar-primary-item">
+                        <a class="navbar-brand logo" href="index.html">
+                            <p class="title logo__title">Le Guide du Data Pro</p>
+
+                            <a class="navbar-brand logo" href="intro.html">
+
+                                <img src="_static/logo.png" class="logo__image only-light"
+                                    alt="le_stack_du_data_pro - Home" />
+                                <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
 
 
-
-
-
-                        <a class="navbar-brand logo" href="intro.html">
-
-
-
-
-
-
-
-
-
-
-                            <img src="_static/logo.png" class="logo__image only-light"
-                                alt="le_stack_du_data_pro - Home" />
-                            <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
-
-
-                        </a>
+                            </a>
                     </div>
                     <div class="sidebar-primary-item">
 
@@ -175,69 +146,80 @@
                             <div class="bd-toc-item navbar-nav active">
 
 
-                                <!-- Chapitre 1 dans la première liste -->
-                                <ul class="nav bd-sidenav bd-sidenav__home-link">
-                                    <li class="toctree-l1">
-                                        <a class="reference internal" href="1-installation-vscode.html">
-                                            1. Installation VS Code
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <!-- Chapitres 2 à 11 -->
+                                <!-- Chapitres organisés par parties -->
                                 <ul class="nav bd-sidenav">
+                                    <!-- Partie 1 : Environnement de développement -->
                                     <li class="toctree-l1">
-                                        <a class="reference internal" href="2-personnalisation-terminal.html">
-                                            2. Personnalisation du terminal
-                                        </a>
+                                        Partie 1 : Dev 💻
+                                        <ul>
+                                            <li class="toctree-l2">
+                                                <a class="reference internal" href="1-installation-vscode.html">1.
+                                                    Installation VS Code</a>
+                                            </li>
+                                            <li class="toctree-l2">
+                                                <a class="reference internal" href="2-configuration-vscode.html">2.
+                                                    Configuration VS Code</a>
+                                            </li>
+                                            <li class="toctree-l2">
+                                                <a class="reference internal" href="3-utilisation-terminal.html">3.
+                                                    Utilisation du terminal</a>
+                                            </li>
+                                            <li class="toctree-l2">
+                                                <a class="reference internal" href="4-personnalisation-terminal.html">4.
+                                                    Personnalisation du
+                                                    terminal</a>
+                                            </li>
+                                        </ul>
                                     </li>
+                                    <br>
+
+                                    <!-- Partie 2 : Python -->
                                     <li class="toctree-l1">
-                                        <a class="reference internal" href="3-utilisation-terminal.html">
-                                            3. Utilisation du terminal
-                                        </a>
+                                        Partie 2 : Python 🐍
+                                        <ul>
+                                            <li class="toctree-l2">
+                                                <a class="reference internal" href="5-installation-python.html">5.
+                                                    Installation Python</a>
+                                            </li>
+                                            <li class="toctree-l2">
+                                                <a class="reference internal"
+                                                    href="6-gestion-version-et-packaging-python.html">6. Gestion des
+                                                    versions & packaging Python</a>
+                                            </li>
+                                            <li class="toctree-l2">
+                                                <a class="reference internal" href="7-environnements-virtuels.html">7.
+                                                    Environnements
+                                                    virtuels</a>
+                                            </li>
+                                        </ul>
                                     </li>
+                                    <br>
+
+                                    <!-- Partie 3 : Git et collaboration -->
                                     <li class="toctree-l1">
-                                        <a class="reference internal" href="4-installation-python.html">
-                                            4. Installation Python
-                                        </a>
-                                    </li>
-                                    <li class="toctree-l1">
-                                        <a class="reference internal" href="5-gestion-version-et-packaging-python.html">
-                                            5. Gestion des versions & packaging Python
-                                        </a>
-                                    </li>
-                                    <li class="toctree-l1">
-                                        <a class="reference internal" href="6-environnements-virtuels.html">
-                                            6. Environnements virtuels
-                                        </a>
-                                    </li>
-                                    <li class="toctree-l1">
-                                        <a class="reference internal" href="7-configuration-vscode.html">
-                                            7. Configuration VS Code
-                                        </a>
-                                    </li>
-                                    <li class="toctree-l1">
-                                        <a class="reference internal" href="8-installation-git.html">
-                                            8. Installation Git
-                                        </a>
-                                    </li>
-                                    <li class="toctree-l1">
-                                        <a class="reference internal" href="9-utilisation-git.html">
-                                            9. Utilisation Git
-                                        </a>
-                                    </li>
-                                    <li class="toctree-l1">
-                                        <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">
-                                            10. Git local vers Git collaboratif
-                                        </a>
-                                    </li>
-                                    <li class="toctree-l1">
-                                        <a class="reference internal" href="11-utilisation-git-avance.html">
-                                            11. Utilisation Git (avancé)
-                                        </a>
+                                        Partie 3 : Git et collaboration 🤝
+                                        <ul>
+                                            <li class="toctree-l2">
+                                                <a class="reference internal" href="8-installation-git.html">8.
+                                                    Installation Git</a>
+                                            </li>
+                                            <li class="toctree-l2">
+                                                <a class="reference internal" href="9-utilisation-git.html">9.
+                                                    Utilisation Git (bases)</a>
+                                            </li>
+                                            <li class="toctree-l2">
+                                                <a class="reference internal"
+                                                    href="10-git-local-vers-git-collaboratif.html">10. Git local vers
+                                                    Git collaboratif</a>
+                                            </li>
+                                            <li class="toctree-l2">
+                                                <a class="reference internal" href="11-utilisation-git-avance.html">11.
+                                                    Utilisation Git
+                                                    (avancé)</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
-
                             </div>
                         </nav>
                     </div>
@@ -253,7 +235,6 @@
             </div>
 
             <main id="main-content" class="bd-main" role="main">
-
 
 
                 <div class="sbt-scroll-pixel-helper"></div>
@@ -282,10 +263,6 @@
 
                                         <div class="article-header-buttons">
 
-
-
-
-
                                             <div class="dropdown dropdown-source-buttons">
                                                 <button class="btn dropdown-toggle" type="button"
                                                     data-bs-toggle="dropdown" aria-expanded="false"
@@ -293,9 +270,6 @@
                                                     <i class="fab fa-github"></i>
                                                 </button>
                                                 <ul class="dropdown-menu">
-
-
-
                                                     <li><a href="https://github.com/louiswillems/le_stack_du_data_pro"
                                                             target="_blank"
                                                             class="btn btn-sm btn-source-repository-button dropdown-item"
@@ -309,9 +283,6 @@
                                                             <span class="btn__text-container">Repository</span>
                                                         </a>
                                                     </li>
-
-
-
 
                                                     <li><a href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
                                                             target="_blank"
@@ -329,11 +300,6 @@
 
                                                 </ul>
                                             </div>
-
-
-
-
-
 
                                             <div class="dropdown dropdown-download-buttons">
                                                 <button class="btn dropdown-toggle" type="button"
@@ -358,9 +324,6 @@
                                                         </a>
                                                     </li>
 
-
-
-
                                                     <li>
                                                         <button onclick="window.print()"
                                                             class="btn btn-sm btn-download-pdf-button dropdown-item"
@@ -378,9 +341,6 @@
                                                 </ul>
                                             </div>
 
-
-
-
                                             <button onclick="toggleFullScreen()"
                                                 class="btn btn-sm btn-fullscreen-button" title="Fullscreen mode"
                                                 data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -391,8 +351,6 @@
                                                 </span>
 
                                             </button>
-
-
 
                                             <script>
                                                 document.write(`
@@ -426,8 +384,7 @@
                         <article class="bd-article">
 
                             <section id="git-local-collaboratif">
-                                <h1>10. Git local vers Git collaboratif<a class="headerlink"
-                                        href="#git-local-collaboratif">#</a></h1>
+                                <h1>Git local vers Git collaboratif 🤝</h1>
 
                                 <p>Jusqu'à présent, votre connaissance de Git s'est construite dans l'environnement de
                                     votre machine
@@ -449,20 +406,16 @@
                                     stockage, mais des écosystèmes complets qui orchestrent les workflows de
                                     développement, automatisent
                                     les processus de validation et facilitent la revue de code. Cette transition
-                                    implique de maîtriser de
-                                    nouveaux concepts et pratiques : la synchronisation bidirectionnelle entre votre
-                                    environnement local
-                                    et les serveurs distants, la gestion des branches partagées et des conflits de
-                                    fusion, les workflows
-                                    de revue de code via les pull requests et les pipelines automatisés CI/CD.</p>
+                                    implique de connaître de certains concepts et pratiques : le transfert de
+                                    modifications entre votre machine et les serveurs distants, la collaboration sur des
+                                    branches partagées avec gestion des conflits, les revues de code structurées et les
+                                    pipelines d'intégration continue.</p>
 
-                                <p>Cette section vous préparera aux exigences du développement professionnel, où la
-                                    capacité à
-                                    travailler en équipe de manière fluide et organisée devient aussi importante que la
-                                    maîtrise technique
-                                    individuelle de Git.</p>
+                                <p>Cette section couvre les pratiques collaboratives essentielles au développement
+                                    professionnel, où le travail d'équipe structuré est aussi important que la
+                                    connaissance technique de Git.</p>
 
-                                <h2>Architecture Git : Client vs Serveur</h2>
+                                <h3>Architecture Git : Client vs Serveur</h3>
                                 <p>Git fonctionne selon un modèle distribué qui combine autonomie locale et
                                     collaboration centralisée.
                                     Sur votre machine, l'installation Git opère comme un client autonome complet,
@@ -498,7 +451,7 @@
                                     pérennité du travail de
                                     développement.</p>
 
-                                <h2>Gestion de version centralisée</h2>
+                                <h3>Gestion de version centralisée</h3>
                                 <p>Le paysage des plateformes de dépôts distants est dominé par plusieurs acteurs clés,
                                     chacun proposant
                                     des spécificités adaptées à différents contextes organisationnels. GitHub s'impose
@@ -535,27 +488,13 @@
                                     le déploiement
                                     dans l'infrastructure cloud Microsoft.</p>
 
-                                <p>Dans notre environnement professionnel, Azure Repos constitue l’infrastructure Git
-                                    centralisée sur
-                                    laquelle repose notre gestion de code. Intégré à l’écosystème Azure DevOps, il
-                                    permet de regrouper, au
-                                    sein d’un même espace, le code source, les pipelines CI/CD et les outils de
-                                    collaboration. Cette
-                                    solution offre plusieurs avantages stratégiques. Elle s’intègre avec les outils
-                                    Microsoft déjà
-                                    déployés dans l’entreprise, simplifie la gestion des permissions grâce à une
-                                    administration
-                                    centralisée, et permet l’automatisation des processus de développement via des
-                                    pipelines DevOps
-                                    intégrés.</p>
-
-                                <p>Dans la section suivante, nous verrons comment connecter un dépôt Git local à Azure
-                                    Repos, et comment
+                                <p>Dans la section suivante, nous verrons comment connecter un dépôt Git local à GitHub,
+                                    et comment
                                     maîtriser les workflows collaboratifs essentiels pour travailler efficacement au
                                     sein d’une équipe.
                                 </p>
 
-                                <h2>Mise en pratique : Connecter local et distant Azure Repos</h2>
+                                <h3>Mise en pratique : Connecter local et distant Azure Repos</h3>
                                 <p>Dans un environnement de développement collaboratif, comprendre comment connecter et
                                     synchroniser un
                                     dépôt local avec une plateforme Git distante est essentiel. Dans notre cas, Azure
@@ -579,7 +518,7 @@
                                     revue de code.
                                 </p>
 
-                                <h3>Scénario 1 : Cloner un projet existant</h3>
+                                <h5>Scénario 1 : Cloner un projet existant</h5>
                                 <p>Contexte : Vous rejoignez un projet en cours ou souhaitez utiliser un template
                                     (repos) d'équipe déjà
                                     hébergé sur Azure Repos.</p>
@@ -604,7 +543,7 @@ git branch -a            # Afficher toutes les branches (locales et distantes)
     </pre>
                                 </div>
 
-                                <h3>Scénario 2 : Créer un nouveau projet de zéro</h3>
+                                <h5>Scénario 2 : Créer un nouveau projet de zéro</h5>
                                 <p>Contexte : Démarrage d'un nouveau projet que vous souhaitez héberger sur Azure Repos.
                                 </p>
                                 <p><strong>Étape 1 : Création du dépôt sur Azure Repos</strong></p>
@@ -659,7 +598,7 @@ git push -u origin main
     </pre>
                                 </div>
 
-                                <h3>Scénario 3 : Migrer un projet existant vers Azure Repos</h3>
+                                <h5>Scénario 3 : Migrer un projet existant vers Azure Repos</h5>
                                 <p>Contexte : Vous disposez d'un projet Git local fonctionnel que vous souhaitez
                                     héberger sur
                                     Azure Repos.</p>
@@ -695,65 +634,25 @@ git push github main   # Vers GitHub
                         </article>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         <footer class="prev-next-footer d-print-none">
-
                             <div class="prev-next-area">
-                                <a class="left-prev" href="markdown.html" title="previous page">
+                                <a class="left-prev" href="9-utilisation-git.html" title="Page précédente">
                                     <i class="fa-solid fa-angle-left"></i>
                                     <div class="prev-next-info">
-                                        <p class="prev-next-subtitle">previous</p>
-                                        <p class="prev-next-title">Markdown Files</p>
+                                        <span class="prev-next-subtitle">Précedent</span>
                                     </div>
                                 </a>
-                                <a class="right-next" href="markdown-notebooks.html" title="next page">
+                                <a class="right-next" href="11-utilisation-git-avance.html" title="Page suivante">
                                     <div class="prev-next-info">
-                                        <p class="prev-next-subtitle">next</p>
-                                        <p class="prev-next-title">Notebooks with MyST Markdown</p>
+                                        <span class="prev-next-subtitle">Suivant</span>
                                     </div>
                                     <i class="fa-solid fa-angle-right"></i>
                                 </a>
                             </div>
                         </footer>
+
+
+
 
                     </div>
 

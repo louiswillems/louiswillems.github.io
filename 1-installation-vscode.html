@@ -71,8 +71,6 @@
 <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%"
   data-default-mode="">
 
-
-
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
   <div id="pst-scroll-pixel-helper"></div>
@@ -104,7 +102,6 @@
     <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
   </div>
 
-
   <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
   </header>
 
@@ -112,38 +109,16 @@
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
 
-
-
-
-
       <div class="bd-sidebar-primary bd-sidebar">
 
-
-
         <div class="sidebar-header-items sidebar-primary__section">
-
-
-
 
         </div>
 
         <div class="sidebar-primary-items__start sidebar-primary__section">
           <div class="sidebar-primary-item">
-
-
-
-
-
-            <a class="navbar-brand logo" href="intro.html">
-
-
-
-
-
-
-
-
-
+            <a class="navbar-brand logo" href="index.html">
+              <p class="title logo__title">Le Guide du Data Pro</p>
 
               <img src="_static/logo.png" class="logo__image only-light" alt="le_stack_du_data_pro - Home" />
               <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
@@ -168,69 +143,73 @@
             <nav class="bd-links bd-docs-nav" aria-label="Main">
               <div class="bd-toc-item navbar-nav active">
 
-
-                <!-- Chapitre 1 dans la première liste -->
-                <ul class="nav bd-sidenav bd-sidenav__home-link">
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="1-installation-vscode.html">
-                      1. Installation VS Code
-                    </a>
-                  </li>
-                </ul>
-
-                <!-- Chapitres 2 à 11 -->
+                <!-- Chapitres organisés par parties -->
                 <ul class="nav bd-sidenav">
+                  <!-- Partie 1 : Environnement de développement -->
                   <li class="toctree-l1">
-                    <a class="reference internal" href="2-personnalisation-terminal.html">
-                      2. Personnalisation du terminal
-                    </a>
+                    Partie 1 : Dev 💻
+                    <ul>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="1-installation-vscode.html">1. Installation VS Code</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="2-configuration-vscode.html">2. Configuration VS Code</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="3-utilisation-terminal.html">3. Utilisation du terminal</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="4-personnalisation-terminal.html">4. Personnalisation du
+                          terminal</a>
+                      </li>
+                    </ul>
                   </li>
+
+                  <br>
+
+                  <!-- Partie 2 : Python -->
                   <li class="toctree-l1">
-                    <a class="reference internal" href="3-utilisation-terminal.html">
-                      3. Utilisation du terminal
-                    </a>
+                    Partie 2 : Python 🐍
+                    <ul>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="5-installation-python.html">5. Installation Python</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="6-gestion-version-et-packaging-python.html">6. Gestion des
+                          versions & packaging Python</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="7-environnements-virtuels.html">7. Environnements
+                          virtuels</a>
+                      </li>
+                    </ul>
                   </li>
+                  <br>
+
+                  <!-- Partie 3 : Git et collaboration -->
                   <li class="toctree-l1">
-                    <a class="reference internal" href="4-installation-python.html">
-                      4. Installation Python
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="5-gestion-version-et-packaging-python.html">
-                      5. Gestion des versions & packaging Python
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="6-environnements-virtuels.html">
-                      6. Environnements virtuels
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="7-configuration-vscode.html">
-                      7. Configuration VS Code
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="8-installation-git.html">
-                      8. Installation Git
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="9-utilisation-git.html">
-                      9. Utilisation Git
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">
-                      10. Git local vers Git collaboratif
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="11-utilisation-git-avance.html">
-                      11. Utilisation Git (avancé)
-                    </a>
+                    Partie 3 : Git et collaboration 🤝
+                    <ul>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="8-installation-git.html">8. Installation Git</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="9-utilisation-git.html">9. Utilisation Git (bases)</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">10. Git local vers
+                          Git collaboratif</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="11-utilisation-git-avance.html">11. Utilisation Git
+                          (avancé)</a>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
+
+
+
 
               </div>
             </nav>
@@ -275,17 +254,12 @@
                     <div class="article-header-buttons">
 
 
-
-
-
                       <div class="dropdown dropdown-source-buttons">
                         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
                           aria-expanded="false" aria-label="Source repositories">
                           <i class="fab fa-github"></i>
                         </button>
                         <ul class="dropdown-menu">
-
-
 
                           <li><a href="https://github.com/louiswillems/le_stack_du_data_pro" target="_blank"
                               class="btn btn-sm btn-source-repository-button dropdown-item" title="Source repository"
@@ -298,9 +272,6 @@
                               <span class="btn__text-container">Repository</span>
                             </a>
                           </li>
-
-
-
 
                           <li><a
                               href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Fcontent.html&body=Your%20issue%20content%20here."
@@ -319,18 +290,12 @@
                       </div>
 
 
-
-
-
-
                       <div class="dropdown dropdown-download-buttons">
                         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
                           aria-expanded="false" aria-label="Download this page">
                           <i class="fas fa-download"></i>
                         </button>
                         <ul class="dropdown-menu">
-
-
 
                           <li><a href="_sources/content.md" target="_blank"
                               class="btn btn-sm btn-download-source-button dropdown-item" title="Download source file"
@@ -343,9 +308,6 @@
                               <span class="btn__text-container">.md</span>
                             </a>
                           </li>
-
-
-
 
                           <li>
                             <button onclick="window.print()" class="btn btn-sm btn-download-pdf-button dropdown-item"
@@ -361,8 +323,6 @@
 
                         </ul>
                       </div>
-
-
 
 
                       <button onclick="toggleFullScreen()" class="btn btn-sm btn-fullscreen-button"
@@ -409,7 +369,7 @@
             <article class="bd-article">
 
               <section id="installation-vs-code">
-                <h1>Installation VS Code<a class="headerlink" href="#installation-vs-code">#</a></h1>
+                <h1>Installation VS Code</h1>
 
                 <div class="intro-section">
                   <p>Dans l'écosystème du développement Python, deux environnements de développement intégrés (IDE)
@@ -422,7 +382,7 @@
                     démonstrations et templates fournis.</p>
                 </div>
 
-                <h3>Installation macOS (ou système d'exploitation Linux)</h3>
+                <h3 id="installation-vs-code">Installation macOS (ou Linux)</h3>
                 <p>Si vous utilisez actuellement macOS ou un système d'exploitation Linux comme Ubuntu, l’installation
                   est la suivante:</p>
 
@@ -454,7 +414,7 @@
                   </ul>
                 </section>
 
-                <h3>Installation Windows &amp; WSL2 (Windows Subsystem for Linux)</h3>
+                <h3 id="installation-windows-wsl2">Installation Windows &amp; WSL2 (Windows Subsystem for Linux)</h3>
 
                 <p>L'écosystème de développement moderne s'appuie majoritairement sur des environnements Linux, tant
                   pour la création que pour le déploiement des applications. Cette réalité technique crée un
@@ -612,7 +572,7 @@
 
 
 
-                <h3>Raccourcis clavier VS Code</h3>
+                <h3 id="raccourcis-clavier-vs-code">Raccourcis clavier VS Code</h3>
                 <p>Pour gagner en efficacité dans votre travail quotidien, rien ne remplace la connaissance des
                   raccourcis
                   clavier. Comme toute compétence, leur acquisition demande de la pratique mais l'investissement en vaut
@@ -671,16 +631,22 @@
 
               <div class="sidebar-secondary-item">
                 <div class="page-toc tocsection onthispage">
-                  <i class="fa-solid fa-list"></i> Contents
+                  <i class="fa-solid fa-list"></i> Sommaire
                 </div>
                 <nav class="bd-toc-nav page-toc">
                   <ul class="visible nav section-nav flex-column">
-                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
-                        href="#installation-vs-code">Installation macOS et Linux</a></li>
-                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
-                        href="#installation-windows-wsl2">Installation Windows & WSL2</a></li>
-                    <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link"
-                        href="#code-blocks-and-outputs">Code blocks and outputs</a></li>
+                    <li class="toc-h2 nav-item toc-entry">
+                      <a class="reference internal nav-link" href="#installation-vs-code">Installation macOS (ou
+                        Linux)</a>
+                    </li>
+                    <li class="toc-h2 nav-item toc-entry">
+                      <a class="reference internal nav-link" href="#installation-windows-wsl2">Installation Windows &
+                        WSL2</a>
+                    </li>
+                    <li class="toc-h2 nav-item toc-entry">
+                      <a class="reference internal nav-link" href="#raccourcis-clavier-vs-code">Raccourcis clavier VS
+                        Code</a>
+                    </li>
                   </ul>
                 </nav>
               </div>

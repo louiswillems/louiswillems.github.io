@@ -117,12 +117,16 @@
 
         <div class="sidebar-primary-items__start sidebar-primary__section">
           <div class="sidebar-primary-item">
-            <a class="navbar-brand logo" href="intro.html">
+            <a class="navbar-brand logo" href="index.html">
+              <p class="title logo__title">Le Guide du Data Pro</p>
 
-              <img src="_static/logo.png" class="logo__image only-light" alt="le_stack_du_data_pro - Home" />
-              <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
 
-            </a>
+              <a class="navbar-brand logo" href="intro.html">
+
+                <img src="_static/logo.png" class="logo__image only-light" alt="le_stack_du_data_pro - Home" />
+                <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="le_stack_du_data_pro - Home"/>`);</script>
+
+              </a>
           </div>
           <div class="sidebar-primary-item">
 
@@ -142,68 +146,72 @@
               <div class="bd-toc-item navbar-nav active">
 
 
-                <!-- Chapitre 1 dans la première liste -->
-                <ul class="nav bd-sidenav bd-sidenav__home-link">
+                <!-- Chapitres organisés par parties -->
+                <ul class="nav bd-sidenav">
+                  <!-- Partie 1 : Environnement de développement -->
                   <li class="toctree-l1">
-                    <a class="reference internal" href="1-installation-vscode.html">
-                      1. Installation VS Code
-                    </a>
+                    Partie 1 : Dev 💻
+                    <ul>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="1-installation-vscode.html">1. Installation VS Code</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="2-configuration-vscode.html">2. Configuration VS Code</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="3-utilisation-terminal.html">3. Utilisation du terminal</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="4-personnalisation-terminal.html">4. Personnalisation du
+                          terminal</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <br>
+
+                  <!-- Partie 2 : Python -->
+                  <li class="toctree-l1">
+                    Partie 2 : Python 🐍
+                    <ul>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="5-installation-python.html">5. Installation Python</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="6-gestion-version-et-packaging-python.html">6. Gestion des
+                          versions & packaging Python</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="7-environnements-virtuels.html">7. Environnements
+                          virtuels</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <br>
+
+                  <!-- Partie 3 : Git et collaboration -->
+                  <li class="toctree-l1">
+                    Partie 3 : Git et collaboration 🤝
+                    <ul>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="8-installation-git.html">8. Installation Git</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="9-utilisation-git.html">9. Utilisation Git (bases)</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">10. Git local vers
+                          Git collaboratif</a>
+                      </li>
+                      <li class="toctree-l2">
+                        <a class="reference internal" href="11-utilisation-git-avance.html">11. Utilisation Git
+                          (avancé)</a>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
 
-                <!-- Chapitres 2 à 11 -->
-                <ul class="nav bd-sidenav">
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="2-personnalisation-terminal.html">
-                      2. Personnalisation du terminal
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="3-utilisation-terminal.html">
-                      3. Utilisation du terminal
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="4-installation-python.html">
-                      4. Installation Python
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="5-gestion-version-et-packaging-python.html">
-                      5. Gestion des versions & packaging Python
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="6-environnements-virtuels.html">
-                      6. Environnements virtuels
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="7-configuration-vscode.html">
-                      7. Configuration VS Code
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="8-installation-git.html">
-                      8. Installation Git
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="9-utilisation-git.html">
-                      9. Utilisation Git
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">
-                      10. Git local vers Git collaboratif
-                    </a>
-                  </li>
-                  <li class="toctree-l1">
-                    <a class="reference internal" href="11-utilisation-git-avance.html">
-                      11. Utilisation Git (avancé)
-                    </a>
-                  </li>
-                </ul>
+
+
 
               </div>
             </nav>

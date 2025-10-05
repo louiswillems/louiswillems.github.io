@@ -170,3 +170,35 @@ img.logo {
     width: auto !important; */
     display: none !important;
 }
+
+.title.logo__title {
+    margin-bottom: 0.1rem !important;
+    /* Réduit l'espace en dessous du titre */
+}
+
+.nav.bd-sidenav {
+    margin-top: 1.2rem;
+    /* Ajustez la valeur pour descendre le texte */
+}
+
+/* Change la couleur des liens dans la navigation au survol */
+.nav.bd-sidenav a.reference.internal:hover {
+    color: #444;
+    /* Couleur bleue par défaut */
+    text-decoration: none;
+    /* Supprime le soulignement */
+}
+
+/* Change la couleur des liens au survol */
+.sidebar-secondary-item .page-toc .nav-link:hover {
+    color: #444;
+    /* Couleur des liens au survol (orange) */
+    text-decoration: underline;
+    /* Ajoute un soulignement au survol */
+}
+
+/* Change la couleur des liens visités */
+.sidebar-secondary-item .page-toc .nav-link:visited {
+    color: #444 !important;
+    /* Couleur violette pour les liens visités */
+}
