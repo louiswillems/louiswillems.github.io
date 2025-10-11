@@ -153,7 +153,37 @@ ul {
     padding-left: 20px;
 }
 
-a:hover {
+/* Styles pour les liens dans la classe `custom-toc` */
+.custom-toc a {
+    text-decoration: none;
+    /* Supprime le soulignement par défaut */
+    font-size: 0.9rem;
+    /* Taille de police par défaut */
+    color: #007bff;
+    /* Couleur par défaut des liens */
+}
+
+.custom-toc a:hover {
     text-decoration: underline;
-    font-size: 1.05rem;
+    /* Ajoute un soulignement au survol */
+    font-size: 1.02rem;
+    /* Augmente légèrement la taille au survol */
+    color: #0056b3;
+    /* Change la couleur au survol */
+}
+
+/* Target the specific links for OpenClassrooms and parcours Data */
+a[href="https://openclassrooms.com/fr/"],
+a[href="https://openclassrooms.com/fr/paths/topics/31-data"] {
+    /* Change the default color to orange-red */
+    text-decoration: none;
+    /* Remove underline */
+}
+
+/* Hover styles for these specific links */
+a[href="https://openclassrooms.com/fr/"]:hover,
+a[href="https://openclassrooms.com/fr/paths/topics/31-data"]:hover {
+    /* Change the hover color to green */
+    text-decoration: underline;
+    /* Add underline on hover */
 }
