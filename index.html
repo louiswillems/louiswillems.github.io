@@ -72,7 +72,8 @@
   <link rel="stylesheet" type="text/css" href="_static/styles/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en" />
-
+  <link rel="stylesheet" type="text/css" href="_static/styles/style.css">
+  <link rel="stylesheet" href="_static/custom.css" />
 
 
   <style>
@@ -160,7 +161,7 @@
         <div class="sidebar-primary-items__start sidebar-primary__section">
           <div class="sidebar-primary-item">
             <a class="navbar-brand logo" href="index.html">
-              <p class="title logo__title">Le Guide du Data Pro (S)</p>
+              <p class="title logo__title">Le Guide du Data Pro</p>
             </a>
           </div>
 
@@ -182,73 +183,76 @@
               <nav class="bd-links bd-docs-nav" aria-label="Main">
                 <div class="bd-toc-item navbar-nav active">
 
-
-                  <!-- Chapitre 1 dans la première liste -->
-                  <ul class="nav bd-sidenav bd-sidenav__home-link">
-                    <li class="toctree-l1">
-                      <a class="reference internal" href="1-installation-vscode.html">
-                        1. Installation VS Code
-                      </a>
-                    </li>
-                  </ul>
-                  <!-- Chapitres 2 à 11 -->
+                  <!-- Chapitres organisés par parties -->
                   <ul class="nav bd-sidenav">
+                    <!-- Partie 1 : Environnement de développement -->
                     <li class="toctree-l1">
-                      <a class="reference internal" href="2-personnalisation-terminal.html">
-                        2. Personnalisation du terminal
-                      </a>
+                      Partie 1 : Dev 💻
+                      <ul>
+                        <li class="toctree-l2">
+                          <a class="reference internal" href="1-installation-vscode.html">1. Installation VS Code</a>
+                        </li>
+                        <li class="toctree-l2">
+                          <a class="reference internal" href="2-configuration-vscode.html">2. Configuration VS Code</a>
+                        </li>
+                        <li class="toctree-l2">
+                          <a class="reference internal" href="3-utilisation-terminal.html">3. Utilisation du
+                            terminal</a>
+                        </li>
+                        <li class="toctree-l2">
+                          <a class="reference internal" href="4-personnalisation-terminal.html">4. Personnalisation du
+                            terminal</a>
+                        </li>
+                      </ul>
                     </li>
+                    <br>
+
+                    <!-- Partie 2 : Python -->
                     <li class="toctree-l1">
-                      <a class="reference internal" href="3-utilisation-terminal.html">
-                        3. Utilisation du terminal
-                      </a>
+                      Partie 2 : Python 🐍
+                      <ul>
+                        <li class="toctree-l2">
+                          <a class="reference internal" href="5-installation-python.html">5. Installation Python</a>
+                        </li>
+                        <li class="toctree-l2">
+                          <a class="reference internal" href="6-gestion-version-et-packaging-python.html">6. Gestion des
+                            versions & packaging Python</a>
+                        </li>
+                        <li class="toctree-l2">
+                          <a class="reference internal" href="7-environnements-virtuels.html">7. Environnements
+                            virtuels</a>
+                        </li>
+                      </ul>
                     </li>
+                    <br>
+
+                    <!-- Partie 3 : Git et collaboration -->
                     <li class="toctree-l1">
-                      <a class="reference internal" href="4-installation-python.html">
-                        4. Installation Python
-                      </a>
-                    </li>
-                    <li class="toctree-l1">
-                      <a class="reference internal" href="5-gestion-version-et-packaging-python.html">
-                        5. Gestion des versions & packaging Python
-                      </a>
-                    </li>
-                    <li class="toctree-l1">
-                      <a class="reference internal" href="6-environnements-virtuels.html">
-                        6. Environnements virtuels
-                      </a>
-                    </li>
-                    <li class="toctree-l1">
-                      <a class="reference internal" href="7-configuration-vscode.html">
-                        7. Configuration VS Code
-                      </a>
-                    </li>
-                    <li class="toctree-l1">
-                      <a class="reference internal" href="8-installation-git.html">
-                        8. Installation Git
-                      </a>
-                    </li>
-                    <li class="toctree-l1">
-                      <a class="reference internal" href="9-utilisation-git.html">
-                        9. Utilisation Git
-                      </a>
-                    </li>
-                    <li class="toctree-l1">
-                      <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">
-                        10. Git local vers Git collaboratif
-                      </a>
-                    </li>
-                    <li class="toctree-l1">
-                      <a class="reference internal" href="11-utilisation-git-avance.html">
-                        11. Utilisation Git (avancé)
-                      </a>
+                      Partie 3 : Git et collaboration 🤝
+                      <ul>
+                        <li class="toctree-l2">
+                          <a class="reference internal" href="8-installation-git.html">8. Installation Git</a>
+                        </li>
+                        <li class="toctree-l2">
+                          <a class="reference internal" href="9-utilisation-git.html">9. Utilisation Git (bases)</a>
+                        </li>
+                        <li class="toctree-l2">
+                          <a class="reference internal" href="10-git-local-vers-git-collaboratif.html">10. Git local
+                            vers
+                            Git collaboratif</a>
+                        </li>
+                        <li class="toctree-l2">
+                          <a class="reference internal" href="11-utilisation-git-avance.html">11. Utilisation Git
+                            (avancé)</a>
+                        </li>
+                      </ul>
                     </li>
                   </ul>
+
+
                 </div>
               </nav>
             </div>
-
-
 
 
 
@@ -305,9 +309,6 @@
                     <div class="article-header-buttons">
 
 
-
-
-
                       <div class="dropdown dropdown-source-buttons">
                         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
                           aria-expanded="false" aria-label="Source repositories">
@@ -330,8 +331,6 @@
                           </li>
 
 
-
-
                           <li><a
                               href="https://github.com/louiswillems/le_stack_du_data_pro/issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here."
                               target="_blank" class="btn btn-sm btn-source-issues-button dropdown-item"
@@ -347,11 +346,6 @@
 
                         </ul>
                       </div>
-
-
-
-
-
 
                       <div class="dropdown dropdown-download-buttons">
                         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -374,9 +368,6 @@
                             </a>
                           </li>
 
-
-
-
                           <li>
                             <button onclick="window.print()" class="btn btn-sm btn-download-pdf-button dropdown-item"
                               title="Print to PDF" data-bs-placement="left" data-bs-toggle="tooltip">
@@ -393,8 +384,6 @@
                       </div>
 
 
-
-
                       <button onclick="toggleFullScreen()" class="btn btn-sm btn-fullscreen-button"
                         title="Fullscreen mode" data-bs-placement="bottom" data-bs-toggle="tooltip">
 
@@ -404,8 +393,6 @@
                         </span>
 
                       </button>
-
-
 
                       <script>
                         document.write(`
@@ -469,107 +456,136 @@
 
               <section class="tex2jax_ignore mathjax_ignore" id="introduction">
                 <h1>Le Guide du Data Pro</h1>
-                <p class="css-typing">Bienvenue dans ce guide des outils pour la data 👋</p>
 
-                <blockquote>
-                  <p>"Un voyage de mille lieues commence par un pas." ― Lao Tzu</p>
-                </blockquote>
+                <!-- Ajout du texte traduit -->
+                <div class="custom-admonition info">
+                  <p class="css-typing">Bienvenue dans ce guide des outils pour la data 👋</p>
+                  <p>Dernière mise à jour : <strong>octobre 2025</strong></p>
+                  <p>Si vous travaillez déjà dans le domaine des données et souhaitez passer au MLOps, rendez-vous sur
+                    le prochain guide : MLOps</p>
+                </div>
 
                 <p>Ce guide a été conçu pour vous guider à travers les outils et les bonnes pratiques essentiels
                   pour
                   travailler efficacement dans le domaine de la data. Que vous soyez débutant ou que vous souhaitiez
                   approfondir vos connaissances, ce guide vous accompagnera pas à pas.</p>
-                <section id="objectifs-du-guide">
-                  <h3>Objectifs du guide<a class="headerlink" href="#objectifs-du-guide"
-                      title="Link to this heading">#</a></h3>
-                  <ul class="simple">
-                    <li>
-                      <p>Comprendre et configurer les outils de développement comme VSCode et Git.</p>
-                    </li>
-                    <li>
-                      <p>Apprendre à utiliser le terminal pour automatiser vos tâches.</p>
-                    </li>
-                    <li>
-                      <p>Découvrir les bases de Python et la gestion des environnements virtuels.</p>
-                    </li>
-                    <li>
-                      <p>Explorer les concepts avancés comme le versionnement de code et les workflows
-                        collaboratifs.
-                      </p>
-                    </li>
-                  </ul>
-                </section>
+
                 <section id="a-qui-s-adresse-ce-guide">
-                  <h3>À qui s’adresse ce guide ?<a class="headerlink" href="#a-qui-s-adresse-ce-guide"
-                      title="Link to this heading">#</a></h3>
-                  <ul class="simple">
-                    <li>
-                      <p>Les étudiants en data science ou en informatique.</p>
-                    </li>
-                    <li>
-                      <p>Les professionnels souhaitant améliorer leur productivité.</p>
-                    </li>
-                    <li>
-                      <p>Toute personne curieuse d’apprendre les bases des outils modernes de développement.</p>
-                    </li>
-                  </ul>
+                  <h3 id="a-qui-s-adresse-ce-guide">À qui s’adresse ce guide ?</h3>
+                  <p>Ce guide a été conçu initialement pour mes étudiants de la plateforme OpenClassrooms sur le
+                    parcours <a href="https://openclassrooms.com/fr/paths/topics/31-data" target="_blank"
+                      rel="noopener noreferrer">Data</a>, mais il s'adresse également aux professionnels de la donnée
+                    souhaitant améliorer leur
+                    productivité ainsi qu'à toute personne curieuse d'apprendre les bases des outils modernes de
+                    développement.</p>
+
+
+                  <section id="objectifs-du-guide">
+                    <h3 id="objectifs-du-guide">Objectifs du guide</h3>
+                    <ul class="simple">
+                      <li>
+                        <p>Comprendre et configurer les outils de développement comme VSCode et Git.</p>
+                      </li>
+                      <li>
+                        <p>Apprendre à utiliser le terminal pour automatiser vos tâches.</p>
+                      </li>
+                      <li>
+                        <p>Découvrir les bases de Python et la gestion des environnements virtuels.</p>
+                      </li>
+                      <li>
+                        <p>Explorer les concepts avancés comme le versionnement de code et les workflows
+                          collaboratifs.
+                        </p>
+                      </li>
+                    </ul>
+                  </section>
+
+                  <section>
+                    <h3 id="structure-du-guide">Structure du guide</h3>
+                    <p>Le guide est organisé en chapitres, chacun couvrant un sujet spécifique. Cliquez sur les liens
+                      ci-dessous pour accéder directement aux chapitres :</p>
+                    <ul class="simple">
+                      <!-- Partie 1 : Dev 💻 -->
+                      <li>
+                        Partie 1 : Dev
+                        <ul>
+                          <li>
+                            <p><a class="reference internal" href="1-installation-vscode.html"><span
+                                  class="xref myst">1.
+                                  Installation VS Code</span></a></p>
+                          </li>
+                          <li>
+                            <p><a class="reference internal" href="2-configuration-vscode.html"><span
+                                  class="xref myst">2.
+                                  Configuration VS Code</span></a></p>
+                          </li>
+                          <li>
+                            <p><a class="reference internal" href="3-utilisation-terminal.html"><span
+                                  class="xref myst">3.
+                                  Utilisation du terminal</span></a></p>
+                          </li>
+                          <li>
+                            <p><a class="reference internal" href="4-personnalisation-terminal.html"><span
+                                  class="xref myst">4. Personnalisation du terminal</span></a></p>
+                          </li>
+                        </ul>
+                      </li>
+                      <br>
+                      <!-- Partie 2 : Python 🐍 -->
+                      <li>
+                        Partie 2 : Python
+                        <ul>
+                          <li>
+                            <p><a class="reference internal" href="5-installation-python.html"><span
+                                  class="xref myst">5.
+                                  Installation Python</span></a></p>
+                          </li>
+                          <li>
+                            <p><a class="reference internal" href="6-gestion-version-et-packaging-python.html"><span
+                                  class="xref myst">6. Gestion des versions & packaging Python</span></a></p>
+                          </li>
+                          <li>
+                            <p><a class="reference internal" href="7-environnements-virtuels.html"><span
+                                  class="xref myst">7. Environnements virtuels</span></a></p>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Partie 3 : Git et collaboration 🤝 -->
+                      <li>
+                        <br>
+                        Partie 3 : Git et collaboration
+                        <ul>
+                          <li>
+                            <p><a class="reference internal" href="8-installation-git.html"><span class="xref myst">8.
+                                  Installation Git</span></a></p>
+                          </li>
+                          <li>
+                            <p><a class="reference internal" href="9-utilisation-git.html"><span class="xref myst">9.
+                                  Utilisation Git (bases)</span></a></p>
+                          </li>
+                          <li>
+                            <p><a class="reference internal" href="10-git-local-vers-git-collaboratif.html"><span
+                                  class="xref myst">10. Git local vers Git collaboratif</span></a></p>
+                          </li>
+                          <li>
+                            <p><a class="reference internal" href="11-utilisation-git-avance.html"><span
+                                  class="xref myst">11. Utilisation Git (avancé)</span></a></p>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <br>
+                    <p>J'espére que ce guide vous sera utile et qu’il vous aidera dans votre parcours d’apprentissage.
+                    </p>
+                    <p>Bonne lecture !</p>
+
+                    <blockquote>
+                      <p>"Un voyage de mille lieues commence par un pas." ― Lao Tzu</p>
+                    </blockquote>
+
+                  </section>
                 </section>
-                <section>
-                  <h3>Structure du guide<a class="headerlink" href="#structure-du-guide"
-                      title="Link to this heading">#</a></h3>
-                  <p>Le guide est organisé en chapitres, chacun couvrant un sujet spécifique. Cliquez sur les liens
-                    ci-dessous pour accéder directement aux chapitres :</p>
-                  <ul class="simple">
-                    <li>
-                      <p><a class="reference internal" href="1-installation-vscode.html"><span class="xref myst">1.
-                            Installation de VSCode</span></a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference internal" href="2-personnalisation-terminal.html"><span
-                            class="xref myst">2. Personnalisation du terminal</span></a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference internal" href="3-utilisation-terminal.html"><span class="xref myst">3.
-                            Utilisation du terminal</span></a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference internal" href="4-installation-python.html"><span class="xref myst">4.
-                            Installation de Python</span></a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference internal" href="5-gestion-version-et-packaging-python.html"><span
-                            class="xref myst">5. Gestion de version et packaging Python</span></a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference internal" href="6-environnements-virtuels.html"><span class="xref myst">6.
-                            Environnements virtuels</span></a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference internal" href="7-configuration-vscode.html"><span class="xref myst">7.
-                            Configuration de VSCode</span></a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference internal" href="8-installation-git.html"><span class="xref myst">8.
-                            Installation de Git</span></a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference internal" href="9-utilisation-git.html"><span class="xref myst">9.
-                            Utilisation de Git</span></a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference internal" href="10-git-local-vers-git-collaboratif.html"><span
-                            class="xref myst">10. Git local vers Git collaboratif</span></a></p>
-                    </li>
-                    <li>
-                      <p><a class="reference internal" href="11-utilisation-git-avance.html"><span class="xref myst">11.
-                            Utilisation avancée de Git</span></a></p>
-                    </li>
-                  </ul>
-                  <p>J'espére que ce guide vous sera utile et qu’il vous aidera dans votre parcours d’apprentissage.
-                  </p>
-                  <p>Bonne lecture !</p>
-                </section>
-              </section>
 
             </article>
 
