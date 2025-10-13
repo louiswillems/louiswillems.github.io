@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Le Guide du Data Junior</title>
+  <title>Le Guide du Data Pro</title>
 
 
 
@@ -339,28 +339,216 @@
               <section id="utilisation-terminal">
                 <h1>Utilisation du terminal 💻</h1>
 
-                <p>
-                  Le terminal n'est pas qu'une interface austère : c'est votre moyen de dialoguer directement avec votre
-                  système.
-                  Dans ce chapitre, vous apprendrez à naviguer, manipuler des fichiers et automatiser des tâches
-                  courantes.
+                <p>Le terminal représente une interface de commande textuelle permettant d'interagir directement avec
+                  votre système d'exploitation via des commandes écrites. En effet, au lieu d'utiliser une interface
+                  graphique
+                  avec souris et icônes, vous saisissez des instructions textuelles spécifiques.</p>
+
+                <p>On peut donc voir le terminal comme l'ancêtre des interfaces graphiques modernes : avant
+                  l'Explorateur Windows ou le Finder, c'était le seul moyen de naviguer dans ses fichiers et de gérer
+                  son système.</p>
+
+                <p>Aujourd'hui, le terminal demeure un outil incontournable pour les développeurs, offrant plusieurs
+                  avantages : l'exécution rapide de commandes, la gestion complète des fichiers et dossiers (création,
+                  suppression, déplacement), la navigation efficace dans l'arborescence système, et l'automatisation des
+                  tâches répétitives.</p>
+
+
+                <p>Vous rencontrerez plusieurs appellations pour désigner cet outil : « console », « terminal », «
+                  ligne de commande » ou « term ». Ces termes sont souvent utilisés de façon interchangeable, bien
+                  qu'ils désignent techniquement des composants légèrement différents :</p>
+                <ul>
+                  <li><strong>Terminal</strong> : Le programme qui affiche l’interface de commande</li>
+                  <li><strong>Ligne de commande</strong> : L’espace texte où s’écrivent les instructions</li>
+                  <li><strong>Shell</strong> : Le programme qui traite et exécute les commandes saisies</li>
+                </ul>
+                <p>Cependant dans ce guide, nous utiliserons principalement le terme « terminal » par simplicité.</p>
+
+
+                <h3>Ouvrir votre terminal</h3>
+
+                <p>L'accès au terminal varie selon votre système d'exploitation :</p>
+                <ul>
+                  <li>
+                    <h5>Linux :</h5>
+                    <ul>
+                      <li>Navigation : Applications > Accessoires > Terminal</li>
+                      <li>Raccourci rapide : <code>Ctrl + Alt + T</code></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h5>macOS :</h5>
+                    <ul>
+                      <li>Le terminal se trouve dans : Applications > Utilitaires > Terminal.app</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h5>Windows :</h5>
+                    <ul>
+                      <li>La procédure est légèrement différente puisque nous utilisons WSL2 (voir section précédente)
+                        pour accéder à un environnement Linux complet.</li>
+                      <li>Une fois WSL2 installé, vous pourrez ouvrir un terminal Linux directement depuis Windows.</li>
+                    </ul>
+                  </li>
+                </ul>
+
+
+
+                <ul class="admonition note">
+                  <p><strong>Pourquoi utiliser WSL2 plutôt que les outils Windows natifs ?</strong></p>
+                  <p>Windows possède deux utilitaires de ligne de commande natifs :
+                  <ul>
+                    <li>L'invite de commande (CMD ou fenêtre de commande DOS)</li>
+                    <li>PowerShell (présent sur les versions récentes de Windows)</li>
+                  </ul>
+                  </p>
+                  <p>Bien que ces programmes partagent la même philosophie que le terminal Linux, ils utilisent des
+                    commandes
+                    différentes et ne sont pas compatibles avec l'écosystème de développement Linux standard. C'est
+                    pourquoi l'utilisation de WSL2 (Windows Subsystem for Linux 2) a été évoquée dans la section
+                    1-installation-vscode.</p>
+                </ul>
+
+
+                <h3>Utiliser le terminal </h3>
+
+                <p>Par défaut, le terminal s'ouvre dans votre répertoire personnel (home directory) : <code>~</code>
+                  sous Linux/macOS, ou <code>C:\Users\votre_nom_utilisateur</code> sous Windows. Vous pouvez maintenant
+                  exécuter des commandes, généralement représentées par des acronymes pour optimiser la frappe.</p>
+
+                <h5>La commande <code>pwd</code> (Print Working Directory)</h5>
+
+                <p>On va commencer avec <code>pwd</code> (Print Working
+                  Directory), qui affiche le répertoire de travail
+                  actuel. Tapez <code>pwd</code> dans votre terminal et appuyez sur Entrée. Que
+                  voyez-vous ?
                 </p>
 
-                <p>
-                  Avant de naviguer, comprenons la structure de l'arborescence Linux. Voici un schéma simplifié :
-                </p>
-                <img src="_static/images/arborescence-linux.png" alt="Schéma de l'arborescence Linux"
-                  style="max-width: 100%; height: auto; margin: 20px 0;">
+                <p>La commande <code>pwd</code> retourne le chemin absolu de votre répertoire de travail actuel.</p>
 
-                <h3>Exercice pratique</h3>
+
+                <h5>La commande <code>cd</code> (Change Directory)</h5>
+
+                <p>Les fichiers sur votre ordinateur sont organisés dans des dossiers qui peuvent eux-mêmes contenir des
+                  sous-dossiers et des fichiers. Cette structure hiérarchique est appelée « arborescence de fichiers » –
+                  c'est ainsi que l'ensemble de vos documents sont organisés sur votre machine.</p>
+
+                <p>Pour vous déplacer dans cette arborescence, utilisez la commande <code>cd</code> (Change Directory),
+                  qui permet de changer de répertoire courant.</p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+pwd             # Affiche le chemin absolu du répertoire courant
+cd .            # Reste dans le répertoire actuel (aucun déplacement)
+cd ..           # Remonte d'un niveau vers le dossier parent</pre>
+                </div>
+
+                <h5>La commande <code>ls</code> (List)</h5>
+                La commande ls (qui est le raccourci pour "list" en anglais) permet de lister le contenu d'un
+                répertoire. Vous pouvez ajouter deux paramètres à la commande <code>ls</code> :
+                <div class="highlight highlight-bash">
+                  <pre>
+ls              # Liste les fichiers et dossiers du répertoire courant
+ls -l           # Affichage détaillé (permissions, taille, date)
+ls -la          # Affichage détaillé incluant les fichiers cachés</pre>
+                </div>
+
+
+                <p>Si vous souhaitez lister le contenu d'un dossier dont le nom contient des espaces, comme <em>le guide
+                    du data pro</em>, cela posera problème : la commande <code>ls</code> interprétera chaque mot comme
+                  un dossier distinct (« le », « guide », « du », « data », « pro »).</p>
+                <p>Pour afficher le contenu d'un dossier dont le nom contient des espaces, vous pouvez utiliser des
+                  guillemets :</p>
+                <div class="highlight highlight-bash">
+                  <pre>ls "le guide du data pro"</pre>
+                </div>
+
+
+                <h5>La commande <code>mkdir</code> (Make Directory)</h5>
+
+                <p>La commande <code>mkdir</code> est la contraction de « make directory », soit « créer un répertoire »
+                  en français.
+                  Elle permet de créer de nouveaux dossiers dans votre système de fichiers.</p>
+
+                <p>Tapez <code>mkdir</code> suivi du nom du répertoire que vous souhaitez
+                  créer.</p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+mkdir mon_dossier                    # Crée un dossier nommé "mon_dossier"
+mkdir dossier1 dossier2 dossier3     # Crée plusieurs dossiers simultanément</pre>
+                </div>
+
+                <p>Le terminal interprète l'espace comme un séparateur entre
+                  plusieurs
+                  arguments. Si votre nom de dossier contient des espaces, le terminal créera plusieurs dossiers
+                  distincts au lieu
+                  d'un seul.</p>
+
+                <p>Pour créer un dossier dont le nom contient des espaces, vous avez deux solutions :</p>
+
+                <p><strong>Solution 1 : Utiliser des guillemets</strong></p>
+                <div class="highlight highlight-bash">
+                  <pre>
+mkdir "le guide du data pro"         # Crée un dossier nommé "le guide du data pro"</pre>
+                </div>
+
+                <p><strong>Solution 2 : Échapper les espaces avec un antislash</strong></p>
+                <p>Le caractère d'échappement est l'antislash (backslash) : <code>\</code>. Il suffit de le placer
+                  devant chaque espace :</p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+mkdir le\ guide\ du\ data\ pro       # Crée un dossier nommé "le guide du data pro"</pre>
+                </div>
+
+                <p><strong>Bonne pratique :</strong> Évitez les espaces dans les noms de dossiers. Privilégiez les
+                  tirets ou
+                  underscores : <code>mon-dossier</code> ou <code>mon_dossier</code>.</p>
+
+
+
+
+
+                <h5>Exercice pratique</h5>
                 <ol>
-                  <li>Ouvrez un terminal.</li>
-                  <li>Tapez <code>pwd</code> - que voyez-vous ?</li>
                   <li>Utilisez <code>ls</code> pour explorer le contenu du répertoire courant.</li>
                   <li>Essayez de naviguer avec <code>cd</code> et revenez au répertoire précédent avec
-                    <code>cd ..</code>.
+                    <code>cd ..</code>
                   </li>
                 </ol>
+
+                <ul class="admonition note">
+                  <p><strong>Astuces pratiques pour le terminal</strong></p>
+                  <ul>
+                    <li>
+                      <strong>Flèches ↑ et ↓</strong> : Naviguez dans l'historique de vos commandes
+                      pour les réexécuter sans les retaper.
+                    </li>
+                    <li>
+                      <strong>Tab</strong> : Active l'autocomplétion pour compléter automatiquement
+                      une commande ou un chemin. Si plusieurs options sont disponibles, appuyez une
+                      seconde fois pour afficher la liste des suggestions.
+                    </li>
+                    <li>
+                      <strong>Ctrl + R</strong> : Lance une recherche dans l'historique des commandes.
+                      Tapez <code>Ctrl+R</code>, puis saisissez une partie de la commande recherchée.
+                      Validez avec <code>Entrée</code> pour l'exécuter.
+                    </li>
+                    <li>
+                      <strong>Ctrl + A</strong> : Positionne le curseur au début de la ligne.
+                    </li>
+                    <li>
+                      <strong>Ctrl + E</strong> : Positionne le curseur à la fin de la ligne.
+                    </li>
+                  </ul>
+                </ul>
+
+
+
+
+
+
 
                 <h3>Commandes fondamentales</h3>
 
@@ -368,7 +556,7 @@
                 <div class="highlight highlight-bash">
                   <pre>
 pwd             # Affiche le répertoire courant  
-ls              # Liste le contenu du répertoire  
+ls -la          # Liste le contenu du répertoire  
 cd chemin       # Change de répertoire  
 cd ..           # Remonte d'un niveau</pre>
                 </div>

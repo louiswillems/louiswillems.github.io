@@ -171,19 +171,3 @@ ul {
     color: #0056b3;
     /* Change la couleur au survol */
 }
-
-/* Target the specific links for OpenClassrooms and parcours Data */
-a[href="https://openclassrooms.com/fr/"],
-a[href="https://openclassrooms.com/fr/paths/topics/31-data"] {
-    /* Change the default color to orange-red */
-    text-decoration: none;
-    /* Remove underline */
-}
-
-/* Hover styles for these specific links */
-a[href="https://openclassrooms.com/fr/"]:hover,
-a[href="https://openclassrooms.com/fr/paths/topics/31-data"]:hover {
-    /* Change the hover color to green */
-    text-decoration: underline;
-    /* Add underline on hover */
-}
