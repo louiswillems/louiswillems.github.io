@@ -358,9 +358,9 @@
                   ligne de commande » ou « term ». Ces termes sont souvent utilisés de façon interchangeable, bien
                   qu'ils désignent techniquement des composants légèrement différents :</p>
                 <ul>
-                  <li><strong>Terminal</strong> : Le programme qui affiche l’interface de commande</li>
-                  <li><strong>Ligne de commande</strong> : L’espace texte où s’écrivent les instructions</li>
-                  <li><strong>Shell</strong> : Le programme qui traite et exécute les commandes saisies</li>
+                  <li><strong>💻 Terminal</strong> : Le programme qui affiche l’interface de commande</li>
+                  <li><strong>⌨️ Ligne de commande</strong> : L’espace texte où s’écrivent les instructions</li>
+                  <li><strong>⚙️ Shell</strong> : Le programme qui traite et exécute les commandes saisies</li>
                 </ul>
                 <p>Cependant dans ce guide, nous utiliserons principalement le terme « terminal » par simplicité.</p>
 
@@ -485,38 +485,127 @@ mkdir dossier1 dossier2 dossier3     # Crée plusieurs dossiers simultanément</
                   distincts au lieu
                   d'un seul.</p>
 
-                <p>Pour créer un dossier dont le nom contient des espaces, vous avez deux solutions :</p>
-
-                <p><strong>Solution 1 : Utiliser des guillemets</strong></p>
-                <div class="highlight highlight-bash">
-                  <pre>
-mkdir "le guide du data pro"         # Crée un dossier nommé "le guide du data pro"</pre>
-                </div>
-
-                <p><strong>Solution 2 : Échapper les espaces avec un antislash</strong></p>
-                <p>Le caractère d'échappement est l'antislash (backslash) : <code>\</code>. Il suffit de le placer
-                  devant chaque espace :</p>
+                <p>Pour créer un dossier ou un fichier avec des espaces dans le nom, utilisez l'une de ces méthodes :
+                </p>
 
                 <div class="highlight highlight-bash">
                   <pre>
-mkdir le\ guide\ du\ data\ pro       # Crée un dossier nommé "le guide du data pro"</pre>
+mkdir "le guide du data pro"         # Avec guillemets
+mkdir le\ guide\ du\ data\ pro       # Avec antislash (échappement)</pre>
                 </div>
 
-                <p><strong>Bonne pratique :</strong> Évitez les espaces dans les noms de dossiers. Privilégiez les
+                <p>Bonne pratique :Évitez les espaces dans les noms de dossiers. Privilégiez les
                   tirets ou
                   underscores : <code>mon-dossier</code> ou <code>mon_dossier</code>.</p>
 
 
+                <h5>Déplacer des fichiers avec <code>mv</code></h5>
+
+                <p>La commande <code>mv</code> (move) déplace ou renomme des fichiers.</p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+mv exemple.txt dossier/              # Déplace le fichier dans "dossier"
+mv ancien.txt nouveau.txt            # Renommer le fichier
+mv dossier/exemple.txt .             # Déplace le fichier vers le répertoire courant (.)</pre>
+                </div>
+
+                <p>Répéter <code>mv</code> pour chaque fichier individuellement devient rapidement répétitif avec un
+                  grand
+                  nombre de fichiers. Les wildcards (caractères joker) résolvent ce problème en permettant de cibler
+                  plusieurs fichiers à la fois grâce à des motifs.
+                  L'astérisque <code>*</code> est le wildcard le plus utilisé : il représente n'importe quelle suite de
+                  caractères. </p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+mv *.txt dossier/                   # Déplace tous les fichiers .txt dans "dossier"
+</pre>
+                </div>
+
+                <h5>Copier avec <code>cp</code></h5>
+
+                <p>La commande <code>cp</code> copie des fichiers ou dossiers. Avec la syntaxe suivante :
+                  <code>cp source destination</code>
+                </p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+cp exemple.txt dossier/               # Copie le fichier vers "dossier"
+cp *.txt dossier/                   # Copie plusieurs fichiers vers "dossier"</pre>
+                </div>
+
+                <p>Pour copier un dossier avec son contenu, l'option <code>-r</code> (récursif) est obligatoire :</p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+cp -r dossier/ dossier2/      # Copie le dossier et tout son contenu</pre>
+                </div>
+
+                <p>L'option <code>-r</code> confirme que vous voulez copier
+                  l'intégralité
+                  de l'arborescence (tous les sous-dossiers et fichiers).
+                </p>
 
 
+                <h5>Supprimer avec <code>rm</code></h5>
 
-                <h5>Exercice pratique</h5>
-                <ol>
-                  <li>Utilisez <code>ls</code> pour explorer le contenu du répertoire courant.</li>
-                  <li>Essayez de naviguer avec <code>cd</code> et revenez au répertoire précédent avec
-                    <code>cd ..</code>
-                  </li>
-                </ol>
+                <p>La commande <code>rm</code> (remove) supprime définitivement des fichiers ou dossiers.</p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+rm fichier.txt                       # Supprime un fichier
+rm *.txt                             # Supprime tous les .txt</pre>
+                </div>
+
+                <p>Pour supprimer un dossier et tout son contenu (sous-dossiers et fichiers), l'option
+                  <code>-r</code> est également obligatoire.
+                </p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+rm -r dossier_copie/                 # Supprime le dossier et son contenu</pre>
+                </div>
+
+                <p><strong>⚠️ Attention :</strong> <code>rm</code> supprime définitivement sans passer par la corbeille
+                  !</p>
+
+
+                <h5>Afficher le contenu des fichiers avec <code>cat</code>, <code>less</code> et <code>more</code> </h5>
+
+                <p>Trois commandes permettent d'afficher le contenu d'un fichier dans le terminal :
+                  <code>cat</code>, <code>less</code> et <code>more</code>.
+                </p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+cat fichier.txt      # Affiche tout le contenu
+less fichier.txt     # Affichage paginé (navigation page par page)
+more fichier.txt     # Affichage paginé (version basique)</pre>
+                </div>
+
+                <p>La commande <code>cat</code> affiche tout d'un coup, tandis que
+                  <code>less</code> et <code>more</code> paginent le contenu pour les fichiers volumineux.
+                </p>
+
+                <p>Navigation dans <code>less</code> :</p>
+                <ul>
+                  <li><code>Espace</code> : page suivante</li>
+                  <li><code>b</code> : page précédente</li>
+                  <li><code>q</code> : quitter</li>
+                </ul>
+
+
+                <h5>Rechercher avec <code>grep</code></h5>
+
+                <p>La commande <code>grep</code> recherche du texte dans des fichiers sans les ouvrir.
+                  Elle affiche uniquement les lignes contenant le motif recherché.</p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+grep "motif" fichier.txt          # Recherche dans un fichier
+grep -r "TODO" projet/            # Recherche récursive dans un dossier</pre>
+                </div>
 
                 <ul class="admonition note">
                   <p><strong>Astuces pratiques pour le terminal</strong></p>
@@ -545,12 +634,7 @@ mkdir le\ guide\ du\ data\ pro       # Crée un dossier nommé "le guide du data
                 </ul>
 
 
-
-
-
-
-
-                <h3>Commandes fondamentales</h3>
+                <h3>Récapitulatif des commandes</h3>
 
                 <h5>Navigation</h5>
                 <div class="highlight highlight-bash">
@@ -566,10 +650,10 @@ cd ..           # Remonte d'un niveau</pre>
                   <pre>
 mkdir dossier   # Crée un dossier  
 touch fichier   # Crée un fichier vide  
-rm fichier      # Supprime un fichier  
-rm -r dossier   # Supprime un dossier et son contenu  
 cp source dest  # Copie un fichier  
-mv source dest  # Déplace ou renomme un fichier</pre>
+mv source dest  # Déplace ou renomme un fichier
+rm fichier      # Supprime un fichier  
+rm -r dossier   # Supprime un dossier et son contenu</pre>
                 </div>
 
                 <h5>Affichage de contenu</h5>
@@ -581,7 +665,19 @@ tail fichier          # Affiche les dernières lignes
 grep motif fichier    # Recherche un motif</pre>
                 </div>
 
-                <h5>Redirections & pipes</h5>
+                <h5>Redirections</h5>
+                <p>Les redirections sont des opérateurs qui modifient la destination de la sortie d'une commande. Au
+                  lieu d'afficher le résultat dans le terminal, vous pouvez l'enregistrer dans un fichier. Par exemple,
+                  <code>ls</code> affiche normalement les fichiers à l'écran, mais <code>ls > liste.txt</code>
+                  enregistre cette liste dans le fichier <code>liste.txt</code>
+                </p>
+                <p>Il existe deux redirections principales :</p>
+                <ul>
+                  <li><code>&gt;</code> : envoie la sortie vers un fichier en écrasant son contenu s'il existe</li>
+                  <li><code>&gt;&gt;</code> : ajoute la sortie à la fin d'un fichier sans effacer le contenu existant
+                  </li>
+                </ul>
+
                 <div class="highlight highlight-bash">
                   <pre>
 commande > fichier    # Redirige (écrase)  
