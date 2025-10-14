@@ -421,7 +421,32 @@
                     l'ensemble de l'équipe</li>
                 </ul>
 
-
+                <ul class="admonition note">
+                  <p>Bien que souvent confondus, <strong>Git</strong> et <strong>GitHub</strong> sont deux outils
+                    distincts :</p>
+                  <ul>
+                    <li><strong>Git</strong> : Un logiciel de contrôle de version que vous installez sur votre
+                      ordinateur. Il vous permet de créer un <strong>dépôt local</strong> et de gérer l'historique des
+                      versions de
+                      vos fichiers directement sur votre machine.</li>
+                    <li><strong>GitHub</strong> : Une plateforme en ligne qui héberge vos dépôts Git. On parle alors
+                      de
+                      <strong>dépôt distant</strong>, car vos fichiers sont stockés sur les serveurs de GitHub plutôt
+                      que uniquement
+                      sur
+                      votre ordinateur.
+                    </li>
+                  </ul>
+                  <br>
+                  <p>Git fonctionne donc de manière distribuée. Cela signifie que votre dépôt local est une copie
+                    complète et
+                    autonome du projet dans lequel vous travaillez, avec tout l'historique des modifications. Vous
+                    n'avez
+                    pas besoin d'être connecté à
+                    GitHub pour travailler : toutes les opérations Git (commits, branches, historique) fonctionnent
+                    directement sur votre ordinateur. GitHub ne sert qu'à synchroniser et partager votre travail.
+                  </p>
+                </ul>
 
                 <h5>Concepts essentiels</h5>
                 <ul>
@@ -443,23 +468,7 @@
                 </ul>
 
 
-                <ul class="admonition note">
-                  <p>Bien que souvent confondus, <strong>Git</strong> et <strong>GitHub</strong> sont deux outils
-                    distincts :</p>
-                  <ul>
-                    <li><strong>Git</strong> : Un logiciel de contrôle de version que vous installez sur votre
-                      ordinateur. Il vous permet de créer un <strong>dépôt local</strong> et de gérer l'historique des
-                      versions de
-                      vos fichiers directement sur votre machine.</li>
-                    <li><strong>GitHub</strong> : Une plateforme en ligne qui héberge vos dépôts Git. On parle alors
-                      de
-                      <strong>dépôt distant</strong>, car vos fichiers sont stockés sur les serveurs de GitHub plutôt
-                      que uniquement
-                      sur
-                      votre ordinateur.
-                    </li>
-                  </ul>
-                </ul>
+
 
 
                 <p>Avant de pouvoir utiliser Git, vous devez d'abord l'installer sur votre système. Suivez les
@@ -489,7 +498,12 @@ brew upgrade git</pre>
                 </div>
 
                 <h5>Installation sur Windows (WSL2)</h5>
-                <p>Si vous utilisez Windows avec le Sous-système Windows pour Linux (WSL2), suivez ces étapes :</p>
+                <p>Grâce à WSL2 que vous avez configuré précédemment, nous n'utiliserons pas Git Bash. Vous installerez
+                  Git directement dans votre environnement Linux WSL2, soit en téléchargeant manuellement l'installeur
+                  depuis <a href="https://git-scm.com/downloads" target="_blank"
+                    rel="noopener noreferrer">git-scm.com/downloads</a>, soit via les commandes terminal (recommandé).
+                  Si vous utilisez Windows avec le Sous-système Windows pour Linux (WSL2), suivez ces étapes :</p>
+
                 <p>1. Vérifiez si Git est déjà installé :</p>
                 <div class="highlight highlight-bash">
                   <pre>git --version</pre>
@@ -514,19 +528,38 @@ sudo apt-get install git</pre>
                 <p>Avant de continuer avec les sections suivantes, assurez-vous que la commande Git fonctionne
                   correctement sur votre machine.</p>
 
-                <p>Pour une expérience Git optimale dans VS Code, pensez à installer l'extension GitLens. Cette
-                  extension enrichit les fonctionnalités Git intégrées en ajoutant la visualisation de l'historique des
-                  lignes de code, la navigation dans les commits, et d'autres fonctionnalités qui faciliteront votre
-                  travail avec les dépôts Git.</p>
-
-
-
-
-                <h2>Ressources</h2>
-                <ul>
-                  <li><a href="https://git-scm.com/downloads/win" target="_blank">https://git-scm.com/downloads/win</a>
-                  </li>
+                <ul class="admonition note">
+                  <p>Pour une expérience Git optimale dans VS Code, pensez à installer l'extension GitLens. Cette
+                    extension enrichit les fonctionnalités Git intégrées en ajoutant la visualisation de l'historique
+                    des
+                    lignes de code, la navigation dans les commits, et d'autres fonctionnalités qui faciliteront votre
+                    travail avec les dépôts Git.</p>
                 </ul>
+
+
+
+
+                <h3>Ressources</h3>
+
+                <h5>Créer un compte GitHub</h5>
+
+                <p>Pour créer votre compte GitHub, consultez le guide officiel :
+                  <a href="https://docs.github.com/fr/enterprise-cloud@latest/get-started/start-your-journey/creating-an-account-on-github"
+                    target="_blank">Création d'un compte sur GitHub</a>
+                </p>
+
+                <p>Conseil : Choisissez un nom d'utilisateur professionnel, il sera visible
+                  publiquement et pourra servir pour votre portfolio.</p>
+
+
+                <h5>Protection push de GitHub</h5>
+
+                <p>Tout le contenu d'un dépôt public est visible par tous sur Internet. Évitez d'y stocker
+                  des données sensibles : mots de passe, clés API, tokens ou informations confidentielles. Pour
+                  renforcer la sécurité de vos dépôts, activez la <strong>protection push</strong> de GitHub qui empêche
+                  l'envoi accidentel de secrets. Cette fonctionnalité </p>
+
+
 
               </section>
 

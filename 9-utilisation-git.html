@@ -378,7 +378,7 @@
                 <p>Avant d'utiliser Git, organisez votre espace de travail en créant un répertoire dédié qui
                   centralisera tous vos projets versionnés. Créez un dossier nommé "repos" sur votre machine. Ce
                   répertoire principal hébergera l'ensemble de vos dépôts Git locaux, facilitant ainsi la navigation
-                  entre projets et garantissant un environnement de développement bien structuré.</p>
+                  entre projets et garantissant un environnement de développement structuré.</p>
 
                 <div class="highlight highlight-bash">
                   <pre>
@@ -391,7 +391,7 @@ cd repos</pre>
 
                 <p>Pour transformer n'importe quel dossier en dépôt Git fonctionnel, utilisez la commande
                   <code>git init</code>.
-                  Cette opération va créer l'infrastructure de versionnement en générant un répertoire
+                  Cette opération va créer un dépôt local de versionnement en générant un dossier
                   caché .git qui contient toute la mécanique Git : historique des commits, configuration locale,
                   références des branches, et métadonnées du projet.
                 </p>
@@ -411,7 +411,9 @@ cd ~/repos
 # Créer un nouveau projet
 mkdir mon-projet-python
 
+# Aller dans mon-projet-python
 cd mon-projet-python
+
 # Initialiser Git DANS le projet
 git init</pre>
                 </div>
@@ -431,7 +433,7 @@ git init</pre>
                 <p>
 
                 <h3>Configuration de l'identité utilisateur</h3>
-                <p>Avec votre dépôt Git maintenant initialisé, vous disposez de l'infrastructure nécessaire pour
+                <p>Avec votre dépôt local Git maintenant initialisé, vous disposez de l'infrastructure nécessaire pour
                   versionner votre code. Cependant, avant de créer votre premier commit, Git a besoin de savoir qui vous
                   êtes. Cette identification constitue la base de la traçabilité et de la collaboration dans tout projet
                   versionné.</p>
@@ -441,7 +443,7 @@ git init</pre>
                   code.</p>
 
                 <p>Les paramètres <code>--global</code> s'appliquent à tous vos projets Git sur votre machine, évitant
-                  de reconfigurer ces informations pour chaque nouveau dépôt.</p>
+                  de reconfigurer ces informations pour chaque nouveau dépôt local.</p>
 
                 <div class="highlight highlight-bash">
                   <pre>
@@ -469,13 +471,17 @@ git config --global user.email "votre@email.com"</pre>
                   consiste à comprendre comment sauvegarder efficacement vos modifications en utilisant le système
                   unique de Git qui sépare la préparation des fichiers de leur validation définitive.</p>
 
-                <p>Git utilise un workflow en deux phases pour enregistrer vos modifications : la zone de staging
-                  (préparation) puis le commit (validation définitive). Cette approche vous permet de contrôler
-                  précisément quelles modifications inclure dans chaque sauvegarde.</p>
+                <p>Git utilise un workflow en deux phases pour enregistrer vos modifications : la zone d'indexation
+                  (avec la commande <code>git add</code>) puis la validation définitive avec
+                  <code>git commit</code>. Cette approche vous permet
+                  de contrôler
+                  précisément quelles modifications inclure dans chaque sauvegarde.
+                </p>
 
-                <h5>1. Zone de staging : préparez vos changements</h5>
-                <p>La zone de staging est comme une "salle d'attente" où vous rassemblez les modifications avant de les
-                  sauvegarder définitivement. Cette étape intermédiaire vous permet de choisir précisément ce qui sera
+                <h5>1. Zone d'indexation (stage) : préparez vos changements</h5>
+                <p>La zone de staging est comme une "salle d'attente" où vous indexez (ajoutez) les fichiers et
+                  modifications que vous souhaitez sauvegarder. Cette étape intermédiaire vous permet de choisir
+                  précisément ce qui sera
                   inclus dans votre prochain commit.</p>
 
                 <div class="highlight highlight-bash">
@@ -493,12 +499,18 @@ git add exemple.html</pre>
                   (d'enregister les modifications).
 
                 <h5>2. Commit : sauvegardez définitivement</h5>
-                <p>Le commit transforme les fichiers en staging en un point de sauvegarde permanent dans l'historique.
+                <p>Maintenant que vos modifications sont indexées (zone de staging), vous pouvez les sauvegarder
+                  définitivement avec un <code>commit</code>. La commande <code>git commit</code> transforme les
+                  fichiers stagés en un point de sauvegarde permanent dans l'historique de votre projet
                 </p>
                 <div class="highlight highlight-bash">
-                  <pre>git commit -m "Ajout formulaire de contact avec validation email"</pre>
+                  <pre>git commit -m "Ajout du fichier exemple.html"</pre>
                 </div>
 
+                <p>L'option <code>-m</code> (pour « message ») permet d'ajouter directement un message descriptif à
+                  votre commit.
+                  Sans cette option, Git ouvrira automatiquement un éditeur de texte pour que vous saisissiez le
+                  message.</p>
 
                 <div class="custom-admonition info">
                   <p class="custom-admonition-title">💡 Bonnes pratiques pour les messages de commit</p>
@@ -510,7 +522,7 @@ git add exemple.html</pre>
                     <li>
                       <em>"Optimise les requêtes SQL pour réduire le temps de chargement"</em>
                     </li>
-                    <li><em>"Ajoute validation du modèle en production"</em></li>
+                    <li><em>"Ajout validation du modèle en production"</em></li>
                   </ul>
                   <p><strong>❌ Messages à éviter :</strong></p>
                   <ul>
@@ -518,7 +530,7 @@ git add exemple.html</pre>
                     <li><em>"changements divers"</em></li>
                   </ul>
                   <p>
-                    Écrivez vos messages comme des ordres : <em>"Ajoute", "Corrige", "Supprime"</em>. Pourquoi ? Car Git
+                    Écrivez vos messages comme des ordres : <em>"Ajout", "Corrige", "Supprime"</em>. Pourquoi ? Car Git
                     lui-même utilise ce style :
                     <em>"Merge branch..."</em>, <em>"Revert commit..."</em>.
                   </p>
@@ -559,7 +571,7 @@ git add exemple.py</pre>
                   <li><code>git commit</code> – Sauvegarder définitivement</li>
                 </ul>
                 <div class="highlight highlight-bash">
-                  <pre>git commit -m "Ajout validation des données"</pre>
+                  <pre>git commit -m "Votre message"</pre>
                 </div>
 
                 <p>Transforme vos modifications sélectionnées en un point de sauvegarde permanent. Le message doit
@@ -584,36 +596,12 @@ git add exemple.py</pre>
                 <p>Envoie vos commits locaux vers le dépôt partagé, rendant le code accessible dans le dépôt distant.
                 </p>
 
-                <div class="custom-admonition info">
-                  <p class="custom-admonition-title">Commandes Git avancées</p>
-                  <p>Une fois à l'aise avec les bases, ces commandes enrichiront votre workflow :</p>
-
-                  <p><strong>Gestion des branches :</strong></p>
-                  <ul>
-                    <li><code>git branch</code> : Liste toutes les branches locales</li>
-                    <li><code>git branch -d feature-login</code> : Supprime une branche fusionnée</li>
-                    <li><code>git checkout -b nouvelle-feature</code> : Crée et bascule sur une nouvelle branche</li>
-                    <li><code>git switch main</code> ou <code>git checkout</code> : Méthodes pour changer de branche
-                    </li>
-                  </ul>
-
-                  <p><strong>Navigation et historique :</strong></p>
-                  <ul>
-                    <li><code>git log --oneline</code> : Affiche l'historique de manière compacte</li>
-                    <li><code>git log --graph</code> : Visualise l'arbre des commits</li>
-                    <li><code>git diff</code> : Montre les modifications non commitées</li>
-                  </ul>
-
-                  <p><strong>Collaboration avancée :</strong></p>
-                  <ul>
-                    <li><code>git merge feature-branch</code> : Intègre une branche dans la branche courante</li>
-                    <li><code>git rebase main</code> : Réapplique vos commits sur une base mise à jour</li>
-                    <li><code>git stash</code> : Met temporairement de côté vos modifications</li>
-                  </ul>
-                </div>
+                <ul class="admonition note">
+                  Ces deux commandes seront détaillées dans la section « Git local vers Git collaboratif »
+                </ul>
 
                 <h3>Git au quotidien : bonnes pratiques</h3>
-                <p>Chaque commit doit représenter une seule unité logique de changement. Au lieu d'un commit géant
+                <p>Chaque commit doit représenter une seule unité logique de changement. Au lieu d'un commit important
                   "Refonte complète du module", préférez plusieurs commits ciblés :</p>
                 <ul>
                   <li><em>"Extrait la logique de validation dans une fonction séparée"</em></li>
@@ -626,8 +614,8 @@ git add exemple.py</pre>
                   synchroniser votre environnement avec les dernières modifications du projet. Ensuite, concentrez-vous
                   sur une fonctionnalité précise et utilisez régulièrement <code>git status</code> pour suivre l’état de
                   vos fichiers. Commitez vos changements par petites étapes cohérentes, chacune représentant une action
-                  logique. Une fois le travail terminé, utilisez <code>git push</code> pour partager vos contributions
-                  avec l’équipe.</p>
+                  logique. Une fois le travail terminé, utilisez <code>git push</code> pour partager vos contributions.
+                </p>
 
                 <p>Cette approche méthodique réduit les risques de conflits, facilite les revues de code et améliore la
                   lisibilité du projet dans le temps. Gardez en tête que Git n’est pas seulement un outil de

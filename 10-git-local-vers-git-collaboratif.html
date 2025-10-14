@@ -385,34 +385,30 @@
 
                                 <p>Jusqu'à présent, votre connaissance de Git s'est construite dans l'environnement de
                                     votre machine
-                                    locale. Vous avez appris à versioner votre code, et à créer des branches. Cette
+                                    locale. Cette
                                     fondation constitue la
                                     base du développement professionnel, mais elle ne représente qu'une facette de
-                                    l'écosystème Git.</p>
-
-                                <p>En effet, le développement avec Git repose sur la collaboration d'équipe et la
+                                    l'écosystème Git. En effet, le développement avec Git repose sur la collaboration
+                                    d'équipe et la
                                     synchronisation
-                                    distribuée. Dans un environnement professionnel, votre code doit être partagé,
+                                    distribuée avec des dépôts distants. Dans un environnement professionnel, votre code
+                                    doit être partagé,
                                     révisé, intégré et
                                     déployé en coordination avec vos collègues.</p>
 
-                                <p>L'évolution vers Git collaboratif introduit une dimension stratégique : la gestion
-                                    des dépôts
-                                    distants. Les plateformes cloud (GitHub, GitLab, Azure Repos) ne sont pas de simples
+                                <p>La gestion
+                                    des dépôts Les plateformes cloud (GitHub, GitLab, Azure Repos) ne sont pas de
+                                    simples
                                     espaces de
                                     stockage, mais des écosystèmes complets qui orchestrent les workflows de
                                     développement, automatisent
                                     les processus de validation et facilitent la revue de code. Cette transition
                                     implique de connaître de certains concepts et pratiques : le transfert de
                                     modifications entre votre machine et les serveurs distants, la collaboration sur des
-                                    branches partagées avec gestion des conflits, les revues de code structurées et les
-                                    pipelines d'intégration continue.</p>
+                                    branches partagées avec gestion des conflits et les revues de code structurées.</p>
 
-                                <p>Cette section couvre les pratiques collaboratives essentielles au développement
-                                    professionnel, où le travail d'équipe structuré est aussi important que la
-                                    connaissance technique de Git.</p>
 
-                                <h3>Architecture Git : Client vs Serveur</h3>
+                                <h3>Git : Client vs Serveur</h3>
                                 <p>Git fonctionne selon un modèle distribué qui combine autonomie locale et
                                     collaboration centralisée.
                                     Sur votre machine, l'installation Git opère comme un client autonome complet,
@@ -423,9 +419,10 @@
                                     et fonctionnelle
                                     du dépôt sur son poste. Parallèlement, les plateformes de dépôts distants (GitHub,
                                     Azure Repos, entre
-                                    autres) agissent comme des serveurs centralisés servant de "source de vérité"
+                                    autres) agissent comme des dépôts distants serveurs centralisés servant de "source
+                                    de vérité"
                                     commune, orchestrant la
-                                    synchronisation entre tous les clients Git de l'équipe.</p>
+                                    synchronisation entre tous les développeurs de l'équipe.</p>
 
                                 <p>Git permet à chaque développeur de travailler de manière autonome avec l'historique
                                     complet, puis de
@@ -433,12 +430,6 @@
                                     flexibilité,
                                     performance et résilience dans le workflow collaboratif.</p>
 
-                                <p>Ainsi, un dépôt distant hébergé dans le cloud constitue le pilier du développement
-                                    collaboratif.
-                                    Cette infrastructure centralisée transforme la manière dont les équipes travaillent
-                                    ensemble en
-                                    établissant une source de vérité unique, accessible à tous les membres de l'équipe.
-                                </p>
 
                                 <p>Au-delà de la collaboration, le dépôt distant offre une sécurité renforcée grâce à la
                                     sauvegarde
@@ -448,20 +439,15 @@
                                     pérennité du travail de
                                     développement.</p>
 
-                                <h3>Gestion de version centralisée</h3>
                                 <p>Le paysage des plateformes de dépôts distants est dominé par plusieurs acteurs clés,
                                     chacun proposant
                                     des spécificités adaptées à différents contextes organisationnels. GitHub s'impose
-                                    comme le leader
-                                    incontesté du marché, fort de son rachat par Microsoft et de son écosystème open
+                                    comme le leader du marché, fort de son rachat par Microsoft et de son écosystème
+                                    open
                                     source de référence
-                                    qui attire des millions de développeurs à travers le monde. Cette plateforme a
-                                    révolutionné la manière
-                                    dont les projets open source sont développés et partagés, créant une véritable
-                                    communauté mondiale de
-                                    développeurs.</p>
+                                    qui attire des millions de développeurs à travers le monde.</p>
 
-                                <p>GitLab propose une alternative complète particulièrement séduisante pour les
+                                <p>GitLab propose une alternative pour les
                                     entreprises cherchant
                                     une solution tout-en-un. Sa force réside dans l'intégration native de
                                     fonctionnalités DevOps avancées,
@@ -493,45 +479,78 @@
 
 
 
-                                <h3>Configuration avancée avec GitHub</h3>
-                                <p>Pour tirer pleinement parti de GitLens dans un environnement GitHub, configurez
-                                    l'intégration native
-                                    en utilisant la fonctionnalité "Connect an Integration". Cette configuration permet
-                                    à GitLens
-                                    d'accéder directement aux informations GitHub, enrichissant ainsi l'affichage avec :
-                                </p>
-                                <ul>
-                                    <li>Pull Requests associées : Visualisation des PR liées aux commits directement
-                                        dans l'éditeur</li>
-                                    <li>Issues : Affichage des tickets GitHub connectés aux modifications de code</li>
-                                    <li>Informations contextuelles : Détails supplémentaires sur les workflows GitHub
-                                        Actions, les
-                                        déploiements et les reviews</li>
-                                </ul>
-                                <p>Procédure d'activation :</p>
-                                <ol>
-                                    <li>Après installation de GitLens, accédez à la palette de commandes (Ctrl+Shift+P /
-                                        Cmd+Shift+P)</li>
-                                    <li>Recherchez "GitLens: Connect an Integration"</li>
-                                    <li>Sélectionnez "GitHub" dans la liste des intégrations disponibles</li>
-                                    <li>Suivez les instructions d'authentification pour connecter votre compte GitHub
-                                    </li>
-                                </ol>
-                                <p>Cette intégration transforme GitLens en véritable centre de contrôle pour votre
-                                    workflow de
-                                    développement, centralisant toutes les informations directement dans votre VS Code.
+                                <h3>Configurer l'authentification avec GitHub</h3>
+
+                                <p>Vous avez créé votre commit local, mais celui-ci existe uniquement sur votre
+                                    ordinateur. Pour le sauvegarder en ligne, le partager avec votre équipe et
+                                    collaborer efficacement, vous devez <code>push</code> votre commit, c'est à dire,
+                                    l'envoyer vers un dépôt distant. Dans ce guide, nous utiliserons GitHub comme
+                                    plateforme d'hébergement.</p>
+
+                                <h5>Méthodes de connexion</h5>
+
+                                <p>Avant d'effectuer votre premier <code>git push</code>, il est essentiel de comprendre
+                                    comment votre
+                                    ordinateur communiquera de manière sécurisée avec GitHub. Trois méthodes principales
+                                    d'authentification sont disponibles : GitHub CLI, SSH et HTTP avec PAT (Personal
+                                    Access
+                                    Tokens)</p>
+
+                                <p>GitHub CLI est l'outil en ligne de commande officiel de GitHub qui simplifie
+                                    l'authentification. Au lieu de configurer des clés SSH ou de
+                                    générer des tokens (PAT), GitHub CLI vous authentifie via votre navigateur
+                                    web en quelques clics avec la commande <code>gh auth login</code>. C'est la
+                                    solution idéale pour débuter avec GitHub, car elle ne nécessite qu'une
+                                    installation simple. Pour plus d'informations et les instructions d'installation
+                                    officielles, consultez :
+                                    <a href="https://github.com/cli/cli#installation" target="_blank"
+                                        rel="noopener noreferrer">https://github.com/cli/cli#installation</a>
                                 </p>
 
-                                <h3>Mise en pratique : Connecter local et distant Azure Repos</h3>
+                                <p>Les PAT (Personal Access Tokens) sont principalement utilisés dans des contextes
+                                    spécifiques. Un PAT est un token généré
+                                    depuis votre compte GitHub qui sert de mot de passe sécurisé. Ces tokens sont
+                                    essentiels
+                                    pour l'automatisation, notamment dans les pipelines CI/CD (Intégration
+                                    Continue/Déploiement Continu) , les scripts automatisés et les environnements
+                                    serveur
+                                    où
+                                    SSH n'est pas approprié. Vous pouvez définir des permissions spécifiques et des
+                                    dates
+                                    d'expiration pour chaque token, renforçant ainsi la sécurité.</p>
+
+                                <p>Le protocole SSH (Secure Shell) est un protocole qui établit une connexion sécurisée
+                                    entre votre machine et GitHub grâce à un système de clés cryptographiques.
+                                    L'avantage principal de SSH est qu'une fois la configuration initiale effectuée,
+                                    vous n'aurez plus besoin de saisir vos identifiants pour communiquer avec
+                                    GitHub. Chaque action sera automatiquement authentifiée grâce à vos clés. Pour plus
+                                    d'informations sur la génération d'une nouvelle clé SSH et son ajout à l'agent SSH,
+                                    consultez :
+                                    <a href="https://docs.github.com/fr/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+                                        target="_blank"
+                                        rel="noopener noreferrer">https://docs.github.com/fr/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a>
+                                    ou regardez ce tutoriel vidéo :
+                                    <a href="https://www.youtube.com/watch?v=7K7xt0VJg5s" target="_blank"
+                                        rel="noopener noreferrer">https://www.youtube.com/watch?v=7K7xt0VJg5s</a>
+                                </p>
+
+                                <p>Dans ce guide, nous privilégions SSH pour l'authentification GitHub. Même si d'autres
+                                    méthodes sont plus simples à configurer, SSH est le standard professionnel qui
+                                    fonctionne avec tous vos outils de développement et ne demande aucune intervention
+                                    une fois configuré.</p>
+
+
+
+                                <h3>Mise en pratique : De Git local à GitHub</h3>
                                 <p>Dans un environnement de développement collaboratif, comprendre comment connecter et
                                     synchroniser un
-                                    dépôt local avec une plateforme Git distante est essentiel. Dans notre cas, Azure
-                                    Repos constitue le
+                                    dépôt local avec une plateforme Git distante est essentiel. Dans notre cas, GitHub
+                                    constitue le
                                     point central de gestion du code source, intégrant l’ensemble des outils Azure
                                     DevOps tels que les
                                     pipelines CI/CD, le suivi des tâches et les permissions d’équipe (via service
                                     principals).</p>
-                                <p>Cette section présente les différents workflows Git dans Azure Repos, depuis le
+                                <p>Cette section présente les différents workflows Git dans GitHub, depuis le
                                     clonage d’un projet
                                     existant, en passant par la création d’un nouveau dépôt, jusqu’à la migration d’un
                                     projet local déjà
@@ -658,6 +677,37 @@ git push github main   # Vers GitHub
                                 </div>
 
                             </section>
+
+
+
+                            <h3>Configuration de GitLens dans VS Code</h3>
+                            <p>Pour tirer pleinement parti de GitLens dans un environnement GitHub, configurez
+                                l'intégration native
+                                en utilisant la fonctionnalité "Connect an Integration". Cette configuration permet
+                                à GitLens
+                                d'accéder directement aux informations GitHub, enrichissant ainsi l'affichage avec :
+                            </p>
+                            <ul>
+                                <li>Pull Requests associées : Visualisation des PR liées aux commits directement
+                                    dans l'éditeur</li>
+                                <li>Issues : Affichage des tickets GitHub connectés aux modifications de code</li>
+                                <li>Informations contextuelles : Détails supplémentaires sur les workflows GitHub
+                                    Actions, les
+                                    déploiements et les reviews</li>
+                            </ul>
+                            <p>Procédure d'activation :</p>
+                            <ol>
+                                <li>Après installation de GitLens, accédez à la palette de commandes (Ctrl+Shift+P /
+                                    Cmd+Shift+P)</li>
+                                <li>Recherchez "GitLens: Connect an Integration"</li>
+                                <li>Sélectionnez "GitHub" dans la liste des intégrations disponibles</li>
+                                <li>Suivez les instructions d'authentification pour connecter votre compte GitHub
+                                </li>
+                            </ol>
+                            <p>Cette intégration transforme GitLens en véritable centre de contrôle pour votre
+                                workflow de
+                                développement, centralisant toutes les informations directement dans votre VS Code.
+                            </p>
 
                         </article>
 

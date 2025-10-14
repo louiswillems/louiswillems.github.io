@@ -381,6 +381,35 @@
                   relatives, et annuler des changements avec précision. Comprendre ces déplacements dans l’historique de
                   Git vous donnera une grande liberté et une meilleure compréhension de l’évolution de votre code.</p>
 
+
+                <div class="custom-admonition info">
+                  <p class="custom-admonition-title">Commandes Git avancées</p>
+                  <p>Une fois à l'aise avec les bases, ces commandes enrichiront votre workflow :</p>
+
+                  <p><strong>Gestion des branches :</strong></p>
+                  <ul>
+                    <li><code>git branch</code> : Liste toutes les branches locales</li>
+                    <li><code>git branch -d feature-login</code> : Supprime une branche fusionnée</li>
+                    <li><code>git checkout -b nouvelle-feature</code> : Crée et bascule sur une nouvelle branche</li>
+                    <li><code>git switch main</code> ou <code>git checkout</code> : Méthodes pour changer de branche
+                    </li>
+                  </ul>
+
+                  <p><strong>Navigation et historique :</strong></p>
+                  <ul>
+                    <li><code>git log --oneline</code> : Affiche l'historique de manière compacte</li>
+                    <li><code>git log --graph</code> : Visualise l'arbre des commits</li>
+                    <li><code>git diff</code> : Montre les modifications non commitées</li>
+                  </ul>
+
+                  <p><strong>Collaboration avancée :</strong></p>
+                  <ul>
+                    <li><code>git merge feature-branch</code> : Intègre une branche dans la branche courante</li>
+                    <li><code>git rebase main</code> : Réapplique vos commits sur une base mise à jour</li>
+                    <li><code>git stash</code> : Met temporairement de côté vos modifications</li>
+                  </ul>
+                </div>
+
                 <h3>Voyager dans le temps avec Git</h3>
                 <p>Avec Git, remonter dans le temps pour explorer des versions précédentes de votre projet est à la fois
                   simple et puissant. Que ce soit via l’interface de votre éditeur (comme la section Commits de VS Code)
