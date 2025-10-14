@@ -364,18 +364,19 @@
                   code au fil du temps. Créé par Linus Torvalds en 2005 (créateur de Linux), Git est aujourd'hui l'outil
                   de versionnement de référence dans le développement logiciel.</p>
 
-                <p>Le principe du versionnement : Conserver un historique complet de toutes les modifications effectuées
-                  sur vos fichiers, vous permettant de revenir en arrière, comparer les versions, et collaborer sans
-                  conflits.</p>
+                <p><strong>Qu'est-ce que le contrôle de version (ou versionnement)?</strong> C'est un système qui
+                  enregistre l'historique
+                  complet des
+                  modifications apportées à vos fichiers. Il vous permet de revenir à des versions antérieures et de
+                  comparer
+                  les changements entre différentes versions.</p>
 
                 <p>Git offre ainsi la possibilité d'enregistrer des "versions figées" de votre projet à chaque commit
                   (c'est-à-dire à chaque point de sauvegarde),
                   créant ainsi une séquence chronologique de l'évolution de votre code. Cette chronologie interactive
-                  vous
-                  permet de naviguer dans l'historique, comparer les modifications, et synchroniser le développement
-                  collaboratif.</p>
+                  vous permet de naviguer dans l'historique des modifications enregistrées.</p>
 
-                <p>Imaginez que vous et votre équipe travaillez sur un document Google Docs. Git reprend cette
+                <!-- <p>Imaginez que vous et votre équipe travaillez sur un document Google Docs. Git reprend cette
                   philosophie collaborative, mais chaque développeur dispose d'une copie locale complète du projet sur
                   son ordinateur. Vous téléchargez "votre propre version" du projet, travaillez en autonomie, puis
                   synchronisez vos modifications avec l'équipe quand vous êtes prêt.</p>
@@ -388,28 +389,46 @@
                   <li>Vous envoyez ensuite avec un <code>push</code> ces modifications vers le dépôt central
                     (l’équivalent d’une synchronisation
                     vers Google Drive).</li>
-                </ul>
+                </ul> -->
 
-                <p>Néanmoins, Git ne se limite pas à copier-coller le concept de Google Docs ; il rajoute des
+                <p>Néanmoins, Git ne se limite pas qu'à sauvegarder l'historique des modifications ; il rajoute des
                   fonctionnalités spécialement conçues pour le développement :</p>
                 <ul>
-                  <li><strong>Historique détaillé</strong> : savoir qui a apporté quelle modification et à quel moment.
+                  <li>Historique détaillé : savoir qui a apporté quelle modification et à quel moment.
                   </li>
-                  <li><strong>Voyage dans le temps</strong> : revenir à n’importe quelle version précédente du projet.
+                  <li>Voyage dans le temps : revenir à n’importe quelle version précédente du projet.
                   </li>
-                  <li><strong>Collaboration fluide</strong> : plusieurs personnes peuvent travailler en parallèle sans
-                    conflits permanents.</li>
-                  <li><strong>Expérimentation sécurisée (<code>branches</code>)</strong> : créer des environnements
-                    isolés pour
-                    tester de nouvelles idées sans risquer de “casser” le projet principal.</li>
+                  <li>Travail en parallèle : plusieurs personnes peuvent modifier le code
+                    simultanément.</li>
+                  <li>Expérimentation sécurisée (<code>branches</code>) : créer des environnements
+                    isolés pour tester de nouvelles idées.</li>
                 </ul>
 
-                <h5>Lexique Git : Concepts essentiels</h5>
+                <h5>Différence entre dépôts local et distant</h5>
+
+                <p>Lorsque vous travaillez avec Git, vous utilisez souvent deux espaces distincts appelés dépôts
+                  (repositories) :
+                </p>
+                <ul>
+                  <li>Le <strong>dépôt local (🖥️)</strong> est votre espace de travail personnel sur votre machine.
+                    C'est
+                    votre environnement de travail quotidien où vous modifiez le code, enregistrez vos changements
+                    (<em>commits</em>) et testez vos fonctionnalités avant de les partager.</li>
+
+                  <li>Le <strong>dépôt distant (☁️)</strong> est hébergé sur une plateforme en ligne (GitHub, GitLab,
+                    Bitbucket). Il remplit trois rôles essentiels : sauvegarder votre travail contre toute perte de
+                    données, synchroniser les contributions de plusieurs développeurs, et centraliser le code de
+                    l'ensemble de l'équipe</li>
+                </ul>
+
+
+
+                <h5>Concepts essentiels</h5>
                 <ul>
                   <li><strong>Repositories (Dépôts)</strong><br>Dossier contenant votre projet et son historique
                     complet. Le dépôt garde en mémoire toutes les versions et modifications de vos fichiers grâce au
                     dossier caché <code>.git</code>.</li>
-                  <li><strong>Commits</strong><br>Un commit est essentiellement un ensemble de modifications dans votre
+                  <li><strong>Commits</strong><br>Un commit est un ensemble de modifications dans votre
                     dossier caché <code>.git</code>.</li>
                   <li><strong>Branches</strong><br>Lignes de développement indépendantes. Elles permettent de travailler
                     sur de nouvelles fonctionnalités ou corrections sans affecter la branche principale
@@ -419,11 +438,32 @@
                     nécessaire.</li>
                   <li><strong>Tags (Étiquettes)</strong><br>Marqueurs permanents attachés à des commits spécifiques,
                     généralement utilisés pour identifier des versions officielles (v1.0, v2.0) du projet. Nous pouvons
-                    utiliser des balises (tags) pour attribuer des étiquettes ou des alias à des commits, ce qui
+                    utiliser des tags pour attribuer des étiquettes ou des alias à des commits, ce qui
                     facilite la navigation d’une version à l’autre.</li>
                 </ul>
 
 
+                <ul class="admonition note">
+                  <p>Bien que souvent confondus, <strong>Git</strong> et <strong>GitHub</strong> sont deux outils
+                    distincts :</p>
+                  <ul>
+                    <li><strong>Git</strong> : Un logiciel de contrôle de version que vous installez sur votre
+                      ordinateur. Il vous permet de créer un <strong>dépôt local</strong> et de gérer l'historique des
+                      versions de
+                      vos fichiers directement sur votre machine.</li>
+                    <li><strong>GitHub</strong> : Une plateforme en ligne qui héberge vos dépôts Git. On parle alors
+                      de
+                      <strong>dépôt distant</strong>, car vos fichiers sont stockés sur les serveurs de GitHub plutôt
+                      que uniquement
+                      sur
+                      votre ordinateur.
+                    </li>
+                  </ul>
+                </ul>
+
+
+                <p>Avant de pouvoir utiliser Git, vous devez d'abord l'installer sur votre système. Suivez les
+                  instructions correspondant à votre système d'exploitation.</p>
 
 
                 <h3>Installation de Git</h3>
@@ -479,27 +519,6 @@ sudo apt-get install git</pre>
                   lignes de code, la navigation dans les commits, et d'autres fonctionnalités qui faciliteront votre
                   travail avec les dépôts Git.</p>
 
-
-
-                <h3>Configuration avancée avec GitHub</h3>
-                <p>Pour tirer pleinement parti de GitLens dans un environnement GitHub, configurez l'intégration native
-                  en utilisant la fonctionnalité "Connect an Integration". Cette configuration permet à GitLens
-                  d'accéder directement aux informations GitHub, enrichissant ainsi l'affichage avec :</p>
-                <ul>
-                  <li>Pull Requests associées : Visualisation des PR liées aux commits directement dans l'éditeur</li>
-                  <li>Issues : Affichage des tickets GitHub connectés aux modifications de code</li>
-                  <li>Informations contextuelles : Détails supplémentaires sur les workflows GitHub Actions, les
-                    déploiements et les reviews</li>
-                </ul>
-                <p>Procédure d'activation :</p>
-                <ol>
-                  <li>Après installation de GitLens, accédez à la palette de commandes (Ctrl+Shift+P / Cmd+Shift+P)</li>
-                  <li>Recherchez "GitLens: Connect an Integration"</li>
-                  <li>Sélectionnez "GitHub" dans la liste des intégrations disponibles</li>
-                  <li>Suivez les instructions d'authentification pour connecter votre compte GitHub</li>
-                </ol>
-                <p>Cette intégration transforme GitLens en véritable centre de contrôle pour votre workflow de
-                  développement, centralisant toutes les informations directement dans votre VS Code.</p>
 
 
 
