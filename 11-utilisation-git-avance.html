@@ -382,104 +382,272 @@
                   Git vous donnera une grande liberté et une meilleure compréhension de l’évolution de votre code.</p>
 
 
-                <div class="custom-admonition info">
-                  <p class="custom-admonition-title">Commandes Git avancées</p>
-                  <p>Une fois à l'aise avec les bases, ces commandes enrichiront votre workflow :</p>
+                <h3>Branches dans Git</h3>
+                <p>Les branches sont des copies indépendantes de votre code créées à un instant précis. Elles vous
+                  offrent un espace d'expérimentation où vous pouvez tester des idées et développer des fonctionnalités
+                  sans affecter le code principal. Chaque branche évolue en parallèle avant d'être éventuellement
+                  fusionnée.</p>
+                <p>La branche principale (main/master) sert de référence : elle représente la version stable et
+                  fonctionnelle de votre projet, contenant uniquement les modifications validées et testées. Le
+                  développement de nouvelles fonctionnalités et la correction de bugs se font systématiquement sur des
+                  branches dédiées.</p>
 
-                  <p><strong>Gestion des branches :</strong></p>
-                  <ul>
-                    <li><code>git branch</code> : Liste toutes les branches locales</li>
-                    <li><code>git branch -d feature-login</code> : Supprime une branche fusionnée</li>
-                    <li><code>git checkout -b nouvelle-feature</code> : Crée et bascule sur une nouvelle branche</li>
-                    <li><code>git switch main</code> ou <code>git checkout</code> : Méthodes pour changer de branche
-                    </li>
-                  </ul>
 
-                  <p><strong>Navigation et historique :</strong></p>
-                  <ul>
-                    <li><code>git log --oneline</code> : Affiche l'historique de manière compacte</li>
-                    <li><code>git log --graph</code> : Visualise l'arbre des commits</li>
-                    <li><code>git diff</code> : Montre les modifications non commitées</li>
-                  </ul>
+                <ul class="custom-admonition">
+                  En octobre 2020, GitHub a changé la terminologie de "master" à "main" pour des raisons d'inclusivité.
+                  Les anciens projets
+                  utilisent souvent encore "master", tandis que les nouveaux projets utilisent "main.</ul>
 
-                  <p><strong>Collaboration avancée :</strong></p>
-                  <ul>
-                    <li><code>git merge feature-branch</code> : Intègre une branche dans la branche courante</li>
-                    <li><code>git rebase main</code> : Réapplique vos commits sur une base mise à jour</li>
-                    <li><code>git stash</code> : Met temporairement de côté vos modifications</li>
-                  </ul>
-                </div>
 
-                <h3>Voyager dans le temps avec Git</h3>
-                <p>Avec Git, remonter dans le temps pour explorer des versions précédentes de votre projet est à la fois
-                  simple et puissant. Que ce soit via l’interface de votre éditeur (comme la section Commits de VS Code)
-                  ou en ligne de commande avec git log, chaque commit est identifié par un hash unique, une sorte
-                  d’empreinte numérique. Pour revenir à un état antérieur du code, il suffit d’utiliser la commande git
-                  checkout &lt;hash_du_commit&gt;.</p>
-                <p>Avant d’effectuer ce saut dans le passé, assurez-vous d’avoir enregistré vos modifications. Si vous
-                  avez déjà fait un git add mais ne souhaitez pas encore faire de commit, vous pouvez temporairement
-                  mettre vos changements de côté avec la commande git stash.</p>
-                <p>Voyager à travers l’historique permet notamment d’identifier le moment exact où un bug est apparu.
-                  Lorsqu’un problème survient et que vous ne parvenez pas à en cerner rapidement la cause, revenir à la
-                  dernière version stable peut être une solution précieuse.</p>
-                <p>Plus vos commits sont petits, fréquents et accompagnés de messages clairs, plus il sera facile de
-                  localiser l’introduction d’un bug. Une bonne hygiène de versionnage permet souvent d’éviter des
-                  retours en arrière trop brutaux, voire de contourner complètement le besoin d’un revert. D’ailleurs,
-                  Git ne se limite pas à des déplacements linéaires dans l’historique : il offre une grande souplesse
-                  pour naviguer, expérimenter et restructurer votre travail.</p>
-
-                <h3>Branches et fusion dans Git</h3>
-                <p>Que vous travailliez en solo ou en équipe, la branche principale de votre projet — souvent appelée
-                  main ou master — représente la version de référence de votre code.</p>
-                <p>Lorsque vous développez de nouvelles fonctionnalités ou corrigez des bugs, il est courant de créer
-                  des branches spécifiques.</p>
-                <p>Les préfixes les plus courants que vous verrez dans les noms de branches sont :</p>
+                <p>Les préfixes les plus courants pour les nouvelles branches créees que vous verrez dans les noms de
+                  branches sont :</p>
                 <ul>
                   <li><strong>feat/ ou feature/</strong> : indique que vous ajoutez une nouvelle
                     fonctionnalité.<br>Exemple : feature/hyperparametrage ou feature/previsions</li>
                   <li><strong>fix/ ou bugfix/</strong> : implique que vous ne prévoyez pas d'ajouter de nouvelles
-                    fonctionnalités, mais que vous corrigez un problème dans une fonctionnalité existante.<br>Exemple :
+                    fonctionnalités, mais que vous corrigez un problème dans une fonctionnalité existante.<br>Exemple
+                    :
                     bugfix/erreur-pretraitement ou fix/modele-churn</li>
                 </ul>
                 <p>Les branches dans Git sont extrêmement légères : ce ne sont que des pointeurs vers un commit donné.
                   Cela signifie qu’il n’y a pratiquement aucun coût en termes de mémoire ou de performance à en créer,
                   ce qui encourage la bonne pratique : branchez tôt, branchez souvent.</p>
+
+
+
+                <h5>Création d'une branche</h5>
+
                 <p>Travailler avec plusieurs branches vous permet d’isoler des modifications, de tester sans risquer de
                   casser la version principale, et de collaborer plus efficacement. Une branche représente l’intention
                   d’inclure un ensemble de commits, à partir d’un point précis de l’historique.</p>
-                <p>Nous allons voir comment ces branches interagissent entre elles lors des opérations de fusion (merge)
+                <p>Il existe deux manières de créer une branche :</p>
+
+                <p>Depuis votre machine (local) :</p>
+                <ul>
+                  <li>Clonez d’abord le dépôt (<code>git clone &lt;URL&gt;</code>).</li>
+                  <li>Créez la branche sur votre machine (<code>git checkout -b nom-de-la-branche</code>), effectuez
+                    vos
+                    modifications puis poussez-la vers GitHub (<code>git push -u origin nom-de-la-branche</code>).
+                  </li>
+                  <li>GitHub recevra alors automatiquement cette nouvelle branche.</li>
+                </ul>
+
+                <p>Depuis l’interface GitHub :</p>
+                <ul>
+                  <li>Créez directement la branche dans le navigateur (interface web GitHub).</li>
+                  <li>Ensuite, soit vous clonez le dépôt, soit vous récupérez cette branche spécifique
+                    (<code>git fetch</code> suivi
+                    de <code>git checkout</code>) pour travailler dessus localement.</li>
+                </ul>
+
+                <p>L’avantage de cette deuxième méthode est que Github (ou tout autre hébergeur Git) représente la
+                  source de vérité centralisée. Si vous créiez la branche uniquement sur votre machine, vous auriez
+                  d’abord besoin de récupérer la version la plus récente de la branche principale (en exécutant un
+                  <code>git pull</code>) avant de basculer dessus, afin d’éviter de travailler sur une version
+                  obsolète.
+                  Rien de compliqué, mais un pas supplémentaire.
+                </p>
+
+                <p>Vous pouvez cependant choisir la méthode qui vous semble la plus simple ou la plus pratique.</p>
+
+
+                <p>Nous allons voir comment ces branches interagissent entre elles lors des opérations de fusion
+                  (merge)
                   ou de réécriture de l’historique (rebase). La gestion des branches est l’un des aspects les plus
-                  puissants mais aussi les plus délicats de Git. Bien la comprendre, c’est poser les bases d’un flux de
+                  puissants mais aussi les plus délicats de Git. Bien la comprendre, c’est poser les bases d’un flux
+                  de
                   travail solide et maîtrisé.</p>
 
-                <h3>Mettre temporairement de côté des changements</h3>
+
+                <h5>Exercice pratique</h5>
+                <p>Pour connaître les branches présentes dans votre projet, tapez la commande suivante :</p>
+                <div class="highlight highlight-bash">
+                  <pre>git branch</pre>
+                </div>
+                <p>Dans un premier temps, vous n’aurez que :</p>
                 <div class="highlight highlight-bash">
                   <pre>
-git stash    # met de côté les modifications en cours sans les ajouter à l’historique
-git stash pop  # restaure les modifications précédemment mises de côté
-  </pre>
+git branch
+* main</pre>
+                </div>
+                <p>L’étoile signifie que vous êtes actuellement sur la branche <code>main</code>, et que c’est sur
+                  celle-ci que vous réalisez vos modifications.</p>
+
+                <p>Nous avons notre branche <code>main</code>, et nous souhaitons maintenant créer la branche
+                  <em>nouvelle-feature</em>. Pour cela, tapez :
+                </p>
+                <div class="highlight highlight-bash">
+                  <pre>git branch nouvelle-feature</pre>
+                </div>
+                <p>Cette commande va créer la branche <code>nouvelle-feature</code> en local. Vous pouvez vérifier les
+                  branches disponibles en tapant à nouveau :</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git branch
+* main
+nouvelle-feature</pre>
+                </div>
+                <p>Vous voyez maintenant votre branche principale (<code>main</code>) et votre nouvelle branche
+                  <code>nouvelle-feature</code>. L’étoile indique que vous êtes toujours sur la branche
+                  <code>main</code>.
+                </p>
+
+                <p>Pour basculer sur la branche <code>nouvelle-feature</code>, utilisez la commande :</p>
+                <div class="highlight highlight-bash">
+                  <pre>git checkout nouvelle-feature</pre>
+                </div>
+                <p>Après avoir basculé, vous verrez :</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git branch
+main
+* nouvelle-feature</pre>
+                </div>
+                <p>La branche <code>nouvelle-feature</code> fonctionne comme un dossier virtuel. Avec
+                  <code>git checkout</code>,
+                  vous êtes téléporté dans ce dossier virtuel. Vous pouvez maintenant réaliser vos modifications sans
+                  toucher à la branche <code>main</code>, qui contient votre code principal fonctionnel.
+                </p>
+                <p>Si nécessaire, vous pouvez re-basculer à tout moment sur la branche <code>main</code>, sans impacter
+                  les modifications de la branche <code>nouvelle-feature</code>.</p>
+
+
+                <div class="custom-admonition info">
+                  <p>Résumé des commandes Git pour la gestion des branches :</p>
+                  <ul>
+                    <li><code>git branch</code> : Affiche la liste des branches locales.</li>
+                    <li><code>git branch nouvelle-branche</code> : Crée une nouvelle branche.</li>
+                    <li><code>git switch main</code> ou <code>git checkout main</code> : Change de branche.</li>
+                    <li><code>git checkout -b nouvelle-branche</code> : Crée et bascule sur une nouvelle branche.</li>
+                    <li><code>git branch -m ancien-nom nouveau-nom</code> : Renomme une branche.</li>
+                  </ul>
                 </div>
 
-                <h3>Fusionner des branches : merge et rebase</h3>
-                <p>Maintenant que vous maîtrisez les commits et la création de branches, il est temps d’apprendre à
-                  combiner le travail effectué sur différentes branches. C’est une étape clé dans tout flux de
-                  développement : elle permet par exemple de créer une branche pour une nouvelle fonctionnalité, y
-                  développer indépendamment, puis intégrer ces changements à la branche principale (main ou master).</p>
-                <p>La première méthode pour fusionner deux branches est git merge. Cette commande crée un commit de
-                  fusion spécial, qui possède deux parents. Cela signifie : « Je souhaite intégrer le contenu de ces
-                  deux branches et de leurs historiques respectifs ». C’est une façon simple et claire d’unifier deux
-                  lignes de développement, tout en conservant leur historique parallèle.</p>
-                <p>Une autre approche, plus avancée, est la commande git rebase. Contrairement à merge, rebase rejoue
-                  les commits d’une branche en les recopiant à la suite d’une autre. L’objectif est d’obtenir un
-                  historique linéaire, comme si les développements avaient été faits l’un après l’autre, plutôt qu’en
-                  parallèle. Cette méthode rend les journaux de commits (git log) beaucoup plus lisibles et compacts.
+                <h5>Sauvegarder temporairement vos modifications avec <code>git stash</code></h5>
+                <p>Parfois, vous devez changer de branche alors que vous avez des modifications non commitées. La
+                  commande git stash vous permet de les mettre de côté temporairement :</p>
+
+
+                <div class="highlight highlight-bash">
+                  <pre>
+# Met de côté les modifications en cours
+git stash
+
+# Change de branche en toute sécurité
+git switch autre-branche     
+
+# ... travail sur l'autre branche ...
+
+# Retour à la branche initiale
+git switch ma-branche 
+
+# Restaure les modifications précédentes
+git stash pop</pre>
+                </div>
+
+                <h3>Fusionner des branches</h3>
+                <p>Maintenant que nous avons vu les commits et la gestion de branches, il est temps de voir comment
+                  combiner le travail effectué sur différentes branches. Voyons comment réunir le travail
+                  de deux branches. Imaginez : vous créez une branche pour ajouter une nouvelle fonctionnalité (c'est un
+                  peu ce que nous avons fait dans la section précédente), puis vous ramenez les modifications effectuées
+                  dans la branche principale (main ou master). C'est ce qu'on appelle fusionner ou merge des branches.
                 </p>
-                <p>Prenons un exemple : vous êtes sur la branche bugfix et vous souhaitez appliquer son contenu sur la
-                  branche main. Avec <code>git rebase main</code>, vous "déplacez" les commits de bugfix à la suite des
-                  derniers commits de main. Cela donne l’impression que tout a été développé dans un seul fil
-                  conducteur, même si ce n’est pas le cas.</p>
-                <p>Chacune de ces méthodes a ses avantages, et le choix entre merge et rebase dépend de votre flux de
-                  travail, de votre équipe, et du besoin de clarté dans l’historique du projet.</p>
+
+                <h5>Fusionnez votre travail avec la commande <code>git merge</code></h5>
+
+                <p>La première méthode pour fusionner deux branches est <code>git merge</code>. Elle crée un commit
+                  spécial qui combine les modifications des deux branches. Cela préserve l'historique de chaque branche,
+                  montrant clairement quand et où les changements ont été faits. C'est comme si vous aviez deux
+                  chemins
+                  distincts qui se rejoignent à un point précis.</p>
+                <p>Pour illustrer le merge, reprenons l'exemple de la branche <code>nouvelle-feature</code> que nous
+                  avons créée précédemment. On a donc développé une nouvelle fonctionnalité avec plusieurs commits et
+                  pushs. Le travail est maintenant terminé et testé.</p>
+
+                <p>L'étape suivante consiste à intégrer ces modifications dans la branche principale <code>main</code>.
+                  Pour cela,
+                  nous utiliserons la commande <code>git merge</code>.</p>
+
+                <p>Cette commande doit s'utiliser à partir de la branche dans laquelle nous voulons apporter les
+                  évolutions. Dans notre cas, la commande s’effectuera donc dans la branche <code>main</code>. Pour y
+                  retourner, utilisez la commande :</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+# Changer pour la branche principale
+git checkout main</pre>
+                </div>
+
+                <p>Maintenant que vous êtes dans votre branche principale <code>main</code>, vous pouvez fusionner votre
+                  branche
+                  <code>nouvelle-feature</code> à celle-ci grâce à la commande suivante :
+                </p>
+                <div class="highlight highlight-bash">
+                  <pre>
+# Fusionner la branche nouvelle-feature dans main   
+git merge cagnotte</pre>
+                </div>
+
+
+                <ul class="custom-admonition info">
+                  <ul>
+                    Contrairement à <code>git merge</code> qui crée un commit de fusion, <code>git rebase</code> réécrit
+                    l'historique
+                    en plaçant
+                    vos commits à la suite de la branche cible. Exemple : <code>git rebase main</code> depuis
+                    <code>nouvelle-feature</code> déplace vos
+                    commits après ceux de <code>main</code> , créant un historique linéaire.
+                  </ul>
+                </ul>
+
+                <h3>Proposer vos modifications avec une Pull Request</h3>
+                <p>Dans les sections précédentes, nous avons vu comment fusionner des branches localement avec git
+                  merge. Cependant, en contexte professionnel, le workflow est différent. La branche principale (main)
+                  est généralement protégée : vous ne pouvez pas y pousser directement vos modifications. Avant toute
+                  fusion, votre code doit être validé par l'équipe. C'est ici qu'interviennent les Pull Requests (PR).
+                </p>
+
+                <p>Une Pull Request (PR) est un mécanisme qui permet de proposer vos modifications à une équipe ou
+                  ensemble de développeurs
+                  avant leur intégration dans la branche principale. Au lieu de fusionner directement, vous soumettez
+                  vos changements pour revue et validation.</p>
+
+                <p>Les prérequis pour créer une Pull Request (PR) sont :</p>
+                <ul>
+                  <li>Avoir créé une branche de travail (ex: <code>feature/nouvelle-fonctionnalite</code>).</li>
+                  <li>Avoir développé et commité vos modifications sur cette branche.</li>
+                  <li>Avoir poussé cette branche sur le dépôt distant (Github) avec <code>git push</code>.</li>
+                </ul>
+
+
+                <p>Après avoir poussé votre branche sur GitHub, le site détecte automatiquement la nouveauté et affiche
+                  un bandeau jaune proposant de créer une Pull Request. Cliquez sur <strong>"Compare & pull
+                    request"</strong>, vérifiez que la branche de destination est bien <code>main</code> et que votre
+                  branche de travail est correctement sélectionnée. Rédigez un titre clair et une description expliquant
+                  vos modifications, leurs raisons et la manière de les tester. Cliquez ensuite sur <strong>"Create pull
+                    request"</strong> pour finaliser la création.</p>
+
+                <h5>Le processus de revue de code</h5>
+                <p>Sur les projets professionnels en entreprise et open source, votre code ne peut être fusionné
+                  immédiatement dans la
+                  branche principale. Il doit d'abord passer par une revue de code (<em>Code Review</em>). Cette étape
+                  permet de :</p>
+                <ul>
+                  <li>Détecter les erreurs potentielles.</li>
+                  <li>Améliorer la qualité du code.</li>
+                  <li>Partager les connaissances au sein de l'équipe.</li>
+                  <li>Valider les choix techniques.</li>
+                </ul>
+                <p>Les membres de votre équipe examineront votre Pull Request, commenteront des lignes spécifiques,
+                  suggéreront des améliorations ou demanderont des modifications. Vous recevrez des notifications pour
+                  chaque commentaire et pourrez y répondre ou pousser de nouveaux commits sur la même branche pour
+                  effectuer les ajustements demandés.</p>
+
+                <p>Une fois que les reviewers ont approuvé votre Pull Request, elle peut être fusionnée dans la branche
+                  principale. Cliquez sur <strong>"Merge pull request"</strong> puis confirmez avec <strong>"Confirm
+                    merge"</strong>. Vos modifications sont maintenant intégrées dans <code>main</code>. Vous pouvez
+                  ensuite supprimer la branche de fonctionnalité directement depuis l'interface GitHub.
+                </p>
+
 
                 <h3>Conflits de merge (Merge Conflicts)</h3>
                 <p>Un conflit de merge survient lorsque deux branches ont modifié exactement les mêmes lignes dans un
@@ -528,18 +696,50 @@ git commit -m "Résolution des conflits entre la branche feature/login et master
                 <p>Avant d’explorer des fonctionnalités avancées de Git, il est important de comprendre comment se
                   déplacer dans l’historique des commits – souvent appelé arbre Git. Une bonne maîtrise de cette
                   navigation rendra l’utilisation des autres commandes bien plus intuitive et efficace.</p>
+
+
+
+                <h3>Voyager dans le temps avec Git</h3>
+                <p>Avec Git, remonter dans le temps pour explorer des versions précédentes de votre projet est à la
+                  fois
+                  simple et puissant. Que ce soit via l’interface de votre éditeur (comme la section Commits de VS
+                  Code)
+                  ou en ligne de commande avec git log, chaque commit est identifié par un hash unique, une sorte
+                  d’empreinte numérique. Pour revenir à un état antérieur du code, il suffit d’utiliser la commande
+                  git
+                  checkout &lt;hash_du_commit&gt;.</p>
+                <p>Avant d’effectuer ce saut dans le passé, assurez-vous d’avoir enregistré vos modifications. Si vous
+                  avez déjà fait un git add mais ne souhaitez pas encore faire de commit, vous pouvez temporairement
+                  mettre vos changements de côté avec la commande git stash.</p>
+                <p>Voyager à travers l’historique permet notamment d’identifier le moment exact où un bug est apparu.
+                  Lorsqu’un problème survient et que vous ne parvenez pas à en cerner rapidement la cause, revenir à
+                  la
+                  dernière version stable peut être une solution précieuse.</p>
+                <p>Plus vos commits sont petits, fréquents et accompagnés de messages clairs, plus il sera facile de
+                  localiser l’introduction d’un bug. Une bonne hygiène de versionnage permet souvent d’éviter des
+                  retours en arrière trop brutaux, voire de contourner complètement le besoin d’un revert. D’ailleurs,
+                  Git ne se limite pas à des déplacements linéaires dans l’historique : il offre une grande souplesse
+                  pour naviguer, expérimenter et restructurer votre travail.</p>
+
+
+
+
+
                 <h3>Le rôle de HEAD</h3>
-                <p>Un concept central dans Git est HEAD. Il s’agit d’un pointeur symbolique qui désigne le commit actuel
+                <p>Un concept central dans Git est HEAD. Il s’agit d’un pointeur symbolique qui désigne le commit
+                  actuel
                   – autrement dit, le point de départ de toutes vos actions. En général, HEAD pointe vers le dernier
                   commit d’une branche (par exemple, bugFix).</p>
                 <p>Chaque fois que vous effectuez un commit, Git enregistre les modifications, met à jour la branche
                   active et avance automatiquement HEAD vers ce nouveau commit. C’est pourquoi HEAD est au cœur de
                   nombreuses commandes Git comme commit, merge ou rebase.</p>
 
+
                 <h3>Utiliser les identifiants de commits</h3>
                 <p>Dans la pratique, vous n’aurez pas toujours un graphique visuel de l’historique à portée de main.
                   Pour explorer les commits, il faudra souvent utiliser git log, qui vous fournit les identifiants
-                  uniques (hashes) de chaque commit. Ces identifiants peuvent être longs et difficiles à mémoriser — par
+                  uniques (hashes) de chaque commit. Ces identifiants peuvent être longs et difficiles à mémoriser —
+                  par
                   exemple :</p>
                 <pre class="highlight highlight-bash"><code>
 fed2da64c0efc5293610bdd892f82a58e8cbc5d8
@@ -548,7 +748,8 @@ fed2da64c0efc5293610bdd892f82a58e8cbc5d8
                   uniques. Ainsi, fed2 suffit généralement pour désigner ce commit.</p>
 
                 <h3>Références relatives : une navigation simplifiée</h3>
-                <p>Plutôt que de manipuler des identifiants complexes, Git offre une syntaxe plus simple et intuitive :
+                <p>Plutôt que de manipuler des identifiants complexes, Git offre une syntaxe plus simple et
+                  intuitive :
                   les références relatives.</p>
                 <p>Elles permettent de partir d’un point de référence connu (comme HEAD ou main) et de remonter
                   l’historique avec des opérateurs :</p>
@@ -569,7 +770,8 @@ git checkout main^
 git checkout HEAD~4
   </pre>
                 </div>
-                <p>Les références relatives sont également utiles pour réorganiser les branches. Avec l’option -f, vous
+                <p>Les références relatives sont également utiles pour réorganiser les branches. Avec l’option -f,
+                  vous
                   pouvez forcer une branche à pointer vers un autre commit :</p>
                 <div class="highlight highlight-bash">
                   <pre>
@@ -589,17 +791,20 @@ git branch -f main HEAD~3
 git revert HEAD
   </pre>
                 </div>
-                <p>Cette commande génère un commit qui inverse les changements introduits par le dernier commit (HEAD).
+                <p>Cette commande génère un commit qui inverse les changements introduits par le dernier commit
+                  (HEAD).
                 </p>
 
                 <h3>Et <code>git reset</code> ?</h3>
                 <p>Il est bon de savoir qu’il existe aussi la commande git reset, qui permet de déplacer une branche
-                  vers un commit antérieur, supprimant ainsi des commits de l’historique. Cela fonctionne bien en local,
+                  vers un commit antérieur, supprimant ainsi des commits de l’historique. Cela fonctionne bien en
+                  local,
                   mais ne doit pas être utilisé sur des branches partagées, car cela modifie l’historique de manière
                   destructrice.</p>
 
                 <h2>Gestion des versions avec les Tags Git</h2>
-                <p>Les tags Git constituent un mécanisme pour identifier et marquer les étapes importantes d'un projet.
+                <p>Les tags Git constituent un mécanisme pour identifier et marquer les étapes importantes d'un
+                  projet.
                   Contrairement aux commits qui sont destinés au développement, les tags peuvent être utilisés pour
                   signaler les versions stables pour la production.</p>
                 <p>Un tag Git fonctionne comme une étiquette permanente attachée à un commit spécifique, permettant de
@@ -613,7 +818,8 @@ git checkout &lt;nom-tag&gt;   # Revenir à une version taguée
 git tag v1.0.0               # Exemple avec versionnage sémantique
   </pre>
                 </div>
-                <p>Trois approches se distinguent : les tags de version (v1.0.0) pour marquer des releases spécifiques,
+                <p>Trois approches se distinguent : les tags de version (v1.0.0) pour marquer des releases
+                  spécifiques,
                   le tag "stable" pour identifier la dernière version fiable, et le tag "latest" pointant vers la
                   version la plus récente. Cette flexibilité permet d'adapter le système de versionnage aux besoins
                   spécifiques de chaque projet tout en maintenant une communication claire sur l'état des versions
@@ -625,7 +831,8 @@ git tag v1.0.0               # Exemple avec versionnage sémantique
                   environnement visuel, ce qui facilite grandement la compréhension de Git.</p>
                 <p><strong>Bonnes pratiques Git</strong><br>
                   1 modification = 1 commit<br>
-                  Essayez de garder vos commits petits, ciblés et cohérents. Ce n’est pas une règle absolue, mais suivre
+                  Essayez de garder vos commits petits, ciblés et cohérents. Ce n’est pas une règle absolue, mais
+                  suivre
                   le principe “commitez tôt, commitez souvent” facilite la relecture, les tests et les retours en
                   arrière.</p>
                 <p><strong>Pour aller plus loin</strong><br>
@@ -639,6 +846,36 @@ git tag v1.0.0               # Exemple avec versionnage sémantique
                   <li>GitHub – Git Cheat Sheet (PDF)</li>
                   <li>GitLab – Git Cheat Sheet (PDF)</li>
                 </ul>
+
+
+
+                <div class="custom-admonition info">
+                  <p class="custom-admonition-title">Commandes Git avancées</p>
+                  <p>Une fois à l'aise avec les bases, ces commandes enrichiront votre workflow :</p>
+
+                  <p><strong>Gestion des branches :</strong></p>
+                  <ul>
+                    <li><code>git branch</code> : Liste toutes les branches locales</li>
+                    <li><code>git branch -d feature-login</code> : Supprime une branche fusionnée</li>
+                    <li><code>git checkout -b nouvelle-feature</code> : Crée et bascule sur une nouvelle branche</li>
+                    <li><code>git switch main</code> ou <code>git checkout</code> : Méthodes pour changer de branche
+                    </li>
+                  </ul>
+
+                  <p><strong>Navigation et historique :</strong></p>
+                  <ul>
+                    <li><code>git log --oneline</code> : Affiche l'historique de manière compacte</li>
+                    <li><code>git log --graph</code> : Visualise l'arbre des commits</li>
+                    <li><code>git diff</code> : Montre les modifications non commitées</li>
+                  </ul>
+
+                  <p><strong>Collaboration avancée :</strong></p>
+                  <ul>
+                    <li><code>git merge feature-branch</code> : Intègre une branche dans la branche courante</li>
+                    <li><code>git rebase main</code> : Réapplique vos commits sur une base mise à jour</li>
+                    <li><code>git stash</code> : Met temporairement de côté vos modifications</li>
+                  </ul>
+                </div>
 
               </section>
 

@@ -482,8 +482,8 @@
                                 <h3>Configurer l'authentification avec GitHub</h3>
 
                                 <p>Vous avez créé votre commit local, mais celui-ci existe uniquement sur votre
-                                    ordinateur. Pour le sauvegarder en ligne, le partager avec votre équipe et
-                                    collaborer efficacement, vous devez <code>push</code> votre commit, c'est à dire,
+                                    ordinateur. Pour le sauvegarder en ligne et le partager avec d'autres développeurs,
+                                    vous devez <code>push</code> votre commit, c'est à dire,
                                     l'envoyer vers un dépôt distant. Dans ce guide, nous utiliserons GitHub comme
                                     plateforme d'hébergement.</p>
 
@@ -515,18 +515,19 @@
                                     Continue/Déploiement Continu) , les scripts automatisés et les environnements
                                     serveur
                                     où
-                                    SSH n'est pas approprié. Vous pouvez définir des permissions spécifiques et des
+                                    SSH n'est pas approprié. Vous devez, cependant, définir des permissions spécifiques
+                                    et
+                                    des
                                     dates
-                                    d'expiration pour chaque token, renforçant ainsi la sécurité.</p>
+                                    d'expiration pour chaque token.</p>
 
                                 <p>Le protocole SSH (Secure Shell) est un protocole qui établit une connexion sécurisée
                                     entre votre machine et GitHub grâce à un système de clés cryptographiques.
                                     L'avantage principal de SSH est qu'une fois la configuration initiale effectuée,
                                     vous n'aurez plus besoin de saisir vos identifiants pour communiquer avec
-                                    GitHub. Chaque action sera automatiquement authentifiée grâce à vos clés. Pour plus
-                                    d'informations sur la génération d'une nouvelle clé SSH et son ajout à l'agent SSH,
-                                    consultez :
-                                    <a href="https://docs.github.com/fr/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+                                    GitHub. Chaque action sera automatiquement authentifiée grâce à vos clés. Pour
+                                    générer une nouvelle clé SSH et l'ajouter à l'agent SSH, consultez : <a
+                                        href="https://docs.github.com/fr/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
                                         target="_blank"
                                         rel="noopener noreferrer">https://docs.github.com/fr/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a>
                                     ou regardez ce tutoriel vidéo :
@@ -535,44 +536,37 @@
                                 </p>
 
                                 <p>Dans ce guide, nous privilégions SSH pour l'authentification GitHub. Même si d'autres
-                                    méthodes sont plus simples à configurer, SSH est le standard professionnel qui
+                                    méthodes sont plus simples à configurer, SSH est la méthode standard qui
                                     fonctionne avec tous vos outils de développement et ne demande aucune intervention
                                     une fois configuré.</p>
 
 
 
                                 <h3>Mise en pratique : De Git local à GitHub</h3>
-                                <p>Dans un environnement de développement collaboratif, comprendre comment connecter et
-                                    synchroniser un
-                                    dépôt local avec une plateforme Git distante est essentiel. Dans notre cas, GitHub
-                                    constitue le
-                                    point central de gestion du code source, intégrant l’ensemble des outils Azure
-                                    DevOps tels que les
-                                    pipelines CI/CD, le suivi des tâches et les permissions d’équipe (via service
-                                    principals).</p>
-                                <p>Cette section présente les différents workflows Git dans GitHub, depuis le
-                                    clonage d’un projet
-                                    existant, en passant par la création d’un nouveau dépôt, jusqu’à la migration d’un
-                                    projet local déjà
-                                    en production. Chaque scénario est accompagné d’exemples de commandes Git
-                                    commentées, pour permettre
-                                    une prise en main rapide.</p>
-                                <p>Nous aborderons également des notions plus avancées telles que la gestion
-                                    multi-remote, utile pour
-                                    synchroniser un même projet entre plusieurs plateformes (Azure Repos, GitHub…),
-                                    ainsi que le
-                                    fonctionnement des pull requests, élément important du travail collaboratif et de la
-                                    revue de code.
-                                </p>
 
-                                <h5>Scénario 1 : Cloner un projet existant</h5>
+                                <p>Une fois votre authentification configurée (SSH est recommandé pour ce guide), vous
+                                    êtes prêt à synchroniser votre code avec GitHub. Cette section vous guide à travers
+                                    les trois
+                                    cas d'usage essentiels que vous rencontrerez dans votre pratique quotidienne du
+                                    développement collaboratif. Chaque cas d'usage est accompagné de commandes
+                                    commentées pour une mise en œuvre immédiate.</p>
+                                <p>Les trois cas d'usage couverts :</p>
+                                <ul>
+                                    <li><strong>Cloner un projet existant</strong> - Rejoindre une équipe ou utiliser un
+                                        template</li>
+                                    <li><strong>Créer un nouveau dépôt</strong> - Démarrer un projet from scratch</li>
+                                    <li><strong>Migrer un projet local</strong> - Publier un projet existant sur GitHub
+                                    </li>
+                                </ul>
+
+                                <h5>Cas d'usage 1 : Cloner un projet existant</h5>
                                 <p>Contexte : Vous rejoignez un projet en cours ou souhaitez utiliser un template
-                                    (repos) d'équipe déjà
-                                    hébergé sur Azure Repos.</p>
+                                    (dépôt distant) d'équipe déjà
+                                    hébergé sur un dépôt
+                                    distant (GitHub ou autre).</p>
                                 <div class="highlight highlight-bash">
                                     <pre>
-git clone https://organisation@dev.azure.com/org/projet/_git/nom-du-depot
-    </pre>
+git clone https://organisation@dev.azure.com/org/projet/_git/nom-du-depot</pre>
                                 </div>
                                 <p>Ce que fait cette commande :</p>
                                 <ul>
@@ -586,97 +580,213 @@ git clone https://organisation@dev.azure.com/org/projet/_git/nom-du-depot
                                     <pre>
 cd nom-du-depot          # Entrer dans le dossier projet
 git status               # Vérifier l'état du dépôt
-git branch -a            # Afficher toutes les branches (locales et distantes)
-    </pre>
+git branch -a            # Afficher toutes les branches (locales et distantes)</pre>
                                 </div>
 
-                                <h5>Scénario 2 : Créer un nouveau projet de zéro</h5>
-                                <p>Contexte : Démarrage d'un nouveau projet que vous souhaitez héberger sur Azure Repos.
+                                <h5>Cas d'usage 2 : Créer un nouveau projet de zéro</h5>
+                                <p>Contexte : Démarrage d'un nouveau projet que vous souhaitez héberger sur un dépôt
+                                    distant (GitHub ou autre).
                                 </p>
-                                <p><strong>Étape 1 : Création du dépôt sur Azure Repos</strong></p>
+                                <p><strong>Étape 1 :</strong>Création du dépôt sur GitHub</p>
                                 <ol>
-                                    <li>Interface Azure DevOps :
-                                        <ul>
-                                            <li>Connexion à Azure DevOps (dev.azure.com)</li>
-                                            <li>Navigation vers votre organisation/projet</li>
-                                            <li>Sélection "Repos" dans le menu latéral gauche</li>
-                                            <li>Clic sur "New repository" ou "Nouveau dépôt"</li>
-                                            <li>Configuration : Nom du dépôt, visibilité, options d'initialisation</li>
-                                            <li>Création : Validation et génération de l'URL de connexion</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Étape 2 : Initialisation locale et première synchronisation</strong>
-                                    </li>
+                                    <li>Via l'interface web GitHub (<a href="https://github.com" target="_blank"
+                                            rel="noopener noreferrer">github.com</a>) :</li>
+                                    <ul>
+                                        <li>Connexion à GitHub avec votre compte</li>
+                                        <li>Cliquez sur le bouton "+" en haut à droite de la page</li>
+                                        <li>Sélectionnez "New repository" (Nouveau dépôt)</li>
+                                    </ul>
+                                    <li>Configuration du dépôt :</li>
+                                    <ul>
+                                        <li>Repository name : Nom du dépôt (utilisez des tirets pour
+                                            les espaces)</li>
+                                        <li>Description : Description optionnelle du projet</li>
+                                        <li>Visibilité : Public (visible par tous) ou Private (accès
+                                            restreint)</li>
+                                        <li>Important: Ne cochez PAS "Add a README file" (nous le
+                                            créerons localement)</li>
+                                    </ul>
+                                    <li>Cliquez sur "Create repository"</li>
+                                    <li>Copiez l'URL de connexion fournie (SSH ou HTTPS selon votre configuration)</li>
                                 </ol>
                                 <div class="highlight highlight-bash">
                                     <pre>
-# Création de l'environnement projet
+# Création du dossier projet local
 mkdir mon-nouveau-projet
+
+# Accéder au dossier
 cd mon-nouveau-projet
+
 # Initialisation Git
 git init
-# Création du fichier de documentation initial
+
+# Création du fichier README
 echo "# Mon Nouveau Projet" > README.md
+
+# Ajout de contenu au README
 echo "Description du projet et instructions d'installation" >> README.md
-# Premier commit local
+
+# Ajout de README au suivi Git
 git add README.md
-git commit -m "docs: initialisation du projet avec README"
-    </pre>
+
+# Premier commit
+git commit -m "docs: initialisation du projet avec README"</pre>
                                 </div>
 
-                                <p>(optionnel) <strong>Étape 3 : Configuration de la branche principale</strong></p>
+                                <p> <strong>Étape 3 :</strong> Configuration de la branche principale</p>
                                 <div class="highlight highlight-bash">
                                     <pre>
-git branch -M main
-    </pre>
+git branch -M main</pre>
                                 </div>
 
-                                <p><strong>Étape 4 : Connexion au dépôt distant</strong></p>
+                                <p><strong>Étape 4 :</strong> Connexion au dépôt distant</p>
                                 <div class="highlight highlight-bash">
                                     <pre>
-git remote add origin https://organisation@dev.azure.com/org/projet/_git/nom-du-depot
-    </pre>
+git remote add origin https://organisation@dev.azure.com/org/projet/_git/nom-du-depot</pre>
                                 </div>
 
-                                <p><strong>Étape 5 : Synchronisation initiale</strong></p>
+                                <p><strong>Étape 5 :</strong> Synchronisation initiale</p>
                                 <div class="highlight highlight-bash">
                                     <pre>
-git push -u origin main
-    </pre>
+git push -u origin main</pre>
                                 </div>
 
-                                <h5>Scénario 3 : Migrer un projet existant vers Azure Repos</h5>
+                                <h5>Cas d'usage 3 : Migrer un projet existant vers Azure Repos</h5>
                                 <p>Contexte : Vous disposez d'un projet Git local fonctionnel que vous souhaitez
-                                    héberger sur
-                                    Azure Repos.</p>
+                                    héberger sur un dépôt
+                                    distant (GitHub).</p>
                                 <ol>
-                                    <li>Prérequis : Création du dépôt vide sur Azure Repos (sans README, .gitignore)
+                                    <li>Prérequis : Création du dépôt vide sur Github (sans README, .gitignore)
                                     </li>
                                     <li>Depuis votre dossier projet existant :</li>
                                 </ol>
                                 <div class="highlight highlight-bash">
                                     <pre>
+# Accéder au dossier projet
 cd mon-projet-existant
+
+# Initialisation Git (si pas déjà fait)
+git ini
+
+# Vérification de l'état du dépôt
+git status
+
+# Affichage des branches existantes
+git branch -a
+
+# Configuration de la branche principale (si besoin)
 git branch -M main
+
+# Connexion au dépôt distant
 git remote add origin https://organisation@dev.azure.com/org/projet/_git/nom-du-depot
+
+# Vérification de la connexion distante
 git remote -v
+
+# Pousser la branche principale
 git push -u origin main
-git push origin --all
-git push origin --tags
-    </pre>
+
+# Pour pousser toutes les branches et tags
+git push origin --all</pre>
                                 </div>
 
-                                <h3>Fonctionnalité avancée : Gestion multi-remote</h3>
+                                <h5>Gestion multi-remote</h5>
+                                <p>Par défaut, lorsque vous clonez ou initialisez un dépôt Git, vous travaillez avec un
+                                    seul dépôt distant (<em>remote</em>) appelé <code>origin</code>. Cependant, Git vous
+                                    permet de configurer plusieurs remotes pour un même projet local. Cette
+                                    fonctionnalité est particulièrement utile dans plusieurs situations professionnelles
+                                    :</p>
+                                <ul>
+                                    <li>Miroir de sécurité : Sauvegarder votre code sur plusieurs
+                                        plateformes (GitHub, GitLab, Bitbucket).</li>
+                                    <li>Migration progressive : Transférer un projet d'une plateforme à
+                                        une autre sans interruption.</li>
+                                    <li>Collaboration multi-plateforme : Travailler avec des équipes
+                                        utilisant différents services Git.</li>
+                                    <li>Backup automatique : Assurer une redondance de votre code
+                                        source.</li>
+                                </ul>
+
+                                <p>Imaginons que votre projet principal est hébergé sur GitHub, mais vous souhaitez
+                                    également le sauvegarder sur GitLab. La gestion multi-remote vous permet de gérer
+                                    tout cela depuis votre dépôt local unique.</p>
+
+
+
                                 <div class="highlight highlight-bash">
                                     <pre>
+# Vérifier les remotes existants                                      
 git remote -v
-git remote add github https://github.com/username/repository.git
-git push origin main   # Vers Azure Repos
-git push github main   # Vers GitHub
-    </pre>
+
+# Ajouter GitLab
+git remote add gitlab https://gitlab.com/username/repository.git
+
+# Vers GitHub (origin)
+git push origin main
+
+# Vers GitLab
+git push gitlab main</pre>
                                 </div>
 
                             </section>
+
+
+
+                            <h5>Maintenir votre dépôt local à jour avec <code>git pull</code></h5>
+
+                            <p>Après avoir cloné un projet, vos collègues continueront d'y apporter des modifications.
+                                Pour récupérer ces changements et garder votre version locale synchronisée, utilisez
+                                <code>git
+                                pull</code>. Cette commande télécharge les nouvelles modifications depuis le dépôt
+                                distant et
+                                les fusionne automatiquement dans votre branche locale.
+                            </p>
+
+
+                            <div class="highlight highlight-bash">
+                                <pre>
+# Récupère et fusionne les modifications de main                   
+git pull origin main</pre>
+                            </div>
+
+
+                            <p>La commande <code>git pull</code> permet de :</p>
+                            <ul>
+                                <li>Télécharger les nouvelles modifications du dépôt distant (<em>fetch</em>).</li>
+                                <li>Les fusionner automatiquement dans votre branche locale (<em>merge</em>).</li>
+                            </ul>
+
+
+                            <p>Le workflow quotidien recommandé est le suivant:</p>
+                            <div class="highlight highlight-bash">
+                                <pre>
+# Avant de commencer à travailler
+git pull origin main        # Récupérer les dernières modifications
+
+# Développer vos fonctionnalités
+git add .
+git commit -m "feat: nouvelle fonctionnalité"
+
+# Envoyer vos modifications
+git push origin main
+</pre>
+                            </div>
+                            <p><code>git pull</code> est en réalité un raccourci qui combine deux commandes :</p>
+                            <div class="highlight highlight-bash">
+                                <pre>
+git fetch origin           # Télécharge les modifications sans les fusionner
+git merge origin/main      # Fusionne les modifications téléchargées
+
+# Équivalent à :
+git pull origin main
+</pre>
+                            </div>
+                            <ul class="custom-admonition">💡 Bonne pratique : Effectuez un <code>git pull</code> avant
+                                chaque
+                                session de travail et avant chaque <code>git push</code> pour éviter les conflits.
+                            </ul>
+
+
 
 
 
