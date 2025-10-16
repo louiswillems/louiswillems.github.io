@@ -523,27 +523,6 @@ main
                   </ul>
                 </div>
 
-                <h5>Sauvegarder temporairement vos modifications avec <code>git stash</code></h5>
-                <p>Parfois, vous devez changer de branche alors que vous avez des modifications non commitées. La
-                  commande git stash vous permet de les mettre de côté temporairement :</p>
-
-
-                <div class="highlight highlight-bash">
-                  <pre>
-# Met de côté les modifications en cours
-git stash
-
-# Change de branche en toute sécurité
-git switch autre-branche     
-
-# ... travail sur l'autre branche ...
-
-# Retour à la branche initiale
-git switch ma-branche 
-
-# Restaure les modifications précédentes
-git stash pop</pre>
-                </div>
 
                 <h3>Fusionner des branches</h3>
                 <p>Maintenant que nous avons vu les commits et la gestion de branches, il est temps de voir comment
@@ -649,72 +628,101 @@ git merge cagnotte</pre>
                 </p>
 
 
-                <h3>Conflits de merge (Merge Conflicts)</h3>
-                <p>Un conflit de merge survient lorsque deux branches ont modifié exactement les mêmes lignes dans un
-                  même fichier. Git ne peut pas déterminer automatiquement quelle version conserver.</p>
-                <p>Pourquoi les conflits se produisent-ils ?</p>
-                <ul>
-                  <li>Deux développeurs modifient la même partie d'un fichier</li>
-                  <li>Un développeur supprime un fichier tandis qu'un autre le modifie</li>
-                  <li>Deux branches réorganisent différemment la même structure de code</li>
-                </ul>
-                <p>Résolution des conflits</p>
-                <p>Il n'existe pas de méthode automatique pour résoudre ces conflits. Vous devez les résoudre
-                  manuellement :</p>
+                <h3>Corriger les erreurs courantes</h3>
+                <p>Malgré toutes les précautions, il arrive parfois de faire des erreurs avec notre dépôt local ou
+                  distant. Heureusement, Git
+                  offre plusieurs outils pour corriger ces erreurs sans perdre notre travail. Nous allons explorer
+                  quelques-unes des situations et voir comment les gérer efficacement.</p>
+
+                <h5>Que faire si j'ai modifié la mauvaise branche ?</h5>
+
+                <p>Parfois, vous devez changer de branche alors que vous avez des modifications non commitées, ou vous
+                  réalisez que vous avez travaillé sur la mauvaise branche par erreur. La commande
+                  <code>git stash</code> vous permet de mettre ces modifications de côté temporairement.
+                </p>
+                <p>Il arrive parfois de commencer à travailler sur <code>main</code> par erreur au lieu
+                  de créer une branche dédiée. Vous pouvez mettre vos modifications de côté, créer la bonne branche,
+                  puis récupérer
+                  votre travail.
+                </p>
                 <div class="highlight highlight-bash">
                   <pre>
-<<<<<<< HEAD
-Code de votre branche actuelle
-=======
-Code de la branche que vous essayez de fusionner
->>>>>>> nom-de-branche
-  </pre>
+# Ranger les modifications temporairement
+git stash                           
+
+# Créer la branche appropriée
+git checkout -b feature/ma-branche  
+
+# Récupérer les modifications (git stash apply + git stash drop)
+git stash pop</pre>
                 </div>
-                <p>Vous devez éditer le fichier pour choisir la version à conserver :</p>
-                <ul>
-                  <li>Garder l'une des versions</li>
-                  <li>Combiner les deux versions</li>
-                  <li>Écrire quelque chose de complètement différent</li>
-                </ul>
-                <p>Une fois les modifications effectuées, vous marquez le conflit comme résolu :</p>
+                <p>Vos modifications sont maintenant sur la bonne branche, prêtes à être commitées ! Le stash vous
+                  permet de corriger cette erreur courante sans perdre votre travail ni polluer l'historique de
+                  <code>main</code>.
+                </p>
+
+
+                <h5>Que faire si j'ai fait un commit sur main par erreur ?</h5>
+                <p>Si vous avez non seulement modifié des fichiers sur main, mais aussi commité ces changements, vos
+                  modifications sont maintenant enregistrées dans l'historique de la
+                  branche principale, là où elles ne devraient pas être.
+                  Pour corriger cette erreur, vous devez d'abord identifier le commit problématique.
+                </p>
+
+                <p>La première étape consiste à identifier le commit fautif avec <code>git log</code>, qui liste vos
+                  commits du plus
+                  récent au plus ancien. Notez le hash (identifiant unique) du commit à corriger.</p>
+
+                <p>Pour revenir sur un commit précédent et le déplacer vers une nouvelle branche, suivez les étapes
+                  ci-dessous:</p>
+
+                <p>Commencez par afficher l’historique des commits avec la commande suivante :</p>
                 <div class="highlight highlight-bash">
                   <pre>
-git add fichier-avec-conflit.txt
-git commit -m "Résolution des conflits entre la branche feature/login et master"
-  </pre>
+git log
+ca83a6dff817ec66f443420071545390a954664949 Author: Louis <Louis@louis-willems.com>
+Date: Mon Mar 11 18:02:11 2025 -0733</pre>
                 </div>
-                <p>Bonnes pratiques :</p>
-                <ul>
-                  <li>Si le conflit implique des modifications de deux développeurs différents, il peut être utile
-                    d'organiser un appel pour trouver ensemble la meilleure solution</li>
-                  <li>Utilisez des outils de résolution de conflits (comme ceux intégrés dans VS Code)</li>
-                  <li>Intégrez régulièrement les changements de la branche principale dans vos branches de
-                    fonctionnalités pour minimiser les conflits</li>
-                </ul>
+                <p>Maintenant que vous disposez de l’identifiant du commit, gardez-le bien de côté.</p>
 
-                <h3>Naviguer dans l’arbre des commits Git</h3>
-                <p>Avant d’explorer des fonctionnalités avancées de Git, il est important de comprendre comment se
-                  déplacer dans l’historique des commits – souvent appelé arbre Git. Une bonne maîtrise de cette
-                  navigation rendra l’utilisation des autres commandes bien plus intuitive et efficace.</p>
+                <p>Vérifiez que vous êtes sur votre branche principale et réalisez la commande suivante pour supprimer
+                  le dernier commit de la branche principale :</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git reset --hard HEAD^</pre>
+                </div>
+                <p>Cette commande va supprimer de la branche principale votre dernier commit. Le <code>HEAD^</code>
+                  indique que c'est bien le dernier commit que nous voulons supprimer. L’historique sera changé, et les
+                  fichiers seront supprimés.</p>
+
+                <p>Créez et basculez vers une nouvelle branche avec la commande suivante :</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git checkout -b nouvelle-branche</pre>
+                </div>
+
+                <p>Renouvelez la commande <code>git reset</code>, qui va appliquer ce commit sur votre nouvelle branche
+                  :</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git reset --hard ca83a6df</pre>
+                </div>
+                <p>Il n'est pas nécessaire d'écrire l'identifiant en entier. Seuls les 8
+                  premiers caractères sont nécessaires.</p>
 
 
 
-                <h3>Voyager dans le temps avec Git</h3>
                 <p>Avec Git, remonter dans le temps pour explorer des versions précédentes de votre projet est à la
                   fois
                   simple et puissant. Que ce soit via l’interface de votre éditeur (comme la section Commits de VS
                   Code)
-                  ou en ligne de commande avec git log, chaque commit est identifié par un hash unique, une sorte
+                  ou en ligne de commande avec <code>git log</code>, chaque commit est identifié par un hash unique, une
+                  sorte
                   d’empreinte numérique. Pour revenir à un état antérieur du code, il suffit d’utiliser la commande
-                  git
-                  checkout &lt;hash_du_commit&gt;.</p>
-                <p>Avant d’effectuer ce saut dans le passé, assurez-vous d’avoir enregistré vos modifications. Si vous
-                  avez déjà fait un git add mais ne souhaitez pas encore faire de commit, vous pouvez temporairement
-                  mettre vos changements de côté avec la commande git stash.</p>
-                <p>Voyager à travers l’historique permet notamment d’identifier le moment exact où un bug est apparu.
-                  Lorsqu’un problème survient et que vous ne parvenez pas à en cerner rapidement la cause, revenir à
-                  la
-                  dernière version stable peut être une solution précieuse.</p>
+                  <code>git
+                  checkout &lt;hash_du_commit&gt;.</code>
+                </p>
+
                 <p>Plus vos commits sont petits, fréquents et accompagnés de messages clairs, plus il sera facile de
                   localiser l’introduction d’un bug. Une bonne hygiène de versionnage permet souvent d’éviter des
                   retours en arrière trop brutaux, voire de contourner complètement le besoin d’un revert. D’ailleurs,
@@ -722,7 +730,195 @@ git commit -m "Résolution des conflits entre la branche feature/login et master
                   pour naviguer, expérimenter et restructurer votre travail.</p>
 
 
+                <h5>Que faire si le message de mon commit est erroné ?</h5>
+                <p>Lorsque l'on travaille sur un projet avec Git, il est important de marquer correctement les
+                  modifications effectuées dans le message descriptif. Cependant, si vous faites une erreur dans l'un de
+                  vos messages de commit, il est possible de changer le message après coup.</p>
 
+                <p>L'exécution de cette commande, lorsqu'aucun élément n'est encore modifié, vous permet de modifier le
+                  message du commit précédent. L'option <code>-m</code> permet de
+                  transmettre le nouveau message :</p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+git commit --amend -m "Votre nouveau message de commit"
+</pre>
+                </div>
+
+                <p>Cette commande fonctionne uniquement pour le dernier commit réalisé. Si vous avez déjà poussé ce
+                  commit sur un dépôt distant, veillez à communiquer avec votre équipe avant de
+                  modifier l'historique.</p>
+
+
+
+                <h5>Que faire si j’ai oublié un fichier dans mon dernier commit ?</h5>
+                <p>Supposons que vous ayez effectué un commit et que vous vous rendiez compte par la suite que vous avez
+                  oublié d'ajouter un fichier. Vous pouvez aussi utiliser la commande
+                  <code>git commit --amend</code> pour corriger cela. Comme précédement, cette commande, permet de
+                  modifier le dernier commit.
+                </p>
+
+                <p>Dans notre cas, on va utiliser cette commande sans l'option <code>-m</code>, qui sert à modifier le
+                  message du
+                  commit.</p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+# Ajout du fichier oublié
+git add fichier.txt</pre>
+                </div>
+                <p>Après avoir ajouté le fichier oublié avec <code>git add</code>, vous pouvez exécuter la commande
+                  suivante pour inclure ce fichier dans le dernier commit sans modifier son message :</p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+# Modifier le dernier commit pour inclure le fichier ajouté
+git commit --amend --no-edit</pre>
+                </div>
+
+                <p>Le fichier oublié a été ajouté à votre dernier commit, et grâce à l'option <code>--no-edit</code>, le
+                  message du commit n'a pas été modifié.</p>
+
+                <p>Si aucun changement n'est en attente, l'option <code>--amend</code> peut être utilisée pour modifier
+                  uniquement le message du dernier commit en ajoutant l'option <code>-m</code>.</p>
+
+
+                <h5>Comment annuler un commit ? <code>git revert</code> vs <code>git reset</code></h5>
+                <p>Il arrive parfois que vous deviez annuler des commits. Git propose deux approches principales :
+                  <code>git revert</code>, qui préserve l’historique, et <code>git reset</code>, qui le réécrit. Chaque
+                  méthode s’applique à des contextes différents.
+                </p>
+
+                <p><code>git revert</code> : Annuler sans toucher à l’historique</p>
+                <p>La commande <code>git revert</code> crée un nouveau commit qui inverse les modifications d’un commit
+                  précédent. L’historique reste intact : le commit original existe toujours, suivi de son annulation.
+                </p>
+                <div class="highlight highlight-bash">
+                  <pre>
+# Annule le dernier commit               
+git revert HEAD    
+                 
+# Annule un commit spécifique
+git revert abc1234</pre>
+                </div>
+                <p>Si votre commit a ajouté, par exemple, une ligne de code, <code>git revert</code>
+                  crée un commit qui supprime cette ligne. Le résultat final est identique à avant le commit
+                  problématique, mais l’historique montre les deux étapes.</p>
+                <p>Quand l’utiliser :</p>
+                <ul>
+                  <li>Sur des branches partagées (<code>main</code>, <code>dev</code>).</li>
+                  <li>Après avoir poussé vos commits.</li>
+                  <li>En production pour corriger rapidement.</li>
+                  <li>Quand vous voulez une traçabilité complète.</li>
+                </ul>
+                <p>⚠️ Attention : Commitez ou stashez vos modifications en cours avant d’exécuter
+                  <code>git revert</code>.
+                </p>
+
+                <p><code>git reset</code> : Réécrire l’historique (branches locales uniquement)</p>
+                <p>La commande <code>git reset</code> déplace votre branche vers un commit antérieur, supprimant les
+                  commits suivants de l’historique. Il existe trois modes selon ce que vous voulez conserver :</p>
+
+                <p><code>git reset --hard</code> : Tout effacer</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+ git reset --hard HEAD~1  # ou : git reset --hard HEAD^ </pre>
+                </div>
+                <p>Cette commande efface les commits suivants dans l’historique, les modifications non commitées et les
+                  fichiers stagés.</p>
+                </ul>
+                <p>⚠️ Attention: Cette commande est irréversible. Tout est perdu définitivement. L'utiliser sur une
+                  branche locale privée où vous voulez recommencer de zéro.
+                </p>
+
+                <p><code>git reset --mixed</code> : Conserver les modifications (mode par défaut)</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git reset HEAD~    # ou : git reset --mixed HEAD~</pre>
+                </div>
+                <p>Cette commande efface les commits de l’historique et elle conserve vos modifications de fichiers
+                  (désindexées). L’utiliser quand vous voulez refaire votre commit différemment. Les fichiers restent
+                  modifiés, vous pouvez les ajuster puis recommiter.</p>
+
+                <p></p><code>git reset --soft</code> : Tout conserver</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git reset --soft HEAD~3     # Annule 3 commits, garde tout stagé</pre>
+                </div>
+                <p>Cette commande efface les commits de l’historique. Elle concerve les modifications et staging (prêt à
+                  commiter). L'utiliser quand on veut regrouper plusieurs petits commits en un seul.</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git reset --soft HEAD~5
+
+# Un seul commit propre
+git commit -m "feat: fonctionnalité complète"</pre>
+                </div>
+
+
+                <p>Pour résumer: </p>
+                <ul>
+                  <li>Branche partagée ou commits poussés : Utilisez <code>git revert</code>.</li>
+                  <li>Branche locale privée : Utilisez <code>git reset</code> (mode selon besoin).</li>
+                </ul>
+
+                <h5>Comment retrouver et restaurer une ancienne version tout en identifiant les contributeurs ?</h5>
+
+                <p>La commande <code>git log</code> affiche l'historique des commits par ordre chronologique inversé (du
+                  plus récent au plus ancien). Chaque commit montre son identifiant SHA, l'auteur, la date et le message
+                  descriptif.</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git log</pre>
+                </div>
+                <p><strong>Le SHA (Secure Hash Algorithm)</strong> est l'identifiant unique de chaque commit. Cette
+                  longue chaîne de caractères vous permet de revenir précisément à n'importe quel point de l'historique.
+                </p>
+
+                <p>Pour un historique encore plus complet, utilisez <code>git reflog</code>. Cette commande enregistre
+                  absolument toutes vos actions locales : commits, merges, resets, modifications de messages,
+                  changements de branches, entre autres.</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git reflog</pre>
+                </div>
+                <p>Avec cette commande, vous pouvez revenir à un état spécifique de votre projet en utilisant
+                  l'identifiant SHA correspondant.</p>
+                <div class="highlight highlight-bash">
+                  <pre>
+git checkout e789e7c</pre>
+                </div>
+
+                <h5>Comment récupérer un commit spécifique d'une autre branche ?</h5>
+
+                <p>Sur des projets d'équipe, vous aurez parfois besoin d'intégrer un commit spécifique d'une branche
+                  sans fusionner toute la branche. C'est le rôle de <code>git cherry-pick</code>. Cependant, cette
+                  commande est peu recommandée car elle duplique des commits.
+
+                <p>Immaginez que vous travaillez sur une branche <code>nouvelle-branche</code> avec plusieurs commits.
+                  Votre collègue
+                  a besoin d'une seule de ces évolutions pour la livrer au client, mais pas des autres.
+                  <code>git cherry-pick</code> permet de récupérer ce commit spécifique sur la branche principale sans
+                  fusionner toute votre branche.
+                </p>
+
+                <div class="highlight highlight-bash">
+                  <pre>
+# Se placer sur la branche principale
+git checkout main
+
+# Copie un commit spécifique
+git cherry-pick d356940
+
+# Copie plusieurs commits
+git cherry-pick d356940 de966d4 </pre>
+                </div>
+
+                <p>Cette commande duplique les commits sélectionnés (via leur SHA) sur la branche actuelle. Les commits
+                  originaux restent dans <code>nouvelle-branche</code>, créant ainsi des doublons dans l'historique.</p>
+
+                <p>Utilisez <code>git cherry-pick</code> uniquement en dernier recours. Un workflow de branches bien
+                  organisé avec des merges réguliers évite généralement d'en avoir besoin.</p>
 
 
                 <h3>Le rôle de HEAD</h3>
@@ -735,23 +931,18 @@ git commit -m "Résolution des conflits entre la branche feature/login et master
                   nombreuses commandes Git comme commit, merge ou rebase.</p>
 
 
-                <h3>Utiliser les identifiants de commits</h3>
+                <h5>Utiliser les identifiants de commits</h5>
                 <p>Dans la pratique, vous n’aurez pas toujours un graphique visuel de l’historique à portée de main.
-                  Pour explorer les commits, il faudra souvent utiliser git log, qui vous fournit les identifiants
-                  uniques (hashes) de chaque commit. Ces identifiants peuvent être longs et difficiles à mémoriser —
-                  par
-                  exemple :</p>
-                <pre class="highlight highlight-bash"><code>
-fed2da64c0efc5293610bdd892f82a58e8cbc5d8
-  </code></pre>
-                <p>Heureusement, Git permet d’utiliser les premiers caractères d’un identifiant, tant qu’ils restent
-                  uniques. Ainsi, fed2 suffit généralement pour désigner ce commit.</p>
+                  Pour explorer les commits, il faudra souvent utiliser <code>git log</code>, qui vous fournit les
+                  identifiants
+                  uniques (hashes) de chaque commit.
 
-                <h3>Références relatives : une navigation simplifiée</h3>
+
+                <h5>Références relatives : une navigation simplifiée</h5>
                 <p>Plutôt que de manipuler des identifiants complexes, Git offre une syntaxe plus simple et
                   intuitive :
-                  les références relatives.</p>
-                <p>Elles permettent de partir d’un point de référence connu (comme HEAD ou main) et de remonter
+                  les références relatives. Elles permettent de partir d’un point de référence connu (comme HEAD ou
+                  main) et de remonter
                   l’historique avec des opérateurs :</p>
                 <p><strong>L’opérateur ^</strong><br>
                   L’accent circonflexe (^) permet de remonter d’un parent. Par exemple :<br>
@@ -759,50 +950,35 @@ fed2da64c0efc5293610bdd892f82a58e8cbc5d8
                   main^^ pointe vers le grand-parent (deux générations en arrière).</p>
                 <div class="highlight highlight-bash">
                   <pre>
-git checkout main^
-  </pre>
+git checkout main^</pre>
                 </div>
                 <p><strong>L’opérateur ~</strong><br>
                   Le tilde (~) permet de remonter plusieurs commits d’un coup :<br>
                   HEAD~4 signifie « 4 commits en arrière à partir de HEAD ».</p>
                 <div class="highlight highlight-bash">
                   <pre>
-git checkout HEAD~4
-  </pre>
+git checkout HEAD~4</pre>
                 </div>
                 <p>Les références relatives sont également utiles pour réorganiser les branches. Avec l’option -f,
                   vous
                   pouvez forcer une branche à pointer vers un autre commit :</p>
                 <div class="highlight highlight-bash">
                   <pre>
-git branch -f main HEAD~3
-  </pre>
+git branch -f main HEAD~3</pre>
                 </div>
-                <p>Cette commande replace la branche main trois commits avant HEAD. C’est un outil puissant pour
+                <p>Cette commande replace la branche main trois commits avant HEAD. C’est un outil efficace pour
                   corriger l’historique ou repositionner des branches lors de manipulations avancées.</p>
 
-                <h2>Annuler des changements avec Git</h2>
-                <p>Dans Git, il existe plusieurs façons d’annuler un commit, mais la méthode utilisée en pratique —
-                  notamment sur les branches partagées — est git revert, car elle respecte l’historique du projet.</p>
+                <p>Comprendre <code>HEAD</code></p>
+                <p><code>HEAD</code> représente votre position actuelle dans l’historique :</p>
+                <ul>
+                  <li><code>HEAD</code> : Commit actuel.</li>
+                  <li><code>HEAD~1</code> ou <code>HEAD~</code> : Commit précédent.</li>
+                  <li><code>HEAD~2</code> : Deux commits en arrière.</li>
+                  <li><code>HEAD~3</code> : Trois commits en arrière.</li>
+                </ul>
 
-                <h3><code>git revert</code> : annuler un commit proprement</h3>
-                <div class="highlight highlight-bash">
-                  <pre>
-git revert HEAD
-  </pre>
-                </div>
-                <p>Cette commande génère un commit qui inverse les changements introduits par le dernier commit
-                  (HEAD).
-                </p>
-
-                <h3>Et <code>git reset</code> ?</h3>
-                <p>Il est bon de savoir qu’il existe aussi la commande git reset, qui permet de déplacer une branche
-                  vers un commit antérieur, supprimant ainsi des commits de l’historique. Cela fonctionne bien en
-                  local,
-                  mais ne doit pas être utilisé sur des branches partagées, car cela modifie l’historique de manière
-                  destructrice.</p>
-
-                <h2>Gestion des versions avec les Tags Git</h2>
+                <h3>Gestion des versions avec les Tags Git</h3>
                 <p>Les tags Git constituent un mécanisme pour identifier et marquer les étapes importantes d'un
                   projet.
                   Contrairement aux commits qui sont destinés au développement, les tags peuvent être utilisés pour
