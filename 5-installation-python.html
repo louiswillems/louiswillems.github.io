@@ -394,18 +394,15 @@
                 <p>
                   Python est probablement devenu l'un de vos outils principaux pour explorer des données, créer des
                   visualisations
-                  et automatiser des rapports. Vous avez peut-être commencé avec une installation simple d'Anaconda ou
-                  téléchargé Python directement depuis <a href="http://python.org" target="_blank"
-                    rel="noopener noreferrer">python.org</a>,
-                  et cela a suffi pour les analyses quotidiennes.
+                  et automatiser des rapports. Au début, une simple installation d'Anaconda ou de Python depuis le <a
+                    href="http://python.org" target="_blank" rel="noopener noreferrer">site officiel</a> suffisait
+                  amplement pour vos besoins quotidiens.
                 </p>
                 <p>
-                  Mais le paysage professionnel exige plus de flexibilité. Les projets se multiplient, les
-                  équipes
-                  grandissent, les exigences techniques se diversifient. Vous devez maintenant jongler entre des
-                  applications
-                  héritées, des projets en développement actif et des prototypes expérimentaux, chacun avec ses propres
-                  contraintes de versions et de dépendances.
+                  Mais en milieu professionnel, les choses se compliquent. Les projets s'accumulent, les équipes
+                  s'agrandissent, et chaque projet a ses propres besoins techniques. Vous vous retrouvez à gérer
+                  simultanément d'anciens systèmes, des projets en cours et de nouveaux prototypes, tous avec des
+                  versions et des dépendances différentes.
                 </p>
 
                 <div class="figure" style="text-align:center; margin:2rem 0;">
@@ -416,63 +413,99 @@
 
 
                 <p>
-                  Cette partie présente une approche professionnelle de la gestion des environnements Python. Vous
-                  découvrirez
-                  comment dépasser les limitations d'une installation unique pour adopter des pratiques qui garantissent
-                  la
-                  stabilité, la reproductibilité et la collaboration efficace dans vos projets.
+                  Cette section vous montre comment gérer vos environnements Python de manière rigoureuse. Vous
+                  apprendrez à dépasser les limites d'une installation unique et à adopter des méthodes qui assurent des
+                  projets stables, reproductibles et faciles à partager en équipe.
                 </p>
 
-                <h3>Pourquoi gérer plusieurs versions Python ?</h3>
+                <h3>Les limites d'une installation classique </h3>
+
                 <p>
-                  Lorsque vous découvrez Python, l'installation semble simple : vous pouvez visiter <a
-                    href="http://python.org" target="_blank">python.org</a>, passer par Homebrew sur macOS ou configurer
-                  Anaconda. Ces approches directes
-                  fonctionnent parfaitement pour vos premiers pas. Windows, macOS et Ubuntu incluent souvent Python par
-                  défaut,
-                  mais ces versions sont généralement obsolètes et créent de la confusion (python vs python3).
+                  Bien que Windows, macOS et Ubuntu incluent souvent une version préinstallée de Python, ces versions
+                  système présentent plusieurs inconvénients. Tout d'abord, elles sont parfois obsolètes : par
+                  exemple, votre Mac pourrait encore utiliser Python 2.7 alors que la version 3.12 est disponible.
+                  Ensuite, la coexistence de Python 2 et Python 3 entraîne une confusion fréquente : faut-il utiliser
+                  <code>python</code> ou <code>python3</code> dans le terminal ? Quel <code>pip</code> correspond à
+                  quelle version ? Ces ambiguïtés peuvent provoquer des erreurs frustrantes, notamment lorsque des
+                  packages sont installés au mauvais endroit ou que des scripts sont exécutés avec une version
+                  incorrecte de Python.
                 </p>
+
                 <p>
-                  Vos besoins changent dès que vous évoluez vers un développement logiciel en équipe ou pour un public
-                  élargi.
-                  Imaginez maintenir simultanément :
+                  Les choses se compliquent encore davantage lorsque vous travaillez en équipe ou développez pour
+                  d'autres utilisateurs. Imaginez devoir gérer simultanément :
                 </p>
                 <ul>
-                  <li>Projet A en Python 3.8</li>
-                  <li>Projet B en Python 3.11</li>
-                  <li>Prototype en Python 3.12 pour expérimentations</li>
+                  <li>Un projet A utilisant Python 3.8</li>
+                  <li>Un projet B basé sur Python 3.11</li>
+                  <li>Un prototype fonctionnant avec Python 3.12</li>
                 </ul>
                 <p>
-                  Avec une installation classique, cette polyvalence est impossible. Les outils de gestion de versions
-                  Python
-                  permettent d’installer plusieurs versions et d’isoler les environnements selon
-                  les projets.
-                  C'est pourquoi nous utiliserons <strong>uv</strong> pour l'installation et la gestion Python.
+                  Avec une installation classique, il est impossible de répondre à cette flexibilité.
+                </p>
+                <p>
+                  Le premier problème se pose lors du partage de code. Vous envoyez un notebook à un collègue, mais il
+                  ne peut pas l'exécuter. Pourquoi ? Vos versions de packages diffèrent. Par exemple, votre Pandas 2.0
+                  utilise une syntaxe incompatible avec son Pandas 1.5.
+                </p>
+                <p>
+                  Le deuxième problème concerne les conflits de dépendances. Certains packages nécessitent des versions
+                  spécifiques qui ne sont pas compatibles entre elles. Par exemple, un package peut exiger NumPy 1.24,
+                  tandis qu'un autre refuse toute version supérieure à 1.23. C'est ce qu'on appelle l'enfer des
+                  dépendances (<em>dependency hell</em>).
+                </p>
+                <p>
+                  Enfin, le troisième problème survient avec les mises à jour. Une nouvelle version majeure de Python ou
+                  d'un package peut offrir des performances améliorées, mais son installation risque de casser votre
+                  code existant. Vous êtes alors confronté à un dilemme : rester sur une ancienne version ou prendre le
+                  risque de tout casser.
+                </p>
+                <p>
+                  Ces défis ont conduit la communauté Python à développer des outils modernes pour gérer ces
+                  complexités. Ces outils permettent d'installer plusieurs versions de Python en parallèle et de créer
+                  des environnements isolés pour chaque projet. Dans cette section, nous utiliserons <code>uv</code>, un
+                  outil qui automatise la gestion des versions et des dépendances de manière efficace.
                 </p>
 
+
+
                 <div class="custom-admonition info">
-                  <p class="custom-admonition-title">📚 Nouvelle alternative</p>
-                  <p>Bien que <strong>pyenv</strong> demeure une solution éprouvée et largement adoptée pour la gestion
-                    de versions
-                    Python, <strong>uv</strong>
-                    représente l'évolution la plus récente de cet écosystème. Développé avec des objectifs de
-                    performance accrue et de simplification des workflows, <strong>uv</strong> s' est imposé
-                    progressivement comme
-                    l'outil de référence, bénéficiant d'une architecture moderne et d'une maintenance active alignée sur
-                    les pratiques DevOps contemporaines.</p>
+                  <p class="custom-admonition-title">📚 Pourquoi choisir uv ?</p>
+                  <p><code>uv</code> combine plusieurs fonctionnalités importantes pour les développeurs Python :</p>
+                  <ul>
+                    <li><strong>Gestion des versions Python :</strong> uv permet d'installer et de gérer plusieurs
+                      versions de Python, comme <code>pyenv</code>.</li>
+                    <li><strong>Création d'environnements virtuels isolés :</strong> uv facilite la gestion des
+                      environnements spécifiques à chaque projet.</li>
+                    <li><strong>Résolution intelligente des dépendances :</strong> uv gère efficacement les
+                      dépendances et sous-dépendances, à l'image de <code>Poetry</code>.</li>
+                    <li><strong>Installation rapide des packages :</strong> Écrit en Rust, uv est jusqu'à 100 fois
+                      plus rapide que <code>pip</code>.</li>
                   </ul>
+
+
+
+
                 </div>
 
                 <h3>Installation uv</h3>
+
                 <p>
                   La communauté Python s'oriente désormais vers des outils modernes et performants pour gérer
-                  l'installation de Python. uv, écrit en Rust, permet de comber la gestion des versions Python, les
-                  environnements virtuels (prochain chapitre) et les packages en un seul outil.
+                  l'installation de Python. Écrit en Rust, <code>uv</code> combine la gestion des versions de Python,
+                  des environnements virtuels et des packages en un seul outil puissant et simple à utiliser.
                 </p>
                 <p>
-                  uv est ainsi un gestionnaire de packages et de projets Python qui permet d'installer et de gérer
-                  facilement plusieurs versions de Python sur un même système, tout en gérant automatiquement les
-                  environnements virtuels.
+                  Avec <code>uv</code>, chaque projet dispose d'un environnement virtuel isolé, incluant sa propre
+                  version de Python et ses dépendances. Cela évite les conflits entre projets et garantit une
+                  compatibilité parfaite. Vous pouvez ainsi gérer plusieurs versions de Python et de packages sans
+                  affecter le reste de votre système.
+                </p>
+                <p>
+                  En plus de sa simplicité, <code>uv</code> automatise la gestion des environnements et des dépendances.
+                  Il permet également de partager facilement un projet grâce à ses fichiers de configuration, assurant
+                  une reproduction fidèle de l'environnement, quel que soit le système d'exploitation utilisé (Windows,
+                  macOS, Linux).
                 </p>
 
                 <h5>Avantages de uv :</h5>
@@ -539,6 +572,50 @@ uv venv --python 3.11</pre>
                 </div>
 
                 <p>Vous verrez un message du type : <em>Using Python 3.11.5 interpreter</em>.</p>
+
+
+
+                <h3>pyproject.toml : le standard moderne pour les projets Python</h3>
+
+                <p>
+                  Le fichier <code>pyproject.toml</code> a été introduit pour résoudre les problèmes liés à la
+                  fragmentation des outils de gestion de projets Python. Avant son adoption, les développeurs jonglaient
+                  avec plusieurs fichiers : <code>setup.py</code> pour <code>setuptools</code>,
+                  <code>requirements.txt</code> pour <code>pip</code>, et chaque outil moderne (comme
+                  <code>Poetry</code> ou <code>Flit</code>) développait ses propres conventions. Cette multiplication
+                  des formats compliquait la compatibilité et la maintenance des projets.
+                </p>
+
+                <p>
+                  Avec la PEP 518 (2016) et la PEP 621 (2020), <code>pyproject.toml</code> est devenu le standard unifié
+                  pour décrire les métadonnées et les dépendances d'un projet Python. Ce fichier centralise toutes les
+                  informations essentielles de votre projet : son nom, sa version, ses dépendances, et même la
+                  configuration des outils de développement. Pensez-y comme la "carte d'identité" complète de votre
+                  projet, facilitant la gestion et le partage.
+                </p>
+
+                <h5>Comment uv utilise pyproject.toml ?</h5>
+                <p>
+                  <code>uv</code> s'appuie sur le fichier <code>pyproject.toml</code> en respectant le standard défini
+                  par la PEP 621. Cela garantit une compatibilité avec l'écosystème Python moderne :
+                </p>
+                <ul>
+                  <li>Les dépendances sont déclarées dans la section <code>[project.dependencies]</code>.</li>
+                  <li>La configuration spécifique à <code>uv</code> est stockée dans la section <code>[tool.uv]</code>.
+                  </li>
+                  <li>Le fichier reste lisible par d'autres outils respectant la PEP 621.</li>
+                </ul>
+
+                <h5>Les avantages de l'approche uv</h5>
+                <p>
+                  L'un des points forts de <code>uv</code> est sa capacité à générer un fichier <code>uv.lock</code>. Ce
+                  fichier verrouille les versions exactes des dépendances, garantissant une
+                  reproductibilité de l'environnement. De plus, <code>uv</code> peut lire les fichiers
+                  <code>pyproject.toml</code> créés par d'autres outils, ce qui facilite la migration depuis des
+                  gestionnaires comme <code>Poetry</code> ou <code>pip</code>.
+                </p>
+
+
 
               </section>
             </article>

@@ -788,6 +788,81 @@ git pull origin main
 
 
 
+                            <h3>Les workflows Git</h3>
+
+                            <p>Connaître Git et GitHub est important, mais ces outils seuls ne garantissent pas une
+                                collaboration efficace. La flexibilité de Git, qui permet de l'utiliser de multiples
+                                façons, peut devenir un piège : sans règles communes, chaque développeur risque
+                                d'adopter ses propres pratiques. C'est pourquoi il est crucial d'établir des normes
+                                d'utilisation partagées au sein de
+                                l'équipe. Cette section présente le concept de workflow : un ensemble de conventions et
+                                de bonnes pratiques qui encadrent l'utilisation de Git et GitHub dans un projet.</p>
+
+                            <p>Un workflow établit le cadre de travail collaboratif en répondant aux questions : comment
+                                et quand créer de nouvelles branches, à quels moments les fusionner, où se
+                                trouve le code de production, quelles conventions adopter pour nommer branches et
+                                commits. Différents workflows ont émergé au fil du temps, offrant chacun des solutions
+                                adaptées à des contextes organisationnels variés.</p>
+
+
+                            <p>Un workflow constitue un guide méthodologique pour l'utilisation optimale de Git et
+                                GitHub, définissant les règles que l'équipe adopte pour garantir une collaboration
+                                efficace.
+                                La philosophie de Git privilégie la flexibilité maximale, sans imposer de méthodologie
+                                particulière. Cette liberté place la responsabilité du choix entre les mains des
+                                équipes. Elles peuvent soit concevoir un workflow sur mesure pour leur projet, soit
+                                s'appuyer sur des modèles éprouvés par la communauté.
+                                Parmi ces modèles établis, cinq workflows se distinguent particulièrement : le
+                                Centralized Workflow, le Feature Branch Workflow, le Trunk Based Development, le GitFlow
+                                et le Forking Workflow. Chacun répond à des besoins et des contextes spécifiques.</p>
+
+
+                            <h5>Les cinq workflows Git essentiels</h5>
+                            <ol>
+                                <li><strong>Centralized Workflow :</strong> Tous les développeurs travaillent
+                                    directement sur la même branche <code>main</code>.</li>
+                                <li><strong>Feature Branch Workflow :</strong> Chaque fonctionnalité est développée dans
+                                    sa propre branche avant d'être fusionnée dans <code>main</code> via une pull
+                                    request.</li>
+                                <li><strong>Trunk Based Development :</strong> Les développeurs fusionnent très
+                                    fréquemment leurs modifications dans la branche principale, qui reste toujours
+                                    déployable.</li>
+                                <li><strong>GitFlow :</strong> Structure complexe avec des branches dédiées
+                                    (<code>main</code>, <code>develop</code>, <code>feature</code>,
+                                    <code>release</code>, <code>hotfix</code>) et des règles strictes de fusion entre
+                                    elles.
+                                </li>
+                                <li><strong>Forking Workflow :</strong> Chaque contributeur travaille sur sa propre
+                                    copie (<em>fork</em>) du repository et propose ses modifications via une pull
+                                    request au dépôt officiel.</li>
+                            </ol>
+
+
+
+                            <ul class="custom-admonition">
+                                <p>GitFlow structure le développement avec cinq types de branches
+                                    (main, develop, feature, release, hotfix) et des règles strictes de fusion, offrant
+                                    un
+                                    contrôle rigoureux idéal pour l'open source ou l'encadrement de juniors, mais cette
+                                    complexité ralentit les équipes agiles. Cependant, l’un des avantages de GitFlow est
+                                    que vous pouvez faciliter sa mise en place et, surtout, y ajouter des commandes, en
+                                    utilisant le plug-in GitFlow. Pour plus d'informations, consultez la <a
+                                        href="https://github.com/nvie/gitflow/wiki/Installation" target="_blank"
+                                        rel="noopener noreferrer">documentation officielle de GitFlow</a>.</p>
+
+
+
+                                <p>À l'inverse, Trunk Based Development mise sur
+                                    des intégrations fréquentes directement sur la branche principale, s'alignant
+                                    parfaitement avec les pratiques MLOps où l'expérimentation rapide, le versioning des
+                                    modèles et les déploiements continus sont essentiels. Pour les projets ML, la
+                                    simplicité
+                                    du Trunk Based Development permet aux data scientists d'itérer rapidement, de tester
+                                    des
+                                    hypothèses et de maintenir une boucle de feedback courte entre l'entraînement et la
+                                    production, faisant de cette approche le choix privilégié pour les équipes MLOps
+                                    modernes.</p>
+                            </ul>
 
 
                             <h3>Configuration de GitLens dans VS Code</h3>
